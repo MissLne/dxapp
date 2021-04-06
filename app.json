@@ -1,13 +1,47 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/messagePage/message/message",
+    "pages/userPage/user/user",
+    "pages/loginPage/register/register",
+    "pages/loginPage/forgetPsd/forgetPsd",
+    "pages/loginPage/login/login",
+    "components/tools/select/select",
+    "components/indexPageItem/activityItem/activityItem"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4D9BFA",
+    "backgroundColor": "#FFFFFF",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "活动",
+        "iconPath": "images/tabar/activity.png",
+        "selectedIconPath": "images/tabar/ii.png"
+      },
+      {
+        "pagePath": "pages/messagePage/message/message",
+        "text": "消息",
+        "iconPath": "images/tabar/message.png",
+        "selectedIconPath": "images/tabar/ii.png"
+      },
+      {
+        "pagePath": "pages/userPage/user/user",
+        "text": "我",
+        "iconPath": "images/tabar/me.png",
+        "selectedIconPath": "images/tabar/ii.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

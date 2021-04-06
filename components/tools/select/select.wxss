@@ -1,0 +1,40 @@
+/* components/tools/select/select.wxss */
+.selectMainBox {
+  height: 30rpx;
+}
+.com-sContent{
+  background: white;
+  font-size: 18rpx;
+  position: relative;
+  height: 11.5pt;
+}
+.com-sImg{
+  position: absolute;
+  right: 10px;
+  top: 11px;
+  width: 16px;
+  height: 9px;
+  transition: all .3s ease;
+}
+.com-sTxt{
+  font-size: 12pt;
+}
+.com-sList{
+  background: #fff;
+  width: inherit;
+  position: absolute;
+  top: 50rpx;
+  left: 0;
+  border-top: none;
+  box-sizing: border-box;
+  z-index: 3;
+  max-height: 120px;
+}
+.com-sItem{
+  text-align: left;
+  white-space: nowrap;
+  font-size: 12pt;
+}
+.com-sItem:first-child{
+  border-top: none;
+}

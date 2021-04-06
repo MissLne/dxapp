@@ -1,0 +1,31 @@
+<view class="activity-items" wx:for="{{propArray}}" wx:key="index" data-index="{{index}}">
+    <view class="activity-item">
+      <view class="item-img">
+        <cover-image src="{{item.posterImage}}"/>
+      </view>
+      <view class="item-content">
+        <view class="content-title">{{item.activityName}}</view>
+        <view class="content-box">
+          <view>
+            <image src="../../style/images/矢量智能对象拷贝3.png" />活动时间：{{item.startTime}}
+          </view>
+          <view>
+            <image style="opacity: 0;"/>报名截止：{{item.registrationDeadLine}}
+          </view>
+          <view>
+            <image src="../../style/images/矢量智能对象1拷贝4.png" />地点：{{item.address}}
+          </view>
+        </view>
+        <view class="item-btns">
+          <view class="btn1">
+              {{item.status}}
+          </view>
+          <view class="btn2" bindtap="edit" data-activityId="{{item.activityId}}">
+          编辑</view>
+          
+        </view>
+        
+      </view>
+    </view>
+    <view class="foot"></view>
+  </view>
