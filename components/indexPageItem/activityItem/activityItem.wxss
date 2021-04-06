@@ -45,7 +45,9 @@
   font-size: 24rpx;
   width: 90rpx;
   height: 44rpx;
-  background: #4D9BFA;
+  display: table-cell;
+  vertical-align: middle;
+  background: #777BCE;
   border-radius: 16rpx;
   color: #fff;
 }

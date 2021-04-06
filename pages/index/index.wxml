@@ -1,7 +1,9 @@
 <view>
   <view class="top-nav">
-    <Select prop-array='{{selectArray}}' class="top-select" com-select-box="com-select-box" nowText="请选择"></Select>
+    <view class="top-select">
+      <Select prop-array='{{selectArray}}' com-select-box="com-select-box" nowText="全部活动"></Select>
+    </view>
     <text class="top-text" decode>共{{activityCount}}个活动&nbsp;{{ticket}}个活动售票中</text>
   </view>
-  <Activityitem prop-array='{{activityArray}}'></Activityitem>
+  <ActivityItem prop-array='{{activityArray}}'></ActivityItem>
 </view>

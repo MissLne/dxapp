@@ -62,6 +62,12 @@
         {
           "name": "登录",
           "pathName": "pages/loginPage/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "首页",
+          "pathName": "pages/index/index",
           "scene": null
         }
       ]

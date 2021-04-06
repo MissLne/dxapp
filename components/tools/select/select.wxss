@@ -31,10 +31,7 @@
   max-height: 120px;
 }
 .com-sItem{
-  text-align: left;
+  text-align: center;
   white-space: nowrap;
   font-size: 12pt;
-}
-.com-sItem:first-child{
-  border-top: none;
 }

@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "Select": "/components/tools/select/select"
-  }
+    "Select": "/components/tools/select/select",
+    "ActivityItem": "/components/indexPageItem/activityItem/activityItem"
+  },
+  "navigationBarTitleText": "活动列表"
 }

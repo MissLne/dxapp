@@ -1,4 +1,4 @@
-const navigate = require('../../navigator/index')
+const navigate = require('../../../navigator/index')
 Component({
 
   /**
