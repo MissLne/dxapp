@@ -10,7 +10,6 @@
     "pages/loginPage/register/register",
     "pages/loginPage/forgetPsd/forgetPsd",
     "pages/loginPage/login/login",
-    "components/tools/select/select",
     "components/indexPageItem/publishIntroduce/header/header",
     "components/indexPageItem/publishIntroduce/middle/middle",
     "components/indexPageItem/publishIntroduce/btn/btn",
@@ -18,6 +17,9 @@
     "components/indexPageItem/ticketSetting/header/header",
     "components/indexPageItem/ticketSetting/ticketBox/ticketBox",
     "components/tools/footer/footer",
+    "components/tools/select/select",
+    "components/tools/inputBox/inputBox",
+    "components/tools/radioBtn/radioBtn",
     "components/indexPageItem/activityItem/activityItem"
   ],
   "window":{

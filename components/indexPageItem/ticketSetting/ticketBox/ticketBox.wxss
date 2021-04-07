@@ -1,1 +1,5 @@
 /* components/indexPageItem/ticketSetting/ticketBox/ticketBox.wxss */
+.radio-parent-class {
+  font-size: 22rpx;
+  color: #999;
+}

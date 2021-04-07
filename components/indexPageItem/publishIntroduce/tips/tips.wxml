@@ -8,9 +8,8 @@
       <text class="titleText">该部分内容将在用户报名后展示，发布后可更改</text>
   </view>
   <view class="publishContainer" >
-    <view wx:for="{{uploadArray}}" wx:key="{{index}}" wx:if="{{item.type == 0}}">{{item.value}}</view>
-    <view class="publishInput" wx:for="{{uploadArray}}" wx:key="{{index}}" wx:if="{{item.type == 1}}">
-      <input placeholder="{{item.value}}"/>
+    <view wx:for="{{uploadArray}}" wx:key="{{index}}" wx:if="{{item.type == 1}}">
+      <InputBox inputTitle="{{item.text}}" inputValue="{{item.value}}"/>
     </view>
     <view class="uploadContainer" wx:for="{{uploadArray}}" wx:key="{{index}}" wx:if="{{item.type == 2}}">
       <view>

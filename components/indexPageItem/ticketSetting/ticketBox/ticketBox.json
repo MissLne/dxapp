@@ -1,4 +1,7 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "InputBox": "/components/tools/inputBox/inputBox",
+    "radioBtn": "/components/tools/radioBtn/radioBtn"
+  }
 }

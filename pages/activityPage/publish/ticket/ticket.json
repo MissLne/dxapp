@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "Header": "/components/indexPageItem/ticketSetting/header/header"
+    "Header": "/components/indexPageItem/ticketSetting/header/header",
+    "TicketBox": "/components/indexPageItem/ticketSetting/ticketBox/ticketBox"
   }
 }

@@ -5,7 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    ticketDetailArray: [
+      // {
+      //   ticketName: '早鸟票',
+      //   price: '100',
+      //   count: '100',
+      //   introduce: '早起的票',
+      //   bounce: 1
+      // }
+    ]
   },
 
   /**

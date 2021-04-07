@@ -74,6 +74,12 @@
         {
           "name": "活动介绍",
           "pathName": "pages/activityPage/publish/introdution/introdution",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "票",
+          "pathName": "pages/activityPage/publish/ticket/ticket",
           "scene": null
         }
       ]

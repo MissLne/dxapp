@@ -13,10 +13,7 @@ Component({
   data: {
     uploadArray:[
       {
-        value: '活动须知',
-        type: 0
-      },
-      {
+        text: '活动须知',
         value: '请输入活动须知',
         type: 1
       },

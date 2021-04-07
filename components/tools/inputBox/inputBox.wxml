@@ -1,0 +1,8 @@
+<!--components/tools/inputBox/inputBox.wxml-->
+<view>
+  <view class="titleText">{{inputTitle}}</view>
+  <view class="publishContainer1">
+    <input value="{{inputValue}}" class="publishInput"/>
+  </view>
+</view>
+  

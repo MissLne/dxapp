@@ -1,0 +1,27 @@
+/* components/tools/radioBtn/radioBtn.wxss */
+.radioBtn {
+  width: 18rpx;
+  height: 18rpx;
+  margin-right: 10rpx;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 2rpx solid #999999;
+}
+.nRadioBtn {
+  width: 300rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+.oneBtn {
+  display: flex;
+  margin-right: 30rpx;
+  justify-content: space-around;
+  align-items: center;
+}
+.active {
+  border: 6rpx solid #777BCE;
+  
+}
+.active1 {
+  color: #777BCE;
+}

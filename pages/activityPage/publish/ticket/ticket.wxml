@@ -1,2 +1,7 @@
 <!--pages/activityPage/publish/ticket/ticket.wxml-->
-<Header></Header>
+<view>
+  <Header></Header>
+  <TicketBox ticketDetail="{{ticketDetailArray}}"></TicketBox>
+</view>
+  
+
