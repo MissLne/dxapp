@@ -4,7 +4,15 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    navigationsArray: Array
+    navigationsArray: Array,
+    currentSwiper: {
+      type: Number,
+      observer: function(newVal,oldVal){
+        this.setData({
+          currentCount: newVal
+        })
+      }
+     }
   },
 
   /**
@@ -22,6 +30,7 @@ Component({
     this.setData({
       currentCount: e.currentTarget.dataset.num
     })
+    this.triggerEvent('cur',{current: this.data.currentCount})
     }
   }
 })

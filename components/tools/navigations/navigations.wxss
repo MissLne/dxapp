@@ -19,5 +19,6 @@
   background: #777BCE;
   position: absolute;
   left: 50%;
+  bottom: -10rpx;
   transform: translateX(-50%);
 }

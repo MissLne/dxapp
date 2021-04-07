@@ -24,7 +24,9 @@ Page({
     ],
     windowHeight: 0,
     questionMessage: [],
-    commentMessage: []
+    commentMessage: [],
+    currentIndex: 0,
+    swiperIndex: 0
   },
 
   /**
@@ -33,6 +35,16 @@ Page({
   onLoad: function (options) {
     this.getHeight()
     this.getMessage()
+  },
+  swiperCurrent(e) {
+    this.setData({
+      swiperIndex: e.detail.current
+    })
+  },
+  swiperChange(e) {
+    this.setData({
+      currentIndex: e.detail.current
+    })
   },
   getMessage() {
     let obj = {

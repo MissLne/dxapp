@@ -1,10 +1,10 @@
 <!--pages/messagePage/message/message.wxml-->
 <view>
   <view class="messageTitle">
-    <Navigations navigationsArray="{{['活动提问','评论']}}" parent-nav-class="parent-nav-class"/>
+    <Navigations navigationsArray="{{['活动提问','评论']}}" parent-nav-class="parent-nav-class" currentSwiper="{{currentIndex}}" bind:cur="swiperCurrent"/>
   </view>
     
-  <swiper style="height: {{windowHeight}}rpx">
+  <swiper style="height: {{windowHeight}}rpx" bindchange="swiperChange" current="{{swiperIndex}}">
     <swiper-item >
       <scroll-view scroll-y="true" style="height: {{windowHeight}}rpx">
 

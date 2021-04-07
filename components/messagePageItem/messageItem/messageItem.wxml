@@ -2,7 +2,7 @@
 <view class="messageItemContainer" wx:for="{{messageItemArray}}" wx:key="index">
   <view class="messageItemMain">
     <view class="messageItemAvater">
-      <image src="{{item.portrait}}"/>
+      <image src="{{item.portrait}}" mode="aspectFill"/>
       <view class="messageItemName">
         <view class="name">
           {{item.nickName}}

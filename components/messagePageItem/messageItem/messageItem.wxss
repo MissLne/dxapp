@@ -61,3 +61,15 @@
   font-size: 24rpx;
   color: #999999;
 }
+.messageItemName .name,
+.messageItemName .question,
+.messageItemAcitivity,
+.messageItemAnswer {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.messageItemName .name,
+.messageItemName .question {
+  width: 300rpx;
+}
