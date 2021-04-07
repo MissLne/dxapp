@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "Header": "/components/indexPageItem/setUpPage/header/header",
+    "SetUpItem": "/components/indexPageItem/setUpPage/setUpItem/setUpItem",
+    "Btn": "/components/indexPageItem/ticketSetting/btn/btn",
+    "FootBtn": "/components/indexPageItem/setUpPage/btn/btn",
+    "Footer": "/components/tools/footer/footer"
+  }
 }

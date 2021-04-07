@@ -1,0 +1,24 @@
+/* components/indexPageItem/setUpPage/btn/btn.wxss */
+.publishBtnCom {
+  width: 690rpx;
+  height: 120rpx;
+  margin: 0 auto 0 auto;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 100rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.publishBtn {
+  width: 190rpx;
+  height: 60rpx;
+  color: #FF441A;
+  font-size: 24rpx;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1rpx solid #FF441A;
+  border-radius: 12rpx;
+}

@@ -1,0 +1,5 @@
+<!--components/indexPageItem/setUpPage/btn/btn.wxml-->
+<view class="publishBtnCom"  >
+  <view class="publishBtn">{{content}}</view>
+</view>
+  

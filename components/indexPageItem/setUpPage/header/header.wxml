@@ -1,0 +1,14 @@
+<!--components/indexPageItem/setUpPage/header/header.wxml-->
+<view class="activityHeader">
+  <image  src="../../style/images/putActivity1.png" class="top-img"/>
+  <view class="edit-top">
+    
+    <view>
+      <text>活动信息</text>
+      <text>活动介绍与须知</text>
+      <text>票种设置</text>
+      <text>报名表单</text>
+    </view>
+    
+  </view>
+</view>

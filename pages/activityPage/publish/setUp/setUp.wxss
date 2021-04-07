@@ -1,1 +1,16 @@
 /* pages/activityPage/publish/setUp/setUp.wxss */
+page {
+  background: #f5f5f5;
+}
+.set-parent-class {
+  color: #ff441a !important;
+  border: 1rpx solid #FF441A !important;
+}
+.parent-footer {
+  color: #777BCE !important;
+  border: 1rpx solid #777BCE !important;
+}
+.up-parent-class {
+  display: flex !important;
+  justify-content: center !important;
+}

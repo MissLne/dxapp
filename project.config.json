@@ -80,6 +80,12 @@
         {
           "name": "票",
           "pathName": "pages/activityPage/publish/ticket/ticket",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "报名表单",
+          "pathName": "pages/activityPage/publish/setUp/setUp",
           "scene": null
         }
       ]

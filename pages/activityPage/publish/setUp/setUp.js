@@ -5,7 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    footerBtnObject: {
+      leftUrl: '/pages/activityPage/publish/ticket/ticket',
+      leftBtn: '上一步',
+      rightBtn: '下一步'
+    }
   },
 
   /**

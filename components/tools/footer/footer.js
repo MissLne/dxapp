@@ -15,9 +15,6 @@ Component({
   data: {
 
   },
-  ready: function() {
-    console.log(this.properties.contentObject)
-  },
   /**
    * 组件的方法列表
    */

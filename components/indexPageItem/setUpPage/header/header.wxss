@@ -1,17 +1,10 @@
-/* components/indexPageItem/ticketSetting/header/header.wxss */
+/* components/indexPageItem/setUpPage/header/header.wxss */
 .activityHeader {
-  width: 750rpx;
-  height: 130rpx;
   background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 0 0 30rpx 30rpx;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 999;
 }
 .top-img {
   width: 485rpx;
@@ -25,6 +18,7 @@
   color: #777777;
   font-size: 24rpx;
 }
+.edit-top text:nth-child(4),
 .edit-top text:nth-child(3),
 .edit-top text:nth-child(2),
 .edit-top text:nth-child(1) {
