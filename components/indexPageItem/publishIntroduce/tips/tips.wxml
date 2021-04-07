@@ -1,0 +1,28 @@
+<!--components/indexPageItem/publishIntroduce/tips/tips.wxml-->
+<view>
+  <view class="publishTitle">
+    <view>
+      活动提示
+      <text style="font-size: 24rpx;color: #666;">(选填)</text>
+    </view>
+      <text class="titleText">该部分内容将在用户报名后展示，发布后可更改</text>
+  </view>
+  <view class="publishContainer" >
+    <view wx:for="{{uploadArray}}" wx:key="{{index}}" wx:if="{{item.type == 0}}">{{item.value}}</view>
+    <view class="publishInput" wx:for="{{uploadArray}}" wx:key="{{index}}" wx:if="{{item.type == 1}}">
+      <input placeholder="{{item.value}}"/>
+    </view>
+    <view class="uploadContainer" wx:for="{{uploadArray}}" wx:key="{{index}}" wx:if="{{item.type == 2}}">
+      <view>
+        {{item.text}}
+      </view>
+      <view class="imgContainer">
+        <view class="publishImg"></view>
+        <text class="publishUpload">{{item.value}}</text>
+      </view>
+    </view>
+    
+  </view>
+    
+</view>
+  

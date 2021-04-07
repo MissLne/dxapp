@@ -7,13 +7,13 @@
         <view class="content-title">{{item.activityName}}</view>
         <view class="content-box">
           <view>
-            <image src="../../style/images/矢量智能对象拷贝3.png" />活动时间：{{item.startTime}}
+            <image src="../../../images/activity/time.png" />活动时间：{{item.startTime}}
           </view>
           <view>
             <image style="opacity: 0;"/>报名截止：{{item.registrationDeadLine}}
           </view>
           <view>
-            <image src="../../style/images/矢量智能对象1拷贝4.png" />地点：{{item.address}}
+            <image src="../../../images/activity/address.png" />地点：{{item.address}}
           </view>
         </view>
         <view class="item-btns">

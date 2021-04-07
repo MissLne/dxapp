@@ -1,0 +1,4 @@
+/* pages/activityPage/publish/introdution/introdution.wxss */
+page {
+  background: #f5f5f5;
+}

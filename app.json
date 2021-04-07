@@ -1,6 +1,9 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/activityPage/publish/enterMessage/enterMessage",
+    "pages/activityPage/publish/introdution/introdution",
+    "pages/activityPage/publish/ticket/ticket",
     "pages/logs/logs",
     "pages/messagePage/message/message",
     "pages/userPage/user/user",
@@ -8,6 +11,13 @@
     "pages/loginPage/forgetPsd/forgetPsd",
     "pages/loginPage/login/login",
     "components/tools/select/select",
+    "components/indexPageItem/publishIntroduce/header/header",
+    "components/indexPageItem/publishIntroduce/middle/middle",
+    "components/indexPageItem/publishIntroduce/btn/btn",
+    "components/indexPageItem/publishIntroduce/tips/tips",
+    "components/indexPageItem/ticketSetting/header/header",
+    "components/indexPageItem/ticketSetting/ticketBox/ticketBox",
+    "components/tools/footer/footer",
     "components/indexPageItem/activityItem/activityItem"
   ],
   "window":{

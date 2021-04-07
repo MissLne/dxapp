@@ -1,0 +1,57 @@
+<!--pages/activityPage/publish/enterMessage/enterMessage.wxml-->
+<view>
+  <view class="edit-page">
+    <image  src="../../style/images/putActivity1.png" class="top-img"/>
+    <view class="edit-top">
+      
+      <view>
+        <text>活动信息</text>
+        <text>活动介绍与须知</text>
+        <text>票种设置</text>
+        <text>报名表单</text>
+      </view>
+        
+    </view>
+    <view class="upload-img">
+      
+      <image src="{{image}}"/>
+      <text>上传封面</text>
+    </view>
+    <view class="edit-content">
+      <view>
+        <text >活动名称</text>
+        <input type="text" placeholder="请输入活动名称"/>
+      </view>
+      <view>
+        <text >活动开始时间</text>
+        <picker mode="date" value="{{startDate}}" bindchange="startDateChange" header-text="请选择">
+          <view>{{startDate}}</view>
+        </picker>
+      </view>
+      <view>
+        <text >活动地点</text>
+        <input type="text" placeholder="请完善地址"/>
+      </view>
+      <view>
+        <text >报名截止时间</text>
+        <picker mode="date" value="{{endDate}}" bindchange="endDateChange">
+          <view>{{endDate}}</view>
+        </picker>
+      </view>
+      <view style="border:none;">
+        <text >介绍视频(选填)</text>
+        <view class="uploadFile">
+          上传文件
+        </view>
+          
+      </view>
+        
+        
+    </view>
+      
+      
+  </view>
+  <Footer contentObject="{{footerBtnObject}}" parent-leftbtn="parent-leftbtn"></Footer>
+    
+</view>
+  

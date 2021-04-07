@@ -1,0 +1,5 @@
+<!--components/indexPageItem/publishIntroduce/btn/btn.wxml-->
+<view class="publishBtnCom">
+  <view class="publishBtn">完善图文介绍</view>
+</view>
+  

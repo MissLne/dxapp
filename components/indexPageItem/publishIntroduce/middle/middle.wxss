@@ -1,0 +1,16 @@
+.activityIntro {
+  width: 690rpx;
+  height: 80rpx;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 30rpx;
+  margin: 20rpx auto;
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.activityIntro text:nth-child(2) {
+  color: #666;
+  font-size: 22rpx;
+}

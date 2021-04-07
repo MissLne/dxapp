@@ -1,0 +1,6 @@
+<!--components/indexPageItem/publishIntroduce/middle/middle.wxml-->
+<view class="activityIntro">
+  <text >活动介绍</text>
+  <text >待完善></text>
+</view>
+  

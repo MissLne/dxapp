@@ -1,0 +1,30 @@
+/* components/indexPageItem/publishIntroduce/footer/footer.wxss */
+.btn {
+  width: 690rpx;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  bottom: 30rpx;
+}
+.rightBtn,
+.leftBtn {
+  width: 180rpx;
+  height: 80rpx;
+  font-size: 34rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40rpx;
+}
+.leftBtn {
+  color: #FF441A;
+  border: 1rpx solid #FF441A;
+  background: #FFF;
+}
+.rightBtn {
+  color: #fff;
+  background: #777BCE;
+}

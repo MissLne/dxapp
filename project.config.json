@@ -68,6 +68,12 @@
         {
           "name": "首页",
           "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "活动介绍",
+          "pathName": "pages/activityPage/publish/introdution/introdution",
           "scene": null
         }
       ]

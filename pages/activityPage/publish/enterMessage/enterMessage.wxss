@@ -1,0 +1,115 @@
+/* pages/activityPage/publish/enterMessage/enterMessage.wxss */
+page {
+  background: #F5F5F5;
+}
+.edit-page {
+  width: 690rpx;
+  margin: 0 auto;
+  padding-bottom: 50rpx;
+  background: #fff;
+  border-radius: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-img {
+  width: 485rpx;
+  height: 20rpx;
+  margin-top: 40rpx;
+}
+
+.edit-top text {
+  display: inline-block;
+  margin: 15rpx 20rpx 20rpx 20rpx;
+  color: #777777;
+  font-size: 24rpx;
+}
+.edit-top text:nth-child(1) {
+  color: #4D9BFA;
+}
+.upload-img {
+  width: 600rpx;
+  height: 328rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #fff;
+  display: flex;
+  margin: 40rpx 0;
+  justify-content: center;
+  align-items: center;
+  
+  position: relative;
+}
+.upload-img text{
+  z-index: 100;
+}
+.upload-img image{
+  width: 600rpx;
+  height: 328rpx;
+  border-radius: 25rpx;
+  filter: blur(5px);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.edit-content > view {
+  width: 532rpx;
+  height: 39rpx;
+  font-size: 26rpx;
+  padding-bottom: 20rpx;
+  margin-top: 40rpx;
+  border-bottom: 1rpx solid rgba(0, 0, 0,0.1);
+  display: flex;
+  justify-content: space-between;
+}
+.edit-content {
+  color: #333;
+}
+.edit-content input,
+.edit-content picker {
+  width: 262rpx;
+  font-size: 20rpx;
+  color: #999;
+}
+.uploadFile {
+  width: 140rpx;
+  height: 50rpx;
+  font-size: 22rpx;
+  color: #999;
+  border: 1rpx solid #999;
+  border-radius: 25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rightBtn,
+.leftBtn {
+  width: 180rpx;
+  height: 80rpx;
+  font-size: 34rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40rpx;
+}
+.btn {
+  width: 690rpx;
+  margin: 30rpx auto;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-around;
+}
+.leftBtn {
+  color: #4D9BFA;
+  border: 1rpx solid #4D9BFA;
+  background: #FFF;
+}
+.rightBtn {
+  color: #fff;
+  background: #4D9BFA;
+}
+.parent-leftbtn {
+  border-color: #777BCE !important;
+  color: #777BCE !important;
+}

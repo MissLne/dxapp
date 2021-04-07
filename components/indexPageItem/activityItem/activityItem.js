@@ -18,7 +18,7 @@ Component({
       }
       query.activityId = JSON.stringify(query.activityId)
       navigate.navigateTo({
-        url: "../../pages/editActivity/editActivity",
+        url: "../../pages/activityPage/publish/enterMessage/enterMessage",
         query
       })
     }

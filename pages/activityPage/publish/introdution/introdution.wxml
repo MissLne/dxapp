@@ -1,0 +1,9 @@
+<!--pages/activityPage/publish/introdution/introdution.wxml-->
+<view>
+  <Header></Header>
+  <Middle/>
+  <Btn/>
+  <Tips></Tips>
+  <Footer contentObject="{{footerBtnObject}}"/>
+</view>
+  
