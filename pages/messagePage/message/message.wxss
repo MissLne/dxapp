@@ -1,1 +1,21 @@
 /* pages/messagePage/message/message.wxss */
+.parent-nav-class {
+  width: 250rpx;
+  margin-left: 30rpx;
+}
+.com-select-box {
+  margin-left: 30rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+.messageTitle {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+.selectContainer {
+  width: 690rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}

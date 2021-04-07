@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "Navigations": "/components/tools/navigations/navigations",
+    "Select": "/components/tools/select/select"
+  }
 }

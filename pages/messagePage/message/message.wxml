@@ -1,2 +1,21 @@
 <!--pages/messagePage/message/message.wxml-->
-<text>pages/messagePage/message/message.wxml</text>
+<view>
+  <view class="messageTitle">
+    <Navigations navigationsArray="{{['活动提问','评论']}}" parent-nav-class="parent-nav-class"/>
+  </view>
+    
+  <swiper style="height: {{windowHeight}}rpx">
+    <swiper-item >
+      <scroll-view scroll-y="true" style="height: {{windowHeight}}rpx">
+        <view class="selectContainer">
+          <Select propArray='{{selectArray1}}' com-select-box="com-select-box" nowText="全部活动"></Select>
+          <Select propArray='{{selectArray2}}' com-select-box="com-select-box" nowText="未回答"></Select>
+        </view>
+          
+      </scroll-view>
+    </swiper-item>
+    <swiper-item ></swiper-item>
+  </swiper>
+    
+</view>
+  

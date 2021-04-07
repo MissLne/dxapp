@@ -24,6 +24,7 @@
     "components/tools/footer/footer",
     "components/tools/select/select",
     "components/tools/inputBox/inputBox",
+    "components/tools/navigations/navigations",
     "components/tools/radioBtn/radioBtn",
     "components/indexPageItem/activityItem/activityItem"
   ],

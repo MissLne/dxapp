@@ -4,7 +4,6 @@
 }
 .com-sContent{
   background: white;
-  font-size: 18rpx;
   position: relative;
   height: 11.5pt;
 }
@@ -15,9 +14,6 @@
   width: 16px;
   height: 9px;
   transition: all .3s ease;
-}
-.com-sTxt{
-  font-size: 12pt;
 }
 .com-sList{
   background: #fff;
@@ -33,5 +29,4 @@
 .com-sItem{
   text-align: center;
   white-space: nowrap;
-  font-size: 12pt;
 }

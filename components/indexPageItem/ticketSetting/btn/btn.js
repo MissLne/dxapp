@@ -7,7 +7,6 @@ Component({
     content: String,
     ticketDetail: Array
   },
-  externalClasses: ['set-parent-class','up-parent-class'],
   /**
    * 组件的初始数据
    */

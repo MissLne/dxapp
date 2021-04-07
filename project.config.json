@@ -86,6 +86,12 @@
         {
           "name": "报名表单",
           "pathName": "pages/activityPage/publish/setUp/setUp",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "消息",
+          "pathName": "pages/messagePage/message/message",
           "scene": null
         }
       ]
