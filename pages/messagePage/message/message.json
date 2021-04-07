@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "Navigations": "/components/tools/navigations/navigations",
-    "Select": "/components/tools/select/select"
+    "Select": "/components/tools/select/select",
+    "MessageItem": "/components/messagePageItem/messageItem/messageItem"
   }
 }

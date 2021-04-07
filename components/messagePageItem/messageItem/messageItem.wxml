@@ -1,0 +1,27 @@
+<!--components/messagePageItem/messageItem/messageItem.wxml-->
+<view class="messageItemContainer" wx:for="{{messageItemArray}}" wx:key="index">
+  <view class="messageItemMain">
+    <view class="messageItemAvater">
+      <image src="{{item.portrait}}"/>
+      <view class="messageItemName">
+        <view class="name">
+          {{item.nickName}}
+        </view>
+        <view class="question">
+          {{item.question}}
+        </view> 
+      </view>
+    </view>
+    <view>
+      <view class="messageItemTime">
+        {{item.createTime}}
+      </view>
+      <view class="messageType" wx:if="{{item.reply == null}}">
+        {{messageType}}
+      </view>
+    </view>
+  </view>
+  <view class="messageItemAcitivity">活动：{{item.activityName}}</view>
+  <view class="messageItemAnswer" wx:if="{{item.reply != null}}">{{messageType}}：{{item.reply}}</view>
+</view>
+  

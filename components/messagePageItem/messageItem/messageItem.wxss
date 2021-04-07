@@ -1,0 +1,63 @@
+/* components/messagePageItem/messageItem/messageItem.wxss */
+.messageItemContainer {
+  box-sizing: border-box;
+  padding: 20rpx 60rpx 0 60rpx;
+  width: 750rpx;
+  font-size: 24rpx;
+  border-bottom: 10rpx solid #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.messageItemMain {
+  font-size: 26rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.messageItemAvater image {
+  width: 78rpx;
+  height: 78rpx;
+  border-radius: 8rpx;
+  margin-right: 15rpx;
+}
+.messageItemAvater {
+  display: flex;
+  justify-content: flex-start;
+}
+.messageItemName {
+  height: 78rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.messageItemName .name {
+  font-size: 24rpx;
+  color: #333;
+}
+.messageItemAcitivity {
+  margin: 15rpx 0 20rpx 0;
+  color: #666666;
+}
+.messageItemAnswer {
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1rpx solid rgba(0, 0, 0,0.1);
+}
+.messageType {
+  width: 90rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  margin-top: 10rpx;
+  float: right;
+  background: #777BCE;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.messageItemTime {
+  font-size: 24rpx;
+  color: #999999;
+}

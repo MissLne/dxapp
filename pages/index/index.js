@@ -16,7 +16,7 @@ Page({
   },
   showActivity() {
     let obj = {
-      mId: 34
+      mId: wx.getStorageSync('id')
     }
     request.showActMessage(obj)
     .then(res => {

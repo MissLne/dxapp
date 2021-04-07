@@ -15,7 +15,7 @@
 }
 .selectContainer {
   width: 690rpx;
-  margin: 0 auto;
-  display: flex;
+  margin: 0 auto 30rpx auto;
+  display: flex; 
   justify-content: flex-end;
 }
