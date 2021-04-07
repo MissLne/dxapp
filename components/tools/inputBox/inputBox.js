@@ -6,7 +6,7 @@ Component({
   properties: {
     inputTitle: String,
     inputValue: String
-  },
+    },
 
   /**
    * 组件的初始数据

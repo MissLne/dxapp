@@ -1,5 +1,59 @@
 /* components/indexPageItem/ticketSetting/ticketBox/ticketBox.wxss */
+.ticketDetailContainer {
+  width: 690rpx;
+  height: 430rox;
+  font-size: 24rpx;
+  padding: 30rpx 65rpx;
+  margin: 20rpx auto;
+  background: #fff;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+}
+.containerTitle {
+  height: 50rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.containerTitle view:nth-child(1) {
+  width: 70rpx;
+  position: relative;
+  border-bottom: 2rpx solid #777BCE;
+}
+.containerTitle view:nth-child(2) {
+  color: #FF441A;
+  text-decoration: underline;
+}
+.containerTitle input {
+  position: absolute;
+  text-align: center;
+  width: 200rpx;
+  color: #999;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2rpx;
+}
+.ticketPriceAndCount {
+  height: 40rpx;
+  font-size: 26rpx;
+  border-bottom: 1rpx solid rgba(0, 0, 0,0.1);
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.ticketPriceAndCount input {
+  color: #999;
+  font-size: 24rpx;
+  width: 400rpx;
+}
+.ticketDetailFooter {
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18rpx;
+  color: #999;
+}
 .radio-parent-class {
+  width: 150rpx;
   font-size: 22rpx;
   color: #999;
 }

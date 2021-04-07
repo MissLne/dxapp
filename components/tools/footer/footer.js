@@ -8,7 +8,7 @@ Component({
       type: Object
     }
   },
-  externalClasses: ['parent-leftbtn'],
+  externalClasses: ['parent-leftbtn','parent-footer'],
   /**
    * 组件的初始数据
    */

@@ -26,7 +26,7 @@ page {
   font-size: 24rpx;
 }
 .edit-top text:nth-child(1) {
-  color: #4D9BFA;
+  color: #777BCE;
 }
 .upload-img {
   width: 600rpx;

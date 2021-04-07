@@ -19,6 +19,7 @@
   color: #777777;
   font-size: 24rpx;
 }
-.edit-top text:nth-child(2) {
+.edit-top text:nth-child(2),
+.edit-top text:nth-child(1) {
   color: #777BCE;
 }

@@ -2,3 +2,6 @@
 page {
   background: #f5f5f5;
 }
+.parent-footer {
+  background: #f5f5f5;
+}

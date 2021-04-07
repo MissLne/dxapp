@@ -1,4 +1,4 @@
-<view class="btn">
+<view class="btn parent-footer">
     <navigator class="leftBtn parent-leftbtn" url="{{contentObject.leftUrl? contentObject.leftUrl : ''}}">{{contentObject.leftBtn}}</navigator>
     <navigator class="rightBtn" url="{{contentObject.rightUrl? contentObject.rightUrl : ''}}">{{contentObject.rightBtn}}</navigator>
 </view>

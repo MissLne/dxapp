@@ -4,9 +4,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    ticketDetail: Array
+    ticketDetail: {
+      type: Array
+    }
   },
-
+   
   /**
    * 组件的初始数据
    */
@@ -26,5 +28,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    deleteTicket(e) {
+      delete this.properties.ticketDetail.splice(e.currentTarget.dataset.num,1)
+      this.setData({
+        ticketDetail: this.properties.ticketDetail
+      })
+    }
   }
 })

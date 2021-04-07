@@ -4,7 +4,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    radioContent: Array
+    radioContent: Array,
+    defultData: Number
   },
   externalClasses: ['radio-parent-class'],
   /**
@@ -17,7 +18,15 @@ Component({
   /**
    * 组件的方法列表
    */
+  ready: function() {
+    this.defaultData()
+  },
   methods: {
+    defaultData() {
+      this.setData({
+        currentSelect: this.properties.defultData
+      })
+    },
     checkedHandle(e) {
         if(this.properties.radioContent.length == 1) {
           this.setData({

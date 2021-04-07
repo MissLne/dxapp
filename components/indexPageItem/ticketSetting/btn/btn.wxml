@@ -1,5 +1,5 @@
 <!--components/indexPageItem/publishIntroduce/btn/btn.wxml-->
-<view class="publishBtnCom">
+<view class="publishBtnCom"  >
   <view class="publishBtn">{{content}}</view>
 </view>
   

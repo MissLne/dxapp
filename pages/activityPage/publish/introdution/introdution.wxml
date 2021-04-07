@@ -2,7 +2,7 @@
 <view>
   <Header></Header>
   <Middle/>
-  <Btn/>
+  <Btn content="完善图文介绍"/>
   <Tips></Tips>
   <Footer contentObject="{{footerBtnObject}}"/>
 </view>

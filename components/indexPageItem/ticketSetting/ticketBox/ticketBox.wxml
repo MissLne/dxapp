@@ -1,25 +1,25 @@
 <!--components/indexPageItem/ticketSetting/ticketBox/ticketBox.wxml-->
-<view wx:for="{{ticketDetail.length? ticketDetail : defaultArray}}" wx:key="{{index}}">
+<view wx:for="{{ticketDetail.length? ticketDetail : defaultArray}}" wx:key="{{index}}" class="ticketDetailContainer">
   <view class="containerTitle">
     <view>
       <input value="{{item.ticketName}}"/>
     </view>
-      <view >
+      <view wx:if="{{ticketDetail.length > 1}}" bindtap="deleteTicket" data-num="{{index}}">
         删除
       </view>
   </view>
-  <view>
+  <view class="ticketPriceAndCount">
     <text>价格</text>
     <input value="{{item.price}}"/>
   </view>
-  <view>
+  <view class="ticketPriceAndCount" style="margin-bottom: 30rpx;">
     <text>数目</text>
     <input value="{{item.count}}"/>
   </view>
   <InputBox inputValue="{{item.introduce}}" inputTitle="票种介绍"/>
-  <view>
+  <view class="ticketDetailFooter">
     <view >不可退票的票种钱款将在报名后方可提现</view>
-    <radioBtn radioContent="{{['不可退票']}}" radio-parent-class="radio-parent-class" />
+    <radioBtn radioContent="{{['不可退票']}}" defultData="{{item.bounce}}" radio-parent-class="radio-parent-class" />
   </view>
     
 </view>

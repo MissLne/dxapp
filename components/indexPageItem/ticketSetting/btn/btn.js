@@ -4,8 +4,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    content: String
-    
+    content: String,
+    ticketDetail: Array
   },
 
   /**
@@ -14,12 +14,12 @@ Component({
   data: {
 
   },
-
+   
   /**
    * 组件的方法列表
    */
-  
+ 
   methods: {
-  
+    
   }
 })

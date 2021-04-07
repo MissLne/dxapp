@@ -1,7 +1,9 @@
 <!--pages/activityPage/publish/ticket/ticket.wxml-->
 <view>
   <Header></Header>
-  <TicketBox ticketDetail="{{ticketDetailArray}}"></TicketBox>
+    <TicketBox ticketDetail="{{ticketDetailArray}}"></TicketBox>
+    <Btn content="点击新增票种" ticketDetail="{{ticketDetailArray}}" bindtap="addTicket"/>
+    <Footer contentObject="{{footerBtnObject}}" parent-footer="parent-footer"/>
 </view>
   
 

@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "Header": "/components/indexPageItem/ticketSetting/header/header",
-    "TicketBox": "/components/indexPageItem/ticketSetting/ticketBox/ticketBox"
+    "TicketBox": "/components/indexPageItem/ticketSetting/ticketBox/ticketBox",
+    "Btn": "/components/indexPageItem/ticketSetting/btn/btn",
+    "Footer": "/components/tools/footer/footer"
   }
 }
