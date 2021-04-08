@@ -1,5 +1,5 @@
 <!--pages/userPage/userWallet/userWallet.wxml-->
-<navigator class="billBtn">
+<navigator class="billBtn" url="/pages/userPage/bill/bill">
   账单明细
 </navigator>
 <image />

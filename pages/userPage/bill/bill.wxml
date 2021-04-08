@@ -1,0 +1,2 @@
+<!--pages/userPage/bill/bill.wxml-->
+<BillItem billDetail="{{billDetail}}"/>

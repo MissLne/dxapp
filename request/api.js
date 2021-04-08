@@ -9,9 +9,16 @@ var url = {
  showCommMessge: "/party/merchant/consult/getAllComment",
  showUserMessge: "/party/merchant/info/me",
  updateUserMessage: "/party/merchant/info/updateInfo",
- showWallet: "/party/merchant/money/show"
+ showWallet: "/party/merchant/money/show",
+ showBillDetail: "/party/merchant/money/show/detail"
 }
 module.exports = {
+  showBillDetail(params) {
+    return http({      
+      url: url.showBillDetail,
+      data: params
+    })
+  },
   showWallet(params) {
     return http({      
       url: url.showWallet,

@@ -110,6 +110,12 @@
         {
           "name": "钱包",
           "pathName": "pages/userPage/userWallet/userWallet",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "账单明细",
+          "pathName": "pages/userPage/bill/bill",
           "scene": null
         }
       ]
