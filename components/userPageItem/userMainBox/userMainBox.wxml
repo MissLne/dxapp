@@ -1,0 +1,32 @@
+<!--components/userPageItem/userMainBox/userMainBox.wxml-->
+<view class="userMainBox">
+  <view class="baseMaterial">
+    <view >
+      <view>
+        粉丝数
+      </view>
+      <view>
+        {{0}}
+      </view>
+    </view>
+    <view >
+      <view>
+        钱包
+      </view>
+      <view>
+        {{0.00}}
+      </view>
+    </view>
+  </view>
+  <view class="userMainBoxBtn">
+    联系客服
+  </view>
+  <view class="userMainBoxBtn">
+    管理团队
+  </view>
+  <view class="logout">
+    退出登录
+  </view>
+    
+</view>
+  

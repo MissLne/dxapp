@@ -22,6 +22,8 @@
     "components/indexPageItem/setUpPage/setUpItem/setUpItem",
     "components/indexPageItem/setUpPage/btn/btn",
     "components/messagePageItem/messageItem/messageItem",
+    "components/userPageItem/userMaterial/userMaterial",
+    "components/userPageItem/userMainBox/userMainBox",
     "components/tools/footer/footer",
     "components/tools/select/select",
     "components/tools/inputBox/inputBox",

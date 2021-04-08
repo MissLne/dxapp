@@ -1,0 +1,17 @@
+<!--components/userPageItem/userMaterial/userMaterial.wxml-->
+
+<view class="userMaterial">
+  <view class="userAvater">
+    <image src="{{userMaterial.imgShowUrl}}" mode="aspectFill"/>
+    <view class="userName">
+      <view>
+      {{userMaterial.nickName}}
+      </view>
+      <view>
+      {{userMaterial.introduction}}
+      </view>
+    </view>
+  </view>
+  <view class="updateMaterial">修改资料></view>
+</view>
+  

@@ -1,0 +1,56 @@
+/* components/userPageItem/userMaterial/userMaterial.wxss */
+.userMaterial {
+  width: 690rpx;
+  height: 230rpx;
+  padding: 0 40rpx;
+  border-radius: 60rpx;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow: 1rpx 1rpx 1rpx 1rpx rgba(0, 0, 0,0.1);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 150rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 999;
+}
+.userAvater {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.userAvater image{
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 30rpx;
+  border-radius: 14rpx;
+}
+.userName {
+  width: 230rpx;
+  height: 140rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.userName view {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.userName view:nth-child(1) {
+  font-size: 30rpx;
+}
+.userName view:nth-child(2) {
+  font-size: 26rpx;
+  color: #666;
+}
+.updateMaterial {
+  height: 140rpx;
+  display: flex;
+  align-items: flex-end;
+  font-size: 22rpx;
+  color: #666666;
+  text-decoration: underline;
+}

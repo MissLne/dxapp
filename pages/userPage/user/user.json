@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "UserMaterial": "/components/userPageItem/userMaterial/userMaterial",
+    "UserMainBox": "/components/userPageItem/userMainBox/userMainBox"
+  },
+  "navigationStyle": "custom"
 }

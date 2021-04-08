@@ -92,6 +92,12 @@
         {
           "name": "消息",
           "pathName": "pages/messagePage/message/message",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我",
+          "pathName": "pages/userPage/user/user",
           "scene": null
         }
       ]

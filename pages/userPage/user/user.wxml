@@ -1,2 +1,10 @@
 <!--pages/userPage/user/user.wxml-->
-<text>pages/userPage/user/user.wxml</text>
+<view>
+  <view class="topImg"></view>
+  <view class="userTaBar" style="margin-top: {{topBarMargin}}rpx;height: {{topBarHeight}}rpx;">
+    我
+  </view>
+  <UserMaterial userMaterial="{{userMessageObject}}"/>
+  <UserMainBox/>
+</view>
+  
