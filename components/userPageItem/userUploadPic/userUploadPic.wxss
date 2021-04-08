@@ -1,0 +1,11 @@
+/* components/userPageItem/userUploadPic/userUploadPic.wxss */
+.userUploadPic {
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 14rpx;
+  background: #f5f5f5;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 15%;
+}

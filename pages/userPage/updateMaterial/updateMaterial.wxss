@@ -1,0 +1,4 @@
+/* pages/userPage/updateMaterial/updateMaterial.wxss */
+.parent-buttons-class {
+  top: 70%;
+}

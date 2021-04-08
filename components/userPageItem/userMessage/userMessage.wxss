@@ -1,0 +1,26 @@
+/* components/userPageItem/userMessage/userMessage.wxss */
+.updateMessageContainer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 40%;
+}
+.updateMessage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 532rpx;
+  height: 50rpx;
+  margin-top: 30rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.updateMessage view {
+  font-size: 26rpx;
+  color: #333;
+}
+.updateMessage input {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #999;
+}

@@ -1,0 +1,4 @@
+<!--pages/userPage/updateMaterial/updateMaterial.wxml-->
+<UserUploadPic bindurl="updateUrl"/>
+<userMessage bindname="getMessageArr"/>
+<Buttons btnContent="保存" parent-buttons-class="parent-buttons-class" bindtap="updateMessage"/>

@@ -98,6 +98,12 @@
         {
           "name": "我",
           "pathName": "pages/userPage/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "修改资料",
+          "pathName": "pages/userPage/updateMaterial/updateMaterial",
           "scene": null
         }
       ]

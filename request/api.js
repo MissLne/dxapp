@@ -7,9 +7,16 @@ var url = {
  showActMessage: "/party/merchant/activity/showActivity",
  showQuesMessge: "/party/merchant/consult/getAllConsult",
  showCommMessge: "/party/merchant/consult/getAllComment",
- showUserMessge: "/party/merchant/info/me"
+ showUserMessge: "/party/merchant/info/me",
+ updateUserMessage: "/party/merchant/info/updateInfo"
 }
 module.exports = {
+  updateUserMessage(params) {
+    return http({      
+      url: url.showUserMessge,
+      data: params
+    })
+  },
  showUserMessge(params) {
    console.log(params.id)
    return http({      

@@ -1,0 +1,3 @@
+<!--components/userPageItem/userUploadPic/userUploadPic.wxml-->
+<image bindtap="chooseImg" src="{{imageUrl}}" mode="aspectFill" class="userUploadPic"/>
+  

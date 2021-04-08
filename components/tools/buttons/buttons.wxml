@@ -1,0 +1,7 @@
+<!--components/tools/buttons/buttons.wxml-->
+<view class="buttonsBox parent-buttons-class">
+  <view class="buttons">
+    {{btnContent}}
+  </view>
+    
+</view>
