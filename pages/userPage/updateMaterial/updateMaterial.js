@@ -18,12 +18,13 @@ Page({
   },
   updateMessage() {
     console.log(this.data.messageArray)
+    console.log(this.data.avaterUrl)
     let obj = {
       "id": wx.getStorageSync('id'),
-      "nickname": this.data.messageArray[0].value,
+      "nickName": this.data.messageArray[0].value,
       "phone": this.data.messageArray[1].value,
       "introduction": this.data.messageArray[2].value,
-      "imageShowUrl": this.data.avaterUrl
+      "imgShowUrl": this.data.avaterUrl
     }
     request.updateUserMessage(obj)
     .then(res => {

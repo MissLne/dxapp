@@ -104,6 +104,12 @@
         {
           "name": "修改资料",
           "pathName": "pages/userPage/updateMaterial/updateMaterial",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "钱包",
+          "pathName": "pages/userPage/userWallet/userWallet",
           "scene": null
         }
       ]

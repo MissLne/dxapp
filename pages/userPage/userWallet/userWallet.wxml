@@ -1,0 +1,8 @@
+<!--pages/userPage/userWallet/userWallet.wxml-->
+<navigator class="billBtn">
+  账单明细
+</navigator>
+<image />
+<Wallet/>
+<Footer contentObject="{{footerBtnObject}}" parent-leftbtn="parent-leftbtn" parent-footer="parent-footer"></Footer>
+    

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Wallet": "/components/userPageItem/userMoneyPage/wallet/wallet",
+    "Footer": "/components/tools/footer/footer"
+  }
+}

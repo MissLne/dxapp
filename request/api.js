@@ -8,13 +8,23 @@ var url = {
  showQuesMessge: "/party/merchant/consult/getAllConsult",
  showCommMessge: "/party/merchant/consult/getAllComment",
  showUserMessge: "/party/merchant/info/me",
- updateUserMessage: "/party/merchant/info/updateInfo"
+ updateUserMessage: "/party/merchant/info/updateInfo",
+ showWallet: "/party/merchant/money/show"
 }
 module.exports = {
+  showWallet(params) {
+    return http({      
+      url: url.showWallet,
+      data: params
+    })
+  },
   updateUserMessage(params) {
     return http({      
-      url: url.showUserMessge,
-      data: params
+      url: url.updateUserMessage,
+      data: params,
+      header: {
+        "Content-Type": "application/json"
+      }
     })
   },
  showUserMessge(params) {

@@ -10,11 +10,9 @@
       </view>
     </view>
     <view >
+      <navigator url="/pages/userPage/userWallet/userWallet">钱包</navigator>
       <view>
-        钱包
-      </view>
-      <view>
-        {{0.00}}
+        {{walletCount}}
       </view>
     </view>
   </view>
