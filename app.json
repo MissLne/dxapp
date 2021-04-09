@@ -33,6 +33,7 @@
     "components/userPageItem/userMessage/userMessage",
     "components/userPageItem/userMoneyPage/wallet/wallet",
     "components/userPageItem/userMoneyPage/billItem/billItem",
+    "components/userPageItem/userMoneyPage/cashOutCom/cashOutCom",
     "components/tools/buttons/buttons",
     "components/tools/selection/selection",
     "components/tools/selectionList/selectionList",

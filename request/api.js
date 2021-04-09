@@ -10,9 +10,29 @@ var url = {
  showUserMessge: "/party/merchant/info/me",
  updateUserMessage: "/party/merchant/info/updateInfo",
  showWallet: "/party/merchant/money/show",
- showBillDetail: "/party/merchant/money/show/detail"
+ showBillDetail: "/party/merchant/money/show/detail",
+ cashOut: "/party/merchant/money/drawCash",
+ invest: "/party/merchant/money/pay"
 }
 module.exports = {
+  invest(params) {
+    return http({      
+      url: url.invest,
+      data: params,
+      header: {
+        "Content-Type": "application/json"
+      }
+    })
+  },
+  cashOut(params) {
+    return http({      
+      url: url.cashOut,
+      data: params,
+      header: {
+        "Content-Type": "application/json"
+      }
+    })
+  },
   showBillDetail(params) {
     return http({      
       url: url.showBillDetail,

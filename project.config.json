@@ -116,6 +116,18 @@
         {
           "name": "账单明细",
           "pathName": "pages/userPage/bill/bill",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "提现",
+          "pathName": "pages/userPage/cashOut/cashOut",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "钱包",
+          "pathName": "pages/userPage/invest/invest",
           "scene": null
         }
       ]

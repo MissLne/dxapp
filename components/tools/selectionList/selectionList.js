@@ -24,16 +24,6 @@ Component({
       this.setData({
         selectIndex: e.currentTarget.dataset.num
       })
-      let obj = {
-        name: this.properties.selectname,
-        type: this.data.selectIndex
-      }
-      let arr = []
-      arr.push({
-        name: this.properties.selectname,
-        type: this.data.selectIndex
-      })
-      console.log(arr)
     }
   }
 })

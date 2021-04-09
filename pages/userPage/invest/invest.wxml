@@ -1,2 +1,10 @@
 <!--pages/userPage/invest/invest.wxml-->
-<text>pages/userPage/invest/invest.wxml</text>
+<view >
+  <view >充值金额</view>
+  <view >
+    <input model:value="{{investCount}}" />
+  </view>
+  <view ></view>
+</view>
+
+<Buttons btnContent="充值" parent-buttons-class="parent-buttons-class" bindtap="invest"/>

@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "cashOutCom": "/components/userPageItem/userMoneyPage/cashOutCom/cashOutCom"
+    
+  }
 }

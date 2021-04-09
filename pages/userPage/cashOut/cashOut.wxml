@@ -1,2 +1,7 @@
 <!--pages/userPage/cashOut/cashOut.wxml-->
-<text>pages/userPage/cashOut/cashOut.wxml</text>
+<view>
+  零钱
+  <navigator >></navigator>
+</view>
+  
+<cashOutCom/>

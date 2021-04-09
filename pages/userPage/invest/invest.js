@@ -1,11 +1,12 @@
 // pages/userPage/invest/invest.js
+const request = require('../../../request/api')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    investCount: 0
   },
 
   /**
@@ -14,53 +15,31 @@ Page({
   onLoad: function (options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  invest() {
+    let data = this.data.investCount + ""
+    let obj = {
+      "mId": wx.getStorageSync('id'),
+      "amount": data
+    }
+    request.invest(obj)
+    .then(res => {
+      wx.requestPayment({
+        timeStamp: res.data.timeStamp,
+        nonceStr: res.data.nonce_str,
+        package: res.data.package,
+        signType: res.data.signType,
+        paySign: res.data.paySign,
+        success: (result) => {
+          console.log(result)
+        },
+        fail: (res) => {
+          console.log(res)
+        },
+        complete: (res) => {
+          console.log(res)
+        }
+      });
+        
+    })
   }
 })
