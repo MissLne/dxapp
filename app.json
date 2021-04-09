@@ -34,6 +34,8 @@
     "components/userPageItem/userMoneyPage/wallet/wallet",
     "components/userPageItem/userMoneyPage/billItem/billItem",
     "components/tools/buttons/buttons",
+    "components/tools/selection/selection",
+    "components/tools/selectionList/selectionList",
     "components/tools/footer/footer",
     "components/tools/select/select",
     "components/tools/inputBox/inputBox",

@@ -1,1 +1,14 @@
 /* pages/userPage/bill/bill.wxss */
+.selectionClass {
+  display: flex;
+  justify-content: flex-end;
+  height: 50rpx;
+}
+.parent-select-name,
+.parent-select-list {
+  justify-content: flex-end;
+}
+.slots {
+  width: 750rpx;
+  height: 40rpx;
+}

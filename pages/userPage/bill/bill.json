@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "BillItem": "/components/userPageItem/userMoneyPage/billItem/billItem"
+    "BillItem": "/components/userPageItem/userMoneyPage/billItem/billItem",
+    "Selection": "/components/tools/selection/selection",
+    "SelectionLsit": "/components/tools/selectionList/selectionList"
   }
 }

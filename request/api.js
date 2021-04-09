@@ -16,7 +16,10 @@ module.exports = {
   showBillDetail(params) {
     return http({      
       url: url.showBillDetail,
-      data: params
+      data: params,
+      header: {
+        "Content-Type": "application/json"
+      }
     })
   },
   showWallet(params) {

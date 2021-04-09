@@ -6,7 +6,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-  billDetail: []
+    billDetail: [],
+    selectList: [
+      {
+        name: '全部活动',
+        arr: ['全部','上架中']
+      },
+      {
+        name: '全部交易',
+        arr: ['售票','退票','充值','提现','全部']
+      }
+    ],
+    showSelectListIndex: 10,
+    windowHeight: 0
   },
 
   /**
@@ -14,33 +26,52 @@ Page({
    */
   onLoad: function (options) {
     this.showBillDetail()
+    this.getWindowHeight()
+  },
+  getWindowHeight() {
+    this.setData({
+      windowHeight: (wx.getSystemInfoSync().windowHeight) * 2 - 90
+    })
+  },
+  showSelectList(e) {
+    this.setData({
+      showSelectListIndex: e.currentTarget.dataset.num
+    })
   },
   showBillDetail() {
     let obj = {
-      mId: wx.getStorageSync('id')
+      "id": wx.getStorageSync('id'),
+      "month": 12,
+      "status": 4, 
+      "activityId": 0,
+      "year": 2020 
     }
     request.showBillDetail(obj)
     .then(res => {
-      for(let i = 0;i < res.data.length;i++) {
-        switch (res.data[i].moneyType) {
+      let result = res.data.walletDetailBaseMsgs
+      for(let i = 0;i < result.length;i++) {
+        if(result[i].feeCharge != undefined) {
+          result[i].feeCharge = result[i].feeCharge.toFixed(2)
+        }
+        result[i].amount = result[i].amount.toFixed(2)
+        switch (result[i].moneyType) {
           case -1:
-            res.data[i].moneyType = '提现'
+            result[i].moneyType = '提现'
             break;
           case 0:
-            res.data[i].moneyType = '充值'
+            result[i].moneyType = '充值'
             break;
           case 1:
-            res.data[i].moneyType = '售票'
+            result[i].moneyType = '售票'
             break;
           default:
-            res.data[i].moneyType = '退票'
+            result[i].moneyType = '退票'
             break;
         }
       }
       this.setData({
-        billDetail: res.data
+        billDetail: result
       })
-      console.log(this.data.billDetail)
     })
   }
 })

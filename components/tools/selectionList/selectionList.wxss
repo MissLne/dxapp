@@ -1,0 +1,24 @@
+/* components/tools/selectionList/selectionList.wxss */
+
+.selectListItem {
+  width: 100rpx;
+  height: 32rpx;
+  font-size: 22rpx;
+  color: #666;
+  border-radius: 16rpx;
+  margin-right: 30rpx;
+  margin-top: 10rpx;
+  background: #EAEAEA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.active {
+  color: #fff;
+  background: #FF441A;
+}
+.selectList {
+  width: 750rpx;
+  height: 40rpx;
+  display: flex;
+}

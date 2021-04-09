@@ -1,0 +1,9 @@
+<!--components/tools/selection/selection.wxml-->
+ <!-- style="width: {{selectionWidth}}rpx" -->
+  <!-- wx:if="{{showSelect}}" -->
+<view class="selectionBox">
+  <view class="selectName parent-select-name">
+    <text>{{selectionName}}</text>
+    <text></text>
+  </view>
+</view>
