@@ -1,9 +1,9 @@
 {
   "usingComponents": {
-    "Header": "/components/indexPageItem/setUpPage/header/header",
+    "SetUpHeader": "/components/indexPageItem/setUpPage/header/header",
     "SetUpItem": "/components/indexPageItem/setUpPage/setUpItem/setUpItem",
-    "Btn": "/components/indexPageItem/ticketSetting/btn/btn",
-    "FootBtn": "/components/indexPageItem/setUpPage/btn/btn",
+    "SetUpBtn": "/components/indexPageItem/ticketSetting/btn/btn",
+    "SetUpFootBtn": "/components/indexPageItem/setUpPage/btn/btn",
     "Footer": "/components/tools/footer/footer"
   }
 }

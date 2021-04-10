@@ -1,5 +1,16 @@
 {
   "usingComponents": {
+    "SetUpHeader": "/components/indexPageItem/setUpPage/header/header",
+    "SetUpItem": "/components/indexPageItem/setUpPage/setUpItem/setUpItem",
+    "SetUpBtn": "/components/indexPageItem/ticketSetting/btn/btn",
+    "SetUpFootBtn": "/components/indexPageItem/setUpPage/btn/btn",
+    "TicketHeader": "/components/indexPageItem/ticketSetting/header/header",
+    "TicketBox": "/components/indexPageItem/ticketSetting/ticketBox/ticketBox",
+    "TicketBtn": "/components/indexPageItem/ticketSetting/btn/btn",
+    "Header": "/components/indexPageItem/publishIntroduce/header/header",
+    "Middle": "/components/indexPageItem/publishIntroduce/middle/middle",
+    "Btn": "/components/indexPageItem/publishIntroduce/btn/btn",
+    "Tips": "/components/indexPageItem/publishIntroduce/tips/tips",
     "Footer": "/components/tools/footer/footer"
   }
 }

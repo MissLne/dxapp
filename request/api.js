@@ -12,9 +12,33 @@ var url = {
  showWallet: "/party/merchant/money/show",
  showBillDetail: "/party/merchant/money/show/detail",
  cashOut: "/party/merchant/money/drawCash",
- invest: "/party/merchant/money/pay"
+ invest: "/party/merchant/money/pay",
+ register: "/party/merchant/enter/one/doEnter",
+ restore: "/party/merchant/consult/reply",
+ reply: "/party/merchant/consult/replyComment"
 }
 module.exports = {
+  reply(params) {
+    return http({      
+      url: url.reply,
+      data: params
+    })
+  },
+  restore(params) {
+    return http({      
+      url: url.restore,
+      data: params
+    })
+  },
+  register(params) {
+    return http({      
+      url: url.register,
+      data: params,
+      header: {
+        "Content-Type": "application/json"
+      }
+    })
+  },
   invest(params) {
     return http({      
       url: url.invest,
@@ -58,7 +82,6 @@ module.exports = {
     })
   },
  showUserMessge(params) {
-   console.log(params.id)
    return http({      
      url: url.showUserMessge,
      data: params

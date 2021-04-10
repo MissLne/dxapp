@@ -23,5 +23,10 @@
   </view>
   <view class="messageItemAcitivity">活动：{{item.activityName}}</view>
   <view class="messageItemAnswer" wx:if="{{item.reply != null}}">{{messageType}}：{{item.reply}}</view>
+  <input model:value="{{replyContent}}" />
+  <view bindtap="reply" data-num="{{item.id}}">
+    发送
+  </view>
+    
 </view>
   

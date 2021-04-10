@@ -1,57 +1,79 @@
-<!--pages/activityPage/publish/enterMessage/enterMessage.wxml-->
-<view>
-  <view class="edit-page">
-    <image  src="../../style/images/putActivity1.png" class="top-img"/>
-    <view class="edit-top">
-      
-      <view>
-        <text>活动信息</text>
-        <text>活动介绍与须知</text>
-        <text>票种设置</text>
-        <text>报名表单</text>
-      </view>
-        
-    </view>
-    <view class="upload-img">
-      
-      <image src="{{image}}"/>
-      <text>上传封面</text>
-    </view>
-    <view class="edit-content">
-      <view>
-        <text >活动名称</text>
-        <input type="text" placeholder="请输入活动名称"/>
-      </view>
-      <view>
-        <text >活动开始时间</text>
-        <picker mode="date" value="{{startDate}}" bindchange="startDateChange" header-text="请选择">
-          <view>{{startDate}}</view>
-        </picker>
-      </view>
-      <view>
-        <text >活动地点</text>
-        <input type="text" placeholder="请完善地址"/>
-      </view>
-      <view>
-        <text >报名截止时间</text>
-        <picker mode="date" value="{{endDate}}" bindchange="endDateChange">
-          <view>{{endDate}}</view>
-        </picker>
-      </view>
-      <view style="border:none;">
-        <text >介绍视频(选填)</text>
-        <view class="uploadFile">
-          上传文件
+<!-- pages/activityPage/publish/enterMessage/enterMessage.wxml -->
+<!-- <swiper style="height: {{windowHeight}}rpx" current="{{swiperCurrent}}">
+  <swiper-item> -->
+    <view>
+      <view class="edit-page">
+        <image src="../../style/images/putActivity1.png" class="top-img" />
+        <view class="edit-top">
+          <view>
+            <text>活动信息</text>
+            <text>活动介绍与须知</text>
+            <text>票种设置</text>
+            <text>报名表单</text>
+          </view>
         </view>
-          
+        <view class="upload-img">
+          <image src="{{addActivity.posterImage}}" />
+          <text>上传封面</text>
+        </view>
+        <view class="edit-content">
+          <view>
+            <text>活动名称</text>
+            <input type="text" placeholder="请输入活动名称" value="{{addActivity.activityName}}"/>
+          </view>
+          <view>
+            <text>活动开始时间</text>
+            <picker mode="date" value="{{addActivity.startTime}}" bindchange="startDateChange" header-text="请选择">
+              <view>{{addActivity.startTime? addActivity.startTime : '选择日期时间'}}</view>
+            </picker>
+          </view>
+          <view>
+            <text>活动地点</text>
+            <input type="text" placeholder="请完善地址" value="{{addActivity.address}}"/>
+          </view>
+          <view>
+            <text>报名截止时间</text>
+            <picker mode="date" value="{{addActivity.registrationDeadline}}" bindchange="endDateChange">
+              <view>{{addActivity.registrationDeadline? addActivity.registrationDeadline : '选择日期时间'}}</view>
+            </picker>
+          </view>
+          <view style="border:none;">
+            <text>介绍视频(选填)</text>
+            <view class="uploadFile">上传文件</view>
+          </view>
+        </view>
       </view>
-        
-        
+      <Footer contentObject="{{footerBtnObject}}" parent-leftbtn="parent-leftbtn" ></Footer>
     </view>
-      
-      
-  </view>
-  <Footer contentObject="{{footerBtnObject}}" parent-leftbtn="parent-leftbtn"></Footer>
-    
-</view>
-  
+  <!-- </swiper-item>
+  <swiper-item>
+    <view>
+      <Header></Header>
+      <Middle />
+      <Btn content="完善图文介绍" />
+      <Tips></Tips>
+      <Footer contentObject="{{footerBtnObject2}}" bindnext="goNext" bindprevious="goPrevious" goPage="{{1}}"/>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <view>
+      <TicketHeader></TicketHeader>
+      <scroll-view style="height: {{scrollHeight}}rpx" scroll-y="{{true}}">
+        <TicketBox ticketDetail="{{ticketDetailArray}}"></TicketBox>
+        <TicketBtn content="点击新增票种" ticketDetail="{{ticketDetailArray}}" bindtap="addTicket" />
+        <Footer contentObject="{{footerBtnObject2}}" parent-footer="parent-footer" bindnext="goNext" goPage="{{2}}" bindprevious="goPrevious"/>
+      </scroll-view>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <view>
+      <SetUpHeader />
+      <SetUpItem />
+      <SetUpBtn content="新增填写项" />
+      <view class="setUpFooterBtn">
+        <SetUpFootBtn content="保存并预览" />
+        <Footer contentObject="{{footerBtnObject2}}" parent-leftbtn="setup-parent-footer" up-parent-class="up-parent-class" bindprevious="goPrevious" goPage="{{3}}"/>
+      </view>
+    </view>
+  </swiper-item>
+</swiper> -->

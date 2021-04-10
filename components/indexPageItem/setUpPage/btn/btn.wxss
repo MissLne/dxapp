@@ -1,5 +1,5 @@
 /* components/indexPageItem/setUpPage/btn/btn.wxss */
-.publishBtnCom {
+.publishBtnCom2 {
   width: 690rpx;
   height: 120rpx;
   margin: 0 auto 0 auto;
@@ -10,7 +10,7 @@
   left: 50%;
   transform: translateX(-50%);
 }
-.publishBtn {
+.publishBtn2 {
   width: 190rpx;
   height: 60rpx;
   color: #FF441A;

@@ -1,8 +1,8 @@
 <!--pages/activityPage/publish/setUp/setUp.wxml-->
 <view>
-  <Header/>
+  <SetUpHeader/>
   <SetUpItem/>
-  <Btn content="新增填写项"/>
+  <SetUpBtn content="新增填写项"/>
   <view class="setUpFooterBtn">
     <FootBtn content="保存并预览"/>
     <Footer contentObject="{{footerBtnObject}}" parent-leftbtn="parent-footer" up-parent-class="up-parent-class"/>

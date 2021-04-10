@@ -20,16 +20,20 @@ Page({
     })
     this.showUserMaterial()
   },
+  onShow: function () {
+
+    this.onLoad()
+
+  },
   showUserMaterial() {
     let obj = {
       id: wx.getStorageSync('id')
     }
     request.showUserMessge(obj)
-    .then(res => {
-      console.log(res.data)
-      this.setData({
-        userMessageObject: res.data
+      .then(res => {
+        this.setData({
+          userMessageObject: res.data
+        })
       })
-    })
   }
 })

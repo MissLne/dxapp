@@ -23,13 +23,17 @@ Component({
    */
   methods: {
     cashOut() {
+      let data = this.data.cashOutCount + ""
       let obj = {
         "mId": wx.getStorageSync('id'),
-        "amount": this.data.cashOutCount
+        "amount": data
       }
       request.cashOut(obj)
       .then(res => {
         console.log(res)
+      })
+      .catch(err => {
+        console.log(err)
       })
     },
     getCanCash() {

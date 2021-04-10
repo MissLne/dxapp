@@ -7,28 +7,45 @@ Page({
    */
   data: {
     messageArray: [],
-    avaterUrl: ''
+    avaterUrl: '',
+    userMessageObject: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getMessageArr()
+    this.getMessageArr(e)
+    this.updateUrl(e)
+    
+  },
+
+  showUserMaterial() {
+    let obj = {
+      id: wx.getStorageSync('id')
+    }
+    request.showUserMessge(obj)
+      .then(res => {
+        this.setData({
+          userMessageObject: res.data
+        })
+      })
   },
   updateMessage() {
     console.log(this.data.messageArray)
     console.log(this.data.avaterUrl)
     let obj = {
       "id": wx.getStorageSync('id'),
-      "nickName": this.data.messageArray[0].value,
-      "phone": this.data.messageArray[1].value,
-      "introduction": this.data.messageArray[2].value,
+      "nickName": this.data.messageArray[0]? this.data.messageArray[0].value : this.data.userMessageObject.nickName,
+      "phone": this.data.messageArray[1]? this.data.messageArray[1].value : this.data.userMessageObject.phone,
+      "introduction": this.data.messageArray[2]? this.data.messageArray[2].value : this.data.userMessageObject.introduction,
       "imgShowUrl": this.data.avaterUrl
     }
     request.updateUserMessage(obj)
-    .then(res => {
-      console.log(res)
+    .then(() => {
+      wx.switchTab({
+        url: '/pages/userPage/user/user'
+      })
     })
   },
   getMessageArr(e) {

@@ -1,4 +1,5 @@
 // components/userPageItem/userUploadPic/userUploadPic.js
+const request = require('../../../request/api')
 Component({
   /**
    * 组件的属性列表
@@ -17,7 +18,21 @@ Component({
   /**
    * 组件的方法列表
    */
+  ready: function() {
+    this.showUserMaterial()
+  },
   methods: {
+    showUserMaterial() {
+      let obj = {
+        id: wx.getStorageSync('id')
+      }
+      request.showUserMessge(obj)
+        .then(res => {
+          this.setData({
+            imageUrl: res.data.imgShowUrl
+          })
+        })
+    },
     chooseImg() {
       wx.chooseImage({
         count: 1,

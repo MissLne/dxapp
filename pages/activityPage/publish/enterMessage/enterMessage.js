@@ -9,6 +9,13 @@ Page({
       leftBtn: '保存草稿',
       rightUrl: '/pages/activityPage/publish/introdution/introdution',
       rightBtn: '下一步'
+    },
+    addActivity: {
+      posterImage,
+      activityName,
+      startTime,
+      address,
+      registrationDeadline
     }
   },
 
