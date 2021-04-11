@@ -13,28 +13,28 @@
           </view>
         </view>
         <view class="upload-img">
-          <image src="{{addActivity.posterImage}}" />
+          <image src="{{footerBtnObject.addActivity.posterImage}}" bindtap="chooseImg"/>
           <text>上传封面</text>
         </view>
         <view class="edit-content">
           <view>
             <text>活动名称</text>
-            <input type="text" placeholder="请输入活动名称" value="{{addActivity.activityName}}"/>
+            <input type="text" placeholder="请输入活动名称" value="{{footerBtnObject.addActivity.activityName}}" bindinput="materialChange" data-num="{{0}}"/>
           </view>
           <view>
             <text>活动开始时间</text>
-            <picker mode="date" value="{{addActivity.startTime}}" bindchange="startDateChange" header-text="请选择">
-              <view>{{addActivity.startTime? addActivity.startTime : '选择日期时间'}}</view>
+            <picker mode="date" value="{{footerBtnObject.addActivity.startTime}}" bindchange="materialChange" header-text="请选择" data-num="{{1}}">
+              <view>{{footerBtnObject.addActivity.startTime? footerBtnObject.addActivity.startTime : '选择日期时间'}}</view>
             </picker>
           </view>
           <view>
             <text>活动地点</text>
-            <input type="text" placeholder="请完善地址" value="{{addActivity.address}}"/>
+            <input type="text" placeholder="请完善地址" value="{{footerBtnObject.addActivity.address}}" bindinput="materialChange" data-num="{{2}}"/>
           </view>
           <view>
             <text>报名截止时间</text>
-            <picker mode="date" value="{{addActivity.registrationDeadline}}" bindchange="endDateChange">
-              <view>{{addActivity.registrationDeadline? addActivity.registrationDeadline : '选择日期时间'}}</view>
+            <picker mode="date" value="{{footerBtnObject.addActivity.registrationDeadline}}" bindchange="materialChange" data-num="{{3}}">
+              <view>{{footerBtnObject.addActivity.registrationDeadline? footerBtnObject.addActivity.registrationDeadline : '选择日期时间'}}</view>
             </picker>
           </view>
           <view style="border:none;">
@@ -43,7 +43,7 @@
           </view>
         </view>
       </view>
-      <Footer contentObject="{{footerBtnObject}}" parent-leftbtn="parent-leftbtn" ></Footer>
+      <Footer contentObject="{{footerBtnObject}}" parent-leftbtn="parent-leftbtn" bindnext="goNext"></Footer>
     </view>
   <!-- </swiper-item>
   <swiper-item>

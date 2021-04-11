@@ -7,7 +7,7 @@ Component({
     contentObject: {
       type: Object
     },
-    goPage: Number
+    goPage: Object
   },
   externalClasses: ['parent-leftbtn','parent-footer'],
   /**
@@ -20,6 +20,22 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    goNext() {}
+    goNext() {
+      let obj = this.properties.contentObject.addActivity
+      let newobj = {}
+      for(let key in obj) {
+        if(obj[key] == '' || !obj[key]) {
+          newobj = obj[key]
+        } else {
+          let query = obj
+          query = JSON.stringify(query)
+          navigate.navigateTo({
+            url: this.properties.contentObject.rightUrl,
+            query
+          })
+        }
+      }
+      this.triggerEvent('next',{obj: newobj})
+    }
   }
 })
