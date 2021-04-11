@@ -9,6 +9,7 @@ Page({
       leftBtn: '保存草稿',
       rightUrl: '/pages/activityPage/publish/introdution/introdution',
       rightBtn: '下一步',
+      number: 5,
       addActivity: {
         posterImage: '',
         activityName: '',
@@ -17,7 +18,8 @@ Page({
         registrationDeadline: ''
       }
     },
-    materialArray: []
+    materialArray: [],
+    temObject: {}
   },
 
   /**
@@ -27,7 +29,9 @@ Page({
 
   },
   goNext(e) {
-    // console.log(e.detail.obj)
+    this.setData({
+      temObject: e.detail.obj
+    })
   },
   materialChange(e) {
     let arr = this.data.materialArray

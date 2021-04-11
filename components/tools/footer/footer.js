@@ -1,4 +1,5 @@
 // components/indexPageItem/publishIntroduce/footer/footer.js
+const navigate = require('../../../navigator/index')
 Component({
   /**
    * 组件的属性列表
@@ -9,7 +10,7 @@ Component({
     },
     goPage: Object
   },
-  externalClasses: ['parent-leftbtn','parent-footer'],
+  externalClasses: ['parent-leftbtn', 'parent-footer'],
   /**
    * 组件的初始数据
    */
@@ -21,21 +22,25 @@ Component({
    */
   methods: {
     goNext() {
-      let obj = this.properties.contentObject.addActivity
-      let newobj = {}
-      for(let key in obj) {
-        if(obj[key] == '' || !obj[key]) {
-          newobj = obj[key]
-        } else {
-          let query = obj
-          query = JSON.stringify(query)
-          navigate.navigateTo({
-            url: this.properties.contentObject.rightUrl,
-            query
-          })
+      let obj = this.properties.contentObject.addActivity,
+        newobj = {},
+        count = 0
+
+      for (let key in obj) {
+        if (obj[key] !== '' && obj[key]) {
+          newobj[key] = obj[key]
+          count++
         }
       }
-      this.triggerEvent('next',{obj: newobj})
+      if (count === this.properties.contentObject.number) {
+        let query = obj
+        query = JSON.stringify(query)
+        navigate.navigateTo({
+          url: this.properties.contentObject.rightUrl,
+          query
+        })
+      }
+      this.triggerEvent('next', { obj: newobj })
     }
   }
 })

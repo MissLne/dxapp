@@ -19,22 +19,22 @@
         <view class="edit-content">
           <view>
             <text>活动名称</text>
-            <input type="text" placeholder="请输入活动名称" value="{{footerBtnObject.addActivity.activityName}}" bindinput="materialChange" data-num="{{0}}"/>
+            <input type="text" placeholder="请输入活动名称" value="{{footerBtnObject.addActivity.activityName}}" bindinput="materialChange" data-num="{{0}}" class="{{temObject.activityName? '' : 'active'}}"/>
           </view>
           <view>
             <text>活动开始时间</text>
             <picker mode="date" value="{{footerBtnObject.addActivity.startTime}}" bindchange="materialChange" header-text="请选择" data-num="{{1}}">
-              <view>{{footerBtnObject.addActivity.startTime? footerBtnObject.addActivity.startTime : '选择日期时间'}}</view>
+              <view class="{{temObject.startTime? '' : 'active'}}">{{footerBtnObject.addActivity.startTime? footerBtnObject.addActivity.startTime : '选择日期时间'}}</view>
             </picker>
           </view>
           <view>
             <text>活动地点</text>
-            <input type="text" placeholder="请完善地址" value="{{footerBtnObject.addActivity.address}}" bindinput="materialChange" data-num="{{2}}"/>
+            <input type="text" placeholder="请完善地址" value="{{footerBtnObject.addActivity.address}}" bindinput="materialChange" data-num="{{2}}" class="{{temObject.address? '' : 'active'}}"/>
           </view>
           <view>
             <text>报名截止时间</text>
             <picker mode="date" value="{{footerBtnObject.addActivity.registrationDeadline}}" bindchange="materialChange" data-num="{{3}}">
-              <view>{{footerBtnObject.addActivity.registrationDeadline? footerBtnObject.addActivity.registrationDeadline : '选择日期时间'}}</view>
+              <view class="{{temObject.registrationDeadline? '' : 'active'}}">{{footerBtnObject.addActivity.registrationDeadline? footerBtnObject.addActivity.registrationDeadline : '选择日期时间'}}</view>
             </picker>
           </view>
           <view style="border:none;">
