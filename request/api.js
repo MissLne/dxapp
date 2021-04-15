@@ -18,6 +18,27 @@ var url = {
  reply: "/party/merchant/consult/replyComment"
 }
 module.exports = {
+  searchActivity(params) {
+    return http({      
+      url: `/party/merchant/activity/info/members/${params.activityId}/${params.content}`,
+      data: params,
+      method: 'GET'
+    })
+  },
+  showMemberMessage(params) {
+    return http({      
+      url: `/party/merchant/activity/info/members/${params.activityId}`,
+      data: params,
+      method: 'GET'
+    })
+  },
+  showActivityManage(params) {
+    return http({      
+      url: `/party/merchant/activity/info/${params.activityId}`,
+      data: params,
+      method: 'GET'
+    })
+  },
   reply(params) {
     return http({      
       url: url.reply,

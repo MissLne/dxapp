@@ -1,0 +1,6 @@
+/* pages/activityPage/manage/activityManage/activityManage.wxss */
+.parent-nav-class {
+  width: 250rpx;
+  margin-left: 30rpx;
+  margin-bottom: 30rpx;
+}

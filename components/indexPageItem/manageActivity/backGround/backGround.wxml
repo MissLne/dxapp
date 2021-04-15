@@ -1,0 +1,7 @@
+<!-- components/indexPageItem/manageActivity/backGround/backGround.wxml -->
+<view>
+  <image src="{{materialObject.backGround}}"/>
+  <view>{{materialObject.activityName}}</view>
+  <view>{{materialObject.status}}</view>
+  <view>{{materialObject.startTime}}</view>
+</view>

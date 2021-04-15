@@ -1,0 +1,12 @@
+<!-- components/indexPageItem/manageActivity/memberMessage/memberMessage.wxml -->
+<view wx:for="{{member}}" wx:key="{{index}}">
+  <view>
+    <view>{{item.name}}</view>
+    <view>
+      <view>{{item.gender}}</view>
+      <view>{{item.school}}</view>
+      <view>{{item.phone}}</view>
+    </view>
+  </view>
+  <view>{{item.ticketName}}</view>
+</view>

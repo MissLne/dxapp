@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "Navigations": "/components/tools/navigations/navigations",
+    "Background": "/components/indexPageItem/manageActivity/backGround/backGround",
+    "ManageBtn": "/components/indexPageItem/manageActivity/manageBtn/manageBtn",
+    "BaseMaterial": "/components/indexPageItem/manageActivity/baseMaterial/baseMaterial",
+    "MemberMessage": "/components/indexPageItem/manageActivity/memberMessage/memberMessage",
+    "BillItem": "/components/userPageItem/userMoneyPage/billItem/billItem"
+  }
+}

@@ -134,6 +134,12 @@
         {
           "name": "注册",
           "pathName": "pages/loginPage/register/register",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "活动管理",
+          "pathName": "pages/activityPage/manage/activityManage/activityManage",
           "scene": null
         }
       ]

@@ -1,0 +1,23 @@
+<!-- pages/activityPage/manage/activityManage/activityManage.wxml -->
+<view class="messageTitle">
+  <Navigations navigationsArray="{{['数据','成员','账单']}}" parent-nav-class="parent-nav-class" currentSwiper="{{currentIndex}}" bind:cur="swiperCurrent" />
+</view>
+<swiper style="height: {{swiperHeight}}rpx" bindchange="swiperChange" current="{{swiperIndex}}">
+  <swiper-item>
+    <Background materialObject="{{manageActivity}}" />
+    <BaseMaterial materialObject="{{manageActivity}}" />
+    <ManageBtn />
+  </swiper-item>
+  <swiper-item>
+    <view>
+      <input model:value="{{searchContent}}"/>
+      <view bindtap="searchHandle">搜索</view>
+    </view>
+    <MemberMessage member="{{memberMessage}}" />
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y="true" style="height:{{swiperHeight}}rpx">
+      <BillItem billDetail="{{billDetail}}" />
+    </scroll-view>
+  </swiper-item>
+</swiper>
