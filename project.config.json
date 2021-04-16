@@ -140,6 +140,12 @@
         {
           "name": "活动管理",
           "pathName": "pages/activityPage/manage/activityManage/activityManage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "活动信息更新",
+          "pathName": "pages/activityPage/manage/activityUpdate/activityUpdate",
           "scene": null
         }
       ]

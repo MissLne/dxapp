@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "Tips": "/components/indexPageItem/publishIntroduce/tips/tips",
+    "Buttons": "/components/tools/buttons/buttons",
+    "TicketUpdate": "/components/indexPageItem/manageActivity/ticketUpdate/ticketUpdate"
+  }
+}

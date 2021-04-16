@@ -1,0 +1,21 @@
+<!-- components/indexPageItem/manageActivity/ticketUpdate/ticketUpdate.wxml -->
+<view wx:for="{{ticketsMaterial}}" wx:key="{{index}}">
+  <view>
+    <view>票种设置</view>
+    <view>修改后门票总数不得小于售出数</view>
+  </view>
+  <view>
+    <view>
+      <view>门票总数</view>
+      <view>
+        <view>{{item.ticketNumber}}</view>
+        <view>{{item.ticketRemainNumber}}</view>
+      </view>
+      <InputBox inputTitle="票种介绍" inputValue="{{item.ticketInstruction}}" bindact="ticketSetting" data-num="{{index}}"/>
+    </view>
+    <view>
+      <view>{{item.ticketName}}</view>
+      <view>{{item.refundType}}</view>
+    </view>
+  </view>
+</view>

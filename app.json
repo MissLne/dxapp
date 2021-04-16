@@ -6,6 +6,7 @@
     "pages/activityPage/publish/ticket/ticket",
     "pages/activityPage/publish/setUp/setUp",
     "pages/activityPage/manage/activityManage/activityManage",
+    "pages/activityPage/manage/activityUpdate/activityUpdate",
     "pages/logs/logs",
     "pages/messagePage/message/message",
     "pages/userPage/user/user",

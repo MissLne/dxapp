@@ -15,9 +15,26 @@ var url = {
  invest: "/party/merchant/money/pay",
  register: "/party/merchant/enter/one/doEnter",
  restore: "/party/merchant/consult/reply",
- reply: "/party/merchant/consult/replyComment"
+ reply: "/party/merchant/consult/replyComment",
+ updateActivity: "/party/merchant/activity/update_activity"
 }
 module.exports = {
+  updateActivity(params) {
+    return http({      
+      url: url.updateActivity,
+      header: {
+        "Content-Type": "application/json"
+      },
+      data: params
+    })
+  },
+  showUpdateActivity(params) {
+    return http({      
+      url: `/party/merchant/activity/actInfo/${params.activityId}`,
+      data: params,
+      method: 'GET'
+    })
+  },
   searchActivity(params) {
     return http({      
       url: `/party/merchant/activity/info/members/${params.activityId}/${params.content}`,

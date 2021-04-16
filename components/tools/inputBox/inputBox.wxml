@@ -2,7 +2,7 @@
 <view>
   <view class="titleText">{{inputTitle}}</view>
   <view class="publishContainer1">
-    <input value="{{inputValue}}" class="publishInput"/>
+    <input value="{{inputValue}}" class="publishInput" bindinput="updateMessage"/>
   </view>
 </view>
   
