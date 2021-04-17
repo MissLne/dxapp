@@ -17,9 +17,16 @@ var url = {
  restore: "/party/merchant/consult/reply",
  reply: "/party/merchant/consult/replyComment",
  updateActivity: "/party/merchant/activity/update_activity",
- uploadImg: "/party/web_public/upload_picture"
+ uploadImg: "/party/web_public/upload_picture",
+ showMemberDetail: "/party/merchant/activity/info/members/detail"
 }
 module.exports = {
+  showMemberDetail(params) {
+    return http({      
+      url: url.showMemberDetail,
+      data: params
+    })
+  },
   uploadImg(params) {
     return http({      
       url: url.uploadImg,
