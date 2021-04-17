@@ -36,6 +36,8 @@ Component({
     chooseImg() {
       wx.chooseImage({
         count: 1,
+        sizeType: ['original', 'compressed'],
+        sourceType: ['album', 'camera'],
         success: (result) => {
           wx.showToast({
             title: '正在上传...',
@@ -43,12 +45,38 @@ Component({
             duration: 1500,
             mask: true
           })
-          this.setData({
-            imageUrl: result.tempFilePaths[0]
+          wx.uploadFile({
+            url: 'http://47.119.112.252:8089/party/web_public/upload_picture',
+            filePath: result.tempFilePaths[0],
+            name: 'file',
+            header: {
+              token: wx.getStorageSync('token')
+            },
+            success: (result) => {
+              let imgObj = JSON.parse(result.data)
+              this.setData({
+                imageUrl: imgObj.data
+              })
+              this.triggerEvent('url',{url: this.data.imageUrl})
+            }
           })
-          this.triggerEvent('url',{url: this.data.imageUrl})
         }
       })
+      // wx.chooseImage({
+      //   count: 1,
+      //   success: (result) => {
+      //     wx.showToast({
+      //       title: '正在上传...',
+      //       icon: 'loading',
+      //       duration: 1500,
+      //       mask: true
+      //     })
+      //     this.setData({
+      //       imageUrl: result.tempFilePaths[0]
+      //     })
+      //     this.triggerEvent('url',{url: this.data.imageUrl})
+      //   }
+      // })
       
     }
   }

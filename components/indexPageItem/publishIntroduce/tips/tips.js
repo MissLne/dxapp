@@ -1,3 +1,5 @@
+const request = require("../../../../request/api")
+
 // components/indexPageItem/publishIntroduce/tips/tips.js
 Component({
   /**
@@ -47,7 +49,7 @@ Component({
     getInput(e) {
       let data = this.data.baseMessage
       data.announcement = e.detail.str
-      this.triggerEvent('act',{obj: data})
+      this.triggerEvent('act', { obj: data })
     },
     showMaterial() {
       let data = this.data.uploadArray
@@ -64,6 +66,8 @@ Component({
     chooseImg(e) {
       wx.chooseImage({
         count: 1,
+        sizeType: ['original', 'compressed'],
+        sourceType: ['album', 'camera'],
         success: (result) => {
           wx.showToast({
             title: '正在上传...',
@@ -71,15 +75,26 @@ Component({
             duration: 1500,
             mask: true
           })
-          let data = this.data.uploadArray
-          let obj = this.properties.activityMaterial
-          data[e.currentTarget.dataset.num].imgUrl = result.tempFilePaths[0]
-          e.currentTarget.dataset.num === 1? obj.linkManCode = result.tempFilePaths[0] : obj.groupCode = result.tempFilePaths[0]
-          this.setData({
-            uploadArray: data,
-            baseMessage: obj
+          wx.uploadFile({
+            url: 'http://47.119.112.252:8089/party/web_public/upload_picture',
+            filePath: result.tempFilePaths[0],
+            name: 'file',
+            header: {
+              token: wx.getStorageSync('token')
+            },
+            success: (result) => {
+              let imgObj = JSON.parse(result.data)
+              let data = this.data.uploadArray
+              let obj = this.properties.activityMaterial
+              data[e.currentTarget.dataset.num].imgUrl = imgObj.data
+              e.currentTarget.dataset.num === 1 ? obj.linkManCode = imgObj.data : obj.groupCode = imgObj.data
+              this.setData({
+                uploadArray: data,
+                baseMessage: obj
+              })
+              this.triggerEvent('act', { obj: obj })
+            }
           })
-          this.triggerEvent('act',{obj: obj})
         }
       })
     }

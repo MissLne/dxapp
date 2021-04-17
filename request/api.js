@@ -16,9 +16,19 @@ var url = {
  register: "/party/merchant/enter/one/doEnter",
  restore: "/party/merchant/consult/reply",
  reply: "/party/merchant/consult/replyComment",
- updateActivity: "/party/merchant/activity/update_activity"
+ updateActivity: "/party/merchant/activity/update_activity",
+ uploadImg: "/party/web_public/upload_picture"
 }
 module.exports = {
+  uploadImg(params) {
+    return http({      
+      url: url.uploadImg,
+      header: {
+        "Content-Type": "multipart/form-data"
+      },
+      data: params
+    })
+  },
   updateActivity(params) {
     return http({      
       url: url.updateActivity,

@@ -52,6 +52,8 @@ Page({
   chooseImg() {
     wx.chooseImage({
       count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
       success: (result) => {
         wx.showToast({
           title: '正在上传...',
@@ -59,13 +61,40 @@ Page({
           duration: 1500,
           mask: true
         })
-        let data = this.data.footerBtnObject
-        data.addActivity.posterImage = result.tempFilePaths[0]
-        this.setData({
-          footerBtnObject: data
+        wx.uploadFile({
+          url: 'http://47.119.112.252:8089/party/web_public/upload_picture',
+          filePath: result.tempFilePaths[0],
+          name: 'file',
+          header: {
+            token: wx.getStorageSync('token')
+          },
+          success: (result) => {
+            let imgObj = JSON.parse(result.data)
+            let data = this.data.footerBtnObject
+            data.addActivity.posterImage = imgObj.data
+            this.setData({
+              footerBtnObject: data
+            })
+          }
         })
       }
     })
+    // wx.chooseImage({
+    //   count: 1,
+    //   success: (result) => {
+    //     wx.showToast({
+    //       title: '正在上传...',
+    //       icon: 'loading',
+    //       duration: 1500,
+    //       mask: true
+    //     })
+    //     let data = this.data.footerBtnObject
+    //     data.addActivity.posterImage = result.tempFilePaths[0]
+    //     this.setData({
+    //       footerBtnObject: data
+    //     })
+    //   }
+    // })
     
   }
 })

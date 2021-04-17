@@ -15,7 +15,9 @@
       <view>{{item.text}}</view>
       <view class="imgContainer">
         <image class="publishImg" src="{{item.imgUrl}}" mode="aspectFill"/>
-        <text class="publishUpload" bind:tap="chooseImg" data-num="{{index}}">{{item.value}}</text>
+        <text class="publishUpload" bind:tap="chooseImg" data-num="{{index}}">{{item.value}}
+        </text>
+        <!-- <input type="file"/> -->
       </view>
     </view>
   </view>

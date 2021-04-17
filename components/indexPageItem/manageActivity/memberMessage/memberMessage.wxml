@@ -1,6 +1,6 @@
 <!-- components/indexPageItem/manageActivity/memberMessage/memberMessage.wxml -->
 <view wx:for="{{member}}" wx:key="{{index}}">
-  <view>
+  <view bind:tap="showDetail" data-mId="{{item.mid}}">
     <view>{{item.name}}</view>
     <view>
       <view>{{item.gender}}</view>

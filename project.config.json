@@ -146,6 +146,12 @@
         {
           "name": "活动信息更新",
           "pathName": "pages/activityPage/manage/activityUpdate/activityUpdate",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "成员信息",
+          "pathName": "pages/activityPage/manage/memberMessage/memberMessage",
           "scene": null
         }
       ]
