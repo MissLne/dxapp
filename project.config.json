@@ -152,6 +152,7 @@
         {
           "name": "成员信息",
           "pathName": "pages/activityPage/manage/memberMessage/memberMessage",
+          "query": "",
           "scene": null
         }
       ]

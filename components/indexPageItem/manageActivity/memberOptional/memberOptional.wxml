@@ -1,0 +1,9 @@
+<!--components/indexPageItem/manageActivity/memberOptional/memberOptional.wxml-->
+<block wx:for="{{baseMaterial}}" wx:key="{{index}}">
+  <view wx:if="{{item.propertyType === 3}}">
+  <view >{{item.property}}</view>
+  <input type="text" value="{{item.tableValue}}"/>
+</view>
+</block>
+  
+  

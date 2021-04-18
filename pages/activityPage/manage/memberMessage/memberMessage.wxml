@@ -1,2 +1,19 @@
 <!--pages/activityPage/manage/memberMessage/memberMessage.wxml-->
-<text>pages/activityPage/manage/memberMessage/memberMessage.wxml</text>
+<view>
+  <view >姓名</view>
+  <input value="{{memberObj.name}}"/>
+</view>
+<view>
+  <view >男</view>
+  <input value="{{memberObj.gender}}" />
+</view>
+<view>
+  <view >联系方式</view>
+  <input value="{{memberObj.phone}}" />
+</view>
+<view>
+  <view >就读学校</view>
+  <input value="{{memberObj.school}}" />
+</view>
+<MemberOptional optional="{{memberObj.tables}}"/>
+<button open-type="share">按钮</button>
