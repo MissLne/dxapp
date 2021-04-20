@@ -2,7 +2,7 @@
 <view wx:for="{{ticketDetail.length? ticketDetail : defaultArray}}" wx:key="{{index}}" class="ticketDetailContainer">
   <view class="containerTitle">
     <view>
-      <input value="{{item.ticketName}}"/>
+      <input value="{{item.ticketName}}"  bindinput="updateInput" data-num="{{index}}" data-count="{{0}}"/>
     </view>
       <view wx:if="{{ticketDetail.length > 1}}" bindtap="deleteTicket" data-num="{{index}}">
         删除
@@ -10,16 +10,16 @@
   </view>
   <view class="ticketPriceAndCount">
     <text>价格</text>
-    <input value="{{item.ticketPrice}}" bindinput="updateInput"/>
+    <input value="{{item.ticketPrice}}" bindinput="updateInput" data-num="{{index}}" data-count="{{1}}"/>
   </view>
   <view class="ticketPriceAndCount" style="margin-bottom: 30rpx;">
     <text>数目</text>
-    <input value="{{item.ticketNumber}}" bindinput="updateInput"/>
+    <input value="{{item.ticketNumber}}" bindinput="updateInput" data-num="{{index}}" data-count="{{2}}"/>
   </view>
-  <InputBox inputValue="{{item.ticketInstructions}}" inputTitle="票种介绍" bindact="getInput"/>
+  <InputBox inputValue="{{item.ticketInstructions}}" inputTitle="票种介绍" bindact="getInput"  data-num="{{index}}"/>
   <view class="ticketDetailFooter">
     <view >不可退票的票种钱款将在报名后方可提现</view>
-    <radioBtn radioContent="{{['不可退票']}}" defultData="{{item.ticketRefundType}}" radio-parent-class="radio-parent-class" />
+    <radioBtn radioContent="{{['不可退票']}}" defultData="{{item.ticketRefundType}}" radio-parent-class="radio-parent-class" bindtype="getType" data-num="{{index}}"/>
   </view>
     
 </view>

@@ -1,25 +1,23 @@
-<view wx:for="{{setUpDetail.length? setUpDetail : defaultArray}}" wx:key="{{index}}" class="setUpContainer">
-  <view class="containerTitle">
-    {{item.title}}
+<view wx:for="{{setUpDetail.length? setUpDetail : defaultArray}}" wx:key="{{index}}">
+  <view class="setUpContainer">
+    <view class="containerTitle">{{item.title}}</view>
+    <view class="setUpBox">
+      <view class="setUpItemBox">
+        <view>姓名</view>
+        <input value="{{item.name}}" />
+      </view>
+      <view class="setUpItemBox">
+        <view>性别</view>
+        <radioBtn radioContent="{{['男','女']}}" radio-parent-class="radio-parent-class" />
+      </view>
+      <view class="setUpItemBox">
+        <view>联系方式</view>
+        <input value="{{item.phone}}" />
+      </view>
+      <view class="setUpItemBox">
+        <view>就读学校</view>
+        <input value="{{item.school}}" />
+      </view>
+    </view>
   </view>
-  <view class="setUpBox">
-    <view class="setUpItemBox">
-    <view >姓名</view>
-    <input value="{{item.name}}"/>
-  </view>
-  <view class="setUpItemBox">
-    <view>性别</view>
-    <radioBtn radioContent="{{['男','女']}}" radio-parent-class="radio-parent-class"/>
-  </view>
-  <view class="setUpItemBox">
-    <view>联系方式</view>
-    <input value="{{item.phone}}"/>
-  </view>
-  <view class="setUpItemBox">
-    <view>就读学校</view>
-    <input value="{{item.school}}"/>
-  </view>
-  </view>
-    
 </view>
-  

@@ -25,13 +25,14 @@ Component({
       let obj = this.properties.contentObject.addActivity,
         newobj = {},
         count = 0
-
+      console.log(11)
       for (let key in obj) {
         if (obj[key] !== '' && obj[key]) {
           newobj[key] = obj[key]
           count++
         }
       }
+      console.log(count)
       if (count === this.properties.contentObject.number) {
         let query = obj
         console.log(query)

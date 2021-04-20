@@ -18,7 +18,7 @@ Component({
   /**
    * 组件的方法列表
    */
-  ready: function() {
+  ready: function () {
     this.defaultData()
   },
   methods: {
@@ -28,15 +28,16 @@ Component({
       })
     },
     checkedHandle(e) {
-        if(this.properties.radioContent.length == 1) {
-          this.setData({
-            currentSelect: !this.data.currentSelect
-          })
-        } else {
-          this.setData({
-            currentSelect: e.currentTarget.dataset.num
-          })
-        }
+      if (this.properties.radioContent.length == 1) {
+        this.setData({
+          currentSelect: !this.data.currentSelect
+        })
+      } else {
+        this.setData({
+          currentSelect: e.currentTarget.dataset.num
+        })
+      }
+      this.triggerEvent('type',{type: this.data.currentSelect})
     }
   }
 })

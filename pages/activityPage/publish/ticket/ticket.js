@@ -32,18 +32,30 @@ Page({
       leftUrl: '/pages/activityPage/publish/introdution/introdution',
       leftBtn: '上一步',
       rightUrl: '/pages/activityPage/publish/setUp/setUp',
-      rightBtn: '下一步'
-    }
+      rightBtn: '下一步',
+      number: 9,
+      addActivity: {}
+    },
+    paramsObj: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    this.setData({
+      paramsObj: options
+    })
+  },
+  getTicketMessage(e) {
+    this.data.paramsObj.ticketList = e.detail.arr
+    this.data.footerBtnObject.addActivity = this.data.paramsObj
+    this.setData({
+      paramsObj: this.data.paramsObj,
+      footerBtnObject: this.data.footerBtnObject
+    })
   },
   addTicket() {
-    
     this.data.ticketDetailArray.push({
       ticketName: '输入票种名',
       price: '输入0即为免费票',
