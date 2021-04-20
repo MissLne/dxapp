@@ -3,7 +3,7 @@
   <Header></Header>
   <Middle/>
   <Btn content="完善图文介绍"/>
-  <Tips></Tips>
+  <Tips activityMaterial="{{activityMaterial}}" bindact="getMessage"></Tips>
   <Footer contentObject="{{footerBtnObject}}"/>
 </view>
   

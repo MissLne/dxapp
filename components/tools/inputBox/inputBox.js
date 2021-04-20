@@ -20,9 +20,11 @@ Component({
    */
   methods: {
     updateMessage(e) {
+      console.log(e)
       this.setData({
         inputMessage: e.detail.value
       })
+      console.log(this.data.inputMessage)
       this.triggerEvent('act',{str: this.data.inputMessage})
     }
   }

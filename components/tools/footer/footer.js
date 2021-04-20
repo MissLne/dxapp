@@ -34,7 +34,10 @@ Component({
       }
       if (count === this.properties.contentObject.number) {
         let query = obj
-        query = JSON.stringify(query)
+        console.log(query)
+        for (let key in query) {
+            query[key] = JSON.stringify(query[key])
+        }
         navigate.navigateTo({
           url: this.properties.contentObject.rightUrl,
           query

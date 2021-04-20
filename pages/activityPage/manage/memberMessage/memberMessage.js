@@ -26,7 +26,7 @@ Page({
     }
     return {
       title: '标签l',
-      path: '/pages/loginPage/register/register', //这里设定都是以"/page"开头,并拼接好传递的参数
+      path: '/pages/loginPage/register/register', 
       success: function (res) {
         // 转发成功
         console.log(res);
