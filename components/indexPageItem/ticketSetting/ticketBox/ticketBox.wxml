@@ -10,16 +10,16 @@
   </view>
   <view class="ticketPriceAndCount">
     <text>价格</text>
-    <input value="{{item.price}}"/>
+    <input value="{{item.ticketPrice}}" bindinput="updateInput"/>
   </view>
   <view class="ticketPriceAndCount" style="margin-bottom: 30rpx;">
     <text>数目</text>
-    <input value="{{item.count}}"/>
+    <input value="{{item.ticketNumber}}" bindinput="updateInput"/>
   </view>
-  <InputBox inputValue="{{item.introduce}}" inputTitle="票种介绍"/>
+  <InputBox inputValue="{{item.ticketInstructions}}" inputTitle="票种介绍" bindact="getInput"/>
   <view class="ticketDetailFooter">
     <view >不可退票的票种钱款将在报名后方可提现</view>
-    <radioBtn radioContent="{{['不可退票']}}" defultData="{{item.bounce}}" radio-parent-class="radio-parent-class" />
+    <radioBtn radioContent="{{['不可退票']}}" defultData="{{item.ticketRefundType}}" radio-parent-class="radio-parent-class" />
   </view>
     
 </view>

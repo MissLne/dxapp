@@ -28,6 +28,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    updateInput(e) {
+      console.log(e)
+    },
     deleteTicket(e) {
       delete this.properties.ticketDetail.splice(e.currentTarget.dataset.num,1)
       this.setData({

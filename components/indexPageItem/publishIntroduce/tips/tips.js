@@ -51,11 +51,11 @@ Component({
       let obj = this.data.uploadArray
       data.announcement = e.detail.str
       obj.announcement = e.detail.str
+      console.log(data)
       this.triggerEvent('act', { obj: data })
       obj.forEach(element => {
         if(element.type === 1) element.value = obj.announcement 
       })
-      console.log(obj)
       this.setData({
         uploadArray: obj
       })

@@ -8,25 +8,25 @@ Page({
     ticketDetailArray: [
       {
         ticketName: '早鸟票',
-        price: '100',
-        count: '100',
-        introduce: '早起的票',
-        bounce: 1
+        ticketPrice: '100',
+        ticketNumber: '100',
+        ticketInstructions: '早起的票',
+        ticketRefundType: 1
       },
       {
-        ticketName: '丑鸟票',
-        price: '100',
-        count: '100',
-        introduce: '早起的票',
-        bounce: 0
+        ticketName: '早鸟票',
+        ticketPrice: '100',
+        ticketNumber: '100',
+        ticketInstructions: '早起的票',
+        ticketRefundType: 0
       },
       {
-        ticketName: '美鸟票',
-        price: '100',
-        count: '100',
-        introduce: '早起的票',
-        bounce: 1
-      }
+        ticketName: '早鸟票',
+        ticketPrice: '100',
+        ticketNumber: '100',
+        ticketInstructions: '早起的票',
+        ticketRefundType: 1
+      },
     ],
     footerBtnObject: {
       leftUrl: '/pages/activityPage/publish/introdution/introdution',
@@ -40,7 +40,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    console.log(options)
   },
   addTicket() {
     
