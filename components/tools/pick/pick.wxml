@@ -1,0 +1,6 @@
+<view class="pickBtn"  >
+  <!-- <view class="pickBtnContent">{{content}}</view> -->
+  <picker class="pickBtnContent" mode="selector" range="{{pickMessage.array}}" bindchange="pickValue">
+    {{pickMessage.content}}
+  </picker>
+</view>

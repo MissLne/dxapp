@@ -1,10 +1,10 @@
 <!--pages/activityPage/publish/setUp/setUp.wxml-->
 <view>
   <SetUpHeader/>
-  <SetUpItem/>
-  <SetUpBtn content="新增填写项"/>
+  <SetUpItem setUpItem="{{setUpItem}}"/>
+  <Pick pickMessage="{{pickMessage}}" bindpick="addSetUp"/>
   <view class="setUpFooterBtn">
-    <FootBtn content="保存并预览"/>
+    <SetUpFootBtn content="保存并预览"/>
     <Footer contentObject="{{footerBtnObject}}" parent-leftbtn="parent-footer" up-parent-class="up-parent-class"/>
   </view>
 </view>

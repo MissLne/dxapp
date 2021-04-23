@@ -28,6 +28,7 @@ Component({
       })
     },
     checkedHandle(e) {
+      
       if (this.properties.radioContent.length == 1) {
         this.setData({
           currentSelect: !this.data.currentSelect
@@ -37,6 +38,7 @@ Component({
           currentSelect: e.currentTarget.dataset.num
         })
       }
+      console.log(this.data.currentSelect)
       this.triggerEvent('type',{type: this.data.currentSelect})
     }
   }
