@@ -1,7 +1,7 @@
 {
   "usingComponents": {
     "Navigations": "/components/tools/navigations/navigations",
-    "Select": "/components/tools/select/select",
+    "ScrollSelect": "/components/tools/scrollSelect/scrollSelect",
     "MessageItem": "/components/messagePageItem/messageItem/messageItem"
   }
 }

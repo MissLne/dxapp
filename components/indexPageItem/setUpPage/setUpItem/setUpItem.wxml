@@ -40,7 +40,7 @@
     </block>
     <block wx:if="{{item.pickType == 2}}" wx:for="{{checkBox}}" wx:for-index="num" wx:for-item="sonItem">
       <input placeholder="选项{{num + 1}} 例：公众号" value="{{sonItem}}" bindinput="changeSonInput" data-inputindex="{{num}}" data-boxindex="{{index}}"/>
-      <view style="background: #000;" wx:if="{{checkBox.length > 2}}" bind:tap="deleteInput" data-inputindex="{{num}}">删除</view>
+      <view style="background: #000;" wx:if="{{checkBox.length > 2}}" bind:tap="deleteInput" data-inputindex="{{num}}" data-boxindex="{{index}}">删除</view>
     </block>
   </view>
       <view wx:if="{{item.pickType == 2}}" bindtap="addChoice">新增选项</view>

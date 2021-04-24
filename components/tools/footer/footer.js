@@ -1,5 +1,6 @@
 // components/indexPageItem/publishIntroduce/footer/footer.js
 const navigate = require('../../../navigator/index')
+const request = require('../../../request/api')
 Component({
   /**
    * 组件的属性列表
@@ -25,19 +26,24 @@ Component({
       let obj = this.properties.contentObject.addActivity,
         newobj = {},
         count = 0
-      console.log(11)
+      
       for (let key in obj) {
         if (obj[key] !== '' && obj[key]) {
           newobj[key] = obj[key]
           count++
         }
       }
-      console.log(count)
+      if (this.properties.contentObject.rightBtn == '发布' && count == 10) {
+        request.publishActivities(obj)
+        .then(res => {
+          console.log(res)
+        })
+      }
       if (count === this.properties.contentObject.number) {
         let query = obj
         console.log(query)
         for (let key in query) {
-            query[key] = JSON.stringify(query[key])
+          query[key] = JSON.stringify(query[key])
         }
         navigate.navigateTo({
           url: this.properties.contentObject.rightUrl,

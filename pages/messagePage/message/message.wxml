@@ -7,12 +7,7 @@
   <swiper style="height: {{windowHeight}}rpx" bindchange="swiperChange" current="{{swiperIndex}}">
     <swiper-item >
       <scroll-view scroll-y="true" style="height: {{windowHeight}}rpx">
-
-        <view class="selectContainer">
-          <Select propArray='{{selectArray1}}' com-select-box="com-select-box" nowText="全部活动"></Select>
-          <Select propArray='{{selectArray2}}' com-select-box="com-select-box" nowText="未回答"></Select>
-        </view>
-
+        <ScrollSelect scrollSelect="{{scrollSelect}}"/>
         <MessageItem messageItemArray="{{questionMessage}}" messageType="回答"/>
       </scroll-view>
     </swiper-item>
@@ -20,7 +15,7 @@
     <swiper-item >
       <scroll-view scroll-y="true" style="height: {{windowHeight}}rpx">
         <view class="selectContainer">
-          <Select propArray='{{selectArray1}}' com-select-box="com-select-box" nowText="全部活动"></Select>
+          
         </view>
         <MessageItem messageItemArray="{{commentMessage}}" messageType="回复"/>
       </scroll-view>

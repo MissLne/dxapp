@@ -38,12 +38,14 @@ Component({
       this.setData({
         setUpItem: this.properties.setUpItem
       })
+      this.triggerEvent('setup',{arr: this.properties.setUpItem})
     },
     changeInput(e) {
       this.properties.setUpItem[e.currentTarget.dataset.num][`${e.currentTarget.dataset.str}`] = e.detail.value
       this.setData({
         setUpItem: this.properties.setUpItem
       })
+      this.triggerEvent('setup',{arr: this.properties.setUpItem})
     },
     checkChange(e) {
       console.log(e.detail.type)
@@ -55,26 +57,28 @@ Component({
       }
     },
     changeSonInput(e) {
-      console.log(e)
       this.data.checkBox[e.currentTarget.dataset.inputindex] = e.detail.value
       this.properties.setUpItem[e.currentTarget.dataset.boxindex].content = this.data.checkBox
       this.setData({
         setUpItem: this.properties.setUpItem
       })
-      console.log(this.properties.setUpItem)
+      this.triggerEvent('setup',{arr: this.properties.setUpItem})
     },
     deleteInput(e) {
-      console.log(1)
       this.data.checkBox.splice(e.currentTarget.dataset.inputindex,1)
+      this.properties.setUpItem[e.currentTarget.dataset.boxindex].content = this.data.checkBox
       this.setData({
-        checkBox: this.data.checkBox
+        setUpItem: this.properties.setUpItem
       })
-    },
+      this.triggerEvent('setup',{arr: this.properties.setUpItem})
+    }
+    ,
     deleteBox(e) {
       this.properties.setUpItem.splice(e.currentTarget.dataset.num,1)
       this.setData({
-        checkBsetUpItemox: this.properties.setUpItem
+        setUpItem: this.properties.setUpItem
       })
+      this.triggerEvent('setup',{arr: this.properties.setUpItem})
     }
   }
 })

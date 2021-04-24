@@ -26,7 +26,27 @@ Page({
     questionMessage: [],
     commentMessage: [],
     currentIndex: 0,
-    swiperIndex: 0
+    swiperIndex: 0,
+    scrollSelect: {
+      title: '全部活动',
+      selectList:[
+        'lalalalala',
+        'hahahhahah',
+        'lalalalala',
+        'hahahhahah',
+        'lalalalala',
+        'hahahhahahooooooooooooooooooooooo',
+        'lalalalala',
+        'hahahhahah',
+        'lalalalala',
+        'hahahhahah',
+        'lalalalala',
+        'hahahhahah',
+        'lalalalala',
+        'hahahhahah',
+        'hehehehehe'
+      ]
+    }
   },
 
   /**

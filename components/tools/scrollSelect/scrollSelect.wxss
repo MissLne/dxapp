@@ -1,0 +1,30 @@
+/* components/tools/scrollSelect/scrollSelect.wxss */
+.scorllSelectBox {
+  position: relative;
+  width: 400rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+.scorllSelectTitle {
+  font-size: 30rpx;
+  color: #666;
+}
+.scorllSelectList {
+  padding-top: 10rpx;
+  background: #fff;
+  width: 334rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 0 5rpx 2rpx rgba(0, 0, 0,0.1);
+  position: absolute;
+  top: 50rpx;
+  right: 0;
+}
+.scorllSelectListItem {
+  width: 286rpx;
+  margin: 10rpx auto;
+  font-size: 24rpx;
+  color: #666;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}

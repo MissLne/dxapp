@@ -1,7 +1,7 @@
 <!--pages/activityPage/publish/setUp/setUp.wxml-->
 <view>
   <SetUpHeader/>
-  <SetUpItem setUpItem="{{setUpItem}}"/>
+  <SetUpItem setUpItem="{{setUpItem}}" bindsetup="getSetUpMessage"/>
   <Pick pickMessage="{{pickMessage}}" bindpick="addSetUp"/>
   <view class="setUpFooterBtn">
     <SetUpFootBtn content="保存并预览"/>

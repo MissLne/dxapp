@@ -7,21 +7,36 @@ Page({
   data: {
     footerBtnObject: {
       leftUrl: '/pages/activityPage/publish/ticket/ticket',
+      rightUrl: '/pages/index/index',
       leftBtn: '上一步',
-      rightBtn: '保存'
+      rightBtn: '发布',
+      number: 10,
+      addActivity: {}
     },
     pickMessage: {
       content: '新增填写项',
       array: ['文字填空', '图片', '单选/多选']
     },
-    setUpItem: []
+    setUpItem: [],
+    publishActivity: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    this.data.publishActivity = Object.assign(options,this.data.publishActivity)
+    this.setData({
+      publishActivity: this.data.publishActivity
+    })
+  },
+  publishAct(options) {
+    let obj = Object.assign(options,this.data.publishActivity)
+    let data = this.data.footerBtnObject
+    data.addActivity = obj
+    this.setData({
+      footerBtnObject: data
+    })
   },
   addSetUp(e) {
     let obj = {
@@ -45,6 +60,15 @@ Page({
     this.data.setUpItem.push(obj)
     this.setData({
       setUpItem: this.data.setUpItem
+    })
+  },
+  getSetUpMessage(e) {
+    this.setData({
+      setUpItem: e.detail.arr
+    })
+    this.data.publishActivity.webFormList = this.data.setUpItem
+    this.setData({
+      publishActivity: this.data.publishActivity
     })
   }
 })

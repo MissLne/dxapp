@@ -18,9 +18,19 @@ var url = {
  reply: "/party/merchant/consult/replyComment",
  updateActivity: "/party/merchant/activity/update_activity",
  uploadImg: "/party/web_public/upload_picture",
- showMemberDetail: "/party/merchant/activity/info/members/detail"
+ showMemberDetail: "/party/merchant/activity/info/members/detail",
+ publishActivities: "/party/merchant/activity/add_activity"
 }
 module.exports = {
+  publishActivities(params) {
+    return http({      
+      url: url.publishActivities,
+      data: params,
+      header: {
+        "Content-Type": "application/json"
+      }
+    })
+  },
   showMemberDetail(params) {
     return http({      
       url: url.showMemberDetail,
