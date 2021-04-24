@@ -154,6 +154,18 @@
           "pathName": "pages/activityPage/manage/memberMessage/memberMessage",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "公众号绑定",
+          "pathName": "pages/activityPage/publish/officialAccount/officialAccount",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "富文本",
+          "pathName": "pages/editor/editor",
+          "query": "",
+          "scene": null
         }
       ]
     }

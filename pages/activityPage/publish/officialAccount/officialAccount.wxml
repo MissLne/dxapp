@@ -1,0 +1,8 @@
+<!--pages/activityPage/publish/officialAccount/officialAccount.wxml-->
+<view >
+<view ></view>
+<view ></view>
+</view>
+
+
+<editor placeholder="请输入..."></editor>

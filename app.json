@@ -5,6 +5,8 @@
     "pages/activityPage/publish/introdution/introdution",
     "pages/activityPage/publish/ticket/ticket",
     "pages/activityPage/publish/setUp/setUp",
+    "pages/editor/editor",
+    "pages/activityPage/publish/officialAccount/officialAccount",
     "pages/activityPage/manage/activityManage/activityManage",
     "pages/activityPage/manage/activityUpdate/activityUpdate",
     "pages/activityPage/manage/memberMessage/memberMessage",
