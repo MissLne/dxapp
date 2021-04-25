@@ -37,4 +37,9 @@ Page({
       footerBtnObject: data
     })
   },
+  pageToRichText() {
+    wx.navigateTo({
+      url: '/pages/activityPage/publish/officialAccount/officialAccount'
+    })
+  }
 })

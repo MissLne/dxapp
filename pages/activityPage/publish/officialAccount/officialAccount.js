@@ -14,5 +14,9 @@ Page({
   onLoad: function (options) {
 
   },
-
+  toEditorPage() {
+    wx.navigateTo({
+      url: '/pages/editor/editor'
+    })
+  }
 })

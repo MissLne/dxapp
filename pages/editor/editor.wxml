@@ -14,5 +14,5 @@
   <i class="iconfont icon-youxupailie {{formats.list === 'ordered' ? 'ql-active' : ''}}" data-name="list" data-value="ordered"></i>
   <i class="iconfont icon-wuxupailie {{formats.list === 'bullet' ? 'ql-active' : ''}}" data-name="list" data-value="bullet"></i>
 </view> 
-<Buttons btnContent="保存" parent-buttons-class="parent-buttons-class"/>
+<Buttons btnContent="保存" parent-buttons-class="parent-buttons-class" bindtap="getMessage"/>
   

@@ -15,7 +15,7 @@
       <view>图文详情</view>
       <view>若已添加公众号链接则不必填写图文详情</view>
     </view>
-    <view class="richTextContent"></view>
+    <view class="richTextContent" bindtap="toEditorPage"></view>
   </view>
 </view>
 <Buttons btnContent="保存" parent-buttons-class="parent-buttons-class"/>

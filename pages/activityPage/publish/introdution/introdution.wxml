@@ -1,7 +1,7 @@
 <!--pages/activityPage/publish/introdution/introdution.wxml-->
 <view>
   <Header></Header>
-  <Middle/>
+  <Middle bind:tap="pageToRichText"/>
   <Btn content="完善图文介绍"/>
   <Tips activityMaterial="{{activityMaterial}}" bindact="getMessage"></Tips>
   <!-- <Footer contentObject="{{footerBtnObject}}"/> -->
