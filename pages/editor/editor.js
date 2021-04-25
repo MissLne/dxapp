@@ -15,7 +15,7 @@ Page({
   onLoad() {
     const platform = wx.getSystemInfoSync().platform
     const isIOS = platform === 'ios'
-    this.setData({ isIOS})
+    this.setData({ isIOS })
     const that = this
     this.updatePosition(0)
     let keyboardHeight = 0
@@ -114,13 +114,8 @@ Page({
   getMessage() {
     console.log(1)
     this.editorCtx.getContents({
-
-      success:(res)=>{
-      
-      console.log(res);
-      
-      
-      
+      success: (res) => {
+        console.log(res);
       }
     })
   }

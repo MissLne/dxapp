@@ -1,0 +1,9 @@
+/* components/nullPic/nullPic.wxss */
+.nullPic {
+  width: 281rpx;
+  height: 465rx;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 25%rpx;
+}
