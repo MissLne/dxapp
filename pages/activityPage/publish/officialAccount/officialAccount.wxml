@@ -1,8 +1,21 @@
-<!--pages/activityPage/publish/officialAccount/officialAccount.wxml-->
-<view >
-<view ></view>
-<view ></view>
+<!-- pages/activityPage/publish/officialAccount/officialAccount.wxml -->
+<view class="richTextBox">
+  <view>
+    <view class="officalTitle">
+      <view>公众号链接</view>
+      <view>查看教程</view>
+    </view>
+    <view class="inputBox">
+      <input placeholder="第一次使用请先查看教程关联小程序" />
+    </view>
+  </view>
+
+  <view>
+    <view class="richTextTitle">
+      <view>图文详情</view>
+      <view>若已添加公众号链接则不必填写图文详情</view>
+    </view>
+    <view class="richTextContent"></view>
+  </view>
 </view>
-
-
-<editor placeholder="请输入..."></editor>
+<Buttons btnContent="保存" parent-buttons-class="parent-buttons-class"/>
