@@ -1,5 +1,5 @@
 <!--components/indexPageItem/ticketSetting/ticketBox/ticketBox.wxml-->
-<view wx:for="{{ticketDetail.length? ticketDetail : defaultArray}}" wx:key="{{index}}" class="ticketDetailContainer">
+<view wx:for="{{ticketDetail.length? ticketDetail : defaultArray}}" wx:key="index" class="ticketDetailContainer">
   <view class="containerTitle">
     <view>
       <input value="{{item.ticketName}}"  bindinput="updateInput" data-num="{{index}}" data-count="{{0}}"/>

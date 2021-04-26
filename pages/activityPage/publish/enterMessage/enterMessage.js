@@ -34,6 +34,7 @@ Page({
     })
   },
   materialChange(e) {
+    console.log(1)
     let arr = this.data.materialArray
     let data = this.data.footerBtnObject
     arr[e.currentTarget.dataset.num] = e.detail.value

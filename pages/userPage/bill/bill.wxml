@@ -1,12 +1,12 @@
 <!--pages/userPage/bill/bill.wxml-->
 <view class="selectionClass">
-  <block wx:for="{{selectList}}" wx:key="{{index}}">
+  <block wx:for="{{selectList}}" wx:key="index">
     <Selection selectionName="{{item.name}}" bind:tap="showSelectList" data-num="{{index}}" parent-select-name="parent-select-name" />
     
   </block>
 </view>
 <view>
-  <block wx:for="{{selectList}}" wx:key="{{index}}">
+  <block wx:for="{{selectList}}" wx:key="index">
     <SelectionLsit selectList="{{item.arr}}" showSelect="{{showSelectListIndex == index? 1 : 0}}" selectname="{{showSelectListIndex}}" parent-select-list="parent-select-list"></SelectionLsit>
   </block>
   <view class="slots" wx:if="{{showSelectListIndex > 1}}">

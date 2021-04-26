@@ -1,5 +1,5 @@
 <!--components/userPageItem/userMoneyPage/billItem/billItem.wxml-->
-<view wx:for="{{billDetail}}" wx:key="{{index}}" class="bill-box">
+<view wx:for="{{billDetail}}" wx:key="index" class="bill-box">
   <view class="bill-top">
     <view class="bill-top-left">
       <view >{{item.moneyType}}</view>

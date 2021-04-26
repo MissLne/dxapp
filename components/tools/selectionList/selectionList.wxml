@@ -1,4 +1,4 @@
 <!--components/tools/selectionList/selectionList.wxml-->
 <view class="selectList parent-select-list" wx:if="{{showSelect}}">
-  <view wx:for="{{selectList}}" wx:key="{{index}}" class="selectListItem {{index == selectIndex? 'active' : ''}}" bind:tap="selectIndex" data-num="{{index}}" >{{item}}</view>
+  <view wx:for="{{selectList}}" wx:key="index" class="selectListItem {{index == selectIndex? 'active' : ''}}" bind:tap="selectIndex" data-num="{{index}}" >{{item}}</view>
 </view>

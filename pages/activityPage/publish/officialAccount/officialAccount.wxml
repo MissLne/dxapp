@@ -6,7 +6,7 @@
       <view>查看教程</view>
     </view>
     <view class="inputBox">
-      <input placeholder="第一次使用请先查看教程关联小程序" />
+      <input placeholder="第一次使用请先查看教程关联小程序"/>
     </view>
   </view>
 

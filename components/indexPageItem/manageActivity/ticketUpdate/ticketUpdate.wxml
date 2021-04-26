@@ -1,5 +1,5 @@
 <!-- components/indexPageItem/manageActivity/ticketUpdate/ticketUpdate.wxml -->
-<view wx:for="{{ticketsMaterial}}" wx:key="{{index}}">
+<view wx:for="{{ticketsMaterial}}" wx:key="index">
   <view>
     <view>票种设置</view>
     <view>修改后门票总数不得小于售出数</view>

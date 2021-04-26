@@ -8,7 +8,7 @@
     <view class="scorllSelectList" wx:if="{{isShow}}">
       <scroll-view scroll-y="false" scroll-top="50" style="height: 570rpx;">
     <view>
-      <view wx:for="{{scrollSelect.selectList}}" wx:key="{{index}}" class="scorllSelectListItem">{{item}}</view>
+      <view wx:for="{{scrollSelect.selectList}}" wx:key="index" class="scorllSelectListItem">{{item}}</view>
     </view>
     </scroll-view>
     </view>

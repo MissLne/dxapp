@@ -39,6 +39,7 @@
 .inputBox input {
   width: 640rpx;
   font-size: 26rpx;
+  z-index: 999;
 }
 .richTextContent {
   width: 690rpx;

@@ -1,4 +1,4 @@
 <view class="btn parent-footer">
-    <navigator class="leftBtn parent-leftbtn" url="{{contentObject.leftUrl? contentObject.leftUrl : ''}}">{{contentObject.leftBtn}}</navigator>
-    <navigator class="rightBtn" bindtap="goNext">{{contentObject.rightBtn}}</navigator>
+    <navigator class="leftBtn parent-leftbtn" open-type="navigateBack" delta="1">{{contentObject.leftBtn}}</navigator>
+    <navigator class="rightBtn" bindtap="goNext"  open-type="navigate">{{contentObject.rightBtn}}</navigator>
 </view>

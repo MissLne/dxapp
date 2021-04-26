@@ -1,4 +1,4 @@
-<view wx:for="{{setUpDetail.length? setUpDetail : defaultArray}}" wx:key="{{index}}">
+<view wx:for="{{setUpDetail.length? setUpDetail : defaultArray}}" wx:key="index">
   <view class="setUpContainer">
     <view class="containerTitle">{{item.title}}</view>
     <view class="setUpBox">
@@ -22,7 +22,7 @@
   </view>
 </view>
 
-<view wx:for="{{setUpItem}}" wx:key="{{index}}">
+<view wx:for="{{setUpItem}}" wx:key="index">
   <view bind:tap="deleteBox" data-num="{{index}}">删除</view>
   <view>
     <input wx:if="{{item.pickType == 0}}" placeholder="标题 例：联系方式" value="{{item.property}}" bindinput="changeInput" data-str="property" data-num="{{index}}"/>

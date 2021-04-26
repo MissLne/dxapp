@@ -1,6 +1,6 @@
 <!--components/tools/navigations/navigations.wxml-->
 <view class="navigationContainer parent-nav-class">
-  <view class="navigationContent {{currentCount == index? 'active' : ''}}" wx:for="{{navigationsArray}}" wx:key="{{index}}" bindtap="selectNavigation" data-num="{{index}}">
+  <view class="navigationContent {{currentCount == index? 'active' : ''}}" wx:for="{{navigationsArray}}" wx:key="index" bindtap="selectNavigation" data-num="{{index}}">
     {{item}}
   </view>
 </view>
