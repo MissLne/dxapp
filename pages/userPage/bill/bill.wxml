@@ -4,6 +4,10 @@
     <Selection selectionName="{{item.name}}" bind:tap="showSelectList" data-num="{{index}}" parent-select-name="parent-select-name" />
     
   </block>
+  <view >
+    <view >收入：{{income}}元</view>
+    <view >支出：{{pay}}元</view>
+  </view>
 </view>
 <view>
   <block wx:for="{{selectList}}" wx:key="index">

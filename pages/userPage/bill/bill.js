@@ -18,7 +18,9 @@ Page({
       }
     ],
     showSelectListIndex: 10,
-    windowHeight: 0
+    windowHeight: 0,
+    pay: 0,
+    income: 0
   },
 
   /**
@@ -49,6 +51,7 @@ Page({
     request.showBillDetail(obj)
     .then(res => {
       let result = res.data.walletDetailBaseMsgs
+      console.log(result)
       for(let i = 0;i < result.length;i++) {
         if(result[i].feeCharge != undefined) {
           result[i].feeCharge = result[i].feeCharge.toFixed(2)
@@ -68,9 +71,16 @@ Page({
             result[i].moneyType = '退票'
             break;
         }
+        if(result[i].moneyType == '提现' || result[i].moneyType == '退票') {
+          this.data.pay += parseFloat(result[i].amount)
+        } else {
+          this.data.income += parseFloat(result[i].amount)
+        }
       }
       this.setData({
-        billDetail: result
+        billDetail: result,
+        pay: this.data.pay.toFixed(2),
+        income: this.data.income.toFixed(2)
       })
     })
   }
