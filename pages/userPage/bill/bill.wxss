@@ -12,3 +12,12 @@
   width: 750rpx;
   height: 40rpx;
 }
+.payAndIncome {
+  font-size: 22rpx;
+  color: #333;
+  display: flex;
+  justify-content: center;
+}
+.payAndIncome view {
+  margin: 0 20rpx;
+}

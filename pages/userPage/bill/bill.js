@@ -51,7 +51,6 @@ Page({
     request.showBillDetail(obj)
     .then(res => {
       let result = res.data.walletDetailBaseMsgs
-      console.log(result)
       for(let i = 0;i < result.length;i++) {
         if(result[i].feeCharge != undefined) {
           result[i].feeCharge = result[i].feeCharge.toFixed(2)
