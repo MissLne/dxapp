@@ -1,11 +1,11 @@
 const apiUrl = "http://47.119.112.252:8089"
-// const apiUrl = "http://192.168.3.9:8089"
+// const apiUrl = "http://47.119.112.252"
 const http = (params) => {
   return new Promise((resolve, reject) => {
     wx.request({
        url: apiUrl + params.url,
        data: params.data,
-     header: params.header || {
+       header: params.header || {
        "Content-Type": "application/x-www-form-urlencoded"
        },
        method: params.method || 'POST',

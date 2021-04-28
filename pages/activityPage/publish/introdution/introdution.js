@@ -10,7 +10,7 @@ Page({
       leftBtn: '上一步',
       rightUrl: '/pages/activityPage/publish/ticket/ticket',
       rightBtn: '下一步',
-      number: 8,
+      number: 3,
       addActivity: {}
     },
     activityMaterial: {},
@@ -30,9 +30,8 @@ Page({
       activityMaterial: e.detail.obj
     })
     console.log(this.data.activityMaterial)
-    let obj = Object.assign(this.data.template,this.data.activityMaterial)
     let data = this.data.footerBtnObject
-    data.addActivity = obj
+    data.addActivity = this.data.activityMaterial
     this.setData({
       footerBtnObject: data
     })
