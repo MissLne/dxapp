@@ -26,28 +26,44 @@ Component({
     goNext() {
       let obj = this.properties.contentObject.addActivity,
         newobj = {},
-        count = 0
-      console.log(obj)
-      app.globalData.publishActivityData = Object.assign(app.globalData.publishActivityData,obj)
+        count = 0,
+        arr = [],
+        nullArr = 0
+      app.globalData.publishActivityData = Object.assign(app.globalData.publishActivityData, obj)
       console.log(app.globalData.publishActivityData)
       for (let key in obj) {
         if (obj[key] !== '' && obj[key]) {
           newobj[key] = obj[key]
+          if (Object.prototype.toString.call(obj[key]) === '[object Array]') arr = obj[key]
           count++
         }
       }
-      console.log(count)
+      console.log(arr)
       if (this.properties.contentObject.rightBtn == '发布' && count == 10) {
         request.publishActivities(obj)
-        .then(res => {
-          console.log(res)
-        })
+          .then(res => {
+            console.log(res)
+          })
       }
       if (count === this.properties.contentObject.number) {
-        
-        wx.navigateTo({
-          url: this.properties.contentObject.rightUrl
-        })
+        if (arr.length == 0) {
+          wx.navigateTo({
+            url: this.properties.contentObject.rightUrl
+          })
+        } else {
+          arr.map(item => {
+            for (let key in item) {
+              if (item[key] === '') nullArr = 1
+            }
+          })
+          if (!nullArr) {
+            wx.navigateTo({
+              url: this.properties.contentObject.rightUrl
+            })
+          }
+
+        }
+
       }
       this.triggerEvent('next', { obj: newobj })
     }

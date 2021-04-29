@@ -14,14 +14,14 @@ Page({
         ticketRefundType: 1
       },
       {
-        ticketName: '早鸟票',
+        ticketName: '丑鸟票',
         ticketPrice: '100',
         ticketNumber: '100',
         ticketInstructions: '早起的票',
         ticketRefundType: 0
       },
       {
-        ticketName: '早鸟票',
+        ticketName: '美丽鸟票',
         ticketPrice: '100',
         ticketNumber: '100',
         ticketInstructions: '早起的票',
@@ -49,23 +49,25 @@ Page({
     })
   },
   getTicketMessage(e) {
-    // this.data.paramsObj.ticketList = e.detail.arr
     this.data.footerBtnObject.addActivity.ticketList = e.detail.arr
     this.setData({
-      footerBtnObject: this.data.footerBtnObject
+      footerBtnObject: this.data.footerBtnObject,
+      ticketDetailArray: e.detail.arr
     })
   },
   addTicket() {
     this.data.ticketDetailArray.push({
-      ticketName: '输入票种名',
-      price: '输入0即为免费票',
-      count: '输入0即为不限数目',
+      ticketName: '',
+      ticketPrice: '',
+      ticketNumber: '',
       introduce: '请用一句话介绍此票种',
       bounce: 0
     })
     let arr = this.data.ticketDetailArray
+    this.data.footerBtnObject.addActivity.ticketList = arr
     this.setData({
-      ticketDetailArray: arr
+      ticketDetailArray: arr,
+      footerBtnObject: this.data.footerBtnObject
     })
   }
 })

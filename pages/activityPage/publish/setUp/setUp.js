@@ -25,18 +25,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.publishActivity = Object.assign(options,this.data.publishActivity)
-    this.setData({
-      publishActivity: this.data.publishActivity
-    })
-  },
-  publishAct(options) {
-    let obj = Object.assign(options,this.data.publishActivity)
-    let data = this.data.footerBtnObject
-    data.addActivity = obj
-    this.setData({
-      footerBtnObject: data
-    })
+    
   },
   addSetUp(e) {
     let obj = {
@@ -58,17 +47,19 @@ Page({
         break
     }
     this.data.setUpItem.push(obj)
+    this.data.footerBtnObject.addActivity.webFormList = this.data.setUpItem
     this.setData({
-      setUpItem: this.data.setUpItem
+      setUpItem: this.data.setUpItem,
+      footerBtnObject: this.data.footerBtnObject
     })
   },
   getSetUpMessage(e) {
     this.setData({
       setUpItem: e.detail.arr
     })
-    this.data.publishActivity.webFormList = this.data.setUpItem
+    this.data.footerBtnObject.addActivity.webFormList = this.data.setUpItem
     this.setData({
-      publishActivity: this.data.publishActivity
+      footerBtnObject: this.data.footerBtnObject
     })
   }
 })
