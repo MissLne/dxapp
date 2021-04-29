@@ -5,6 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    popUpObj: {
+      content: '确认删除该自定义模块？',
+      leftBtn: '确认',
+      rightBtn: '取消',
+      show: 1
+    },
     footerBtnObject: {
       leftUrl: '/pages/activityPage/publish/ticket/ticket',
       rightUrl: '/pages/index/index',
@@ -55,11 +61,13 @@ Page({
   },
   getSetUpMessage(e) {
     this.setData({
-      setUpItem: e.detail.arr
+      setUpItem: e.detail.obj.arr
     })
+    this.data.popUpObj.show = e.detail.obj.show
     this.data.footerBtnObject.addActivity.webFormList = this.data.setUpItem
     this.setData({
-      footerBtnObject: this.data.footerBtnObject
+      footerBtnObject: this.data.footerBtnObject,
+      popUpObj: this.data.popUpObj
     })
   }
 })

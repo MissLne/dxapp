@@ -8,4 +8,4 @@
     <Footer contentObject="{{footerBtnObject}}" parent-leftbtn="parent-footer" up-parent-class="up-parent-class"/>
   </view>
 </view>
-  
+  <PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up"/>

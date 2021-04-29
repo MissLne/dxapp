@@ -5,6 +5,7 @@
     "SetUpBtn": "/components/indexPageItem/ticketSetting/btn/btn",
     "SetUpFootBtn": "/components/indexPageItem/setUpPage/btn/btn",
     "Footer": "/components/tools/footer/footer",
-    "Pick": "/components/tools/pick/pick"
+    "Pick": "/components/tools/pick/pick",
+    "PopUp": "/components/tools/pop-up/pop-up"
   }
 }

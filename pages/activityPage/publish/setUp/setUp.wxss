@@ -14,3 +14,11 @@ page {
   display: flex !important;
   justify-content: center !important;
 }
+.parent-pop-up view:nth-child(1){
+  background: #FF441A;
+  color: #fff;
+}
+.parent-pop-up view:nth-child(2) {
+  border: 1rpx solid #777BCE;
+  color: #777BCE;
+}

@@ -74,11 +74,15 @@ Component({
     }
     ,
     deleteBox(e) {
-      this.properties.setUpItem.splice(e.currentTarget.dataset.num,1)
-      this.setData({
-        setUpItem: this.properties.setUpItem
-      })
-      this.triggerEvent('setup',{arr: this.properties.setUpItem})
+      // this.properties.setUpItem.splice(e.currentTarget.dataset.num,1)
+      // this.setData({
+      //   setUpItem: this.properties.setUpItem
+      // })
+      let obj = {
+        arr: this.properties.setUpItem,
+        show: 1
+      }
+      this.triggerEvent('setup',{obj: obj})
     }
   }
 })

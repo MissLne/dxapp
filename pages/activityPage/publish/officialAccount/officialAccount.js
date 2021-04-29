@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    showBubble: 0,
+    inputValue: ''
   },
 
   /**
@@ -15,8 +16,19 @@ Page({
 
   },
   toEditorPage() {
-    wx.navigateTo({
-      url: '/pages/editor/editor'
-    })
+    if (this.data.inputValue === '') {
+      wx.navigateTo({
+        url: '/pages/editor/editor'
+      })
+    } else {
+      this.setData({
+        showBubble: 1
+      })
+      setTimeout(() => {
+        this.setData({
+          showBubble: 0
+        })
+      }, 2000)
+    }
   }
 })

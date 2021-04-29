@@ -1,0 +1,11 @@
+<!-- components/tools/pop-up/pop-up.wxml -->
+<view class="popUpBox {{popUpObj.show? 'showPopUp' : ''}}">
+  <view class="popUpClose">
+    <view bind:tap="close">×</view>
+  </view>
+  <view class="popUpContent">{{popUpObj.content}}</view>
+  <view class="popUpBtn parent-pop-up">
+    <view>{{popUpObj.leftBtn}}</view>
+    <view bind:tap="close">{{popUpObj.rightBtn}}</view>
+  </view>
+</view>

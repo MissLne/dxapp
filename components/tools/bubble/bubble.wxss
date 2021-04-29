@@ -1,0 +1,24 @@
+/* components/tools/bubble/bubble.wxss */
+.bubble {
+  width: 550rpx;
+  height: 100rpx;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  color: #333;
+  background: #fff;
+  box-shadow: 0 0 5rpx 1rpx rgba(0, 0, 0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  bottom: -30%;
+  opacity: 0;
+  transition: 1s;
+}
+.showbubble {
+  bottom: 50%;
+  opacity: 1;
+}

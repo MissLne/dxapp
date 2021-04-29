@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "Buttons": "/components/tools/buttons/buttons"
+    "Buttons": "/components/tools/buttons/buttons",
+    "Bubble": "/components/tools/bubble/bubble"
   }
 }

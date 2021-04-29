@@ -2,7 +2,6 @@
 <view>
   <Header></Header>
   <Middle bind:tap="pageToRichText"/>
-  <Btn content="完善图文介绍"/>
   <Tips activityMaterial="{{activityMaterial}}" bindact="getMessage"></Tips>
   <!-- <Footer contentObject="{{footerBtnObject}}"/> -->
   <Footer contentObject="{{footerBtnObject}}" parent-leftbtn="parent-leftbtn" bindnext="goNext"></Footer>
