@@ -1,4 +1,5 @@
 // components/indexPageItem/setUpPage/setUpItem/setUpItem.js
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -11,6 +12,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    // setUpItem: app.globalData.setUpCustomizeData,/
     defaultArray: [
       { 
         title: '默认项',
@@ -80,9 +82,10 @@ Component({
       // })
       let obj = {
         arr: this.properties.setUpItem,
-        show: 1
+        show: 1,
+        deleteIndex: e.currentTarget.dataset
       }
-      this.triggerEvent('setup',{obj: obj})
+      this.triggerEvent('setupdelete',{obj: obj})
     }
   }
 })

@@ -1,4 +1,7 @@
 // pages/activityPage/publish/setUp/setUp.js
+const app = getApp();
+
+  
 Page({
 
   /**
@@ -9,8 +12,10 @@ Page({
       content: '确认删除该自定义模块？',
       leftBtn: '确认',
       rightBtn: '取消',
-      show: 1
+      show: 0,
+      toPopUPData: 0
     },
+    
     footerBtnObject: {
       leftUrl: '/pages/activityPage/publish/ticket/ticket',
       rightUrl: '/pages/index/index',
@@ -52,22 +57,44 @@ Page({
         obj.propertyType = 2
         break
     }
-    this.data.setUpItem.push(obj)
-    this.data.footerBtnObject.addActivity.webFormList = this.data.setUpItem
+    app.globalData.setUpCustomizeData.push(obj)
+    console.log(app.globalData.setUpCustomizeData)
+    // this.data.footerBtnObject.addActivity.webFormList = this.data.setUpItem
     this.setData({
-      setUpItem: this.data.setUpItem,
-      footerBtnObject: this.data.footerBtnObject
+      setUpItem: app.globalData.setUpCustomizeData
+    })
+  },
+  suredelete() {
+    this.setData({
+        setUpItem: app.globalData.setUpCustomizeData
+      })
+  },
+  lala() {
+    console.log(app.globalData.setUpCustomizeData)
+  },
+  delete(e) {
+    this.data.popUpObj.show = e.detail.obj.show
+    this.data.popUpObj.toPopUPData = e.detail.obj.deleteIndex.num
+    this.setData({
+      popUpObj: this.data.popUpObj
     })
   },
   getSetUpMessage(e) {
-    this.setData({
-      setUpItem: e.detail.obj.arr
-    })
-    this.data.popUpObj.show = e.detail.obj.show
-    this.data.footerBtnObject.addActivity.webFormList = this.data.setUpItem
-    this.setData({
-      footerBtnObject: this.data.footerBtnObject,
-      popUpObj: this.data.popUpObj
-    })
+    console.log(e)
+    // this.data.popUpObj.show = e.detail.obj? e.detail.obj.show : 0
+    // this.data.popUpObj.toPopUPData = e.detail.obj.deleteIndex.num
+    // this.setData({
+    //   popUpObj: this.data.popUpObj
+    // })
+    app.globalData.setUpCustomizeData = e.detail.arr
+    // this.setData({
+    //   setUpItem: e.detail.obj.arr
+    // })
+    // this.data.popUpObj.show = e.detail.obj.show
+    // this.data.footerBtnObject.addActivity.webFormList = this.data.setUpItem
+    // this.setData({
+    //   footerBtnObject: this.data.footerBtnObject,
+    //   popUpObj: this.data.popUpObj
+    // })
   }
 })

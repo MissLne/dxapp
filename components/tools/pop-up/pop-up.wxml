@@ -5,7 +5,7 @@
   </view>
   <view class="popUpContent">{{popUpObj.content}}</view>
   <view class="popUpBtn parent-pop-up">
-    <view>{{popUpObj.leftBtn}}</view>
+    <view bind:tap="sureDelete">{{popUpObj.leftBtn}}</view>
     <view bind:tap="close">{{popUpObj.rightBtn}}</view>
   </view>
 </view>
