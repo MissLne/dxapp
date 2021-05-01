@@ -11,7 +11,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    isShow: 0
   },
 
   /**
@@ -19,9 +18,19 @@ Component({
    */
   methods: {
     showSelectList() {
+      this.properties.scrollSelect.isShow = !this.properties.scrollSelect.isShow
       this.setData({
-        isShow: !this.data.isShow
+        scrollSelect: this.properties.scrollSelect
       })
+      this.triggerEvent('selectscroll',{show: this.properties.scrollSelect.isShow})
+    },
+    selectActivityName(e) {
+      console.log(e)
+      this.properties.scrollSelect.isShow = 0
+      this.setData({
+        scrollSelect: this.properties.scrollSelect
+      })
+      this.triggerEvent('activityId',{id: e.currentTarget.dataset.id})
     }
   }
 })

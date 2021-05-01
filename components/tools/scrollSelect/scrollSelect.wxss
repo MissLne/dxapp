@@ -4,9 +4,10 @@
   width: 400rpx;
   display: flex;
   justify-content: flex-end;
+  z-index: 10000;
 }
 .scorllSelectTitle {
-  font-size: 30rpx;
+  font-size: 26rpx;
   color: #666;
 }
 .scorllSelectList {

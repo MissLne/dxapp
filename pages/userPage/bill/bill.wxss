@@ -15,8 +15,10 @@
 .payAndIncome {
   font-size: 22rpx;
   color: #333;
+  margin-top: 40rpx;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .payAndIncome view {
   margin: 0 20rpx;

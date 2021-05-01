@@ -1,4 +1,9 @@
 /* components/tools/selection/selection.wxss */
+.selectionBox {
+  width: 200rpx;
+  height: 100rpx;
+  position: relative;
+}
 .selectName {
   color: #666;
   font-size: 26rpx;
@@ -8,4 +13,28 @@
 
 .selectList {
   display: flex;
+}
+.selectListItem {
+  width: 80rpx;
+  height: 40rpx;
+  font-size: 22rpx;
+  color: #777BCE;
+  border: 1rpx solid #777BCE;
+  border-radius: 16rpx;
+  margin-right: 30rpx;
+  margin-top: 10rpx;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.active {
+  color: #fff;
+  background: #777BCE;
+}
+.RselectList {
+  height: 40rpx;
+  position: absolute;
+  display: flex;
+  right: 0;
 }

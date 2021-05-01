@@ -1,0 +1,13 @@
+/* components/tools/dateBtn/dateBtn.wxss */
+.pickerBox {
+  width: 150rpx;
+  height: 55rpx;
+  border: 1rpx solid #349E69;
+  border-radius: 25rpx;
+  color: #349E69;
+  font-size: 26rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 5rpx 3rpx rgba(0, 0, 0,0.1);
+}

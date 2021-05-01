@@ -2,6 +2,8 @@
   "usingComponents": {
     "BillItem": "/components/userPageItem/userMoneyPage/billItem/billItem",
     "Selection": "/components/tools/selection/selection",
-    "SelectionLsit": "/components/tools/selectionList/selectionList"
+    "DateBtn": "/components/tools/dateBtn/dateBtn",
+    "SelectionLsit": "/components/tools/selectionList/selectionList",
+    "ScrollSelect": "/components/tools/scrollSelect/scrollSelect"
   }
 }

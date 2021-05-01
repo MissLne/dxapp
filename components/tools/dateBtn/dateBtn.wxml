@@ -1,0 +1,6 @@
+<!--components/tools/dateBtn/dateBtn.wxml-->
+<view class="pickerBox">
+  <picker mode="date" model:value="{{time}}" fields="month" bindchange="pickerChange" class="thePicker">
+    <view>{{time? time : '本月'}}</view>
+  </picker>
+</view>
