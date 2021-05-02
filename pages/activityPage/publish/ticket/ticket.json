@@ -3,6 +3,10 @@
     "TicketHeader": "/components/indexPageItem/ticketSetting/header/header",
     "TicketBox": "/components/indexPageItem/ticketSetting/ticketBox/ticketBox",
     "TicketBtn": "/components/indexPageItem/ticketSetting/btn/btn",
-    "Footer": "/components/tools/footer/footer"
-  }
+    "Footer": "/components/tools/footer/footer",
+    "PopUp": "/components/tools/pop-up/pop-up",
+    "Bubble": "/components/tools/bubble/bubble",
+    "HeadNavigation": "/components/tools/headNavigation/headNavigation"
+  },
+  "navigationStyle": "custom"
 }

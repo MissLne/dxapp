@@ -6,6 +6,10 @@
     "SetUpFootBtn": "/components/indexPageItem/setUpPage/btn/btn",
     "Footer": "/components/tools/footer/footer",
     "Pick": "/components/tools/pick/pick",
-    "PopUp": "/components/tools/pop-up/pop-up"
-  }
+    "PopUp": "/components/tools/pop-up/pop-up",
+    "Bubble": "/components/tools/bubble/bubble",
+    "HeadNavigation": "/components/tools/headNavigation/headNavigation"
+  },
+  "navigationStyle": "custom"
+  
 }

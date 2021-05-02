@@ -70,6 +70,7 @@ Component({
       this.setData({
         ticketDetail: this.properties.ticketDetail
       })
+      this.triggerEvent('ticket',{arr: this.data.ticketDetail})
     }
   }
 })

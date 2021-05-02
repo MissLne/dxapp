@@ -26,10 +26,8 @@ Component({
         popUpObj: this.properties.popUpObj
       })
     },
-    sureDelete() {
-      console.log(this.properties.popUpObj)
-      app.globalData.setUpCustomizeData.splice(this.properties.popUpObj.toPopUPData,1)
-      this.triggerEvent('delete')
+    sure() {
+      this.triggerEvent('sure')
       this.close()
     }
   }

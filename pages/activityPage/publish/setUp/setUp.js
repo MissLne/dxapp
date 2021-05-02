@@ -15,13 +15,20 @@ Page({
       show: 0,
       toPopUPData: 0
     },
-    
+    popUpObj2: {
+      content: '是否保存为草稿',
+      leftBtn: '保存',
+      rightBtn: '不保存',
+      show: 0,
+      toPopUPData: 0
+    },
+    showBubble: 0,
     footerBtnObject: {
       leftUrl: '/pages/activityPage/publish/ticket/ticket',
       rightUrl: '/pages/index/index',
       leftBtn: '上一步',
       rightBtn: '发布',
-      number: 10,
+      number: 1,
       addActivity: {}
     },
     pickMessage: {
@@ -37,6 +44,36 @@ Page({
    */
   onLoad: function (options) {
     
+  },
+  backIndex() {
+    this.data.popUpObj.show = 1
+    this.setData({
+      popUpObj: this.data.popUpObj
+    })
+  },
+  isSave() {
+    this.data.popUpObj.show = 0
+    this.setData({
+      popUpObj: this.data.popUpObj
+    })
+    request.saveDraft(app.globalData.publishActivityData)
+      .then(res => {
+        console.log(res)
+      })
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
+  goNext() {
+    console.log(1)
+    this.setData({
+      showBubble: 1
+    })
+    setTimeout(() => {
+      this.setData({
+        showBubble: 0
+      })
+    }, 2000)
   },
   addSetUp(e) {
     let obj = {
@@ -57,20 +94,25 @@ Page({
         obj.propertyType = 2
         break
     }
-    app.globalData.setUpCustomizeData.push(obj)
-    console.log(app.globalData.setUpCustomizeData)
-    // this.data.footerBtnObject.addActivity.webFormList = this.data.setUpItem
+    app.globalData.publishActivityData.webFormList.push(obj)
+    // console.log(app.globalData.setUpCustomizeData)
+    this.data.footerBtnObject.addActivity.webFormList = app.globalData.publishActivityData.webFormList
     this.setData({
-      setUpItem: app.globalData.setUpCustomizeData
+      setUpItem: app.globalData.publishActivityData.webFormList,
+      footerBtnObject: this.data.footerBtnObject
     })
+    
+    console.log(this.data.footerBtnObject.addActivity)
   },
   suredelete() {
+    app.globalData.publishActivityData.webFormList.splice(this.properties.popUpObj.toPopUPData,1)
     this.setData({
-        setUpItem: app.globalData.setUpCustomizeData
+        setUpItem: app.globalData.publishActivityData.webFormList,
+        footerBtnObject: this.data.footerBtnObject
       })
   },
   lala() {
-    console.log(app.globalData.setUpCustomizeData)
+    // console.log(app.globalData.setUpCustomizeData)
   },
   delete(e) {
     this.data.popUpObj.show = e.detail.obj.show
@@ -80,21 +122,20 @@ Page({
     })
   },
   getSetUpMessage(e) {
-    console.log(e)
     // this.data.popUpObj.show = e.detail.obj? e.detail.obj.show : 0
     // this.data.popUpObj.toPopUPData = e.detail.obj.deleteIndex.num
     // this.setData({
     //   popUpObj: this.data.popUpObj
     // })
-    app.globalData.setUpCustomizeData = e.detail.arr
-    // this.setData({
-    //   setUpItem: e.detail.obj.arr
-    // })
+    console.log(e)
+    app.globalData.publishActivityData.webFormList = e.detail.arr
+    this.setData({
+      setUpItem: e.detail.arr
+    })
     // this.data.popUpObj.show = e.detail.obj.show
-    // this.data.footerBtnObject.addActivity.webFormList = this.data.setUpItem
-    // this.setData({
-    //   footerBtnObject: this.data.footerBtnObject,
-    //   popUpObj: this.data.popUpObj
-    // })
+    this.data.footerBtnObject.addActivity.webFormList = this.data.setUpItem
+    this.setData({
+      footerBtnObject: this.data.footerBtnObject
+    })
   }
 })

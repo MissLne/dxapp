@@ -43,7 +43,9 @@ Component({
       this.triggerEvent('setup',{arr: this.properties.setUpItem})
     },
     changeInput(e) {
-      this.properties.setUpItem[e.currentTarget.dataset.num][`${e.currentTarget.dataset.str}`] = e.detail.value
+      let data = this.properties.setUpItem[e.currentTarget.dataset.num][`${e.currentTarget.dataset.str}`]
+      Object.prototype.toString.call(data) === '[object Array]'? data = [e.detail.value] : data = e.detail.value
+      this.properties.setUpItem[e.currentTarget.dataset.num][`${e.currentTarget.dataset.str}`] = data
       this.setData({
         setUpItem: this.properties.setUpItem
       })

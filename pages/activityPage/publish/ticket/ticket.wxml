@@ -1,9 +1,11 @@
 <!--pages/activityPage/publish/ticket/ticket.wxml-->
+<HeadNavigation bindheadnav="backIndex"/>
 <view>
   <TicketHeader></TicketHeader>
     <TicketBox ticketDetail="{{ticketDetailArray}}" bindticket="getTicketMessage"></TicketBox>
     <TicketBtn content="点击新增票种" ticketDetail="{{ticketDetailArray}}" bindtap="addTicket"/>
     <Footer contentObject="{{footerBtnObject}}" parent-footer="parent-footer" bindnext="goNext"/>
 </view>
-  
+<PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up" bindsure="isSave" />
+<Bubble bubbleContent="请完善活动的所有信息" showBubble="{{showBubble}}"/>
 

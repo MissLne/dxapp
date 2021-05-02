@@ -22,3 +22,11 @@ page {
   border: 1rpx solid #777BCE;
   color: #777BCE;
 }
+.parent-pop-up2 view:nth-child(1){
+  background: #777BCE;
+  color: #fff;
+}
+.parent-pop-up2 view:nth-child(2) {
+  border: 1rpx solid #777BCE;
+  color: #777BCE;
+}

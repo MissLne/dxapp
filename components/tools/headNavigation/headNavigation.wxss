@@ -1,0 +1,17 @@
+/* components/tools/headNavigation/headNavigation.wxss */
+.topBarTotalHeight {
+  display: flex;
+  align-items: flex-end;
+  background: #fff;
+}
+.topBarTextHeight {
+  padding: 0 30rpx;
+  font-size: 26rpx;
+  color: #333;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.topBarTextHeight view:nth-child(1) {
+  margin-right: 60rpx;
+}

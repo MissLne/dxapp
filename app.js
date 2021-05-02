@@ -15,7 +15,32 @@ App({
   },
   globalData: {
     userInfo: null,
-    publishActivityData: {},
+    publishActivityData: {
+      accountId: wx.getStorageSync('id').toString(),
+      activityName: 'q',
+      startTime: 'q',
+      endTime: 'q',
+      registrationDeadline: 'q',
+      label: 'q',
+      lightSpot: 'q',
+      address: 'q',
+      posterImage: 'q',
+      activityDetails: 'q',
+      announcement: 'q',
+      linkmanCode: 'q',
+      groupCode: 'q',
+      ticketList: [
+        {
+          ticketType: 0,
+          ticketName: 'q',
+          ticketPrice: 0,
+          ticketNumber: 100,
+          ticketInstructions: 'q',
+          ticketRefundType: 0
+        }
+      ],
+      webFormList: []
+    },
     setUpCustomizeData: []
   }
 })

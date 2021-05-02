@@ -166,6 +166,12 @@
           "pathName": "pages/editor/editor",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "活动信息",
+          "pathName": "pages/activityPage/publish/enterMessage/enterMessage",
+          "query": "",
+          "scene": null
         }
       ]
     }

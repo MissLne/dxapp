@@ -1,4 +1,6 @@
 // pages/activityPage/publish/enterMessage/enterMessage.js
+const app = getApp()
+const request = require('../../../../request/api')
 Page({
 
   /**
@@ -18,8 +20,15 @@ Page({
         registrationDeadline: ''
       }
     },
-    materialArray: [],
-    temObject: {}
+    temObject: {},
+    popUpObj: {
+      content: '是否保存为草稿',
+      leftBtn: '保存',
+      rightBtn: '不保存',
+      show: 0,
+      toPopUPData: 0
+    },
+    showBubble: 0
   },
 
   /**
@@ -28,27 +37,46 @@ Page({
   onLoad: function (options) {
 
   },
+  backIndex(e) {
+    this.data.popUpObj.show = 1
+    this.setData({
+      popUpObj: this.data.popUpObj
+    })
+  },
+  isSave() {
+    this.data.popUpObj.show = 0
+    this.setData({
+      popUpObj: this.data.popUpObj
+    })
+    request.saveDraft(app.globalData.publishActivityData)
+      .then(res => {
+        console.log(res)
+      })
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
   goNext(e) {
     this.setData({
       temObject: e.detail.obj
     })
+    this.setData({
+      showBubble: 1
+    })
+    setTimeout(() => {
+      this.setData({
+        showBubble: 0
+      })
+    }, 2000)
   },
   materialChange(e) {
-    console.log(1)
-    let arr = this.data.materialArray
     let data = this.data.footerBtnObject
-    arr[e.currentTarget.dataset.num] = e.detail.value
-    this.setData({
-      materialArray: arr
-    })
-    data.addActivity.activityName = this.data.materialArray[0]
-    data.addActivity.startTime = this.data.materialArray[1]
-    data.addActivity.address = this.data.materialArray[2]
-    data.addActivity.registrationDeadline = this.data.materialArray[3]
+    app.globalData.publishActivityData[`${e.currentTarget.dataset.name}`] = e.detail.value
+    console.log(app.globalData.publishActivityData)
+    data.addActivity[`${e.currentTarget.dataset.name}`] = e.detail.value
     this.setData({
       footerBtnObject: data
     })
-    console.log(this.data.footerBtnObject)
   },
   chooseImg() {
     wx.chooseImage({
@@ -73,6 +101,8 @@ Page({
             let imgObj = JSON.parse(result.data)
             let data = this.data.footerBtnObject
             data.addActivity.posterImage = imgObj.data
+            app.globalData.publishActivityData.posterImage = imgObj.data
+            console.log(app.globalData.publishActivityData)
             this.setData({
               footerBtnObject: data
             })
@@ -80,22 +110,5 @@ Page({
         })
       }
     })
-    // wx.chooseImage({
-    //   count: 1,
-    //   success: (result) => {
-    //     wx.showToast({
-    //       title: '正在上传...',
-    //       icon: 'loading',
-    //       duration: 1500,
-    //       mask: true
-    //     })
-    //     let data = this.data.footerBtnObject
-    //     data.addActivity.posterImage = result.tempFilePaths[0]
-    //     this.setData({
-    //       footerBtnObject: data
-    //     })
-    //   }
-    // })
-    
   }
 })

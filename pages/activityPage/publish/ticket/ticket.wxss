@@ -5,3 +5,11 @@ page {
 .parent-footer {
   background: #f5f5f5;
 }
+.parent-pop-up view:nth-child(1){
+  background: #777BCE;
+  color: #fff;
+}
+.parent-pop-up view:nth-child(2) {
+  border: 1rpx solid #777BCE;
+  color: #777BCE;
+}

@@ -11,20 +11,24 @@ Page({
     billDetail: [],
     swiperHeight: 0,
     currentIndex: 0,
-    searchContent: ''
+    searchContent: '',
+    activityId: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.showActivityManage(),
+    this.setData({
+      activityId: options.activityId
+    })
+    this.showActivityManage(options),
     this.geiHeight(),
     this.showBillDetail()
   },
   searchHandle() {
     let obj = {
-      activityId: 89,
+      activityId: this.data.activityId,
       content: this.data.searchContent
     }
     request.searchActivity(obj)
@@ -44,9 +48,9 @@ Page({
       currentIndex: e.detail.current
     })
   },
-  showActivityManage() {
+  showActivityManage(options) {
     let obj = {
-      activityId: 89
+      activityId: options.activityId
     }
     request.showActivityManage(obj)
     .then(res => {

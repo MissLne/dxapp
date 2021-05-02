@@ -13,12 +13,12 @@
   z-index: 9999;
   position: absolute;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translateX(-50%);
   bottom: -30%;
   opacity: 0;
   transition: 1s;
 }
 .showbubble {
-  bottom: 50%;
+  bottom: 25%;
   opacity: 1;
 }

@@ -1,6 +1,7 @@
 <!-- pages/activityPage/publish/enterMessage/enterMessage.wxml -->
 <!-- <swiper style="height: {{windowHeight}}rpx" current="{{swiperCurrent}}">
   <swiper-item> -->
+  <HeadNavigation bindheadnav="backIndex"/>
     <view>
       <view class="edit-page">
         <image src="../../style/images/putActivity1.png" class="top-img" />
@@ -19,21 +20,21 @@
         <view class="edit-content">
           <view>
             <text>活动名称</text>
-            <input type="text" placeholder="请输入活动名称" value="{{footerBtnObject.addActivity.activityName}}" bindinput="materialChange" data-num="{{0}}" class="{{temObject.activityName? '' : 'active'}}"/>
+            <input type="text" placeholder="请输入活动名称" value="{{footerBtnObject.addActivity.activityName}}" bindinput="materialChange" data-name="activityName" class="{{temObject.activityName? '' : 'active'}}"/>
           </view>
           <view>
             <text>活动开始时间</text>
-            <picker mode="date" value="{{footerBtnObject.addActivity.startTime}}" bindchange="materialChange" header-text="请选择" data-num="{{1}}">
+            <picker mode="date" value="{{footerBtnObject.addActivity.startTime}}" bindchange="materialChange" header-text="请选择" data-name="startTime">
               <view class="{{temObject.startTime? '' : 'active'}}">{{footerBtnObject.addActivity.startTime? footerBtnObject.addActivity.startTime : '选择日期时间'}}</view>
             </picker>
           </view>
           <view>
             <text>活动地点</text>
-            <input type="text" placeholder="请完善地址" value="{{footerBtnObject.addActivity.address}}" bindinput="materialChange" data-num="{{2}}" class="{{temObject.address? '' : 'active'}}"/>
+            <input type="text" placeholder="请完善地址" value="{{footerBtnObject.addActivity.address}}" bindinput="materialChange" data-name="address" class="{{temObject.address? '' : 'active'}}"/>
           </view>
           <view>
             <text>报名截止时间</text>
-            <picker mode="date" value="{{footerBtnObject.addActivity.registrationDeadline}}" bindchange="materialChange" data-num="{{3}}">
+            <picker mode="date" value="{{footerBtnObject.addActivity.registrationDeadline}}" bindchange="materialChange" data-name="registrationDeadline">
               <view class="{{temObject.registrationDeadline? '' : 'active'}}">{{footerBtnObject.addActivity.registrationDeadline? footerBtnObject.addActivity.registrationDeadline : '选择日期时间'}}</view>
             </picker>
           </view>
@@ -45,35 +46,5 @@
       </view>
       <Footer contentObject="{{footerBtnObject}}" parent-leftbtn="parent-leftbtn" bindnext="goNext"></Footer>
     </view>
-  <!-- </swiper-item>
-  <swiper-item>
-    <view>
-      <Header></Header>
-      <Middle />
-      <Btn content="完善图文介绍" />
-      <Tips></Tips>
-      <Footer contentObject="{{footerBtnObject2}}" bindnext="goNext" bindprevious="goPrevious" goPage="{{1}}"/>
-    </view>
-  </swiper-item>
-  <swiper-item>
-    <view>
-      <TicketHeader></TicketHeader>
-      <scroll-view style="height: {{scrollHeight}}rpx" scroll-y="{{true}}">
-        <TicketBox ticketDetail="{{ticketDetailArray}}"></TicketBox>
-        <TicketBtn content="点击新增票种" ticketDetail="{{ticketDetailArray}}" bindtap="addTicket" />
-        <Footer contentObject="{{footerBtnObject2}}" parent-footer="parent-footer" bindnext="goNext" goPage="{{2}}" bindprevious="goPrevious"/>
-      </scroll-view>
-    </view>
-  </swiper-item>
-  <swiper-item>
-    <view>
-      <SetUpHeader />
-      <SetUpItem />
-      <SetUpBtn content="新增填写项" />
-      <view class="setUpFooterBtn">
-        <SetUpFootBtn content="保存并预览" />
-        <Footer contentObject="{{footerBtnObject2}}" parent-leftbtn="setup-parent-footer" up-parent-class="up-parent-class" bindprevious="goPrevious" goPage="{{3}}"/>
-      </view>
-    </view>
-  </swiper-item>
-</swiper> -->
+<PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up" bindsure="isSave" />
+<Bubble bubbleContent="请完善活动的所有信息" showBubble="{{showBubble}}"/>

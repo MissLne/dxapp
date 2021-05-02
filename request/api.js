@@ -19,9 +19,20 @@ var url = {
  updateActivity: "/party/merchant/activity/update_activity",
  uploadImg: "/party/web_public/upload_picture",
  showMemberDetail: "/party/merchant/activity/info/members/detail",
- publishActivities: "/party/merchant/activity/add_activity"
+ publishActivities: "/party/merchant/activity/add_activity",
+ saveDraft: "/party/merchant/activity/add_activity_draft"
 }
 module.exports = {
+  saveDraft(params) {
+    return http({      
+      url: url.saveDraft,
+      data: params,
+      header: {
+        // "Content-Type": "application/json",
+        "token": wx.getStorageSync('token')
+      }
+    })
+  },
   publishActivities(params) {
     return http({      
       url: url.publishActivities,

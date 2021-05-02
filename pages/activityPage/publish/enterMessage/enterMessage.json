@@ -11,6 +11,10 @@
     "Middle": "/components/indexPageItem/publishIntroduce/middle/middle",
     "Btn": "/components/indexPageItem/publishIntroduce/btn/btn",
     "Tips": "/components/indexPageItem/publishIntroduce/tips/tips",
-    "Footer": "/components/tools/footer/footer"
-  }
+    "Footer": "/components/tools/footer/footer",
+    "HeadNavigation": "/components/tools/headNavigation/headNavigation",
+    "PopUp": "/components/tools/pop-up/pop-up",
+    "Bubble": "/components/tools/bubble/bubble"
+  },
+  "navigationStyle": "custom"
 }
