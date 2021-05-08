@@ -29,7 +29,6 @@ Component({
    */
   methods: {
     updateInput(e) {
-      console.log(e.detail.value)
       let arr = this.properties.ticketDetail
       switch (e.currentTarget.dataset.count) {
         case 0:
@@ -70,6 +69,7 @@ Component({
       this.setData({
         ticketDetail: this.properties.ticketDetail
       })
+      console.log(this.data.ticketDetail)
       this.triggerEvent('ticket',{arr: this.data.ticketDetail})
     }
   }

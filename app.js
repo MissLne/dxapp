@@ -1,34 +1,21 @@
 // app.js
 App({
-  onLaunch() {
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-  },
   globalData: {
     userInfo: null,
     publishActivityData: {
       accountId: wx.getStorageSync('id').toString(),
       activityName: 'q',
-      startTime: 'q',
-      endTime: 'q',
-      registrationDeadline: 'q',
-      label: 'q',
+      startTime: '2021-09-02 08:00:00',
+      endTime: '2021-09-05 08:00:00',
+      registrationDeadline: '2021-09-02 08:00:00',
+      label: ['q'],
       lightSpot: 'q',
       address: 'q',
-      posterImage: 'q',
+      posterImage: 'http://www.xinhuanet.com/photo/titlepic/112740/1127402419_1619875420580_title0h.jpg',
       activityDetails: 'q',
       announcement: 'q',
-      linkmanCode: 'q',
-      groupCode: 'q',
+      linkmanCode: 'http://www.xinhuanet.com/photo/titlepic/112740/1127402419_1619875420580_title0h.jpg',
+      groupCode: 'http://www.xinhuanet.com/photo/titlepic/112740/1127402419_1619875420580_title0h.jpg',
       ticketList: [
         {
           ticketType: 0,
@@ -42,5 +29,38 @@ App({
       webFormList: []
     },
     setUpCustomizeData: []
-  }
+  },
+  onLoad: function () {
+    this.loadFont()
+  },
+  loadFont() {
+    console.log(1)
+    if (wx.canIUse('loadFontFace')) {
+
+      console.log("支持自定义字体");
+
+      wx.loadFontFace({
+
+        family: 'Ping Fang',
+        //source: 'url("https://sungd.github.io/Pacifico.ttf")',
+        source: 'url("https://image.tiaozaoj.com/PingFang-SC-Regular.ttf")',
+        //source: 'url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf")',
+        global: true,
+        success: function (res) {
+          console.log("字体加载成功") //  loaded
+          console.log(res)
+        },
+        fail: function (res) {
+          console.log("字体加载失败") //  error
+          console.log(res)
+        },
+        complete: function (res) {
+          console.log("加载完成")
+        }
+      });
+    } else {
+      console.log('不支持自定义字体')
+    }
+  },
+
 })

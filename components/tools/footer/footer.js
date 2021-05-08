@@ -34,7 +34,6 @@ Component({
         count = 0,
         arr = [],
         nullArr = 0
-        console.log(obj)
       for (let key in obj) {
         if (obj[key] !== '' && obj[key]) {
           // newobj[key] = obj[key]
@@ -42,7 +41,6 @@ Component({
           count++
         }
       }
-      console.log(arr)
       if (this.properties.contentObject.rightBtn == '发布' && count == 10) this.requestData()
       if (count >= this.properties.contentObject.number || (this.properties.contentObject.rightBtn == '发布' && arr.length == 0)) {
         if (arr.length == 0) {
@@ -55,7 +53,6 @@ Component({
             for (let key in item) {
               if (item[key] === '' || item[key].length == 0) {
                 nullArr = 1
-                console.log(arr)
                 this.triggerEvent('next')
               }
             }

@@ -18,27 +18,6 @@ Page({
       withShareTicket: true
     })
   },
-  onShareAppMessage: function (ops) {
-    if (ops.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(ops.target)
-      console.log(this.data.id)
-    }
-    return {
-      title: '标签l',
-      path: '/pages/loginPage/register/register', 
-      success: function (res) {
-        // 转发成功
-        console.log(res);
-        console.log("转发成功:" + JSON.stringify(res));
-      },
-      fail: function (res) {
-        // 转发失败
-        console.log("转发失败:" + JSON.stringify(res));
-      }
-    }
- 
-    },
 showDetail(reqObj) {
   let activityId = parseInt(reqObj.activityId)
   let obj = {
@@ -47,7 +26,6 @@ showDetail(reqObj) {
   }
   request.showMemberDetail(obj)
     .then(res => {
-      console.log(res)
       this.setData({
         memberObj: res.data
       })

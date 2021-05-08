@@ -12,3 +12,4 @@
   <PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up" bindsure="suredelete" />
   <PopUp popUpObj="{{popUpObj2}}" parent-pop-up="parent-pop-up2" bindsure="isSave" />
 <Bubble bubbleContent="请完善活动的所有信息" showBubble="{{showBubble}}"/>
+<view id="container"></view>

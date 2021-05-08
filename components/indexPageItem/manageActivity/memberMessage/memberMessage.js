@@ -24,7 +24,6 @@ Component({
         mId: e.currentTarget.dataset.mid,
         activityId: 89
       }
-      console.log(e.currentTarget.dataset.mid)
       query.mId = JSON.stringify(query.mId)
       query.activityId = JSON.stringify(query.activityId)
       navigate.navigateTo({

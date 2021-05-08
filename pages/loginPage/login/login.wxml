@@ -1,30 +1,26 @@
+
 <view class="loginPage">
-    <view class="loginBox">
-      <view class="logo">
-      <image src="../../../images/loginPage/LOGOx.png"/>
+  <view class="loginBox">
+    <view class="logo">
+      <image src="../../../images/loginPage/LOGOx.png" />
     </view>
     <view>
       <navigator class="registerBtn" url="/pages/loginPage/register/register">商家入驻</navigator>
     </view>
-
     <view>
       <view class="loginInput">
-        <image src="../../../images/loginPage/account.png"/>
-        <input placeholder="请输入账号" bindinput="accountEdit" value="{{account}}"/>
+        <image src="../../../images/loginPage/account.png" />
+        <input placeholder="请输入账号" bindinput="accountEdit" value="{{account}}" />
       </view>
       <view class="loginInput">
-        <image src="../../../images/loginPage/password.png"/>
-        <input placeholder="请输入密码" password bindinput="passwordEdit" value="{{password}}"/>
+        <image src="../../../images/loginPage/password.png" />
+        <input placeholder="请输入密码" password bindinput="passwordEdit" value="{{password}}" />
       </view>
       <view class="forget">
         <navigator url="/pages/loginPage/forgetPsd/forgetPsd">忘记密码</navigator>
       </view>
-  </view>
-  
-  <image class="loginBtn" src="../../../images/loginPage/jiantou.png" bindtap="handleLogin"/>
     </view>
-    <image class="footImg" src="../../../images/loginPage/underwardpaint.png"/>
-
-
+    <image class="loginBtn" src="../../../images/loginPage/jiantou.png" bindtap="handleLogin" />
+  </view>
+  <image class="footImg" src="../../../images/loginPage/underwardpaint.png" />
 </view>
-

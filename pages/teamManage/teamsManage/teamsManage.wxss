@@ -1,0 +1,28 @@
+/* pages/teamManage/teamsManage/teamsManage.wxss */
+
+.parent-buttons-class {
+  font-size: 34rpx;
+  bottom: 35rpx;
+}
+
+.seeTeaches {
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 35rpx;
+  right: 109rpx;
+  font-size: 24rpx;
+  font-family: 'Ping Fang';
+  font-weight: 400;
+  text-decoration: underline;
+  color: #777BCE;
+}
+.shareBtn {
+  z-index: 999;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 35rpx;
+}

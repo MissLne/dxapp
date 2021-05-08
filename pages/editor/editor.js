@@ -60,7 +60,6 @@ Page({
   format(e) {
     let { name, value } = e.target.dataset
     if (!name) return
-    // console.log('format', name, value)
     this.editorCtx.format(name, value)
 
   },

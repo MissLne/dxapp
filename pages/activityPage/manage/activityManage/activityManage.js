@@ -60,7 +60,6 @@ Page({
     })
     request.showMemberMessage(obj)
     .then(res => {
-      console.log(res)
       this.setData({
         memberMessage: res.data
       })

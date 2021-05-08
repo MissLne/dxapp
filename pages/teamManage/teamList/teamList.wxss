@@ -1,0 +1,6 @@
+/* pages/teamManage/teamList/teamList.wxss */
+
+.parent-buttons-class {
+    font-size: 30rpx;
+    bottom: 35rpx;
+}

@@ -32,8 +32,6 @@ Page({
       })
   },
   updateMessage() {
-    console.log(this.data.messageArray)
-    console.log(this.data.avaterUrl)
     let obj = {
       "id": wx.getStorageSync('id'),
       "nickName": this.data.messageArray[0]? this.data.messageArray[0].value : this.data.userMessageObject.nickName,

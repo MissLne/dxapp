@@ -3,7 +3,7 @@
 <view>
   <TicketHeader></TicketHeader>
     <TicketBox ticketDetail="{{ticketDetailArray}}" bindticket="getTicketMessage"></TicketBox>
-    <TicketBtn content="点击新增票种" ticketDetail="{{ticketDetailArray}}" bindtap="addTicket"/>
+    <TicketBtn base="{{base}}" ticketDetail="{{ticketDetailArray}}" bindtap="addTicket"/>
     <Footer contentObject="{{footerBtnObject}}" parent-footer="parent-footer" bindnext="goNext"/>
 </view>
 <PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up" bindsure="isSave" />

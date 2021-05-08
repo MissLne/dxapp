@@ -1,0 +1,11 @@
+<!-- components/teamComponents/teamsManageItem/teamsManageItem.wxml -->
+<block wx:for="{{teamMembers}}" wx:key="index">
+  <view class="teamManageItem">
+    <image src="{{item.headPitcher}}" />
+    <view class="teamManageMaterial">
+      <view>{{item.nickName}}</view>
+      <view class="{{item.role == '管理员'? 'red' : 'green'}}">{{item.role}}</view>
+    </view>
+    <view class="teamManageBtn" wx:if="{{item.role == '运营'}}">踢出团队</view>
+  </view>
+</block>

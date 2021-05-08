@@ -7,6 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    base: {
+      content: '点击新增票种',
+      scrollTop: 0
+    },
     ticketDetailArray: [
       {
         ticketName: '早鸟票',
@@ -52,9 +56,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  
+   onPageScroll: function (e) {
+    this.data.base.scrollTop = e.scrollTop
+    this.setData({
+      base: this.data.base
+    })
+  },
   onLoad: function (options) {
-    console.log(options)
     this.setData({
       paramsObj: options
     })
@@ -115,6 +123,6 @@ Page({
       footerBtnObject: this.data.footerBtnObject
     })
     this.updateGlobalTicket(this.data.ticketDetailArray)
-    console.log(app.globalData.publishActivityData)
+    // console.log(app.globalData.publishActivityData)
   }
 })

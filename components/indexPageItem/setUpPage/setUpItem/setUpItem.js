@@ -52,7 +52,6 @@ Component({
       this.triggerEvent('setup',{arr: this.properties.setUpItem})
     },
     checkChange(e) {
-      console.log(e.detail.type)
       if(e.detail.type == 0) {
         this.properties.setUpItem[e.currentTarget.dataset.num].propertyType = 3
       this.setData({

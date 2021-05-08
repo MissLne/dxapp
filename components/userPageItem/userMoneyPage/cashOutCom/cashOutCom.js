@@ -33,7 +33,6 @@ Component({
         console.log(res)
       })
       .catch(err => {
-        console.log(err)
       })
     },
     getCanCash() {
@@ -42,7 +41,6 @@ Component({
       }
       request.showWallet(obj)
       .then(res => {
-        console.log(res)
         this.setData({
           canDrawCashAmount: res.data.canDrawCashAmount.toFixed(2)
         })

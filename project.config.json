@@ -172,6 +172,23 @@
           "pathName": "pages/activityPage/publish/enterMessage/enterMessage",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "团队列表",
+          "pathName": "pages/teamManage/teamList/teamList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "团队管理",
+          "pathName": "pages/teamManage/teamsManage/teamsManage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "分享页面",
+          "pathName": "pages/teamManage/sharePage/sharePage",
+          "scene": null
         }
       ]
     }

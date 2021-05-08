@@ -32,7 +32,6 @@ Page({
     this.setData({
       activityMaterial: data
     })
-    console.log(this.data.activityMaterial)
   },
   showUpdateActivity() {
     let obj = {
@@ -40,7 +39,6 @@ Page({
     }
     request.showUpdateActivity(obj)
       .then(res => {
-        console.log(res)
         this.setData({
           activityMaterial: res.data
         })

@@ -1,2 +1,2 @@
 <!--components/tools/bubble/bubble.wxml-->
-<view class="bubble {{showBubble? 'showbubble' : ''}}" bind:tap="save">{{bubbleContent}}</view>
+<view class="bubble {{showBubble? 'showbubble' : ''}}">{{bubbleContent}}</view>

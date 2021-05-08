@@ -39,7 +39,6 @@ Component({
   },
   methods: {
     getMaterialMessage() {
-      console.log(this.properties.materialObject)
       let dataArr = this.data.socialArray
       let data = this.properties.materialObject
       let arr = [data.todayClickRate,data.waitReply,data.commentCount]
@@ -60,7 +59,6 @@ Component({
       this.setData({
         setUpArray: dataArr
       })
-      console.log(dataArr)
     }
   }
 })

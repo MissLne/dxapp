@@ -1,7 +1,6 @@
 // pages/activityPage/publish/setUp/setUp.js
-const app = getApp();
+const app = getApp()
 
-  
 Page({
 
   /**
@@ -43,7 +42,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
   },
   backIndex() {
     this.data.popUpObj.show = 1
@@ -65,7 +63,6 @@ Page({
     })
   },
   goNext() {
-    console.log(1)
     this.setData({
       showBubble: 1
     })
@@ -95,24 +92,20 @@ Page({
         break
     }
     app.globalData.publishActivityData.webFormList.push(obj)
-    // console.log(app.globalData.setUpCustomizeData)
     this.data.footerBtnObject.addActivity.webFormList = app.globalData.publishActivityData.webFormList
     this.setData({
       setUpItem: app.globalData.publishActivityData.webFormList,
       footerBtnObject: this.data.footerBtnObject
     })
-    
-    console.log(this.data.footerBtnObject.addActivity)
   },
   suredelete() {
-    app.globalData.publishActivityData.webFormList.splice(this.properties.popUpObj.toPopUPData,1)
+    app.globalData.publishActivityData.webFormList.splice(this.properties.popUpObj.toPopUPData, 1)
     this.setData({
-        setUpItem: app.globalData.publishActivityData.webFormList,
-        footerBtnObject: this.data.footerBtnObject
-      })
+      setUpItem: app.globalData.publishActivityData.webFormList,
+      footerBtnObject: this.data.footerBtnObject
+    })
   },
   lala() {
-    // console.log(app.globalData.setUpCustomizeData)
   },
   delete(e) {
     this.data.popUpObj.show = e.detail.obj.show
@@ -127,7 +120,6 @@ Page({
     // this.setData({
     //   popUpObj: this.data.popUpObj
     // })
-    console.log(e)
     app.globalData.publishActivityData.webFormList = e.detail.arr
     this.setData({
       setUpItem: e.detail.arr

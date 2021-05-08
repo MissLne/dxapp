@@ -28,7 +28,6 @@ Component({
       }
       request.showWallet(obj)
       .then(res => {
-        console.log(res)
         this.setData({
           wallet: res.data
         })

@@ -21,29 +21,28 @@
     </view>
   </view>
 </view>
-
-<view wx:for="{{setUpItem}}" wx:key="index">
-  <view bind:tap="deleteBox" data-num="{{index}}">删除</view>
-  <view>
-    <input wx:if="{{item.pickType == 0}}" placeholder="标题 例：联系方式" value="{{item.property}}" bindinput="changeInput" data-str="property" data-num="{{index}}"/>
-    <input wx:if="{{item.pickType == 2}}" placeholder="标题 例：你了解到报名的来源" value="{{item.property}}" bindinput="changeInput" data-str="property" data-num="{{index}}"/>
-    <block wx:if="{{item.pickType == 1}}">
-      图片填写项
-    </block>
+<view wx:for="{{setUpItem}}" wx:key="index" class="diySelectBox">
+  <view bind:tap="deleteBox" data-num="{{index}}" class="diySelectDelete">删除</view>
+  <view class="diySelectTitle">
+    <input wx:if="{{item.pickType == 0}}" placeholder="标题 例：联系方式" value="{{item.property}}" bindinput="changeInput" data-str="property" data-num="{{index}}" />
+    <input wx:if="{{item.pickType == 2}}" placeholder="标题 例：你了解到报名的来源" value="{{item.property}}" bindinput="changeInput" data-str="property" data-num="{{index}}" />
+    <block wx:if="{{item.pickType == 1}}">图片填写项</block>
   </view>
-  <view>
+  <view class="diySelectContent">
     <block wx:if="{{item.pickType == 0}}">
-      <input placeholder="提示消息 例：请输入联系方式" value="{{item.content}}" bindinput="changeInput" data-str="content" data-num="{{index}}"/>
+      <input placeholder="提示消息 例：请输入联系方式" value="{{item.content}}" bindinput="changeInput" data-str="content" data-num="{{index}}" />
     </block>
     <block wx:if="{{item.pickType == 1}}">
-      <input placeholder="标题 例：朋友圈集赞图片"  bindinput="changeInput"  value="{{item.content}}" data-str="content" data-num="{{index}}"/>
+      <input placeholder="标题 例：朋友圈集赞图片" bindinput="changeInput" value="{{item.content}}" data-str="content" data-num="{{index}}" />
     </block>
     <block wx:if="{{item.pickType == 2}}" wx:for="{{checkBox}}" wx:for-index="num" wx:for-item="sonItem">
-      <input placeholder="选项{{num + 1}} 例：公众号" value="{{sonItem}}" bindinput="changeSonInput" data-inputindex="{{num}}" data-boxindex="{{index}}"/>
-      <view style="background: #000;" wx:if="{{checkBox.length > 2}}" bind:tap="deleteInput" data-inputindex="{{num}}" data-boxindex="{{index}}">删除</view>
+      <input placeholder="选项{{num + 1}} 例：公众号" value="{{sonItem}}" bindinput="changeSonInput" data-inputindex="{{num}}" data-boxindex="{{index}}" />
+      <view style="background: #000;" wx:if="{{checkBox.length > 2}}" bind:tap="deleteInput" data-inputindex="{{num}}" data-boxindex="{{index}}">
+        删除
+      </view>
     </block>
   </view>
-      <view wx:if="{{item.pickType == 2}}" bindtap="addChoice">新增选项</view>
-  <radioBtn radioContent="{{['多选']}}"  wx:if="{{item.pickType == 2}}" bindtype="checkChange"  data-num="{{index}}"/>
-  <radioBtn radioContent="{{['必填']}}" bindtype="radioChange"  data-num="{{index}}"/>
+  <view wx:if="{{item.pickType == 2}}" bindtap="addChoice" class="addInputBtn">新增选项</view>
+  <radioBtn radioContent="{{['多选']}}" wx:if="{{item.pickType == 2}}" bindtype="checkChange" data-num="{{index}}" />
+  <radioBtn radioContent="{{['必填']}}" bindtype="radioChange" data-num="{{index}}" />
 </view>

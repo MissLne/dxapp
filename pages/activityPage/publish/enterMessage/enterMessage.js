@@ -72,7 +72,6 @@ Page({
   materialChange(e) {
     let data = this.data.footerBtnObject
     app.globalData.publishActivityData[`${e.currentTarget.dataset.name}`] = e.detail.value
-    console.log(app.globalData.publishActivityData)
     data.addActivity[`${e.currentTarget.dataset.name}`] = e.detail.value
     this.setData({
       footerBtnObject: data
@@ -102,7 +101,6 @@ Page({
             let data = this.data.footerBtnObject
             data.addActivity.posterImage = imgObj.data
             app.globalData.publishActivityData.posterImage = imgObj.data
-            console.log(app.globalData.publishActivityData)
             this.setData({
               footerBtnObject: data
             })

@@ -38,7 +38,6 @@ Component({
           currentSelect: e.currentTarget.dataset.num
         })
       }
-      console.log(this.data.currentSelect)
       this.triggerEvent('type',{type: this.data.currentSelect})
     }
   }

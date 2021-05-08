@@ -72,14 +72,12 @@ Page({
     }
     request.showQuesMessge(obj)
     .then(res => {
-      console.log(res)
       this.setData({
         questionMessage: res.data
       })
     })
     request.showCommMessge(obj)
     .then(res => {
-      console.log(res)
       this.setData({
         commentMessage: res.data
       })

@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "TeamListItem": "/components/teamComponents/teamListItem/teamListItem",
+        "Buttons": "/components/tools/buttons/buttons"
+    }
+}

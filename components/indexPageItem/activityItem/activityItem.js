@@ -16,7 +16,6 @@ Component({
       let query = {
         activityId: e.currentTarget.dataset.activityid
       }
-      console.log(e.currentTarget.dataset.activityid)
       query.activityId = JSON.stringify(query.activityId)
       navigate.navigateTo({
         url: "../../pages/activityPage/manage/activityManage/activityManage",

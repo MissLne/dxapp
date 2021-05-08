@@ -1,5 +1,5 @@
 <!--components/indexPageItem/publishIntroduce/btn/btn.wxml-->
-<view class="publishBtnCom"  >
-  <view class="publishBtn">{{content}}</view>
+<view class="publishBtnCom">
+  <view class="publishBtn" bind:tap="getHeight" id="addTicketBtn">{{base.content}}</view>
 </view>
   

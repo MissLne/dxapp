@@ -19,7 +19,6 @@ Component({
    */
   ready: function() {
     setTimeout(() => {
-      console.log(this.properties.optional[0])
       this.setData({
         baseMaterial: this.properties.optional
       })

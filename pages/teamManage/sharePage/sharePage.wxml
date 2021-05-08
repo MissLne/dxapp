@@ -1,0 +1,2 @@
+<!--pages/teamManage/sharePage/sharePage.wxml-->
+<view bind:tap="sureEnterTeam">莫得灵魂的按钮</view>

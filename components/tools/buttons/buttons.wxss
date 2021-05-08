@@ -1,17 +1,18 @@
 /* components/tools/buttons/buttons.wxss */
+
 .buttonsBox {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
+
 .buttons {
-  width: 180rpx;
-  height: 80rpx;
-  font-size: 34rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 40rpx;
-  color: #fff;
-  background: #777BCE;
+    width: 180rpx;
+    height: 70rpx;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 30rpx;
+    color: #fff;
+    background: #777BCE;
 }
