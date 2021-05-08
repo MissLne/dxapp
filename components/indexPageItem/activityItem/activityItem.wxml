@@ -17,7 +17,7 @@
           </view>
         </view>
         <view class="item-btns">
-          <view class="btn1">
+          <view class="btn1 color{{item.color}}">
               {{item.status}}
           </view>
           <view class="btn2" bindtap="edit" data-activityId="{{item.activityId}}">

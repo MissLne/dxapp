@@ -5,7 +5,7 @@
 <view>
   <view wx:for="{{registerArray}}" wx:key="index" class="registerInput">
     <view>{{item.name}}</view>
-    <input model:value="{{item.value}}" bindinput="inputFunc" data-num="{{index}}" />
+    <input model:value="{{item.value}}" bindinput="inputFunc" data-num="{{index}}" placeholder="{{item.paleceholder}}"/>
   </view>
 </view>
 <view class="redContent">我们将在几个工作日内联系你</view>

@@ -11,7 +11,7 @@ Page({
         tikect: 2,
         activityArray: []
     },
-    onLoad: function() {
+    onLoad: function () {
         this.showActivity()
     },
     showActivity() {
@@ -20,14 +20,23 @@ Page({
         }
         request.showActMessage(obj)
             .then(res => {
-                let data = res.data
-                data.forEach(item => {
+                let data = JSON.parse(JSON.stringify(res.data))
+                console.log(data)
+                console.log(res)
+                data.map((item,index) => {
+                    item.color = res.data[index].status
                     switch (item.status) {
+                        case -3:
+                            item.status = '已取消'
+                            break
+                        case -2:
+                            item.status = '暂停报名'
+                            break
                         case 1:
-                            item.status = '上架'
+                            item.status = '上架中'
                             break
                         case -1:
-                            item.status = '下架'
+                            item.status = '已下架'
                             break
                         case 2:
                             item.status = '草稿'

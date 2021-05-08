@@ -9,6 +9,7 @@
 .item-img {
   width: 270rpx;
   height: 190rpx;
+  border-radius: 14rpx;
 }
 .item-content {
   width: 350rpx;
@@ -33,22 +34,22 @@
   margin-right: 5rpx;
 }
 .btn1 {
-  width: 76rpx;
+  /* width: 76rpx; */
   height: 30rpx;
   border-radius: 4rpx;
-  background: #EBEBEB;
   font-size: 20rpx;
-  color: #666666;
-  margin-right: 20rpx;
+  margin-right: 40rpx;
 }
 .btn2 {
   font-size: 24rpx;
   width: 90rpx;
-  height: 44rpx;
+  height: 40rpx;
   display: table-cell;
   vertical-align: middle;
+  /* display: flex;
+  align-items: center; */
   background: #777BCE;
-  border-radius: 16rpx;
+  border-radius: 20rpx;
   color: #fff;
 }
 .item-btns view {
@@ -66,4 +67,15 @@
   width: 100%;
   height: 10rpx;
   background: rgba(0, 0, 0,0.1);
+}
+.color-3,
+.color2,
+.color-2 {
+  color: #666666;
+}
+.color1 {
+  color: #349E69;
+}
+.color-1 {
+  color: #FF441A;
 }

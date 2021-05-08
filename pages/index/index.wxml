@@ -3,7 +3,7 @@
     <view class="top-select">
       
     </view>
-    <text class="top-text" decode>共{{activityCount}}个活动&nbsp;{{ticket}}个活动售票中</text>
+    <text class="top-text" decode>共{{activityCount}}个活动&nbsp;{{tikect}}个活动售票中</text>
   </view>
   <ActivityItem prop-array='{{activityArray}}'></ActivityItem>
   <NullPic nullPicUrl="../../images/loginPage/LOGOx.png" wx:if="{{activityArray.length == 0}}"/>
