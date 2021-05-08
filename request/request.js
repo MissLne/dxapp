@@ -1,6 +1,6 @@
 // const apiUrl = "http://47.119.112.252:8089/party/"
-// const apiUrl = "https://www.quyo.fun/party/"
-const apiUrl = "http://192.168.3.9:8089/party/"
+const apiUrl = "https://www.quyo.fun/party/"
+// const apiUrl = "http://192.168.3.9:8089/party/"
 const http = (params) => {
     return new Promise((resolve, reject) => {
         wx.request({

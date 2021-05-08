@@ -35,6 +35,7 @@ Page({
                     "role": 0,
                     "mid": wx.getStorageSync('id')
                   }
+                  console.log(obj)
                   request.addTeamMembers(obj)
                     .then(res => {
                       console.log(res)

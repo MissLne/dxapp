@@ -1,13 +1,12 @@
-<!--pages/loginPage/register/register.wxml-->
-<view >一起爬梯是面向大学生的线下活动平台，如果你有 组织活动的经验或愿意提供活动场所，欢迎入驻我 们平台。入驻即获得广州几百万大学生</view>
-
+<!-- pages/loginPage/register/register.wxml -->
+<view class="titleContent">
+  一起爬梯是面向大学生的线下活动平台，如果你有组织活动的经验或愿意提供活动场所，欢迎入驻我们平台。入驻即获得广州几百万大学生用户资源，优质活动更会获得平台弓流。
+</view>
 <view>
-  <view wx:for="{{registerArray}}" wx:key="index">
-  <view >{{item.name}}</view>
-  <input model:value="{{item.value}}" bindinput="inputFunc" data-num="{{index}}"/>
+  <view wx:for="{{registerArray}}" wx:key="index" class="registerInput">
+    <view>{{item.name}}</view>
+    <input model:value="{{item.value}}" bindinput="inputFunc" data-num="{{index}}" />
   </view>
 </view>
-<view >我们将在几个工作日内联系你</view>
-<Buttons btnContent="申请" parent-buttons-class="parent-buttons-class" bindtap="register"/>
-
-  
+<view class="redContent">我们将在几个工作日内联系你</view>
+<Buttons btnContent="申请" parent-buttons-class="parent-buttons-class" bindtap="register" />
