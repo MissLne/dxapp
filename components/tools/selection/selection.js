@@ -4,7 +4,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    selectList: Object
+    selectList: Object,
+    content: String
   },
   externalClasses: ['parent-select-name'],
   /**
@@ -22,6 +23,7 @@ Component({
       this.setData({
         selectIndex: e.currentTarget.dataset.num
       })
+      this.triggerEvent('showType',{type: this.data.selectIndex})
     },
     isShow() {
       this.properties.selectList.isShow = !this.properties.selectList.isShow

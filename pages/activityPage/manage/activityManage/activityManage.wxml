@@ -4,13 +4,14 @@
 </view>
 <swiper style="height: {{swiperHeight}}rpx" bindchange="swiperChange" current="{{swiperIndex}}">
   <swiper-item>
-    <Background materialObject="{{manageActivity}}" />
-    <BaseMaterial materialObject="{{manageActivity}}" />
+    <Background materialObject="{{manageActivity}}" wx:if="{{showComponent}}" />
+    <BaseMaterial materialObject="{{manageActivity}}" wx:if="{{showComponent}}" />
+    <canvas-ring id="canvasRing" value="{{c_val}}"></canvas-ring>
     <ManageBtn />
   </swiper-item>
   <swiper-item>
     <view>
-      <input model:value="{{searchContent}}"/>
+      <input model:value="{{searchContent}}" />
       <view bindtap="searchHandle">搜索</view>
     </view>
     <MemberMessage member="{{memberMessage}}" />

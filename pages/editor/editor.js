@@ -1,3 +1,4 @@
+const app = getApp()
 Page({
   data: {
     formats: {},
@@ -114,7 +115,8 @@ Page({
     console.log(1)
     this.editorCtx.getContents({
       success: (res) => {
-        console.log(res);
+        app.globalData.publishActivityData.activityDetails = res.html
+        wx.navigateBack({ delta: 1 })
       }
     })
   }

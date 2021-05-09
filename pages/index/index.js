@@ -9,10 +9,39 @@ Page({
         }],
         activityCount: 3,
         tikect: 2,
-        activityArray: []
+        activityArray: [],
+        selectList:
+        {
+            name: '全部活动',
+            arr: ['全部', '已取消','暂停报名','上架中','已下架','草稿'],
+            isShow: 0
+        },
     },
     onLoad: function () {
         this.showActivity()
+    },
+    // showSelectList(e) {
+    //     this.setData({
+    //       showSelectListIndex: e.currentTarget.dataset.num
+    //     })
+    // },
+    addActivity() {
+        wx.navigateTo({
+            url: '../../pages/activityPage/publish/enterMessage/enterMessage'
+        })
+    },
+    showActivityByStatus(e) {
+        let obj = {
+            mId: wx.getStorageSync('id'),
+            status: e.detail.type
+        }
+        request.showActivityByStatus(obj)
+        .then(res => {
+            console.log(res.data)
+            this.setData({
+                activityArray: res.data
+            })
+        })
     },
     showActivity() {
         let obj = {
@@ -23,7 +52,7 @@ Page({
                 let data = JSON.parse(JSON.stringify(res.data))
                 console.log(data)
                 console.log(res)
-                data.map((item,index) => {
+                data.map((item, index) => {
                     item.color = res.data[index].status
                     switch (item.status) {
                         case -3:

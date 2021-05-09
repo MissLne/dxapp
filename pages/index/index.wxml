@@ -1,10 +1,11 @@
 <view>
   <view class="top-nav">
     <view class="top-select">
-      
+      <Selection selectList="{{selectList}}" content="共{{activityCount}}个活动 {{tikect}}个活动售票中" parent-select-name="parent-select-name" bindshowType="showActivityByStatus"/>
     </view>
-    <text class="top-text" decode>共{{activityCount}}个活动&nbsp;{{tikect}}个活动售票中</text>
+    <!-- <text  decode></text> -->
   </view>
   <ActivityItem prop-array='{{activityArray}}'></ActivityItem>
   <NullPic nullPicUrl="../../images/loginPage/LOGOx.png" wx:if="{{activityArray.length == 0}}"/>
+  <view bindtap="addActivity">莫得灵魂的按钮</view>
 </view>

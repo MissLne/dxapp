@@ -57,9 +57,7 @@ Page({
     })
   },
   goNext(e) {
-    this.setData({
-      temObject: e.detail.obj
-    })
+    
     this.setData({
       showBubble: 1
     })

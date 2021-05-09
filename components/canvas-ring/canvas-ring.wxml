@@ -1,0 +1,18 @@
+<canvas style="width:{{canvasWidth}}px;height:{{canvasWidth}}px;z-index:9999;" canvas-id="circleBar">
+  <cover-view class="circle-bar-wrap" style="height:{{canvasWidth}}px;">
+    <cover-view class="font1">
+      {{enheng}}/{{maxValue}}
+    </cover-view>
+    <cover-view class="font2">
+      {{title}}
+    </cover-view>
+    <cover-view class="font3">
+      <!-- {{title}} -->
+      售票中
+    </cover-view>
+    <!-- <cover-view class="val" style="color: {{valueColor}}; margin-top:{{isMarginTop?'20':'0'}}rpx">
+      {{enheng}} {{suffix}}
+    </cover-view> -->
+  </cover-view>
+</canvas>
+<slot></slot>

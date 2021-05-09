@@ -1,4 +1,5 @@
 // pages/activityPage/publish/officialAccount/officialAccount.js
+const app = getApp()
 Page({
 
   /**
@@ -14,6 +15,11 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+  save() {
+    if(this.data.inputValue != '' || app.globalData.publishActivityData.activityDetails != '') {
+      wx.navigateBack({ delta: 1 })
+    }
   },
   toEditorPage() {
     if (this.data.inputValue === '') {

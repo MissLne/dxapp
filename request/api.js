@@ -22,9 +22,16 @@ var url = {
   publishActivities: "merchant/activity/add_activity",
   saveDraft: "merchant/activity/add_activity_draft",
   getAllMembers: "merchant/info/showAllManagers",
-  addTeamMembers: "merchant/enter/one/addManager"
+  addTeamMembers: "merchant/enter/one/addManager",
+  showActivityByStatus: "merchant/activity/showActivityByStatus"
 }
 module.exports = {
+  showActivityByStatus(params) {
+    return http({
+      url: url.showActivityByStatus,
+      data: params
+    })
+  },
   addTeamMembers(params) {
     return http({
       url: url.addTeamMembers,

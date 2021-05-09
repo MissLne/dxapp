@@ -1,4 +1,5 @@
 // pages/activityPage/publish/setUp/setUp.js
+const request = require('../../../../request/api')
 const app = getApp()
 
 Page({
@@ -44,9 +45,9 @@ Page({
   onLoad: function (options) {
   },
   backIndex() {
-    this.data.popUpObj.show = 1
+    this.data.popUpObj2.show = 1
     this.setData({
-      popUpObj: this.data.popUpObj
+      popUpObj2: this.data.popUpObj2
     })
   },
   isSave() {

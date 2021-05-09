@@ -23,7 +23,16 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    saveDraft() {
+      if (this.properties.contentObject.leftBtn == '保存草稿') {
+        request.saveDraft(app.globalData.publishActivityData)
+          .then(res => {
+            console.log(res)
+          })
+      }
+    },
     requestData() {
+      console.log(app.globalData.publishActivityData)
       request.publishActivities(app.globalData.publishActivityData)
         .then(res => {
           console.log(res)
@@ -41,14 +50,17 @@ Component({
           count++
         }
       }
-      if (this.properties.contentObject.rightBtn == '发布' && count == 10) this.requestData()
+      console.log(this.properties.contentObject.rightBtn)
+      // if (this.properties.contentObject.rightBtn == '发布' && count == 10) {
+      //   console.log('ouo')
+      //   this.requestData()
+      // }
       if (count >= this.properties.contentObject.number || (this.properties.contentObject.rightBtn == '发布' && arr.length == 0)) {
-        if (arr.length == 0) {
+        console.log(count)
+        if (this.properties.contentObject.rightBtn == '发布' && arr.length == 0) {
           this.requestData()
-          // wx.navigateTo({
-          //   url: this.properties.contentObject.rightUrl
-          // })
         } else {
+          console.log(2)
           arr.map(item => {
             for (let key in item) {
               if (item[key] === '' || item[key].length == 0) {
@@ -58,11 +70,12 @@ Component({
             }
           })
           if (!nullArr) {
-            this.requestData()
-            // wx.navigateTo({
-            //   url: this.properties.contentObject.rightUrl
-            // })
+            if (this.properties.contentObject.rightBtn == '发布') this.requestData()
+            wx.navigateTo({
+              url: this.properties.contentObject.rightUrl
+            })
           }
+
         }
       } else {
         this.triggerEvent('next')

@@ -5,6 +5,7 @@
     "ManageBtn": "/components/indexPageItem/manageActivity/manageBtn/manageBtn",
     "BaseMaterial": "/components/indexPageItem/manageActivity/baseMaterial/baseMaterial",
     "MemberMessage": "/components/indexPageItem/manageActivity/memberMessage/memberMessage",
-    "BillItem": "/components/userPageItem/userMoneyPage/billItem/billItem"
+    "BillItem": "/components/userPageItem/userMoneyPage/billItem/billItem",
+    "canvas-ring": "/components/canvas-ring/canvas-ring"
   }
 }
