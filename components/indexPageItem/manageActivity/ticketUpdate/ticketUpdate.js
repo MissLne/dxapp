@@ -21,6 +21,16 @@ Component({
       let data = this.properties.ticketsMaterial
       data[e.currentTarget.dataset.num].ticketInstruction = e.detail.str
       this.triggerEvent('tick',{data: data})
+    },
+    ticketPrice(e) {
+      console.log(e)
+      let data = this.properties.ticketsMaterial
+      console.log(data)
+      data[e.currentTarget.dataset.num].ticketNumber = e.detail.value
+      this.setData({
+        ticketsMaterial: data
+      })
+      this.triggerEvent('tick',{data: this.properties.ticketsMaterial})
     }
   }
 })

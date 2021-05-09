@@ -40,6 +40,7 @@ Component({
    * 组件的方法列表
    */
   ready: function () {
+    console.log(this.properties.activityMaterial)
     this.showMaterial()
     this.setData({
       baseMessage: this.properties.activityMaterial

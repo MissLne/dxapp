@@ -8,7 +8,7 @@
     <view>
       <view>门票总数</view>
       <view>
-        <view>{{item.ticketNumber}}</view>
+        <input value="{{item.ticketNumber}}" bindinput="ticketPrice" data-num="{{index}}"/>
         <view>{{item.ticketRemainNumber}}</view>
       </view>
       <InputBox inputTitle="票种介绍" inputValue="{{item.ticketInstruction}}" bindact="ticketSetting" data-num="{{index}}"/>

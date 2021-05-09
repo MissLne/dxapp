@@ -1,5 +1,6 @@
 // pages/activityPage/manage/activityManage/activityManage.js
 const request = require('../../../../request/api')
+const navigate = require('../../../../navigator/index')
 // import * as echarts from '../../../../components/ec-canvas/echarts';
 
 const app = getApp()
@@ -35,12 +36,22 @@ Page({
 
   },
   onReady: function () {
-    var that = this;
-    that.canvasRing = that.selectComponent("#canvasRing");
-    that.canvasRing.showCanvasRing();
+    // var that = this;
+    // that.canvasRing = that.selectComponent("#canvasRing");
+    // that.canvasRing.showCanvasRing();
 
   },
-
+  lala() {
+    let query = {
+      activityId: this.data.activityId
+    }
+    query.activityId = JSON.stringify(query.activityId)
+    console.log(this.data.activityId)
+    navigate.navigateTo({
+      url: `../activityUpdate/activityUpdate`,
+      query
+    })
+  },
  
   searchHandle() {
     let obj = {

@@ -33,6 +33,7 @@ Component({
     },
     requestData() {
       console.log(app.globalData.publishActivityData)
+      // app.globalData.publishActivityData.status = 1
       request.publishActivities(app.globalData.publishActivityData)
         .then(res => {
           console.log(res)

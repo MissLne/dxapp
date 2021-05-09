@@ -188,6 +188,7 @@
         {
           "name": "分享页面",
           "pathName": "pages/teamManage/sharePage/sharePage",
+          "query": "",
           "scene": null
         }
       ]

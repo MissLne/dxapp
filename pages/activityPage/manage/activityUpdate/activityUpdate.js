@@ -6,41 +6,48 @@ Page({
    * 页面的初始数据
    */
   data: {
-    activityMaterial: {}
+    activityMaterial: {},
+    showTips: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.showUpdateActivity()
+    console.log(options)
+    this.showUpdateActivity(options)
   },
   update() {
+    console.log(this.data.activityMaterial)
     request.updateActivity(this.data.activityMaterial)
     .then(res => {
       console.log(res)
     })
   },
   getMessage(e) {
+    console.log(e)
     this.setData({
       activityMaterial: e.detail.obj
     })
   },
   getTicket(e) {
+    console.log(e.detail.data)
     let data = this.data.activityMaterial
     data.tickets = e.detail.data
     this.setData({
       activityMaterial: data
     })
   },
-  showUpdateActivity() {
+  showUpdateActivity(options) {
+    options.activityId = options.activityId.replace(/\"/g, "")
     let obj = {
-      activityId: 89
+      activityId: options.activityId
     }
     request.showUpdateActivity(obj)
       .then(res => {
         this.setData({
-          activityMaterial: res.data
+          activityMaterial: res.data,
+          showTips: 1
         })
       })
   }

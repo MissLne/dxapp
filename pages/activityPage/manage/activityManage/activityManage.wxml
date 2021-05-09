@@ -6,7 +6,8 @@
   <swiper-item>
     <Background materialObject="{{manageActivity}}" wx:if="{{showComponent}}" />
     <BaseMaterial materialObject="{{manageActivity}}" wx:if="{{showComponent}}" />
-    <canvas-ring id="canvasRing" value="{{c_val}}"></canvas-ring>
+    <!-- <canvas-ring id="canvasRing" value="{{c_val}}"></canvas-ring> -->
+    <button bind:tap="lala"></button>
     <ManageBtn />
   </swiper-item>
   <swiper-item>

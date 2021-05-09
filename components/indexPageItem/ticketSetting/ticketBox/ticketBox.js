@@ -1,4 +1,5 @@
 // components/indexPageItem/ticketSetting/ticketBox/ticketBox.js
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -30,23 +31,16 @@ Component({
   methods: {
     updateInput(e) {
       let arr = this.properties.ticketDetail
-      switch (e.currentTarget.dataset.count) {
-        case 0:
-          arr[e.currentTarget.dataset.num].ticketName = e.detail.value
-          break
-        case 1:
-          arr[e.currentTarget.dataset.num].ticketPrice = e.detail.value
-          break
-        case 2:
-          arr[e.currentTarget.dataset.num].ticketNumber = e.detail.value
-          break
-        default:
-          break
+      arr[e.currentTarget.dataset.num][`${e.currentTarget.dataset.name}`] = e.detail.value
+      if(e.currentTarget.dataset.name == 'ticketPrice') {
+        e.detail.value == 0? arr[e.currentTarget.dataset.num].ticketType = 0 : arr[e.currentTarget.dataset.num].ticketType = 1
       }
+      
       this.setData({
         ticketDetail: arr
       })
       this.triggerEvent('ticket',{arr: this.data.ticketDetail})
+      console.log(app.globalData.publishActivityData)
     },
     getInput(e) {
       let arr = this.properties.ticketDetail
