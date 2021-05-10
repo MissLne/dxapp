@@ -20,7 +20,9 @@ Page({
     showComponent: 0,
     c_val: {
       canvasWidth: 100 
-    }
+    },
+    pay: 0.00,
+    income: 0.00,
   },
 
   /**
@@ -40,6 +42,29 @@ Page({
     // that.canvasRing = that.selectComponent("#canvasRing");
     // that.canvasRing.showCanvasRing();
 
+  },
+  getPickerTime(e) {
+    let year = e.detail.time.slice(0,4).toString()
+    let month = e.detail.time.slice(5).toString()
+    let obj = {
+      "id": wx.getStorageSync('id'),
+      "month": month,
+      "status": 4,
+      "activityId": this.data.activityId,
+      "year": year
+    }
+    console.log(obj,'----')
+    this.requestBill(obj)
+  },
+  loadCurrentMonth() {
+    var myDate = new Date();
+    var tYear = myDate.getFullYear().toString()
+    var tMonth = myDate.getMonth()
+    var m = tMonth + 1;
+    if (m.toString().length == 1) {
+      m = "0" + m;
+    }
+    return {tYear,m}
   },
   lala() {
     let query = {
@@ -100,16 +125,10 @@ Page({
       swiperHeight: (wx.getSystemInfoSync().windowHeight) * 2 - 64
     })
   },
-  showBillDetail() {
-    let obj = {
-      "id": wx.getStorageSync('id'),
-      "month": 12,
-      "status": 4,
-      "activityId": 0,
-      "year": 2020
-    }
+  requestBill(obj) {
     request.showBillDetail(obj)
       .then(res => {
+        console.log(res)
         let result = res.data.walletDetailBaseMsgs
         for (let i = 0; i < result.length; i++) {
           if (result[i].feeCharge != undefined) {
@@ -130,10 +149,34 @@ Page({
               result[i].moneyType = '退票'
               break;
           }
+          if (result[i].moneyType == '提现' || result[i].moneyType == '退票') {
+            this.data.pay += Number(result[i].amount)
+            // this.data.pay = this.data.pay.toFixed(2)
+          } else {
+            this.data.income += Number(result[i].amount)
+            // this.data.income = this.data.income.toFixed(2)
+          }
         }
+        // let num = this.data.pays
+        // this.data.income = this.data.income.toFixed(2)
+        console.log(this.data.pay)
         this.setData({
-          billDetail: result
+          billDetail: result,
+          pay: Number(this.data.pay).toFixed(2),
+          income: Number(this.data.income).toFixed(2)
         })
       })
+  },
+  showBillDetail() {
+    const current = this.loadCurrentMonth()
+    let obj = {
+      "id": wx.getStorageSync('id'),
+      "month": current.m,
+      "status": 4,
+      "activityId": this.data.activityId,
+      "year": current.tYear
+    }
+    console.log(obj,'----')
+    this.requestBill(obj)
   }
 })

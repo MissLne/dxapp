@@ -16,14 +16,15 @@ var url = {
   register: "merchant/enter/one/doEnter",
   restore: "merchant/consult/reply",
   reply: "merchant/consult/replyComment",
-  updateActivity: "merchant/activity/update_activity",
+  updateActivity: "merchant/activity/actInfo/updateActInfo",
   uploadImg: "web_public/upload_picture",
   showMemberDetail: "merchant/activity/info/members/detail",
   publishActivities: "merchant/activity/add_activity",
   saveDraft: "merchant/activity/add_activity_draft",
   getAllMembers: "merchant/info/showAllManagers",
   addTeamMembers: "merchant/enter/one/addManager",
-  showActivityByStatus: "merchant/activity/showActivityByStatus"
+  showActivityByStatus: "merchant/activity/showActivityByStatus",
+  showUpdateActivit: "merchant/activity/actInfo/showUpdateInfo"
 }
 module.exports = {
   showActivityByStatus(params) {
@@ -92,9 +93,8 @@ module.exports = {
   },
   showUpdateActivity(params) {
     return http({
-      url: `merchant/activity/actInfo/${params.activityId}`,
-      data: params,
-      method: 'GET'
+      url: url.showUpdateActivit,
+      data: params
     })
   },
   searchActivity(params) {

@@ -41,10 +41,11 @@ Page({
   showUpdateActivity(options) {
     options.activityId = options.activityId.replace(/\"/g, "")
     let obj = {
-      activityId: options.activityId
+      aId: `${options.activityId}`
     }
     request.showUpdateActivity(obj)
       .then(res => {
+        console.log(res)
         this.setData({
           activityMaterial: res.data,
           showTips: 1

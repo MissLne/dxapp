@@ -1,15 +1,14 @@
 <view>
   <!-- pages/userPage/bill/bill.wxml -->
   <view class="selectionClass">
-    <ScrollSelect scrollSelect="{{scrollSelect}}" bindselectscroll="getSelectScrollShow" bindactivityId="getActivityId"/>
+    <ScrollSelect scrollSelect="{{scrollSelect}}" bindselectscroll="getSelectScrollShow" bindactivityId="getActivityId" />
     <block wx:for="{{selectList}}" wx:key="index">
       <Selection selectList="{{item}}" bind:tap="showSelectList" data-num="{{index}}" parent-select-name="parent-select-name" bindselectlist="getSelectListShow" />
     </block>
   </view>
   <view></view>
-  
   <view class="payAndIncome">
-    <DateBtn binddatepicker="getPickerTime"/>
+    <DateBtn binddatepicker="getPickerTime" />
     <view>收入：{{income}} 元</view>
     <view>支出：{{pay}} 元</view>
   </view>

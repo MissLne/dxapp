@@ -13,22 +13,42 @@ Page({
         selectList:
         {
             name: '全部活动',
-            arr: ['全部', '已取消','暂停报名','上架中','已下架','草稿'],
+            arr: ['全部', '已取消', '已结束', '上架中', '已下架', '草稿'],
             isShow: 0
         },
     },
     onLoad: function () {
         this.showActivity()
     },
-    // showSelectList(e) {
-    //     this.setData({
-    //       showSelectListIndex: e.currentTarget.dataset.num
-    //     })
-    // },
     addActivity() {
         wx.navigateTo({
             url: '../../pages/activityPage/publish/enterMessage/enterMessage'
         })
+    },
+    switchData(data1, data2) {
+        data1.map((item, index) => {
+            item.color = data2[index].status
+            switch (item.status) {
+                case -3:
+                    item.status = '已取消'
+                    break
+                case -2:
+                    item.status = '已结束'
+                    break
+                case 1:
+                    item.status = '上架中'
+                    break
+                case -1:
+                    item.status = '已下架'
+                    break
+                case 2:
+                    item.status = '草稿'
+                    break
+                default:
+                    break
+            }
+        })
+        return data1
     },
     showActivityByStatus(e) {
         let obj = {
@@ -36,12 +56,13 @@ Page({
             status: e.detail.type
         }
         request.showActivityByStatus(obj)
-        .then(res => {
-            console.log(res.data)
-            this.setData({
-                activityArray: res.data
+            .then(res => {
+                let data = JSON.parse(JSON.stringify(res.data))
+                data = this.switchData(data,res.data)
+                this.setData({
+                    activityArray: data
+                })
             })
-        })
     },
     showActivity() {
         let obj = {
@@ -50,30 +71,7 @@ Page({
         request.showActMessage(obj)
             .then(res => {
                 let data = JSON.parse(JSON.stringify(res.data))
-                console.log(data)
-                console.log(res)
-                data.map((item, index) => {
-                    item.color = res.data[index].status
-                    switch (item.status) {
-                        case -3:
-                            item.status = '已取消'
-                            break
-                        case -2:
-                            item.status = '暂停报名'
-                            break
-                        case 1:
-                            item.status = '上架中'
-                            break
-                        case -1:
-                            item.status = '已下架'
-                            break
-                        case 2:
-                            item.status = '草稿'
-                            break
-                        default:
-                            break
-                    }
-                });
+                data = this.switchData(data,res.data)
                 this.setData({
                     activityArray: data,
                     activityCount: data.length

@@ -20,17 +20,42 @@ Component({
    */
   methods: {
     selectIndex(e) {
+      let index = 0
+      console.log(e.currentTarget.dataset.name)
+      switch (e.currentTarget.dataset.name) {
+        case '全部':
+          index = 0
+          break
+        case '已取消':
+          index = -3
+          break
+        case '草稿':
+          index = 2
+          break
+        case '已下架':
+          index = -1
+          break
+        case '上架中':
+          index = 1
+          break
+        case '已结束':
+          index = -2
+          break
+        default:
+          index = 0
+          break
+      }
       this.setData({
         selectIndex: e.currentTarget.dataset.num
       })
-      this.triggerEvent('showType',{type: this.data.selectIndex})
+      this.triggerEvent('showType', { type: index })
     },
     isShow() {
       this.properties.selectList.isShow = !this.properties.selectList.isShow
       this.setData({
         selectList: this.properties.selectList
       })
-      this.triggerEvent('selectlist',{show: this.properties.selectList.isShow})
+      this.triggerEvent('selectlist', { show: this.properties.selectList.isShow })
     }
   }
 })
