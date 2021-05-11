@@ -7,14 +7,15 @@ Page({
             "id": 0,
             "text": "全部活动"
         }],
-        activityCount: 3,
-        tikect: 2,
+        activityCount: 0,
+        tikect: 0,
         activityArray: [],
         selectList:
         {
             name: '全部活动',
             arr: ['全部', '已取消', '已结束', '上架中', '已下架', '草稿'],
-            isShow: 0
+            isShow: 0,
+            boxWidth: 690
         },
     },
     onLoad: function () {
@@ -36,7 +37,8 @@ Page({
                     item.status = '已结束'
                     break
                 case 1:
-                    item.status = '上架中'
+                    item.status = '上架中',
+                    this.data.tikect++
                     break
                 case -1:
                     item.status = '已下架'
@@ -47,6 +49,9 @@ Page({
                 default:
                     break
             }
+        })
+        this.setData({
+            tikect: this.data.tikect
         })
         return data1
     },

@@ -17,6 +17,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    hide() {
+      this.properties.scrollSelect.isShow = 0
+      this.setData({
+        scrollSelect: this.properties.scrollSelect
+      })
+    },
     showSelectList() {
       this.properties.scrollSelect.isShow = !this.properties.scrollSelect.isShow
       this.setData({
@@ -26,6 +32,7 @@ Component({
     },
     selectActivityName(e) {
       this.properties.scrollSelect.isShow = 0
+      this.properties.scrollSelect.title = e.currentTarget.dataset.name
       this.setData({
         scrollSelect: this.properties.scrollSelect
       })

@@ -1,32 +1,25 @@
-<!--components/messagePageItem/messageItem/messageItem.wxml-->
-<view class="messageItemContainer" wx:for="{{messageItemArray}}" wx:key="index">
-  <view class="messageItemMain">
-    <view class="messageItemAvater">
-      <image src="{{item.portrait}}" mode="aspectFill"/>
-      <view class="messageItemName">
-        <view class="name">
-          {{item.nickName}}
+<!-- components/messagePageItem/messageItem/messageItem.wxml -->
+<block wx:for="{{messageItemArray}}" wx:key="index">
+  <view class="messageItemContainer">
+    <view class="messageItemMain">
+      <view class="messageItemAvater">
+        <image src="{{item.portrait}}" mode="aspectFill" />
+        <view class="messageItemName">
+          <view class="name">{{item.nickName}}</view>
+          <view class="question">{{item.question}}</view>
         </view>
-        <view class="question">
-          {{item.question}}
-        </view> 
+      </view>
+      <view>
+        <view class="messageItemTime">{{item.createTime}}</view>
+        <view class="messageType" wx:if="{{item.reply == null}}" bind:tap="showInput" data-num="{{item.id}}" data-name="{{messageType}}">{{messageType}}</view>
       </view>
     </view>
-    <view>
-      <view class="messageItemTime">
-        {{item.createTime}}
-      </view>
-      <view class="messageType" wx:if="{{item.reply == null}}">
-        {{messageType}}
-      </view>
+    <view class="messageItemAcitivity">活动：{{item.activityName}}</view>
+    <view class="messageItemAnswer" wx:if="{{item.reply != null}}">
+      {{messageType}}：{{item.reply}}
     </view>
   </view>
-  <view class="messageItemAcitivity">活动：{{item.activityName}}</view>
-  <view class="messageItemAnswer" wx:if="{{item.reply != null}}">{{messageType}}：{{item.reply}}</view>
-  <input model:value="{{replyContent}}" />
-  <view bindtap="reply" data-num="{{item.id}}">
-    发送
-  </view>
-    
-</view>
   
+</block>
+
+ 

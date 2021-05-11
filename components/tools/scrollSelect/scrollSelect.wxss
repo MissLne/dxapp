@@ -7,8 +7,17 @@
   z-index: 10000;
 }
 .scorllSelectTitle {
+  width: 160rpx;
   font-size: 26rpx;
   color: #666;
+  display: flex;
+  justify-content: space-between;
+}
+.scorllSelectTitle view:nth-child(1) {
+  width: 140rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .scorllSelectList {
   padding-top: 10rpx;
@@ -19,6 +28,12 @@
   position: absolute;
   top: 50rpx;
   right: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: .3s;
+}
+.showList {
+  transform: scaleY(1);
 }
 .scorllSelectListItem {
   width: 286rpx;
@@ -28,4 +43,14 @@
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
+}
+
+.cover2 {
+  width: 750rpx;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 20;
 }

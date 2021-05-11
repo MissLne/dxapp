@@ -1,26 +1,33 @@
-<!--pages/messagePage/message/message.wxml-->
+<!-- pages/messagePage/message/message.wxml -->
 <view>
   <view class="messageTitle">
-    <Navigations navigationsArray="{{['活动提问','评论']}}" parent-nav-class="parent-nav-class" currentSwiper="{{currentIndex}}" bind:cur="swiperCurrent"/>
+    <Navigations navigationsArray="{{['活动提问','评论']}}" parent-nav-class="parent-nav-class" currentSwiper="{{currentIndex}}" bind:cur="swiperCurrent" />
   </view>
-    
   <swiper style="height: {{windowHeight}}rpx" bindchange="swiperChange" current="{{swiperIndex}}">
-    <swiper-item >
+    <swiper-item>
       <scroll-view scroll-y="true" style="height: {{windowHeight}}rpx">
-        <ScrollSelect scrollSelect="{{scrollSelect}}"/>
-        <MessageItem messageItemArray="{{questionMessage}}" messageType="回答"/>
+        <view class="massageScrollTop">
+          <ScrollSelect scrollSelect="{{scrollSelect}}" bindselectscroll="getSelectScrollShow" />
+          <Selection selectList="{{selectList}}" parent-select-list="parent-select-list" bindshowType="showActivityByStatus" />
+        </view>
+        <MessageItem messageItemArray="{{questionMessage}}" messageType="回答" bindreply="reply" />
       </scroll-view>
     </swiper-item>
-
-    <swiper-item >
+    <swiper-item>
       <scroll-view scroll-y="true" style="height: {{windowHeight}}rpx">
-        <view class="selectContainer">
-          
+        <view class="massageScrollTop">
+          <ScrollSelect scrollSelect="{{scrollSelect}}" bindselectscroll="getSelectScrollShow" />
         </view>
-        <MessageItem messageItemArray="{{commentMessage}}" messageType="回复"/>
+        <!-- <view class="selectContainer"></view> -->
+        <MessageItem messageItemArray="{{commentMessage}}" messageType="回复" bindreply="reply" />
       </scroll-view>
     </swiper-item>
   </swiper>
-    
 </view>
-  
+<view class="inputBox" wx:if="{{isShow}}" style="top: {{100}}rpx">
+  <view class="fakeInput">
+    <input model:value="{{replyContent}}" focus="{{true}}" bindfocus="getKeyHeight" bindblur="hideInput" adjust-position="{{false}}" placeholder="请输入内容" />
+  </view>
+  <view bindtap="replyQuestion">发送</view>
+</view>
+<view class="cover" wx:if="{{isShow}}"></view>

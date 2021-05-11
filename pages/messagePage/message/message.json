@@ -2,6 +2,7 @@
   "usingComponents": {
     "Navigations": "/components/tools/navigations/navigations",
     "ScrollSelect": "/components/tools/scrollSelect/scrollSelect",
+    "Selection": "/components/tools/selection/selection",
     "MessageItem": "/components/messagePageItem/messageItem/messageItem"
   }
 }

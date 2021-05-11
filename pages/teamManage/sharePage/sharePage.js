@@ -32,7 +32,7 @@ Page({
                     "nickName": wxUserInfo.nickName,
                     "headPitcher": wxUserInfo.avatarUrl,
                     "jsCode": result.code,
-                    "role": 0,
+                    "role": 1,
                     "mid": wx.getStorageSync('id')
                   }
                   console.log(obj)

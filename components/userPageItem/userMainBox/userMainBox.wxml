@@ -19,9 +19,9 @@
   <view class="userMainBoxBtn">
     联系客服
   </view>
-  <view class="userMainBoxBtn">
+  <navigator class="userMainBoxBtn" url="/pages/teamManage/teamsManage/teamsManage">
     管理团队
-  </view>
+  </navigator>
   <view class="logout">
     退出登录
   </view>

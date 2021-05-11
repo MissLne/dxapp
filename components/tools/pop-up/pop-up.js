@@ -1,6 +1,6 @@
 // components/tools/pop-up/pop-up.js
 const app = getApp()
-  
+
 Component({
   /**
    * 组件的属性列表
@@ -25,6 +25,11 @@ Component({
       this.setData({
         popUpObj: this.properties.popUpObj
       })
+      if (this.properties.popUpObj.rightBtn == '不保存') {
+        wx.switchTab({
+          url: '../../../index/index'
+        })
+      }
     },
     sure() {
       this.triggerEvent('sure')

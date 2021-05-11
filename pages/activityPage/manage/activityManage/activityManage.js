@@ -129,6 +129,8 @@ Page({
     request.showBillDetail(obj)
       .then(res => {
         console.log(res)
+        let num = 0
+        let num1 = 0
         let result = res.data.walletDetailBaseMsgs
         for (let i = 0; i < result.length; i++) {
           if (result[i].feeCharge != undefined) {
@@ -150,20 +152,15 @@ Page({
               break;
           }
           if (result[i].moneyType == '提现' || result[i].moneyType == '退票') {
-            this.data.pay += Number(result[i].amount)
-            // this.data.pay = this.data.pay.toFixed(2)
+            num += parseFloat(result[i].amount)
           } else {
-            this.data.income += Number(result[i].amount)
-            // this.data.income = this.data.income.toFixed(2)
+            num1 += parseFloat(result[i].amount)
           }
         }
-        // let num = this.data.pays
-        // this.data.income = this.data.income.toFixed(2)
-        console.log(this.data.pay)
         this.setData({
           billDetail: result,
-          pay: Number(this.data.pay).toFixed(2),
-          income: Number(this.data.income).toFixed(2)
+          pay: Number(num).toFixed(2),
+          income: Number(num1).toFixed(2)
         })
       })
   },

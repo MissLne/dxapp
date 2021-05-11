@@ -1,7 +1,7 @@
 <view class="activity-items" wx:for="{{propArray}}" wx:key="index" data-index="{{index}}">
     <view class="activity-item">
       <view class="item-img">
-        <cover-image src="{{item.posterImage}}"/>
+        <image src="{{item.posterImage}}"/>
       </view>
       <view class="item-content">
         <view class="content-title">{{item.activityName}}</view>

@@ -29,24 +29,28 @@ Page({
     swiperIndex: 0,
     scrollSelect: {
       title: '全部活动',
-      selectList:[
-        'lalalalala',
-        'hahahhahah',
-        'lalalalala',
-        'hahahhahah',
-        'lalalalala',
-        'hahahhahahooooooooooooooooooooooo',
-        'lalalalala',
-        'hahahhahah',
-        'lalalalala',
-        'hahahhahah',
-        'lalalalala',
-        'hahahhahah',
-        'lalalalala',
-        'hahahhahah',
-        'hehehehehe'
-      ]
-    }
+      selectList: [
+        {
+          activityId: 0,
+          activityName: '全部活动'
+        }
+      ],
+      isShow: 0
+    },
+    replyId: -1,
+    replyType: '',
+    isShow: 0,
+    inputHeight: 0,
+    replyContent: '',
+    flag: 1,
+    isCover2Show: 0,
+    selectList:
+        {
+            name: '全部提问',
+            arr: ['已回答', '未回答'],
+            isShow: 0,
+            boxWidth: 120
+        },
   },
 
   /**
@@ -55,6 +59,114 @@ Page({
   onLoad: function (options) {
     this.getHeight()
     this.getMessage()
+  },
+  getSelectScrollShow(e) {
+    if (e.detail.show == 1) {
+      this.data.selectList.isShow = 0
+      this.setData({
+        selectList: this.data.selectList
+      })
+    }
+    let obj = {
+      mId: wx.getStorageSync('id')
+    }
+    if (this.data.flag) {
+      request.showActMessage(obj)
+        .then(res => {
+          res.data.map(item => {
+            this.data.scrollSelect.selectList.push({
+              activityId: item.activityId,
+              activityName: item.activityName
+            })
+          })
+          this.data.scrollSelect.isShow = e.detail.show
+          this.setData({
+            scrollSelect: this.data.scrollSelect,
+            flag: 0
+          })
+        })
+    }
+  },
+  setKeyHeight(obj) {
+    let _sysInfo = uni.getSystemInfoSync()
+    let _heightDiff = _sysInfo.screenHeight - _sysInfo.windowHeight
+    let _diff = obj.height - _heightDiff
+    this.keyHeight = _diff > 0 ? _diff : 0
+  },
+  replyQuestion() {
+    let _this = this
+    if (this.data.replyType == '回答') {
+      let obj = {
+        aId: this.data.replyId,
+        reply: this.data.replyContent
+      }
+      if (this.data.replyContent != '') {
+        request.restore(obj)
+          .then(res => {
+            wx.showToast({
+              title: '发送成功',
+              icon: 'success',
+              duration: 2000
+            })
+            _this.onLoad()
+          })
+      }
+    } else {
+      let obj = {
+        cId: this.data.replyId,
+        reply: this.data.replyContent
+      }
+      if (this.data.replyContent != '') {
+        request.reply(obj)
+          .then(res => {
+            wx.showToast({
+              title: '发送成功',
+              icon: 'success',
+              duration: 2000
+            })
+            _this.onLoad()
+          })
+      }
+
+    }
+  },
+  reply(e) {
+    console.log(e)
+    this.setData({
+      isShow: 1,
+      replyId: e.detail.obj.id,
+      replyType: e.detail.obj.type
+    })
+  },
+  hideInput() {
+    this.setData({
+      inputHeight: 0,
+      isShow: 0
+    })
+  },
+  getTabBarHeight() {
+    let systemInfo = wx.getSystemInfoSync()
+    let pxToRpxScale = 750 / systemInfo.windowWidth
+    let ktxStatusHeight = systemInfo.statusBarHeight * pxToRpxScale
+    let navigationHeight = 44 * pxToRpxScale
+    let ktxWindowHeight = systemInfo.windowHeight * pxToRpxScale
+    let ktxScreentHeight = systemInfo.screenHeight * pxToRpxScale
+    let tabBarHeight = ktxScreentHeight - ktxStatusHeight - navigationHeight - ktxWindowHeight
+    let viewHeight = ktxWindowHeight
+    return { tabBarHeight, viewHeight }
+  },
+  getKeyHeight(e) {
+    // let _sysInfo = wx.getSystemInfoSync()
+    // let _heightDiff = _sysInfo.screenHeight - _sysInfo.windowHeight
+    // let _diff = e.detail.height - _heightDiff
+    // let height = _diff > 0 ? _diff : 0
+    // console.log(height,_heightDiff)
+    // let tabBarHeight = this.getTabBarHeight().tabBarHeight
+    // 
+    this.setData({
+      // inputHeight: (e.detail.height) * 2 - tabBarHeight - height,
+      replyContent: ''
+    })
   },
   swiperCurrent(e) {
     this.setData({
@@ -71,21 +183,23 @@ Page({
       mId: wx.getStorageSync('id')
     }
     request.showQuesMessge(obj)
-    .then(res => {
-      this.setData({
-        questionMessage: res.data
+      .then(res => {
+        console.log(res)
+        this.setData({
+          questionMessage: res.data
+        })
       })
-    })
     request.showCommMessge(obj)
-    .then(res => {
-      this.setData({
-        commentMessage: res.data
+      .then(res => {
+        this.setData({
+          commentMessage: res.data
+        })
       })
-    })
   },
   getHeight() {
+    let viewHeight = this.getTabBarHeight().viewHeight
     this.setData({
-      windowHeight: (wx.getSystemInfoSync().windowHeight) * 2 - 100
+      windowHeight: viewHeight - 100
     })
   }
 })

@@ -21,7 +21,7 @@
     <view class="payAndIncome">
     <DateBtn binddatepicker="getPickerTime"/>
     <view>收入：{{income}} 元</view>
-    <view>支出：{{pay}} 元</view>
+    <view style="margin-left: 10rpx;">支出：{{pay}} 元</view>
   </view>
       
     <scroll-view scroll-y="true" style="height:{{swiperHeight}}rpx">

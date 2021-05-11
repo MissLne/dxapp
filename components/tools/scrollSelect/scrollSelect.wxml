@@ -4,12 +4,14 @@
     <view bind:tap="showSelectList">{{scrollSelect.title}}</view>
     <view></view>
   </view>
-  
-    <view class="scorllSelectList" wx:if="{{scrollSelect.isShow}}">
+  <!-- wx:if="{{scrollSelect.isShow}}" -->
+    <view class="scorllSelectList {{scrollSelect.isShow? 'showList' : ''}}" >
       <scroll-view scroll-y="false" scroll-top="50" style="height: 570rpx;">
     <view>
-      <view wx:for="{{scrollSelect.selectList}}" wx:key="index" class="scorllSelectListItem" bind:tap="selectActivityName" data-id="{{item.activityId}}">{{item.activityName}}</view>
+      <view wx:for="{{scrollSelect.selectList}}" wx:key="index" class="scorllSelectListItem" bind:tap="selectActivityName" data-id="{{item.activityId}}" data-name="{{item.activityName}}">{{item.activityName}}</view>
     </view>
     </scroll-view>
     </view>
 </view>
+<view class="cover2" wx:if="{{scrollSelect.isShow}}" bind:tap="hide"></view>
+  

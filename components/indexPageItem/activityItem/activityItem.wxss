@@ -1,23 +1,26 @@
 /* components/indexPageItem/activityItem/activityItem.wxss */
 .activity-item {
-  width: 100%;
-  min-height: 240rpx;
+  width: 750rpx;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+  /* min-height: 300rpx; */
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
 }
-.item-img {
+.item-img image{
   width: 270rpx;
   height: 190rpx;
   border-radius: 14rpx;
 }
 .item-content {
   width: 350rpx;
-  margin: 20rpx 0;
+  /* margin: 0 0 20rpx 0; */
 }
 .content-title {
   font-size: 32rpx;
-  margin-bottom: 20rpx;
+  font-weight: 600;
+  margin-bottom: 30rpx;
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
@@ -25,8 +28,8 @@
 .content-box {
   font-size: 20rpx;
 }
-.content-box view {
-  margin-top: 5rpx;
+.content-box view:nth-child(2) {
+  margin: 18rpx 0;
 }
 .content-box image {
   width: 20rpx;

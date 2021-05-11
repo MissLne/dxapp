@@ -7,7 +7,7 @@ Component({
     selectList: Object,
     content: String
   },
-  externalClasses: ['parent-select-name'],
+  externalClasses: ['parent-select-name','parent-select-list'],
   /**
    * 组件的初始数据
    */
@@ -45,7 +45,9 @@ Component({
           index = 0
           break
       }
+      this.properties.selectList.name = e.currentTarget.dataset.name
       this.setData({
+        selectList: this.properties.selectList,
         selectIndex: e.currentTarget.dataset.num
       })
       this.triggerEvent('showType', { type: index })
