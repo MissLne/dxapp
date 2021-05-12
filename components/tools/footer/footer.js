@@ -24,12 +24,19 @@ Component({
    */
   methods: {
     saveDraft() {
+      if (this.properties.contentObject.leftBtn == '充值') {
+        wx.navigateTo({
+          url: this.properties.contentObject.leftUrl
+        })
+        return
+      }
       if (this.properties.contentObject.leftBtn == '保存草稿') {
         request.saveDraft(app.globalData.publishActivityData)
           .then(res => {
             console.log(res)
           })
       }
+      wx.navigateBack({ delta: 1 })
     },
     requestData() {
       console.log(app.globalData.publishActivityData)
@@ -40,6 +47,12 @@ Component({
         })
     },
     goNext() {
+      if (this.properties.contentObject.rightBtn == '提现') {
+        wx.navigateTo({
+          url: this.properties.contentObject.rightUrl
+        })
+        return
+      }
       let obj = this.properties.contentObject.addActivity,
         count = 0,
         arr = [],

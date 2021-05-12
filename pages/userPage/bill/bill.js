@@ -11,7 +11,7 @@ Page({
     selectList: [
       {
         name: '全部交易',
-        arr: ['全部', '上架中'],
+        arr: ['全部','提现','充值','退票','售票'],
         isShow: 0
       }
     ],
@@ -32,6 +32,45 @@ Page({
   onLoad: function (options) {
     this.showBillDetail()
     this.getWindowHeight()
+  },
+  requestBill(obj) {
+    request.showBillDetail(obj)
+      .then(res => {
+        console.log(res)
+        let num = 0
+        let num1 = 0
+        let result = res.data.walletDetailBaseMsgs
+        for (let i = 0; i < result.length; i++) {
+          if (result[i].feeCharge != undefined) {
+            result[i].feeCharge = result[i].feeCharge.toFixed(2)
+          }
+          result[i].amount = result[i].amount.toFixed(2)
+          switch (result[i].moneyType) {
+            case -1:
+              result[i].moneyType = '提现'
+              break;
+            case 0:
+              result[i].moneyType = '充值'
+              break;
+            case 1:
+              result[i].moneyType = '售票'
+              break;
+            default:
+              result[i].moneyType = '退票'
+              break;
+          }
+          if (result[i].moneyType == '提现' || result[i].moneyType == '退票') {
+            num += parseFloat(result[i].amount)
+          } else {
+            num1 += parseFloat(result[i].amount)
+          }
+        }
+        this.setData({
+          billDetail: result,
+          pay: Number(num).toFixed(2),
+          income: Number(num1).toFixed(2)
+        })
+      })
   },
   getSelectScrollShow(e) {
     if (e.detail.show == 1) {
@@ -79,9 +118,18 @@ Page({
     })
   },
   getPickerTime(e) {
+    let _this = this
     let year = e.detail.time.slice(0,4).toString()
     let month = e.detail.time.slice(5).toString()
-    return {year,month}
+    let obj = {
+      "id": wx.getStorageSync('id'),
+      "month": month,
+      "status": 4,
+      "activityId": _this.getActivityId(),
+      "year": year
+    }
+    console.log(obj,'----')
+    this.requestBill(obj)
   },
   getActivityId(e) {
     return e? e.detail.id : 0
@@ -107,39 +155,40 @@ Page({
       "year": current.tYear
     }
     console.log(obj)
-    request.showBillDetail(obj)
-      .then(res => {
-        let result = res.data.walletDetailBaseMsgs
-        for (let i = 0; i < result.length; i++) {
-          if (result[i].feeCharge != undefined) {
-            result[i].feeCharge = result[i].feeCharge.toFixed(2)
-          }
-          result[i].amount = result[i].amount.toFixed(2)
-          switch (result[i].moneyType) {
-            case -1:
-              result[i].moneyType = '提现'
-              break;
-            case 0:
-              result[i].moneyType = '充值'
-              break;
-            case 1:
-              result[i].moneyType = '售票'
-              break;
-            default:
-              result[i].moneyType = '退票'
-              break;
-          }
-          if (result[i].moneyType == '提现' || result[i].moneyType == '退票') {
-            this.data.pay += parseFloat(result[i].amount)
-          } else {
-            this.data.income += parseFloat(result[i].amount)
-          }
-        }
-        this.setData({
-          billDetail: result,
-          pay: this.data.pay.toFixed(2),
-          income: this.data.income.toFixed(2)
-        })
-      })
+    this.requestBill(obj)
+    // request.showBillDetail(obj)
+    //   .then(res => {
+    //     let result = res.data.walletDetailBaseMsgs
+    //     for (let i = 0; i < result.length; i++) {
+    //       if (result[i].feeCharge != undefined) {
+    //         result[i].feeCharge = result[i].feeCharge.toFixed(2)
+    //       }
+    //       result[i].amount = result[i].amount.toFixed(2)
+    //       switch (result[i].moneyType) {
+    //         case -1:
+    //           result[i].moneyType = '提现'
+    //           break;
+    //         case 0:
+    //           result[i].moneyType = '充值'
+    //           break;
+    //         case 1:
+    //           result[i].moneyType = '售票'
+    //           break;
+    //         default:
+    //           result[i].moneyType = '退票'
+    //           break;
+    //       }
+    //       if (result[i].moneyType == '提现' || result[i].moneyType == '退票') {
+    //         this.data.pay += parseFloat(result[i].amount)
+    //       } else {
+    //         this.data.income += parseFloat(result[i].amount)
+    //       }
+    //     }
+    //     this.setData({
+    //       billDetail: result,
+    //       pay: this.data.pay.toFixed(2),
+    //       income: this.data.income.toFixed(2)
+    //     })
+    //   })
   }
 })
