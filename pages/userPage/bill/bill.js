@@ -12,7 +12,8 @@ Page({
       {
         name: '全部交易',
         arr: ['全部','提现','充值','退票','售票'],
-        isShow: 0
+        isShow: 0,
+        boxWidth: 150
       }
     ],
     showSelectListIndex: 10,
@@ -23,7 +24,11 @@ Page({
       title: '全部活动',
       selectList: [],
       isShow: 0
-    }
+    },
+    activityId: 0,
+    month: '1',
+    year: '2021',
+    status: 0
   },
 
   /**
@@ -71,6 +76,25 @@ Page({
           income: Number(num1).toFixed(2)
         })
       })
+      // this.loadCurrentMonth()
+  },
+  getIndex(e) {
+    console.log(e)
+    this.data.selectList[0].name = e.detail.name
+    this.data.selectList[0].isShow = 1
+    this.setData({
+      status: e.detail.count,
+      selectList: this.data.selectList
+    })
+    let obj = {
+      "id": wx.getStorageSync('id'),
+      "month": this.data.month,
+      "status": e.detail.count,
+      "activityId": this.data.activityId,
+      "year": this.data.year
+    }
+    console.log(obj,'----')
+     this.requestBill(obj)
   },
   getSelectScrollShow(e) {
     if (e.detail.show == 1) {
@@ -118,21 +142,38 @@ Page({
     })
   },
   getPickerTime(e) {
-    let _this = this
     let year = e.detail.time.slice(0,4).toString()
     let month = e.detail.time.slice(5).toString()
     let obj = {
       "id": wx.getStorageSync('id'),
       "month": month,
-      "status": 4,
-      "activityId": _this.getActivityId(),
+      "status": this.data.status,
+      "activityId": this.data.activityId,
       "year": year
     }
+    this.setData({
+      year: year,
+      month: month
+    })
     console.log(obj,'----')
     this.requestBill(obj)
   },
   getActivityId(e) {
-    return e? e.detail.id : 0
+    this.data.scrollSelect.title = e.detail.name
+    this.data.scrollSelect.isShow = 0
+    this.setData({
+      activityId: e.detail.id,
+      scrollSelect: this.data.scrollSelect
+    })
+    let obj = {
+      "id": wx.getStorageSync('id'),
+      "month": this.data.month,
+      "status": this.data.status,
+      "activityId": this.data.activityId,
+      "year": this.data.year
+  }
+  console.log(obj,'----')
+  this.requestBill(obj)
   },
   loadCurrentMonth() {
     var myDate = new Date();
@@ -142,16 +183,19 @@ Page({
     if (m.toString().length == 1) {
       m = "0" + m;
     }
+    this.setData({
+      year: tYear,
+      month: m
+    })
     return {tYear,m}
   },
   showBillDetail() {
     const current = this.loadCurrentMonth()
-    const ll = this.getActivityId()
     let obj = {
       "id": wx.getStorageSync('id'),
       "month": current.m,
       "status": 4,
-      "activityId": ll,
+      "activityId": 0,
       "year": current.tYear
     }
     console.log(obj)

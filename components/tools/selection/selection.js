@@ -50,7 +50,7 @@ Component({
         selectList: this.properties.selectList,
         selectIndex: e.currentTarget.dataset.num
       })
-      this.triggerEvent('showType', { type: index })
+      this.triggerEvent('showType', { type: index,count: e.currentTarget.dataset.num,name: e.currentTarget.dataset.name})
     },
     isShow() {
       this.properties.selectList.isShow = !this.properties.selectList.isShow

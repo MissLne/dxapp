@@ -2,7 +2,7 @@
 .selectionBox {
   /* width: 690rpx; */
   height: 100rpx;
-  margin: 0 30rpx;
+  margin: 0 30rpx 0 0;
   position: relative;
 }
 .selectName {
@@ -13,6 +13,10 @@
   justify-content: space-between;
   align-items: flex-end;
   white-space: nowrap;
+}
+.selectName view:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
 }
 .top-text {
   color: #999;

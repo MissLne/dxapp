@@ -3,7 +3,7 @@
   <view class="selectionClass">
     <ScrollSelect scrollSelect="{{scrollSelect}}" bindselectscroll="getSelectScrollShow" bindactivityId="getActivityId" />
     <block wx:for="{{selectList}}" wx:key="index">
-      <Selection selectList="{{item}}" bind:tap="showSelectList" data-num="{{index}}" parent-select-name="parent-select-name" bindselectlist="getSelectListShow" />
+      <Selection selectList="{{item}}" bind:tap="showSelectList" data-num="{{index}}" parent-select-name="parent-select-name" parent-select-list="parent-select-list" bindselectlist="getSelectListShow" bindshowType="getIndex"/>
     </block>
   </view>
   <view></view>

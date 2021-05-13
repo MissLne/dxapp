@@ -36,7 +36,7 @@ Component({
       this.setData({
         scrollSelect: this.properties.scrollSelect
       })
-      this.triggerEvent('activityId',{id: e.currentTarget.dataset.id})
+      this.triggerEvent('activityId',{id: e.currentTarget.dataset.id,name: e.currentTarget.dataset.name})
     }
   }
 })

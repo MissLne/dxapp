@@ -23,3 +23,6 @@
 .payAndIncome view {
   margin: 0 20rpx;
 }
+.parent-select-list {
+  justify-content: flex-end;
+}
