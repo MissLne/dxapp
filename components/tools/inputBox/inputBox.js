@@ -7,13 +7,13 @@ Component({
     inputTitle: String,
     inputValue: String
     },
-
   /**
    * 组件的初始数据
    */
   data: {
     inputMessage: ''
   },
+  externalClasses: ['parent-component-input'],
 
   /**
    * 组件的方法列表

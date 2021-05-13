@@ -1,4 +1,5 @@
 // components/indexPageItem/manageActivity/ticketUpdate/ticketUpdate.js
+// const mm = require('../../../../images/activity')
 Component({
   /**
    * 组件的属性列表

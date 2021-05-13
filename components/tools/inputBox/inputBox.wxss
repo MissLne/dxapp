@@ -2,7 +2,7 @@
 
 
 .publishInput {
-  width: 585rpx;
+  /* width: 585rpx; */
   height: 58rpx;
   border-radius: 29rpx;
   box-sizing: border-box;
@@ -12,4 +12,5 @@
   display: flex;
   align-items: center;
   color: #666;
+  margin-top: 25rpx;
 }

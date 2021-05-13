@@ -20,9 +20,9 @@ Page({
   update() {
     console.log(this.data.activityMaterial)
     request.updateActivity(this.data.activityMaterial)
-    .then(res => {
-      console.log(res)
-    })
+      .then(res => {
+        console.log(res)
+      })
   },
   getMessage(e) {
     console.log(e)
@@ -46,6 +46,18 @@ Page({
     request.showUpdateActivity(obj)
       .then(res => {
         console.log(res)
+        res.data.tickets.map(item => {
+          switch (item.status) {
+            case 0:
+              item.status = '已售罄'
+              break
+            case 1:
+              item.status = '售票中'
+              break
+            default:
+              break
+          }
+        })
         this.setData({
           activityMaterial: res.data,
           showTips: 1

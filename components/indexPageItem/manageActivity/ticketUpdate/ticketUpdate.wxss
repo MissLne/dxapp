@@ -1,1 +1,118 @@
 /* components/indexPageItem/manageActivity/ticketUpdate/ticketUpdate.wxss */
+.updateTicketBox {
+  width: 690rpx;
+  height: 250rpx;
+  margin: 0 auto;
+  position: relative;
+}
+.updateTicketBox image {
+  width: 690rpx;
+  height: 250rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.updateTicketContainer {
+  width: 690rpx;
+  height: 250rpx;
+  padding: 30rpx 30rpx 30rpx 41rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+.updateTicketLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #333;
+}
+.updateTicketLeft > view {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.updateTicketLeft > view > view:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40rpx;
+}
+.updateTicketLeft > view > view:nth-child(2) view:nth-child(2){
+  height: 26rpx;
+  vertical-align: middle;
+  font-size: 18rpx;
+  color: #999;
+  padding-left: 15rpx;
+  border-left: 1rpx solid rgba(0, 0, 0,0.1);
+}
+.updateTicketLeft > view > view:nth-child(2) input{
+  width: 65rpx;
+  height: 10rpx;
+  border-radius: 15rpx;
+  text-align: center;
+  vertical-align: middle;
+  color: #FF441A;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.updateTicketLeft > view > view:nth-child(2) view:nth-child(1){
+  width: 65rpx;
+  height: 30rpx;
+  background: #f5f5f5;
+  border-radius: 15rpx;
+  background: #f5f5f5;
+  position: relative;
+  margin-right: 15rpx;
+}
+.parent-component-input {
+  width: 520rpx !important;
+}
+.updateTicketRight view:nth-child(1){
+  width: 30rpx;
+  height: 77rpx;
+  font-size: 24rpx;
+  text-align: center;
+  vertical-align: middle;
+  color: #777BCE;
+  font-weight: bold;
+}
+.updateTicketRight view:nth-child(2){
+  text-align: center;
+  vertical-align: middle;
+  width: 30rpx;
+  height: 80rpx;
+  font-size: 18rpx;
+  color: #999999;
+  border: 2rpx solid #999999;
+  border-radius: 15rpx;
+}
+.updateTicketRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.updateTicketTtile {
+  width: 690rpx;
+  /* height: 250rpx; */
+  margin: 20rpx auto 0 auto;
+  box-sizing: border-box;
+  padding: 17rpx 41rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.updateTicketTtile view:nth-child(1) {
+  color: #333;
+  font-size: 30rpx;
+  margin-right: 20rpx;
+  vertical-align: bottom;
+}
+.updateTicketTtile view:nth-child(2) {
+  color: #999999;
+  font-size: 18rpx;
+  height: 28rpx;
+}

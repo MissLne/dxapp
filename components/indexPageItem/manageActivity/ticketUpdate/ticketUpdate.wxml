@@ -1,21 +1,28 @@
 <!-- components/indexPageItem/manageActivity/ticketUpdate/ticketUpdate.wxml -->
 <view wx:for="{{ticketsMaterial}}" wx:key="index">
-  <view>
+  <view class="updateTicketTtile">
     <view>票种设置</view>
     <view>修改后门票总数不得小于售出数</view>
   </view>
-  <view>
-    <view>
-      <view>门票总数</view>
-      <view>
-        <input value="{{item.ticketNumber}}" bindinput="ticketPrice" data-num="{{index}}"/>
-        <view>{{item.ticketRemainNumber}}</view>
+  <view class="updateTicketBox">
+    <image class="" src="../../../../images/activity/yuankong.png" />
+    <view class="updateTicketContainer">
+      <view class="updateTicketLeft">
+        <view>
+          <view>门票总数</view>
+          <view>
+            <view>
+              <input value="{{item.ticketNumber}}" bindinput="ticketPrice" data-num="{{index}}" />
+            </view>
+            <view>已售{{item.ticketNumber - item.ticketRemainNumber}}张</view>
+          </view>
+        </view>
+        <InputBox inputTitle="票种介绍" inputValue="{{item.ticketInstruction}}" bindact="ticketSetting" data-num="{{index}}" parent-component-input="parent-component-input"/>
       </view>
-      <InputBox inputTitle="票种介绍" inputValue="{{item.ticketInstruction}}" bindact="ticketSetting" data-num="{{index}}"/>
-    </view>
-    <view>
-      <view>{{item.ticketName}}</view>
-      <view>{{item.refundType}}</view>
+      <view class="updateTicketRight">
+        <view>{{item.ticketName}}</view>
+        <view>{{item.status}}</view>
+      </view>
     </view>
   </view>
 </view>
