@@ -1,1 +1,46 @@
 /* components/indexPageItem/manageActivity/memberMessage/memberMessage.wxss */
+.menberItemContainer {
+  width: 690rpx;
+  height: 170rpx;
+  margin: 20rpx auto;
+  box-sizing: border-box;
+  position: relative;
+}
+.menberItemContainer image {
+  width: 690rpx;
+  height: 170rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.menberItemBox {
+  width: 690rpx;
+  height: 170rpx;
+  padding: 30rpx 30rpx 41rpx 48rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menberItemLeft > view:nth-child(1) {
+  font-weight: bold;
+  font-size: 32rpx;
+  color: #333;
+}
+.menberItemLeft > view:nth-child(2) {
+  width: 500rpx;
+  margin-top: 35rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #333;
+}
+.menberItemRight {
+  width: 27rpx;
+  height: 87rpx;
+  font-size: 24rpx;
+  text-align: center;
+  vertical-align: middle;
+  color: #777BCE;
+}

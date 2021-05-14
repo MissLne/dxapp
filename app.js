@@ -4,7 +4,7 @@ App({
     userInfo: null,
     publishActivityData: {
       accountId: wx.getStorageSync('id').toString(),
-      activityName: 'q',
+      activityName: '呜呜呜呜',
       startTime: '2021-05-09 08:00:00',
       endTime: '2021-09-05 08:00:00',
       registrationDeadline: '2021-05-09 08:00:00',

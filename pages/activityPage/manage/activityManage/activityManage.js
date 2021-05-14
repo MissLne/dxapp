@@ -16,10 +16,10 @@ Page({
     swiperHeight: 0,
     currentIndex: 0,
     searchContent: '',
-    activityId: 0,
+    activityId: -1,
     showComponent: 0,
     c_val: {
-      canvasWidth: 100 
+      canvasWidth: 100
     },
     pay: 0.00,
     income: 0.00,
@@ -44,7 +44,7 @@ Page({
 
   },
   getPickerTime(e) {
-    let year = e.detail.time.slice(0,4).toString()
+    let year = e.detail.time.slice(0, 4).toString()
     let month = e.detail.time.slice(5).toString()
     let obj = {
       "id": wx.getStorageSync('id'),
@@ -53,7 +53,7 @@ Page({
       "activityId": this.data.activityId,
       "year": year
     }
-    console.log(obj,'----')
+    console.log(obj, '----')
     this.requestBill(obj)
   },
   loadCurrentMonth() {
@@ -64,7 +64,7 @@ Page({
     if (m.toString().length == 1) {
       m = "0" + m;
     }
-    return {tYear,m}
+    return { tYear, m }
   },
   lala() {
     let query = {
@@ -77,7 +77,7 @@ Page({
       query
     })
   },
- 
+
   searchHandle() {
     let obj = {
       activityId: this.data.activityId,
@@ -115,6 +115,19 @@ Page({
     request.showMemberMessage(obj)
       .then(res => {
         console.log(res)
+        res.data.map(item => {
+          switch (item.gender) {
+            case 1:
+              item.gender = '男'
+              break;
+            case 0:
+              item.gender = '女'
+              break;
+            default:
+              item.gender = '未知'
+              break;
+          }
+        })
         this.setData({
           memberMessage: res.data
         })
@@ -122,7 +135,7 @@ Page({
   },
   geiHeight() {
     this.setData({
-      swiperHeight: (wx.getSystemInfoSync().windowHeight) * 2 - 64
+      swiperHeight: (wx.getSystemInfoSync().windowHeight) * 2 - 120
     })
   },
   requestBill(obj) {
@@ -173,7 +186,7 @@ Page({
       "activityId": this.data.activityId,
       "year": current.tYear
     }
-    console.log(obj,'----')
+    console.log(obj, '----')
     this.requestBill(obj)
   }
 })

@@ -1,19 +1,37 @@
-<!--pages/activityPage/manage/memberMessage/memberMessage.wxml-->
-<view>
-  <view >姓名</view>
-  <input value="{{memberObj.name}}"/>
+<!-- pages/activityPage/manage/memberMessage/memberMessage.wxml -->
+<view style="margin-top: 40rpx">
+  <view class="menberMessBox">
+    <view>姓名</view>
+    <view>{{memberObj.name}}</view>
+  </view>
+  <view class="menberMessBox">
+    <view>性别</view>
+    <view>{{memberObj.gender}}</view>
+  </view>
+  <view class="menberMessBox">
+    <view>联系方式</view>
+    <view>{{memberObj.phone}}</view>
+  </view>
+  <view class="menberMessBox">
+    <view>就读学校</view>
+    <view>{{memberObj.school}}</view>
+  </view>
+  <block wx:for="{{memberObj.tables}}" wx:key="index">
+    <view class="menberMessBox" wx:if="{{item.propertyType == 0}}">
+      <view>{{item.property}}</view>
+      <view>{{item.tableValue}}</view>
+    </view>
+    <view class="menberMessBox" wx:if="{{item.propertyType == 4}}">
+      <view>{{item.property}}</view>
+      <view>
+        <image src="{{item.tableValue}}" mode="aspectFill" />
+      </view>
+    </view>
+    <view class="menberMessBox" wx:if="{{item.propertyType == 3}}">
+      <view>{{item.property}}</view>
+      <view>{{item.tableValue}}</view>
+    </view>
+  </block>
 </view>
-<view>
-  <view >男</view>
-  <input value="{{memberObj.gender}}" />
-</view>
-<view>
-  <view >联系方式</view>
-  <input value="{{memberObj.phone}}" />
-</view>
-<view>
-  <view >就读学校</view>
-  <input value="{{memberObj.school}}" />
-</view>
-<MemberOptional optional="{{memberObj.tables}}"/>
-<button open-type="share">按钮</button>
+<!-- <MemberOptional optional="{{memberObj.tables}}" /> -->
+<!-- <button open-type="share">按钮</button> -->

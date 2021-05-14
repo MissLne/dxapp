@@ -5,7 +5,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    member: Object
+    member: Object,
+    activityId: Number
   },
 
   /**
@@ -20,9 +21,10 @@ Component({
    */
   methods: {
     showDetail(e) {
+      console.log(e)
       let query = {
         mId: e.currentTarget.dataset.mid,
-        activityId: 89
+        activityId: this.properties.activityId
       }
       query.mId = JSON.stringify(query.mId)
       query.activityId = JSON.stringify(query.activityId)

@@ -1,12 +1,15 @@
 <!-- components/indexPageItem/manageActivity/memberMessage/memberMessage.wxml -->
-<view wx:for="{{member}}" wx:key="index">
-  <view bind:tap="showDetail" data-mId="{{item.mid}}">
-    <view>{{item.name}}</view>
-    <view>
-      <view>{{item.gender}}</view>
-      <view>{{item.school}}</view>
-      <view>{{item.phone}}</view>
+<view wx:for="{{member}}" wx:key="index" class="menberItemContainer">
+  <image class="" src="../../../../images/activity/memberItem.png" mode="aspectFill"/>
+  <view class="menberItemBox">
+    <view bind:tap="showDetail" data-mId="{{item.mid}}" class="menberItemLeft">
+      <view>{{item.name}}</view>
+      <view>
+        <view>{{item.gender}}</view>
+        <view>{{item.school}}</view>
+        <view>{{item.phone}}</view>
+      </view>
     </view>
+    <view class="menberItemRight">{{item.ticketName}}</view>
   </view>
-  <view>{{item.ticketName}}</view>
 </view>

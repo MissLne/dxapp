@@ -24,8 +24,17 @@
 .payAndIncome {
   font-size: 22rpx;
   color: #333;
-  margin-top: 40rpx;
+  /* margin-top: 40rpx; */
+  padding: 0 50rpx;
+  width: 750rpx;
+  box-sizing: border-box;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  align-items: center;
+}
+.payAndIncome > view:nth-child(1) {
+  margin-right: 59rpx;
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
 }

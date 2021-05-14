@@ -5,7 +5,7 @@
     <view>修改后门票总数不得小于售出数</view>
   </view>
   <view class="updateTicketBox">
-    <image class="" src="../../../../images/activity/yuankong.png" />
+    <image class="" src="../../../../images/activity/yuankong.png" mode="aspectFill"/>
     <view class="updateTicketContainer">
       <view class="updateTicketLeft">
         <view>

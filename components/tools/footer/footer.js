@@ -41,10 +41,10 @@ Component({
     requestData() {
       console.log(app.globalData.publishActivityData)
       // app.globalData.publishActivityData.status = 1
-      request.publishActivities(app.globalData.publishActivityData)
-        .then(res => {
-          console.log(res)
-        })
+      // request.publishActivities(app.globalData.publishActivityData)
+      //   .then(res => {
+      //     console.log(res)
+      //   })
     },
     goNext() {
       if (this.properties.contentObject.rightBtn == '提现') {
@@ -76,22 +76,26 @@ Component({
         } else {
           console.log(2)
           arr.map(item => {
+            console.log(item)
             for (let key in item) {
               if (item[key] === '' || item[key].length == 0) {
+                console.log('oxo')
                 nullArr = 1
                 this.triggerEvent('next')
               }
             }
           })
           if (!nullArr) {
+            console.log('ouo')
             if (this.properties.contentObject.rightBtn == '发布') this.requestData()
-            wx.navigateTo({
+            wx.switchTab({
               url: this.properties.contentObject.rightUrl
             })
           }
 
         }
       } else {
+        console.log('lalal')
         this.triggerEvent('next')
       }
     }

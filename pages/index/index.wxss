@@ -11,6 +11,9 @@
 }
 .top-select {
   /* height: 30rpx; */
+  width: 750rpx;
+  box-sizing: border-box;
+  padding: 0 50rpx;
   z-index: 999;
 }
 .top-text {

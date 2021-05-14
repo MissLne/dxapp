@@ -81,17 +81,20 @@ Page({
       propertyType: 0,
       pickType: e.detail.value
     }
-    switch (e.detail.value) {
-      case 0:
+    console.log(obj.pickType)
+    switch (obj.pickType) {
+      case '0':
         obj.propertyType = 0
         break
-      case 1:
+      case '1':
         obj.propertyType = 4
+        obj.property = '图片填写项'
         break
       default:
-        obj.propertyType = 2
+        obj.propertyType = 3
         break
     }
+    console.log(obj)
     app.globalData.publishActivityData.webFormList.push(obj)
     this.data.footerBtnObject.addActivity.webFormList = app.globalData.publishActivityData.webFormList
     this.setData({
