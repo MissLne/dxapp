@@ -29,10 +29,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    addChoice() {
-      this.data.checkBox.push('')
+    addChoice(e) {
+      this.properties.setUpItem[e.currentTarget.dataset.item].content.push('')
       this.setData({
-        checkBox: this.data.checkBox
+        setUpItem: this.properties.setUpItem
       })
     },
     radioChange(e) {
@@ -60,16 +60,19 @@ Component({
       }
     },
     changeSonInput(e) {
-      this.data.checkBox[e.currentTarget.dataset.inputindex] = e.detail.value
-      this.properties.setUpItem[e.currentTarget.dataset.boxindex].content = this.data.checkBox
+      // this.data.checkBox[e.currentTarget.dataset.inputindex] = e.detail.value
+      this.properties.setUpItem[e.currentTarget.dataset.boxindex].content[e.currentTarget.dataset.inputindex] = e.detail.value
       this.setData({
         setUpItem: this.properties.setUpItem
       })
       this.triggerEvent('setup',{arr: this.properties.setUpItem})
     },
     deleteInput(e) {
-      this.data.checkBox.splice(e.currentTarget.dataset.inputindex,1)
-      this.properties.setUpItem[e.currentTarget.dataset.boxindex].content = this.data.checkBox
+      console.log(e)
+      this.properties.setUpItem[e.currentTarget.dataset.boxindex].content.splice(e.currentTarget.dataset.inputindex,1)
+      // console.log(this.data.checkBox)
+      // this.properties.setUpItem[e.currentTarget.dataset.boxindex].content = this.data.checkBox
+      console.log(this.properties.setUpItem)
       this.setData({
         setUpItem: this.properties.setUpItem
       })

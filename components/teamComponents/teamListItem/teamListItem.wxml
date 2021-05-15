@@ -1,8 +1,8 @@
 <!-- components/teamComponents/teamListItem/teamListItem.wxml -->
 <block wx:for="{{teamDetail}}" wx:key="index">
   <view class="teamListItem">
-    <image src="{{item.avator}}" />
+    <image src="{{item.image}}" />
     <view class="teamListName">{{item.name}}</view>
-    <view class="teamListBtn">点击前往></view>
+    <view class="teamListBtn" bind:tap="login" data-id="{{item.id}}">点击前往></view>
   </view>
 </block>

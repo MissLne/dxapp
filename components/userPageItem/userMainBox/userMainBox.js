@@ -21,6 +21,21 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    logout() {
+      request.logout()
+      .then(() => {
+        wx.removeStorageSync('token')
+        console.log(wx.getStorageSync('token'))
+        wx.navigateTo({
+          url: '../../loginPage/login/login'
+        })
+        wx.showToast({
+          title: '退出成功',
+          icon: 'success',
+          duration: 1000
+        })
+      })
+    },
     getWalletCount() {
       let obj = {
         mId: wx.getStorageSync('id')

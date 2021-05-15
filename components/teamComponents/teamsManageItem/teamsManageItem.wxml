@@ -6,6 +6,6 @@
       <view>{{item.nickName}}</view>
       <view class="{{item.role == '管理员'? 'red' : 'green'}}">{{item.role}}</view>
     </view>
-    <view class="teamManageBtn" wx:if="{{item.role == '运营'}}">踢出团队</view>
+    <view class="teamManageBtn" wx:if="{{item.role == '运营'}}" bind:tap="deleteMember" data-id="{{item.id}}">踢出团队</view>
   </view>
 </block>

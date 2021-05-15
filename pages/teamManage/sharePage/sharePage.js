@@ -16,6 +16,10 @@ Page({
 
   },
   sureEnterTeam() {
+        // request.ouo({id: "1"})
+    
+      
+    
     let that = this
     wx.showModal({
       title: '温馨提示',

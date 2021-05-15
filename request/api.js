@@ -24,9 +24,63 @@ var url = {
   getAllMembers: "merchant/info/showAllManagers",
   addTeamMembers: "merchant/enter/one/addManager",
   showActivityByStatus: "merchant/activity/showActivityByStatus",
-  showUpdateActivit: "merchant/activity/actInfo/showUpdateInfo"
+  showUpdateActivit: "merchant/activity/actInfo/showUpdateInfo",
+  getLoginAccount: "merchant/enter/one/canIn",
+  identify: "merchant/enter/one/identify",
+  logout: "merchant/enter/one/logout"
 }
 module.exports = {
+  ouo(params) {
+    return http({
+      url: `merchant/enter/one/test/${params.jsCode}`,
+      data: params,
+      method: 'GET'
+    })
+  },
+  logout(params) {
+    return http({
+      url: url.logout,
+      data: params,
+      method: 'GET'
+    })
+  },
+  identify(params) {
+    return http({
+      url: url.identify,
+      data: params,
+      header: {
+        "Content-Type": "application/json"
+      }
+    })
+  },
+  getLoginAccount(params) {
+    return http({
+      url: `merchant/enter/one/canIn/${params.jsCode}`,
+      data: params,
+      method: 'GET'
+    })
+  },
+  deleteMember(params) {
+    return http({
+      url: `merchant/info/deleteManager/${params.id}`,
+      data: params,
+      method: 'DELETE'
+    })
+  },
+  actIdGetConsult(params) {
+    return http({
+      url: `merchant/consult//getConsult/${params.aId}`,
+      data: params,
+      method: 'GET'
+    })
+  },
+  actIdGetComment(params) {
+    return http({
+      url: `merchant/consult//getComment/${params.aId}`,
+      data: params,
+      method: 'GET'
+    })
+  },
   showActivityByStatus(params) {
     return http({
       url: url.showActivityByStatus,

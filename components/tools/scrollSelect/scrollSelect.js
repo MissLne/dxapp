@@ -31,6 +31,7 @@ Component({
       this.triggerEvent('selectscroll',{show: this.properties.scrollSelect.isShow})
     },
     selectActivityName(e) {
+      console.log(e)
       this.properties.scrollSelect.isShow = 0
       this.properties.scrollSelect.title = e.currentTarget.dataset.name
       this.setData({

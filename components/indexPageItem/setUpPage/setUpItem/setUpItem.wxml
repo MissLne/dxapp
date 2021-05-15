@@ -38,17 +38,17 @@
       <view>标题</view>
       <input placeholder="例：朋友圈集赞图片" bindinput="changeInput" value="{{item.content}}" data-str="content" data-num="{{index}}" />
     </view>
-    <view wx:if="{{item.pickType == 2}}" wx:for="{{checkBox}}" wx:for-index="num" wx:for-item="sonItem" class="diySelectChoices">
+    <view wx:if="{{item.pickType == 2}}" wx:for="{{item.content}}" wx:for-index="num" wx:for-item="sonItem" class="diySelectChoices">
       <view>
         <view>选项{{num + 1}}</view>
         <input placeholder="例：公众号" value="{{sonItem}}" bindinput="changeSonInput" data-inputindex="{{num}}" data-boxindex="{{index}}" />
       </view>
-      <view wx:if="{{checkBox.length > 2}}" bind:tap="deleteInput" data-inputindex="{{num}}" data-boxindex="{{index}}">
+      <view wx:if="{{item.content.length > 2}}" bind:tap="deleteInput" data-inputindex="{{num}}" data-boxindex="{{index}}">
         -
       </view>
     </view>
   </view>
-  <view wx:if="{{item.pickType == 2}}" bindtap="addChoice" class="addInputBtn">新增选项</view>
+  <view wx:if="{{item.pickType == 2}}" bindtap="addChoice" data-item="{{index}}" class="addInputBtn">新增选项</view>
   <view class="footerBtn">
     <view>
       <radioBtn radioContent="{{['多选']}}" wx:if="{{item.pickType == 2}}" bindtype="checkChange" data-num="{{index}}" radio-parent-class="radio-parent-class"/>

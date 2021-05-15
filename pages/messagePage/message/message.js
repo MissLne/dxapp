@@ -31,7 +31,17 @@ Page({
       title: '全部活动',
       selectList: [
         {
-          activityId: 0,
+          activityId: '',
+          activityName: '全部活动'
+        }
+      ],
+      isShow: 0
+    },
+    scrollSelect1: {
+      title: '全部活动',
+      selectList: [
+        {
+          activityId: '',
           activityName: '全部活动'
         }
       ],
@@ -45,12 +55,12 @@ Page({
     flag: 1,
     isCover2Show: 0,
     selectList:
-        {
-            name: '全部提问',
-            arr: ['已回答', '未回答'],
-            isShow: 0,
-            boxWidth: 120
-        },
+    {
+      name: '全部提问',
+      arr: ['已回答', '未回答'],
+      isShow: 0,
+      boxWidth: 120
+    },
   },
 
   /**
@@ -59,6 +69,27 @@ Page({
   onLoad: function (options) {
     this.getHeight()
     this.getMessage()
+  },
+  getActivityId(e) {
+    console.log(e.currentTarget.dataset.item)
+    if (e.currentTarget.dataset.item) {
+      console.log(e)
+      request.actIdGetComment({ aId: e.detail.id })
+        .then(res => {
+          console.log(res)
+          this.setData({
+            commentMessage: res.data
+          })
+        })
+    } else {
+      request.actIdGetConsult({ aId: e.detail.id })
+        .then(res => {
+          console.log(res)
+          this.setData({
+            questionMessage: res.data
+          })
+        })
+    }
   },
   getSelectScrollShow(e) {
     if (e.detail.show == 1) {
@@ -78,10 +109,15 @@ Page({
               activityId: item.activityId,
               activityName: item.activityName
             })
+            this.data.scrollSelect1.selectList.push({
+              activityId: item.activityId,
+              activityName: item.activityName
+            })
           })
           this.data.scrollSelect.isShow = e.detail.show
           this.setData({
             scrollSelect: this.data.scrollSelect,
+            scrollSelect1: this.data.scrollSelect1,
             flag: 0
           })
         })
