@@ -1,12 +1,9 @@
-
 <view class="loginPage">
   <view class="loginBox">
     <view class="logo">
       <image src="../../../images/loginPage/LOGOx.png" />
     </view>
-    <view>
-      <navigator class="registerBtn" url="/pages/loginPage/register/register">商家入驻</navigator>
-    </view>
+    <view></view>
     <view>
       <view class="loginInput">
         <image src="../../../images/loginPage/account.png" />
@@ -20,7 +17,13 @@
         <navigator url="/pages/loginPage/forgetPsd/forgetPsd">忘记密码</navigator>
       </view>
     </view>
-    <image class="loginBtn" src="../../../images/loginPage/jiantou.png" bindtap="handleLogin" />
+    <view>
+      <view>
+        <navigator class="registerBtn" url="/pages/loginPage/register/register">商家入驻</navigator>
+        <navigator class="teamBtn" url="/pages/teamManage/teamList/teamList">已加入团队</navigator>
+      </view>
+      <image class="loginBtn" src="../../../images/loginPage/jiantou.png" bindtap="handleLogin" />
+    </view>
   </view>
   <image class="footImg" src="../../../images/loginPage/underwardpaint.png" />
 </view>

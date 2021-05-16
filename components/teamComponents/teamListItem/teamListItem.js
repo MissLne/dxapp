@@ -28,7 +28,15 @@ Component({
             "id": e.currentTarget.dataset.id
           }
           request.identify(obj)
-      }
+            .then(res => {
+              let data = res.data
+              wx.setStorageSync('token', data.token)
+              wx.setStorageSync('id', data.mid)
+              wx.switchTab({
+                url: '/pages/index/index'
+              })
+            })
+        }
       })
     }
   }

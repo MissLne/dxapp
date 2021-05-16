@@ -19,7 +19,7 @@
   <InputBox inputValue="{{item.ticketInstructions}}" inputTitle="票种介绍" bindact="getInput"  data-num="{{index}}"/>
   <view class="ticketDetailFooter">
     <view >不可退票的票种钱款将在报名后方可提现</view>
-    <radioBtn radioContent="{{['不可退票']}}" defultData="{{item.ticketRefundType}}" radio-parent-class="radio-parent-class" bindtype="getType" data-num="{{index}}"/>
+    <radioBtn radioContent="{{['不可退票']}}" widthCount="{{200}}" defultData="{{item.ticketRefundType}}" radio-parent-class="radio-parent-class" bindtype="getType" data-num="{{index}}"/>
   </view>
     
 </view>

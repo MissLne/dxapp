@@ -6,6 +6,7 @@
     "pages/activityPage/publish/ticket/ticket",
     "pages/activityPage/publish/setUp/setUp",
     "pages/editor/editor",
+    "pages/theWebview/theWebview",
     "pages/activityPage/publish/officialAccount/officialAccount",
     "pages/activityPage/manage/activityManage/activityManage",
     "pages/activityPage/manage/activityUpdate/activityUpdate",

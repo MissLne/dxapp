@@ -4,20 +4,17 @@
     <Navigations navigationsArray="{{['活动提问','评论']}}" parent-nav-class="parent-nav-class" currentSwiper="{{currentIndex}}" bind:cur="swiperCurrent" />
   </view>
   <swiper style="height: {{windowHeight}}rpx" bindchange="swiperChange" current="{{swiperIndex}}">
+    <view class="massageScrollTop">
+      <ScrollSelect scrollSelect="{{scrollSelect}}" bindselectscroll="getSelectScrollShow" bindactivityId="getActivityId" data-item="{{0}}" />
+      <Selection selectList="{{selectList}}" parent-select-list="parent-select-list" bindshowType="showActivityByStatus" bindselectlist="getTopHeight"/>
+    </view>
     <swiper-item>
       <scroll-view scroll-y="true" style="height: {{windowHeight}}rpx">
-        <view class="massageScrollTop">
-          <ScrollSelect scrollSelect="{{scrollSelect}}" bindselectscroll="getSelectScrollShow" bindactivityId="getActivityId" data-item="{{0}}"/>
-          <Selection selectList="{{selectList}}" parent-select-list="parent-select-list" bindshowType="showActivityByStatus" />
-        </view>
         <MessageItem messageItemArray="{{questionMessage}}" messageType="回答" bindreply="reply" />
       </scroll-view>
     </swiper-item>
     <swiper-item>
       <scroll-view scroll-y="true" style="height: {{windowHeight}}rpx">
-        <view class="massageScrollTop">
-          <ScrollSelect scrollSelect="{{scrollSelect1}}" bindselectscroll="getSelectScrollShow" bindactivityId="getActivityId" data-item="{{1}}"/>
-        </view>
         <!-- <view class="selectContainer"></view> -->
         <MessageItem messageItemArray="{{commentMessage}}" messageType="回复" bindreply="reply" />
       </scroll-view>

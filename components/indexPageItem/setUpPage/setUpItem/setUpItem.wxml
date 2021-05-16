@@ -51,8 +51,8 @@
   <view wx:if="{{item.pickType == 2}}" bindtap="addChoice" data-item="{{index}}" class="addInputBtn">新增选项</view>
   <view class="footerBtn">
     <view>
-      <radioBtn radioContent="{{['多选']}}" wx:if="{{item.pickType == 2}}" bindtype="checkChange" data-num="{{index}}" radio-parent-class="radio-parent-class"/>
-      <radioBtn radioContent="{{['必填']}}" bindtype="radioChange" data-num="{{index}}" radio-parent-class="radio-parent-class"/>
+      <radioBtn radioContent="{{['多选']}}" widthCount="{{80}}" wx:if="{{item.pickType == 2}}" bindtype="checkChange" data-num="{{index}}" radio-parent-class="radio-parent-class"/>
+      <radioBtn radioContent="{{['必填']}}" widthCount="{{80}}" bindtype="radioChange" data-num="{{index}}" radio-parent-class="radio-parent-class"/>
     </view>
   </view>
 </view>

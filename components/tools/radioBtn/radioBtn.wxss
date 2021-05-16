@@ -13,7 +13,6 @@
 } 
 .oneBtn {
   display: flex;
-  width: 80rpx;
   margin-right: 30rpx;
   justify-content: space-between;
   align-items: center; 

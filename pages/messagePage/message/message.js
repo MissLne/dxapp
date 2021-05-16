@@ -1,5 +1,6 @@
 // pages/messagePage/message/message.js
 const request = require('../../../request/api')
+const app = getApp()
 Page({
 
   /**
@@ -69,6 +70,27 @@ Page({
   onLoad: function (options) {
     this.getHeight()
     this.getMessage()
+  },
+  getTopHeight() {
+    let _this = this
+    let query = wx.createSelectorQuery().in(this)
+    query.select(`.messageTitle`).boundingClientRect(rect => {
+      let height1 = _this.getRealHeight(rect)
+      let query1 = wx.createSelectorQuery().in(_this)
+      query1.select(`.massageScrollTop`).boundingClientRect(rect1 => {
+        let height2 = _this.getRealHeight(rect1)
+         this.setData({
+          windowHeight: app.getSomgthingHeight().viewHeight - (height2 + height1)
+         })
+      }).exec()
+    }).exec()
+  },
+  getRealHeight(rect) {
+    let clientHeight = rect.height
+    let clientWidth = rect.width
+    let ratio = 750 / clientWidth
+    let height = clientHeight * ratio
+    return height
   },
   getActivityId(e) {
     console.log(e.currentTarget.dataset.item)

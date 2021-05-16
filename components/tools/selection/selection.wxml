@@ -1,7 +1,7 @@
 <!-- components/tools/selection/selection.wxml -->
 <!-- style="width: {{selectionWidth}}rpx" -->
 <!-- wx:if="{{showSelect}}" -->
-<view class="selectionBox" style="width: {{selectList.boxWidth}}rpx">
+<view class="selectionBox {{scrollHeight? 'boxHeight100' : 'boxHeight50'}}" style="width: {{selectList.boxWidth}}rpx;">
   <view class="selectName parent-select-name">
     <view>
       <text bind:tap="isShow">{{selectList.name}}</text>

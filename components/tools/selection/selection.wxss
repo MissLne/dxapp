@@ -5,6 +5,12 @@
   margin: 0 30rpx 0 0;
   position: relative;
 }
+.boxHeight100 {
+  height: 100rpx;
+}
+.boxHeight50 {
+  height: 50rpx;
+}
 .selectName {
   color: #666;
   font-size: 26rpx;

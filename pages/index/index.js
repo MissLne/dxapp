@@ -3,6 +3,7 @@ const app = getApp()
 const request = require('../../request/api')
 Page({
     data: {
+        scrollviewHeight: app.getSomgthingHeight().viewHeight - 71,
         selectArray: [{
             "id": 0,
             "text": "全部活动"
@@ -17,11 +18,34 @@ Page({
             isShow: 0,
             boxWidth: 690
         },
-        identifyLoginShow: 0
+        identifyLoginShow: 0,
+        getTopHeight: 0
     },
     onLoad: function () {
-        // wx.hideTabBar()
+        this.getHeight()
 
+    },
+    getHeight() {
+        let query = wx.createSelectorQuery().in(this)
+        query.select('.top-nav').boundingClientRect(rect => {
+            let clientHeight = rect.height
+            let clientWidth = rect.width
+            let ratio = 750 / clientWidth
+            let height = clientHeight * ratio
+            console.log(height)
+            this.setData({
+                scrollviewHeight: app.getSomgthingHeight().viewHeight - height
+            })
+        }).exec();
+    },
+    getTopHeight(e) {
+        this.getHeight()
+        // this.setData({
+        //     getTopHeight: e.detail.height,
+        //     scrollviewHeight: app.getSomgthingHeight().viewHeight - e.detail.height - 13
+        // })
+    },
+    onShow: function () {
         this.showActivity()
         this.loginOrNot()
     },
@@ -30,46 +54,43 @@ Page({
             title: '温馨提示',
             content: '正在请求您的个人信息',
             success(res) {
-              if (res.confirm) {
-                wx.getUserProfile({
-                  desc: "获取你的昵称、头像等信息",
-                  success: res => {
-                    let wxUserInfo = res.userInfo
-                    wx.login({
-                      success: (result) => {
-                        let obj = {
-                          "nickName": wxUserInfo.nickName,
-                          "headPitcher": wxUserInfo.avatarUrl,
-                          "jsCode": result.code,
-                          "role": 1,
-                          "mid": wx.getStorageSync('id')
+                if (res.confirm) {
+                    wx.getUserProfile({
+                        desc: "获取你的昵称、头像等信息",
+                        success: res => {
+                            if (wx.getStorageSync('id')) {
+                                console.log(1)
+                                wx.navigateTo({
+                                    url: '../../pages/teamManage/teamList/teamList'
+                                })
+                            } else {
+                                wx.navigateTo({
+                                    url: '../../pages/loginPage/login/login'
+                                })
+                            }
+                        },
+                        fail: res => {
+                            wx.showErrorModal('您拒绝了请求')
+                            return;
                         }
-                        console.log(obj)
-                        request.addTeamMembers(obj)
-                          .then(res => {
-                            console.log(res)
-                          })
-                      }
                     })
-      
-                  },
-                  fail: res => {
-                    wx.showErrorModal('您拒绝了请求')
+                } else if (res.cancel) {
+                    that.showErrorModal('您拒绝了请求')
                     return;
-                  }
-                })
-              } else if (res.cancel) {
-                that.showErrorModal('您拒绝了请求')
-                return;
-              }
+                }
             }
-          })
+        })
     },
     loginOrNot() {
-        if(wx.getStorageSync('token') == '') {
+        if (wx.getStorageSync('token') == '') {
             wx.hideTabBar()
             this.setData({
                 identifyLoginShow: 1
+            })
+        } else {
+            wx.showTabBar()
+            this.setData({
+                identifyLoginShow: 0
             })
         }
     },
@@ -79,6 +100,7 @@ Page({
         })
     },
     switchData(data1, data2) {
+        let ticket = 0
         data1.map((item, index) => {
             item.color = data2[index].status
             switch (item.status) {
@@ -90,7 +112,7 @@ Page({
                     break
                 case 1:
                     item.status = '上架中',
-                        this.data.tikect++
+                        ticket++
                     break
                 case -1:
                     item.status = '已下架'
@@ -103,7 +125,7 @@ Page({
             }
         })
         this.setData({
-            tikect: this.data.tikect
+            tikect: ticket
         })
         return data1
     },

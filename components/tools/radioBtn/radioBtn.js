@@ -5,7 +5,8 @@ Component({
    */
   properties: {
     radioContent: Array,
-    defultData: Number
+    defultData: Number,
+    widthCount: Number
   },
   externalClasses: ['radio-parent-class'],
   /**

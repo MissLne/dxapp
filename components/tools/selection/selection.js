@@ -7,12 +7,13 @@ Component({
     selectList: Object,
     content: String
   },
-  externalClasses: ['parent-select-name','parent-select-list'],
+  externalClasses: ['parent-select-name', 'parent-select-list'],
   /**
    * 组件的初始数据
    */
   data: {
-    selectIndex: 0
+    selectIndex: 0,
+    scrollHeight: 0
   },
 
   /**
@@ -50,14 +51,25 @@ Component({
         selectList: this.properties.selectList,
         selectIndex: e.currentTarget.dataset.num
       })
-      this.triggerEvent('showType', { type: index,count: e.currentTarget.dataset.num,name: e.currentTarget.dataset.name})
+      this.triggerEvent('showType', { type: index, count: e.currentTarget.dataset.num, name: e.currentTarget.dataset.name })
     },
     isShow() {
+      let query = wx.createSelectorQuery().in(this);
+      
       this.properties.selectList.isShow = !this.properties.selectList.isShow
       this.setData({
-        selectList: this.properties.selectList
+        selectList: this.properties.selectList,
+        scrollHeight: !this.data.scrollHeight
       })
-      this.triggerEvent('selectlist', { show: this.properties.selectList.isShow })
+      query.select('.selectionBox').boundingClientRect(rect => {
+        let clientHeight = rect.height;
+        let clientWidth = rect.width;
+        let ratio = 750 / clientWidth;
+        let height = clientHeight * ratio;
+        console.log(height);
+        this.triggerEvent('selectlist', { show: this.properties.selectList.isShow,height: height})
+      }).exec();
+      
     }
   }
 })

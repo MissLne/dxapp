@@ -26,6 +26,17 @@ page{
   border: 1rpx solid #FF0000;
   border-radius: 22rpx;
 }
+.teamBtn {
+  width: 130rpx;
+  height: 50rpx;
+  font-size: 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777BCE;
+  border: 1rpx solid #777BCE;
+  border-radius: 22rpx;
+}
 .loginInput {
   width: 428rpx;
   height: 50rpx;

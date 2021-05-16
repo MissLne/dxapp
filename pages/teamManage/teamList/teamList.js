@@ -25,7 +25,6 @@ Page({
         let obj = {
           "jsCode": result.code.toString()
         }
-        // request.ouo(obj)
         request.getLoginAccount(obj)
           .then(res => {
             _this.setData({

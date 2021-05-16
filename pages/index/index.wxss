@@ -50,4 +50,14 @@
   justify-content: center;
   font-size: 34rpx;
   font-weight: bold;
+  position: absolute;
+  bottom: 316rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.addActivityBtn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40rpx;
 }

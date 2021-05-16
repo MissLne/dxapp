@@ -1,6 +1,6 @@
 <!--components/tools/radioBtn/radioBtn.wxml-->
 <view class="nRadioBtn radio-parent-class" >
-  <view class="oneBtn {{index == currentSelect? 'active1' : ''}}" wx:for="{{radioContent}}" wx:key="index" bindtap="checkedHandle" data-num="{{index}}">
+  <view class="oneBtn {{index == currentSelect? 'active1' : ''}}" wx:for="{{radioContent}}" wx:key="index" bindtap="checkedHandle" data-num="{{index}}" style="width: {{widthCount}}rpx">
     <view class="radioBtn {{index == currentSelect? 'active' : ''}}">
     </view>
     {{item}}

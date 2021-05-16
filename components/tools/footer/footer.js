@@ -40,11 +40,11 @@ Component({
     },
     requestData() {
       console.log(app.globalData.publishActivityData)
-      // app.globalData.publishActivityData.status = 1
-      // request.publishActivities(app.globalData.publishActivityData)
-      //   .then(res => {
-      //     console.log(res)
-      //   })
+      app.globalData.publishActivityData.status = 1
+      request.publishActivities(app.globalData.publishActivityData)
+        .then(res => {
+          console.log(res)
+        })
     },
     goNext() {
       if (this.properties.contentObject.rightBtn == '提现') {
@@ -70,9 +70,11 @@ Component({
       //   this.requestData()
       // }
       if (count >= this.properties.contentObject.number || (this.properties.contentObject.rightBtn == '发布' && arr.length == 0)) {
-        console.log(count)
         if (this.properties.contentObject.rightBtn == '发布' && arr.length == 0) {
           this.requestData()
+          wx.switchTab({
+            url: this.properties.contentObject.rightUrl
+          })
         } else {
           console.log(2)
           arr.map(item => {
@@ -86,11 +88,18 @@ Component({
             }
           })
           if (!nullArr) {
-            console.log('ouo')
-            if (this.properties.contentObject.rightBtn == '发布') this.requestData()
-            wx.switchTab({
-              url: this.properties.contentObject.rightUrl
-            })
+            
+            if (this.properties.contentObject.rightBtn == '发布') {
+              console.log(1)
+              this.requestData()
+              wx.switchTab({
+                url: this.properties.contentObject.rightUrl
+              })
+            } else {
+              wx.navigateTo({
+                url: this.properties.contentObject.rightUrl
+              })
+            }
           }
 
         }
