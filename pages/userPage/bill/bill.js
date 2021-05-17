@@ -1,5 +1,7 @@
 // pages/userPage/bill/bill.js
+// const { exec } = require('node:child_process')
 const request = require('../../../request/api')
+const app = getApp()
 Page({
 
   /**
@@ -11,7 +13,7 @@ Page({
     selectList: [
       {
         name: '全部交易',
-        arr: ['全部','提现','充值','退票','售票'],
+        arr: ['全部', '提现', '充值', '退票', '售票'],
         isShow: 0,
         boxWidth: 150
       }
@@ -28,7 +30,8 @@ Page({
     activityId: 0,
     month: '1',
     year: '2021',
-    status: 0
+    status: 0,
+    isShowSelectList: 0
   },
 
   /**
@@ -76,7 +79,7 @@ Page({
           income: Number(num1).toFixed(2)
         })
       })
-      // this.loadCurrentMonth()
+    // this.loadCurrentMonth()
   },
   getIndex(e) {
     console.log(e)
@@ -93,8 +96,8 @@ Page({
       "activityId": this.data.activityId,
       "year": this.data.year
     }
-    console.log(obj,'----')
-     this.requestBill(obj)
+    console.log(obj, '----')
+    this.requestBill(obj)
   },
   getSelectScrollShow(e) {
     if (e.detail.show == 1) {
@@ -132,17 +135,30 @@ Page({
     }
   },
   getWindowHeight() {
-    this.setData({
-      windowHeight: (wx.getSystemInfoSync().windowHeight) * 2 - 120
-    })
+    let _this = this
+    let query = wx.createSelectorQuery().in(this)
+    query.select(`.selectionClass`).boundingClientRect(rect => {
+      let height1 = app.getRealHeight(rect)
+      let query1 = wx.createSelectorQuery().in(_this)
+      query1.select(`.payAndIncome`).boundingClientRect(rect => {
+        let height2 = app.getRealHeight(rect)
+        // console.log
+        this.setData({
+          windowHeight: app.getSomgthingHeight().viewHeight - (height1 + height2)
+        })
+      }).exec()
+    }).exec()
+    
   },
   showSelectList(e) {
     this.setData({
-      showSelectListIndex: e.currentTarget.dataset.num
+      showSelectListIndex: e.currentTarget.dataset.num,
+      isShowSelectList: !this.data.isShowSelectList
     })
+    this.getWindowHeight()
   },
   getPickerTime(e) {
-    let year = e.detail.time.slice(0,4).toString()
+    let year = e.detail.time.slice(0, 4).toString()
     let month = e.detail.time.slice(5).toString()
     let obj = {
       "id": wx.getStorageSync('id'),
@@ -155,7 +171,7 @@ Page({
       year: year,
       month: month
     })
-    console.log(obj,'----')
+    console.log(obj, '----')
     this.requestBill(obj)
   },
   getActivityId(e) {
@@ -171,9 +187,9 @@ Page({
       "status": this.data.status,
       "activityId": this.data.activityId,
       "year": this.data.year
-  }
-  console.log(obj,'----')
-  this.requestBill(obj)
+    }
+    console.log(obj, '----')
+    this.requestBill(obj)
   },
   loadCurrentMonth() {
     var myDate = new Date();
@@ -187,7 +203,7 @@ Page({
       year: tYear,
       month: m
     })
-    return {tYear,m}
+    return { tYear, m }
   },
   showBillDetail() {
     const current = this.loadCurrentMonth()

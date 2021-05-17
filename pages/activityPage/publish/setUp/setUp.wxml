@@ -3,7 +3,11 @@
 <view>
   <SetUpHeader bind:tap="lala"/>
   <SetUpItem setUpItem="{{setUpItem}}" bindsetup="getSetUpMessage"bindsetupdelete="delete"/>
-  <Pick pickMessage="{{pickMessage}}" bindpick="addSetUp"/>
+  <view class="addDiySetup">
+    <view bindtap="addSetUp">新增填写项</view>
+  </view>
+    
+  <!-- <Pick pickMessage="{{pickMessage}}" bindpick="addSetUp"/> -->
   <view class="setUpFooterBtn">
     <SetUpFootBtn content="保存并预览"/>
     <Footer contentObject="{{footerBtnObject}}" parent-leftbtn="parent-footer" up-parent-class="up-parent-class" bindnext="goNext"/>

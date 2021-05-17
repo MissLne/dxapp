@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   border-radius: 0 0 30rpx 30rpx;
-  position: fixed;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
   z-index: 999;

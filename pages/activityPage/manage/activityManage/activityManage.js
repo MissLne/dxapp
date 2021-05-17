@@ -1,9 +1,9 @@
 // pages/activityPage/manage/activityManage/activityManage.js
 const request = require('../../../../request/api')
 const navigate = require('../../../../navigator/index')
+const app = getApp()
 // import * as echarts from '../../../../components/ec-canvas/echarts';
 
-const app = getApp()
 Page({
 
   /**
@@ -134,9 +134,9 @@ Page({
       })
   },
   geiHeight() {
-    this.setData({
-      swiperHeight: (wx.getSystemInfoSync().windowHeight) * 2 - 120
-    })
+      this.setData({
+        swiperHeight: app.getSomgthingHeight().viewHeight - 64
+      })
   },
   requestBill(obj) {
     request.showBillDetail(obj)

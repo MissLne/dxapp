@@ -33,6 +33,13 @@ App({
   onLoad: function () {
     this.loadFont()
   },
+  getRealHeight(rect) {
+    let clientHeight = rect.height
+    let clientWidth = rect.width
+    let ratio = 750 / clientWidth
+    let height = clientHeight * ratio
+    return height
+  },
   initWatch(_page) {
     if (!_page) {
       console.error('未检测到Page对象,请将当前page传入该函数');

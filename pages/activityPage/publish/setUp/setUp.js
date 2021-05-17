@@ -74,33 +74,37 @@ Page({
     }, 2000)
   },
   addSetUp(e) {
-    let obj = {
-      isOptional: 0,
-      property: '',
-      content: [],
-      propertyType: 0,
-      pickType: e.detail.value
-    }
-    console.log(obj.pickType)
-    switch (obj.pickType) {
-      case '0':
-        obj.propertyType = 0
-        break
-      case '1':
-        obj.propertyType = 4
-        obj.property = '图片填写项'
-        break
-      default:
-        obj.propertyType = 3
-        break
-    }
-    console.log(obj)
-    app.globalData.publishActivityData.webFormList.push(obj)
-    this.data.footerBtnObject.addActivity.webFormList = app.globalData.publishActivityData.webFormList
-    this.setData({
-      setUpItem: app.globalData.publishActivityData.webFormList,
-      footerBtnObject: this.data.footerBtnObject
+    wx.navigateTo({
+      url: '/pages/activityPage/publish/addDiyBox/addDiyBox'
     })
+      
+    // let obj = {
+    //   isOptional: 0,
+    //   property: '',
+    //   content: [],
+    //   propertyType: 0,
+    //   pickType: e.detail.value
+    // }
+    // console.log(obj.pickType)
+    // switch (obj.pickType) {
+    //   case '0':
+    //     obj.propertyType = 0
+    //     break
+    //   case '1':
+    //     obj.propertyType = 4
+    //     obj.property = '图片填写项'
+    //     break
+    //   default:
+    //     obj.propertyType = 3
+    //     break
+    // }
+    // console.log(obj)
+    // app.globalData.publishActivityData.webFormList.push(obj)
+    // this.data.footerBtnObject.addActivity.webFormList = app.globalData.publishActivityData.webFormList
+    // this.setData({
+    //   setUpItem: app.globalData.publishActivityData.webFormList,
+    //   footerBtnObject: this.data.footerBtnObject
+    // })
   },
   suredelete() {
     app.globalData.publishActivityData.webFormList.splice(this.properties.popUpObj.toPopUPData, 1)

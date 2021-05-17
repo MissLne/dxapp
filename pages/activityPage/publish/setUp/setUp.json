@@ -1,11 +1,10 @@
 {
   "usingComponents": {
     "SetUpHeader": "/components/indexPageItem/setUpPage/header/header",
-    "SetUpItem": "/components/indexPageItem/setUpPage/setUpItem/setUpItem",
     "SetUpBtn": "/components/indexPageItem/ticketSetting/btn/btn",
     "SetUpFootBtn": "/components/indexPageItem/setUpPage/btn/btn",
     "Footer": "/components/tools/footer/footer",
-    "Pick": "/components/tools/pick/pick",
+    "SetUpItem": "/components/indexPageItem/setUpPage/setUpItem/setUpItem",
     "PopUp": "/components/tools/pop-up/pop-up",
     "Bubble": "/components/tools/bubble/bubble",
     "HeadNavigation": "/components/tools/headNavigation/headNavigation"

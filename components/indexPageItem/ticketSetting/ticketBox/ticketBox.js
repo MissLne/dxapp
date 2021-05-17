@@ -7,7 +7,8 @@ Component({
   properties: {
     ticketDetail: {
       type: Array
-    }
+    },
+    base: Object
   },
 
   /**
@@ -64,6 +65,12 @@ Component({
         ticketDetail: this.properties.ticketDetail
       })
       console.log(this.data.ticketDetail)
+      console.log( this.properties.base)
+      let scrollTop = this.properties.base.scrollTop
+      wx.pageScrollTo({
+        scrollTop: scrollTop - 430,
+        duration: 300
+      })
       this.triggerEvent('ticket',{arr: this.data.ticketDetail})
     }
   }

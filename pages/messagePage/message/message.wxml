@@ -3,25 +3,28 @@
   <view class="messageTitle">
     <Navigations navigationsArray="{{['活动提问','评论']}}" parent-nav-class="parent-nav-class" currentSwiper="{{currentIndex}}" bind:cur="swiperCurrent" />
   </view>
-  <swiper style="height: {{windowHeight}}rpx" bindchange="swiperChange" current="{{swiperIndex}}">
-    <view class="massageScrollTop">
-      <ScrollSelect scrollSelect="{{scrollSelect}}" bindselectscroll="getSelectScrollShow" bindactivityId="getActivityId" data-item="{{0}}" />
-      <Selection selectList="{{selectList}}" parent-select-list="parent-select-list" bindshowType="showActivityByStatus" bindselectlist="getTopHeight"/>
-    </view>
+  <swiper style="height: {{windowHeight1}}rpx" bindchange="swiperChange" current="{{swiperIndex}}">
     <swiper-item>
+      <view class="massageScrollTop">
+        <ScrollSelect scrollSelect="{{scrollSelect}}" bindselectscroll="getSelectScrollShow" bindactivityId="getActivityId" data-item="{{0}}" />
+        <Selection selectList="{{selectList}}" parent-select-list="parent-select-list" bindshowType="showActivityByStatus" bindselectlist="getTopHeight" />
+      </view>
       <scroll-view scroll-y="true" style="height: {{windowHeight}}rpx">
         <MessageItem messageItemArray="{{questionMessage}}" messageType="回答" bindreply="reply" />
       </scroll-view>
     </swiper-item>
     <swiper-item>
-      <scroll-view scroll-y="true" style="height: {{windowHeight}}rpx">
+      <view class="massageScrollTop2">
+        <ScrollSelect scrollSelect="{{scrollSelect1}}" bindselectscroll="getSelectScrollShow" bindactivityId="getActivityId" data-item="{{1}}" />
+      </view>
+      <scroll-view scroll-y="true" style="height: {{windowHeight2}}rpx">
         <!-- <view class="selectContainer"></view> -->
         <MessageItem messageItemArray="{{commentMessage}}" messageType="回复" bindreply="reply" />
       </scroll-view>
     </swiper-item>
   </swiper>
 </view>
-<view class="inputBox" wx:if="{{isShow}}" style="top: {{100}}rpx">
+<view class="inputBox" wx:if="{{isShow}}">
   <view class="fakeInput">
     <input model:value="{{replyContent}}" focus="{{true}}" bindfocus="getKeyHeight" bindblur="hideInput" adjust-position="{{false}}" placeholder="请输入内容" />
   </view>

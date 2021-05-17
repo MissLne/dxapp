@@ -30,3 +30,22 @@ page {
   border: 1rpx solid #777BCE;
   color: #777BCE;
 }
+.addDiySetup {
+  width: 690rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+.addDiySetup view{
+  width: 190rpx;
+  height: 60rpx;
+  color: #777BCE;
+  font-size: 24rpx;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1rpx solid #777BCE;
+  border-radius: 12rpx;
+  position: absolute;
+}

@@ -1,0 +1,4 @@
+/* pages/activityPage/publish/addDiyBox/addDiyBox.wxss */
+page {
+  background: #f5f5f5;
+}

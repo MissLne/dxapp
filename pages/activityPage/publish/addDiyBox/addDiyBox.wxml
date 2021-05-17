@@ -1,0 +1,3 @@
+<!--pages/activityPage/publish/addDiyBox/addDiyBox.wxml-->
+<SetUpItem setUpItem="{{setUpItem}}" bindsetup="getSetUpMessage" bindsetupdelete="delete"/>
+<Pick pickMessage="{{pickMessage}}" bindpick="addSetUp"/>

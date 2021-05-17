@@ -1,6 +1,6 @@
 <view>
   <!-- pages/userPage/bill/bill.wxml -->
-  <view class="selectionClass">
+  <view class="selectionClass {{isShowSelectList? 'isShowSelectList' : ''}}">
     <ScrollSelect scrollSelect="{{scrollSelect}}" bindselectscroll="getSelectScrollShow" bindactivityId="getActivityId" />
     <block wx:for="{{selectList}}" wx:key="index">
       <Selection selectList="{{item}}" bind:tap="showSelectList" data-num="{{index}}" parent-select-name="parent-select-name" parent-select-list="parent-select-list" bindselectlist="getSelectListShow" bindshowType="getIndex"/>

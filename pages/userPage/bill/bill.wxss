@@ -4,18 +4,21 @@
   justify-content: flex-end;
   height: 50rpx;
 }
+.isShowSelectList {
+  height: 100rpx !important;
+}
 .parent-select-name,
 .parent-select-list {
   justify-content: flex-end;
 }
-.slots {
+/* .slots {
   width: 750rpx;
   height: 40rpx;
-}
+} */
 .payAndIncome {
   font-size: 22rpx;
   color: #333;
-  margin-top: 40rpx;
+  /* margin-top: 40rpx; */
   display: flex;
   justify-content: center;
   align-items: center;

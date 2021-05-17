@@ -62,13 +62,14 @@ Page({
       isShow: 0,
       boxWidth: 120
     },
+    windowHeight1: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getHeight()
+    this.getTopHeight()
     this.getMessage()
   },
   getTopHeight() {
@@ -76,11 +77,22 @@ Page({
     let query = wx.createSelectorQuery().in(this)
     query.select(`.messageTitle`).boundingClientRect(rect => {
       let height1 = _this.getRealHeight(rect)
+      // let clientHeight = rect.height
       let query1 = wx.createSelectorQuery().in(_this)
       query1.select(`.massageScrollTop`).boundingClientRect(rect1 => {
         let height2 = _this.getRealHeight(rect1)
+        // let clientHeight1 = rect.height
+        console.log(height2)
          this.setData({
-          windowHeight: app.getSomgthingHeight().viewHeight - (height2 + height1)
+          windowHeight: app.getSomgthingHeight().viewHeight - height1 - height2,
+          windowHeight1: app.getSomgthingHeight().viewHeight - height1
+         })
+      }).exec()
+      let query2 = wx.createSelectorQuery().in(_this)
+      query2.select(`.massageScrollTop2`).boundingClientRect(rect2 => {
+        let height2 = _this.getRealHeight(rect2)
+        this.setData({
+          windowHeight2: app.getSomgthingHeight().viewHeight - height1 - height2,
          })
       }).exec()
     }).exec()
@@ -253,11 +265,5 @@ Page({
           commentMessage: res.data
         })
       })
-  },
-  getHeight() {
-    let viewHeight = this.getTabBarHeight().viewHeight
-    this.setData({
-      windowHeight: viewHeight - 100
-    })
   }
 })

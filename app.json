@@ -8,6 +8,7 @@
     "pages/editor/editor",
     "pages/theWebview/theWebview",
     "pages/activityPage/publish/officialAccount/officialAccount",
+    "pages/activityPage/publish/addDiyBox/addDiyBox",
     "pages/activityPage/manage/activityManage/activityManage",
     "pages/activityPage/manage/activityUpdate/activityUpdate",
     "pages/activityPage/manage/memberMessage/memberMessage",

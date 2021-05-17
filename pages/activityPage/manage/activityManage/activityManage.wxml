@@ -15,7 +15,9 @@
       <input model:value="{{searchContent}}" bindinput="searchHandle" placeholder="姓名/手机号" />
       <!-- <view bindtap="searchHandle">搜索</view> -->
     </view>
-    <MemberMessage wx:if="{{activityId != -1}}" activityId="{{activityId}}" member="{{memberMessage}}" />
+    <scroll-view scroll-y="true" style="height:{{swiperHeight - 71}}rpx">
+      <MemberMessage wx:if="{{activityId != -1}}" activityId="{{activityId}}" member="{{memberMessage}}" />
+    </scroll-view>
   </swiper-item>
   <swiper-item>
     <view class="payAndIncome">
@@ -25,7 +27,7 @@
       </view>
       <DateBtn binddatepicker="getPickerTime" />
     </view>
-    <scroll-view scroll-y="true" style="height:{{swiperHeight}}rpx">
+    <scroll-view scroll-y="true" style="height:{{swiperHeight - 56}}rpx">
       <BillItem billDetail="{{billDetail}}" />
     </scroll-view>
   </swiper-item>

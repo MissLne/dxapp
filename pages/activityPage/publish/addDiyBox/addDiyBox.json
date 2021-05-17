@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "SetUpItem": "/components/indexPageItem/setUpPage/setUpItem/setUpItem",
+    "Pick": "/components/tools/pick/pick"
+  }
+}
