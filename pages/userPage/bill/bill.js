@@ -31,7 +31,7 @@ Page({
     month: '1',
     year: '2021',
     status: 0,
-    isShowSelectList: 0
+    selectListIsShow: 0
   },
 
   /**
@@ -101,10 +101,9 @@ Page({
   },
   getSelectScrollShow(e) {
     if (e.detail.show == 1) {
-      this.data.selectList[0].isShow = 0
-      this.setData({
-        selectList: this.data.selectList
-      })
+      // this.setData({
+      //   selectListIsShow: 0
+      // })
     }
     let obj = {
       mId: wx.getStorageSync('id')
@@ -133,6 +132,10 @@ Page({
         scrollSelect: this.data.scrollSelect
       })
     }
+    this.setData({
+      isShowSelectList: !this.data.isShowSelectList
+    })
+    this.getWindowHeight()
   },
   getWindowHeight() {
     let _this = this
@@ -148,14 +151,14 @@ Page({
         })
       }).exec()
     }).exec()
-    
+
   },
   showSelectList(e) {
     this.setData({
       showSelectListIndex: e.currentTarget.dataset.num,
-      isShowSelectList: !this.data.isShowSelectList
+
     })
-    this.getWindowHeight()
+
   },
   getPickerTime(e) {
     let year = e.detail.time.slice(0, 4).toString()

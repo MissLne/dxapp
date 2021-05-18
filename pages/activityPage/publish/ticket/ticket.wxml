@@ -3,7 +3,7 @@
 <view>
   <TicketHeader></TicketHeader>
     <TicketBox ticketDetail="{{ticketDetailArray}}" base="{{base}}" bindticket="getTicketMessage"></TicketBox>
-    <TicketBtn base="{{base}}" ticketDetail="{{ticketDetailArray}}" bindtap="addTicket"/>
+    <TicketBtn base="{{base}}" ticketDetail="{{ticketDetailArray}}" bindaddTicketBtn="addTicket"/>
     <Footer contentObject="{{footerBtnObject}}" parent-footer="parent-footer" bindnext="goNext"/>
 </view>
 <PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up" bindsure="isSave" />

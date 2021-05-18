@@ -2,7 +2,7 @@
 <HeadNavigation bindheadnav="backIndex"/>
 <view>
   <SetUpHeader bind:tap="lala"/>
-  <SetUpItem setUpItem="{{setUpItem}}" bindsetup="getSetUpMessage"bindsetupdelete="delete"/>
+  <SetUpBox/>
   <view class="addDiySetup">
     <view bindtap="addSetUp">新增填写项</view>
   </view>

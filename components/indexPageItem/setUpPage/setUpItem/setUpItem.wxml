@@ -1,26 +1,4 @@
-<view wx:for="{{setUpDetail.length? setUpDetail : defaultArray}}" wx:key="index">
-  <view class="setUpContainer">
-    <view class="containerTitle">{{item.title}}</view>
-    <view class="setUpBox">
-      <view class="setUpItemBox">
-        <view>姓名</view>
-        <input value="{{item.name}}" />
-      </view>
-      <view class="setUpItemBox">
-        <view>性别</view>
-        <radioBtn radioContent="{{['男','女']}}" widthCount="{{60}}" radio-parent-class="tworadio-parent-class" />
-      </view>
-      <view class="setUpItemBox">
-        <view>联系方式</view>
-        <input value="{{item.phone}}" />
-      </view>
-      <view class="setUpItemBox">
-        <view>就读学校</view>
-        <input value="{{item.school}}" />
-      </view>
-    </view>
-  </view>
-</view>
+<view class="diy">自定义</view>
 <view wx:for="{{setUpItem}}" wx:key="index" class="diySelectBox">
   <view class="diySelectDelete" bind:tap="deleteBox" data-num="{{index}}">×</view>
   <view wx:if="{{item.pickType == 1}}" class="diySelectPicTitle">图片填写项</view>
@@ -38,7 +16,7 @@
       <view>标题</view>
       <input placeholder="例：朋友圈集赞图片" bindinput="changeInput" value="{{item.content}}" data-str="content" data-num="{{index}}" />
     </view>
-    <view wx:if="{{item.pickType == 2}}" wx:for="{{item.content}}" wx:for-index="num" wx:for-item="sonItem" class="diySelectChoices">
+    <view wx:if="{{item.pickType == 2}}" wx:for="{{item.content}}" wx:for-index="num" wx:for-item="sonItem" class="diySelectChoices" wx:key="index">
       <view>
         <view>选项{{num + 1}}</view>
         <input placeholder="例：公众号" value="{{sonItem}}" bindinput="changeSonInput" data-inputindex="{{num}}" data-boxindex="{{index}}" />
@@ -55,4 +33,11 @@
       <radioBtn radioContent="{{['必填']}}" widthCount="{{80}}" bindtype="radioChange" data-num="{{index}}" radio-parent-class="radio-parent-class"/>
     </view>
   </view>
+</view>
+
+<view class="pickBtn">
+  <!-- <view class="pickBtnContent">{{content}}</view> -->
+  <picker class="pickBtnContent" mode="selector" range="{{pickMessage.array}}" bindchange="pickValue">
+    {{pickMessage.content}}
+  </picker>
 </view>

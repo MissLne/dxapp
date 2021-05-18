@@ -30,7 +30,8 @@ Page({
     },
     pickMessage: {
       content: '新增填写项',
-      array: ['文字填空', '图片', '单选/多选']
+      array: ['文字填空', '图片', '单选/多选'],
+      scrollTop: 0
     },
     setUpItem: [],
     publishActivity: {}
@@ -41,6 +42,19 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+  onPageScroll: function (e) {
+    this.data.pickMessage.scrollTop = e.scrollTop
+    this.setData({
+      pickMessage: this.data.pickMessage
+    })
+  },
+  suredelete() {
+    app.globalData.publishActivityData.webFormList.splice(this.properties.popUpObj.toPopUPData, 1)
+    this.setData({
+      setUpItem: app.globalData.publishActivityData.webFormList,
+      footerBtnObject: this.data.footerBtnObject
+    })
   },
   getSetUpMessage(e) {
     // this.data.popUpObj.show = e.detail.obj? e.detail.obj.show : 0
@@ -57,6 +71,7 @@ Page({
     this.setData({
       footerBtnObject: this.data.footerBtnObject
     })
+      
   },
   delete(e) {
     this.data.popUpObj.show = e.detail.obj.show

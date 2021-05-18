@@ -1,7 +1,22 @@
-<!--pages/userPage/cashOut/cashOut.wxml-->
-<view>
-  零钱
-  <navigator >></navigator>
+<!-- pages/userPage/cashOut/cashOut.wxml -->
+<view class="wayChoices">
+  <view>￥</view>
+  <view>
+    <picker class="" mode="selector" range="{{['零钱','银行卡']}}" bindchange="wayChoices">
+      {{pickerVal}}
+    </picker>
+  </view>
+  <view>></view>
 </view>
-  
-<cashOutCom/>
+<cashOutCom />
+<Buttons btnContent="提现" parent-buttons-class="parent-buttons-class" bindtap="cashOut"/>
+<view class="cashTips">
+  <view>
+    <text>提现手续费比例为x.xx%，最低收取0.1元</text>
+    <text>0.00元</text>
+  </view>
+  <view>
+    <text>实际到账金额 = 提现金额 - 手续费</text>
+    <text>0.00元</text>
+  </view>
+</view>

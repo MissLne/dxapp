@@ -5,7 +5,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    setUpItem: Array
+    setUpItem: Array,
+    pickMessage: Object
   },
 
   /**
@@ -14,7 +15,7 @@ Component({
   data: {
     // setUpItem: app.globalData.setUpCustomizeData,/
     defaultArray: [
-      { 
+      {
         title: '默认项',
         name: '请输入姓名',
         sex: 0,
@@ -40,23 +41,23 @@ Component({
       this.setData({
         setUpItem: this.properties.setUpItem
       })
-      this.triggerEvent('setup',{arr: this.properties.setUpItem})
+      this.triggerEvent('setup', { arr: this.properties.setUpItem })
     },
     changeInput(e) {
       let data = this.properties.setUpItem[e.currentTarget.dataset.num][`${e.currentTarget.dataset.str}`]
-      Object.prototype.toString.call(data) === '[object Array]'? data = [e.detail.value] : data = e.detail.value
+      Object.prototype.toString.call(data) === '[object Array]' ? data = [e.detail.value] : data = e.detail.value
       this.properties.setUpItem[e.currentTarget.dataset.num][`${e.currentTarget.dataset.str}`] = data
       this.setData({
         setUpItem: this.properties.setUpItem
       })
-      this.triggerEvent('setup',{arr: this.properties.setUpItem})
+      this.triggerEvent('setup', { arr: this.properties.setUpItem })
     },
     checkChange(e) {
-      if(e.detail.type == 0) {
+      if (e.detail.type == 0) {
         this.properties.setUpItem[e.currentTarget.dataset.num].propertyType = 3
-      this.setData({
-        setUpItem: this.properties.setUpItem
-      })
+        this.setData({
+          setUpItem: this.properties.setUpItem
+        })
       }
     },
     changeSonInput(e) {
@@ -65,18 +66,18 @@ Component({
       this.setData({
         setUpItem: this.properties.setUpItem
       })
-      this.triggerEvent('setup',{arr: this.properties.setUpItem})
+      this.triggerEvent('setup', { arr: this.properties.setUpItem })
     },
     deleteInput(e) {
       console.log(e)
-      this.properties.setUpItem[e.currentTarget.dataset.boxindex].content.splice(e.currentTarget.dataset.inputindex,1)
+      this.properties.setUpItem[e.currentTarget.dataset.boxindex].content.splice(e.currentTarget.dataset.inputindex, 1)
       // console.log(this.data.checkBox)
       // this.properties.setUpItem[e.currentTarget.dataset.boxindex].content = this.data.checkBox
       console.log(this.properties.setUpItem)
       this.setData({
         setUpItem: this.properties.setUpItem
       })
-      this.triggerEvent('setup',{arr: this.properties.setUpItem})
+      this.triggerEvent('setup', { arr: this.properties.setUpItem })
     }
     ,
     deleteBox(e) {
@@ -89,7 +90,15 @@ Component({
         show: 1,
         deleteIndex: e.currentTarget.dataset
       }
-      this.triggerEvent('setupdelete',{obj: obj})
+      this.triggerEvent('setupdelete', { obj: obj })
+    },
+    pickValue(e) {
+      let scrollTop = this.properties.pickMessage.scrollTop
+      wx.pageScrollTo({
+        scrollTop: scrollTop + 200,
+        duration: 300
+      })
+      this.triggerEvent('pick', { value: e.detail.value })
     }
   }
 })

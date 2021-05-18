@@ -7,7 +7,7 @@
     <swiper-item>
       <view class="massageScrollTop">
         <ScrollSelect scrollSelect="{{scrollSelect}}" bindselectscroll="getSelectScrollShow" bindactivityId="getActivityId" data-item="{{0}}" />
-        <Selection selectList="{{selectList}}" parent-select-list="parent-select-list" bindshowType="showActivityByStatus" bindselectlist="getTopHeight" />
+        <Selection selectList="{{selectList}}" selectListIsShow="{{selectListIsShow}}" parent-select-list="parent-select-list" bindshowType="showActivityByStatus" bindselectlist="getTopHeight" />
       </view>
       <scroll-view scroll-y="true" style="height: {{windowHeight}}rpx">
         <MessageItem messageItemArray="{{questionMessage}}" messageType="回答" bindreply="reply" />

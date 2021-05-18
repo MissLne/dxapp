@@ -1,10 +1,26 @@
 // components/tools/selection/selection.js
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    selectList: Object,
+    selectList: {
+      type: Object,
+      observer: function(newVal,oldVal) {
+        console.log(newVal)
+      }
+    },
+    selectListIsShow: {
+      type: Boolean,
+      observer: function(newVal,oldVal) {
+        if(newVal != oldVal) {
+          this.setData({
+            scrollHeight: !this.data.scrollHeight
+          })
+        }
+      }
+    },
     content: String
   },
   externalClasses: ['parent-select-name', 'parent-select-list'],
@@ -56,18 +72,19 @@ Component({
     isShow() {
       let query = wx.createSelectorQuery().in(this);
       
-      this.properties.selectList.isShow = !this.properties.selectList.isShow
+      // this.properties.selectList.isShow = !this.properties.selectList.isShow
+      // this.properties.selectListIsShow = !this.properties.selectListIsShow
       this.setData({
-        selectList: this.properties.selectList,
-        scrollHeight: !this.data.scrollHeight
+        // selectList = this.properties.selectList,
+        // scrollHeight: !this.data.scrollHeight,
+        selectListIsShow: !this.properties.selectListIsShow
       })
       query.select('.selectionBox').boundingClientRect(rect => {
         let clientHeight = rect.height;
         let clientWidth = rect.width;
         let ratio = 750 / clientWidth;
         let height = clientHeight * ratio;
-        console.log(height);
-        this.triggerEvent('selectlist', { show: this.properties.selectList.isShow,height: height})
+        this.triggerEvent('selectlist', { show: this.properties.selectListIsShow,height: height})
       }).exec();
       
     }

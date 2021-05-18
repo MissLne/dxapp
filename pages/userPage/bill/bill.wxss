@@ -2,7 +2,7 @@
 .selectionClass {
   display: flex;
   justify-content: flex-end;
-  height: 50rpx;
+  /* height: 50rpx; */
 }
 .isShowSelectList {
   height: 100rpx !important;

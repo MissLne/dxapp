@@ -32,7 +32,7 @@ Page({
       title: '全部活动',
       selectList: [
         {
-          activityId: '',
+          activityId: '0',
           activityName: '全部活动'
         }
       ],
@@ -42,7 +42,7 @@ Page({
       title: '全部活动',
       selectList: [
         {
-          activityId: '',
+          activityId: '0',
           activityName: '全部活动'
         }
       ],
@@ -62,7 +62,8 @@ Page({
       isShow: 0,
       boxWidth: 120
     },
-    windowHeight1: 0
+    windowHeight1: 0,
+    selectListIsShow: 0
   },
 
   /**
@@ -81,8 +82,6 @@ Page({
       let query1 = wx.createSelectorQuery().in(_this)
       query1.select(`.massageScrollTop`).boundingClientRect(rect1 => {
         let height2 = _this.getRealHeight(rect1)
-        // let clientHeight1 = rect.height
-        console.log(height2)
          this.setData({
           windowHeight: app.getSomgthingHeight().viewHeight - height1 - height2,
           windowHeight1: app.getSomgthingHeight().viewHeight - height1
@@ -127,9 +126,8 @@ Page({
   },
   getSelectScrollShow(e) {
     if (e.detail.show == 1) {
-      this.data.selectList.isShow = 0
       this.setData({
-        selectList: this.data.selectList
+        selectListIsShow: 0
       })
     }
     let obj = {
@@ -148,7 +146,12 @@ Page({
               activityName: item.activityName
             })
           })
-          this.data.scrollSelect.isShow = e.detail.show
+          if (e.currentTarget.dataset.item) {
+            this.data.scrollSelect1.isShow = e.detail.show
+          } else {
+            this.data.scrollSelect.isShow = e.detail.show
+          }
+         
           this.setData({
             scrollSelect: this.data.scrollSelect,
             scrollSelect1: this.data.scrollSelect1,

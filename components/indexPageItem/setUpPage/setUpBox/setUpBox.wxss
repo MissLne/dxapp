@@ -1,0 +1,45 @@
+/* components/indexPageItem/setUpPage/setUpBox/setUpBox.wxss */
+
+.setUpContainer {
+  width: 690rpx;
+  height: 360rpx;
+  margin: 30rpx auto 50rpx auto;
+}
+
+.containerTitle {
+  width: 690rpx;
+  box-sizing: border-box;
+  padding: 0 0 20rpx 30rpx;
+}
+
+.setUpBox {
+  width: 690rpx;
+  height: 320rpx;
+  box-sizing: border-box;
+  padding: 30rpx 60rpx;
+  border-radius: 30rpx;
+  background: #fff;
+}
+
+.setUpItemBox {
+  font-size: 26rpx;
+  color: #333;
+  height: 50rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+}
+
+.setUpItemBox input {
+  color: #666;
+  font-size: 24rpx;
+  width: 350rpx;
+}
+
+.tworadio-parent-class {
+  width: 350rpx;
+  font-size: 24rpx;
+}

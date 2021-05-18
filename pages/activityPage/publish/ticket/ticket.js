@@ -13,26 +13,33 @@ Page({
     },
     ticketDetailArray: [
       {
-        ticketName: '早鸟票',
-        ticketPrice: '100',
-        ticketNumber: '100',
-        ticketInstructions: '早起的票',
-        ticketRefundType: 1
-      },
-      {
-        ticketName: '丑鸟票',
-        ticketPrice: '100',
-        ticketNumber: '100',
-        ticketInstructions: '早起的票',
-        ticketRefundType: 0
-      },
-      {
-        ticketName: '美丽鸟票',
-        ticketPrice: '100',
-        ticketNumber: '100',
-        ticketInstructions: '早起的票',
-        ticketRefundType: 1
-      },
+        ticketName: '',
+        ticketPrice: '',
+        ticketNumber: '',
+        introduce: '请用一句话介绍此票种',
+        bounce: 0
+      }
+      // {
+      //   ticketName: '早鸟票',
+      //   ticketPrice: '100',
+      //   ticketNumber: '100',
+      //   ticketInstructions: '早起的票',
+      //   ticketRefundType: 1
+      // },
+      // {
+      //   ticketName: '丑鸟票',
+      //   ticketPrice: '100',
+      //   ticketNumber: '100',
+      //   ticketInstructions: '早起的票',
+      //   ticketRefundType: 0
+      // },
+      // {
+      //   ticketName: '美丽鸟票',
+      //   ticketPrice: '100',
+      //   ticketNumber: '100',
+      //   ticketInstructions: '早起的票',
+      //   ticketRefundType: 1
+      // },
     ],
     footerBtnObject: {
       leftUrl: '/pages/activityPage/publish/introdution/introdution',

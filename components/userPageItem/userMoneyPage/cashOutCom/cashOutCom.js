@@ -16,6 +16,9 @@ Component({
     cashOutCount: 0
   },
   ready: function() {
+    this.setData({
+      cashOutCount: this.data.cashOutCount.toFixed(2)
+    })
     this.getCanCash()
   },
   /**

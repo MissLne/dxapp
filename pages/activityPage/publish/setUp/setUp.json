@@ -5,6 +5,7 @@
     "SetUpFootBtn": "/components/indexPageItem/setUpPage/btn/btn",
     "Footer": "/components/tools/footer/footer",
     "SetUpItem": "/components/indexPageItem/setUpPage/setUpItem/setUpItem",
+    "SetUpBox": "/components/indexPageItem/setUpPage/setUpBox/setUpBox",
     "PopUp": "/components/tools/pop-up/pop-up",
     "Bubble": "/components/tools/bubble/bubble",
     "HeadNavigation": "/components/tools/headNavigation/headNavigation"

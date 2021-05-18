@@ -1,4 +1,7 @@
 /* components/userPageItem/userMoneyPage/wallet/wallet.wxss */
+.walletBox {
+  margin-top: 222rpx;
+}
 .container {
   width: 610rpx;
   height: 100rpx;

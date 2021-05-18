@@ -146,3 +146,26 @@
 .radio-parent-class {
   font-size: 22rpx;
 }
+.diy {
+  font-size: 30rpx;
+  color: #333;
+  margin: 25rpx 0 17rpx 66rpx;
+}
+.pickBtn {
+  width: 690rpx;
+  margin: 0 auto 200rpx auto;
+  display: flex;
+  justify-content: flex-end;
+}
+.pickBtnContent {
+  width: 190rpx;
+  height: 60rpx;
+  color: #777BCE;
+  font-size: 24rpx;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1rpx solid #777BCE;
+  border-radius: 12rpx;
+}

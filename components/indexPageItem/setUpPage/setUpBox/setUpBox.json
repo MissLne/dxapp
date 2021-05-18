@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "radioBtn": "/components/tools/radioBtn/radioBtn"
+  }
+}

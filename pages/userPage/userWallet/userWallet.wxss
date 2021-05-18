@@ -8,19 +8,13 @@
   display: flex;
   justify-content: flex-end;
 }
-image {
-  width: 610rpx;
-  height: 180rpx;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 200rpx;
-  background: #f5f5f5;
+.billBtn navigator {
+  width: 105rpx;
 }
 .parent-leftbtn {
   color: #777BCE !important;
   border-color: #777BCE !important;
 }
 .parent-footer {
-  bottom: 250rpx !important;
+  bottom: 372rpx !important;
 }

@@ -9,7 +9,7 @@
     </view>
     <view wx:if="{{content}}" class="top-text">{{content}}</view>
   </view>
-  <view class="RselectList parent-select-list" wx:if="{{selectList.isShow}}">
+  <view class="RselectList parent-select-list" wx:if="{{selectListIsShow}}">
     <view wx:for="{{selectList.arr}}" wx:key="index" class="selectListItem {{index == selectIndex? 'active' : ''}}" bind:tap="selectIndex" data-name="{{item}}" data-num="{{index}}">
       {{item}}
     </view>

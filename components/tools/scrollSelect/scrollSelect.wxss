@@ -1,13 +1,14 @@
 /* components/tools/scrollSelect/scrollSelect.wxss */
 .scorllSelectBox {
   position: relative;
-  width: 400rpx;
+  /* width: 400rpx; */
+  margin-right: 30rpx;
   display: flex;
   justify-content: flex-end;
   z-index: 10000;
 }
 .scorllSelectTitle {
-  width: 160rpx;
+  max-width: 160rpx;
   font-size: 26rpx;
   color: #666;
   display: flex;

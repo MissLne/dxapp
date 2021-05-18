@@ -1,1 +1,53 @@
 /* components/userPageItem/userMoneyPage/cashOutCom/cashOutCom.wxss */
+
+.cashOutTitile {
+  padding-left: 54rpx;
+  font-size: 26rpx;
+  color: #333;
+}
+
+.cashOutInput {
+  width: 638rpx;
+  height: 100rpx;
+  margin: 0 auto;
+  font-size: 50rpx;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  margin-top: 18rpx;
+}
+
+.cashOutInput input {
+  width: 350rpx;
+  text-align: center;
+  margin-bottom: 35rpx;
+}
+
+.cashOutInput view {
+  width: 19rpx;
+  height: 22rpx;
+  font-size: 30rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.cashContainer > view:nth-child(3) {
+  width: 638rpx;
+  margin: 49rpx auto 60rpx auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  color: #333;
+}
+.cashContainer > view:nth-child(3) text:nth-child(2){
+  color: #FF441A;
+  text-decoration: underline;
+}
+.cashContainer {
+  margin-top: 117rpx;
+}
