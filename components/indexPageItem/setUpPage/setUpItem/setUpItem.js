@@ -94,10 +94,16 @@ Component({
     },
     pickValue(e) {
       let scrollTop = this.properties.pickMessage.scrollTop
-      wx.pageScrollTo({
-        scrollTop: scrollTop + 200,
-        duration: 300
-      })
+      wx.createSelectorQuery().in(this).select('.pickBtnContent').boundingClientRect(function (rect) {
+        wx.pageScrollTo({
+          scrollTop: scrollTop + rect.top,
+          duration: 300
+        })
+      }).exec()
+      // wx.pageScrollTo({
+      //   scrollTop: scrollTop + 300,
+      //   duration: 300
+      // })
       this.triggerEvent('pick', { value: e.detail.value })
     }
   }

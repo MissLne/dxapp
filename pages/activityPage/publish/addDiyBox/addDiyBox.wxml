@@ -1,4 +1,0 @@
-<!--pages/activityPage/publish/addDiyBox/addDiyBox.wxml-->
-<SetUpItem setUpItem="{{setUpItem}}" pickMessage="{{pickMessage}}" bindpick="addSetUp" bindsetup="getSetUpMessage" bindsetupdelete="delete"/>
-<!-- <Pick pickMessage="{{pickMessage}}" bindpick="addSetUp"/> -->
-<PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up" bindsure="suredelete" />

@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "PopUp": "/components/tools/pop-up/pop-up",
-    "SetUpItem": "/components/indexPageItem/setUpPage/setUpItem/setUpItem",
-    "Pick": "/components/tools/pick/pick"
-  }
-}

@@ -33,7 +33,8 @@ Page({
     },
     pickMessage: {
       content: '新增填写项',
-      array: ['文字填空', '图片', '单选/多选']
+      array: ['文字填空', '图片', '单选/多选'],
+      scrollTop: 0
     },
     setUpItem: [],
     publishActivity: {}
@@ -43,6 +44,73 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+  },
+  onPageScroll: function (e) {
+    console.log(e)
+    this.data.pickMessage.scrollTop = e.scrollTop
+    this.setData({
+      pickMessage: this.data.pickMessage
+    })
+  },
+  suredelete() {
+    app.globalData.publishActivityData.webFormList.splice(this.properties.popUpObj.toPopUPData, 1)
+    this.setData({
+      setUpItem: app.globalData.publishActivityData.webFormList,
+      footerBtnObject: this.data.footerBtnObject
+    })
+  },
+  getSetUpMessage(e) {
+    // this.data.popUpObj.show = e.detail.obj? e.detail.obj.show : 0
+    // this.data.popUpObj.toPopUPData = e.detail.obj.deleteIndex.num
+    // this.setData({
+    //   popUpObj: this.data.popUpObj
+    // })
+    app.globalData.publishActivityData.webFormList = e.detail.arr
+    this.setData({
+      setUpItem: e.detail.arr
+    })
+    // this.data.popUpObj.show = e.detail.obj.show
+    this.data.footerBtnObject.addActivity.webFormList = this.data.setUpItem
+    this.setData({
+      footerBtnObject: this.data.footerBtnObject
+    })
+      
+  },
+  delete(e) {
+    this.data.popUpObj.show = e.detail.obj.show
+    this.data.popUpObj.toPopUPData = e.detail.obj.deleteIndex.num
+    this.setData({
+      popUpObj: this.data.popUpObj
+    })
+  },
+  addSetUp(e) {
+    let obj = {
+      isOptional: 0,
+      property: '',
+      content: [],
+      propertyType: 0,
+      pickType: e.detail.value
+    }
+    console.log(obj.pickType)
+    switch (obj.pickType) {
+      case '0':
+        obj.propertyType = 0
+        break
+      case '1':
+        obj.propertyType = 4
+        obj.property = '图片填写项'
+        break
+      default:
+        obj.propertyType = 3
+        break
+    }
+    console.log(obj)
+    app.globalData.publishActivityData.webFormList.push(obj)
+    this.data.footerBtnObject.addActivity.webFormList = app.globalData.publishActivityData.webFormList
+    this.setData({
+      setUpItem: app.globalData.publishActivityData.webFormList,
+      footerBtnObject: this.data.footerBtnObject
+    })
   },
   backIndex() {
     this.data.popUpObj2.show = 1
@@ -73,10 +141,10 @@ Page({
       })
     }, 2000)
   },
-  addSetUp(e) {
-    wx.navigateTo({
-      url: '/pages/activityPage/publish/addDiyBox/addDiyBox'
-    })
+  // addSetUp(e) {
+  //   wx.navigateTo({
+  //     url: '/pages/activityPage/publish/addDiyBox/addDiyBox'
+  //   })
       
     // let obj = {
     //   isOptional: 0,
@@ -105,37 +173,8 @@ Page({
     //   setUpItem: app.globalData.publishActivityData.webFormList,
     //   footerBtnObject: this.data.footerBtnObject
     // })
-  },
-  suredelete() {
-    app.globalData.publishActivityData.webFormList.splice(this.properties.popUpObj.toPopUPData, 1)
-    this.setData({
-      setUpItem: app.globalData.publishActivityData.webFormList,
-      footerBtnObject: this.data.footerBtnObject
-    })
-  },
-  lala() {
-  },
-  delete(e) {
-    this.data.popUpObj.show = e.detail.obj.show
-    this.data.popUpObj.toPopUPData = e.detail.obj.deleteIndex.num
-    this.setData({
-      popUpObj: this.data.popUpObj
-    })
-  },
-  getSetUpMessage(e) {
-    // this.data.popUpObj.show = e.detail.obj? e.detail.obj.show : 0
-    // this.data.popUpObj.toPopUPData = e.detail.obj.deleteIndex.num
-    // this.setData({
-    //   popUpObj: this.data.popUpObj
-    // })
-    app.globalData.publishActivityData.webFormList = e.detail.arr
-    this.setData({
-      setUpItem: e.detail.arr
-    })
-    // this.data.popUpObj.show = e.detail.obj.show
-    this.data.footerBtnObject.addActivity.webFormList = this.data.setUpItem
-    this.setData({
-      footerBtnObject: this.data.footerBtnObject
-    })
-  }
+  // },
+  // lala() {
+  // },
+  
 })

@@ -1,4 +1,5 @@
 /* components/tools/bubble/bubble.wxss */
+
 .bubble {
   width: 550rpx;
   height: 100rpx;
@@ -6,7 +7,7 @@
   font-size: 28rpx;
   color: #333;
   background: #fff;
-  box-shadow: 0 0 5rpx 1rpx rgba(0, 0, 0,0.1);
+  box-shadow: 0 0 5rpx 1rpx rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,9 +17,30 @@
   transform: translateX(-50%);
   bottom: -30%;
   opacity: 0;
-  transition: 1s;
+  transition: .5s;
 }
+
 .showbubble {
-  bottom: 25%;
-  opacity: 1;
+  /* bottom: 15%;
+  opacity: 1; */
+  animation: dropdown 2.4s;
+}
+
+@keyframes dropdown {
+  0% {
+    bottom: -30%;
+    opacity: 0;
+  }
+  30% {
+    bottom: 15%;
+    opacity: 1;
+  }
+  50% {
+    bottom: 15%;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    bottom: 15%;
+  }
 }

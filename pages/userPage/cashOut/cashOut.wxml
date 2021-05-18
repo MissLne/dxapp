@@ -9,7 +9,6 @@
   <view>></view>
 </view>
 <cashOutCom />
-<Buttons btnContent="提现" parent-buttons-class="parent-buttons-class" bindtap="cashOut"/>
 <view class="cashTips">
   <view>
     <text>提现手续费比例为x.xx%，最低收取0.1元</text>

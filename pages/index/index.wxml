@@ -5,7 +5,7 @@
         <Selection selectList="{{selectList}}" content="共{{activityCount}}个活动 {{tikect}}个活动售票中" parent-select-name="parent-select-name" bindshowType="showActivityByStatus" bindselectlist="getTopHeight"/>
       </view>
     </view>
-    <scroll-view scroll-y="true" style="height: {{scrollviewHeight}}rpx">
+    <scroll-view scroll-y="true" style="height: {{scrollviewHeight}}rpx" bindscrolltolower="lalal">
       <ActivityItem prop-array='{{activityArray}}'></ActivityItem>
     </scroll-view>
     <NullPic nullPicUrl="../../images/loginPage/LOGOx.png" wx:if="{{activityArray.length == 0}}" />

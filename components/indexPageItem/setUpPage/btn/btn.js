@@ -13,7 +13,7 @@ Component({
   data: {
 
   },
-   
+  externalClasses: ['parent-btn-class'],
   /**
    * 组件的方法列表
    */

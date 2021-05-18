@@ -1,5 +1,5 @@
 <!--components/indexPageItem/setUpPage/btn/btn.wxml-->
-<view class="publishBtnCom2"  >
+<view class="publishBtnCom2 parent-btn-class"  >
   <view class="publishBtn2">{{content}}</view>
 </view>
   

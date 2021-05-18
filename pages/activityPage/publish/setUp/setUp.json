@@ -8,7 +8,8 @@
     "SetUpBox": "/components/indexPageItem/setUpPage/setUpBox/setUpBox",
     "PopUp": "/components/tools/pop-up/pop-up",
     "Bubble": "/components/tools/bubble/bubble",
-    "HeadNavigation": "/components/tools/headNavigation/headNavigation"
+    "HeadNavigation": "/components/tools/headNavigation/headNavigation",
+    "Pick": "/components/tools/pick/pick"
   },
   "navigationStyle": "custom"
   

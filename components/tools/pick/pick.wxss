@@ -1,7 +1,7 @@
 
 .pickBtn {
   width: 690rpx;
-  margin: 0 auto 200rpx auto;
+  margin: 0 auto 300rpx auto;
   display: flex;
   justify-content: flex-end;
 }

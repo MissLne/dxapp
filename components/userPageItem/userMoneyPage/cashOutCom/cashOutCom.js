@@ -1,5 +1,6 @@
 // components/userPageItem/userMoneyPage/cashOutCom/cashOutCom.js
 const request = require('../../../../request/api')
+const navigate = require('../../../../navigator/index')
 Component({
   /**
    * 组件的属性列表
@@ -25,18 +26,29 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    cashAllAmount() {
+      this.setData({
+        cashOutCount: this.data.canDrawCashAmount
+      })
+    },
     cashOut() {
       let data = this.data.cashOutCount + ""
       let obj = {
         "mId": wx.getStorageSync('id'),
         "amount": data
       }
-      request.cashOut(obj)
-      .then(res => {
-        console.log(res)
-      })
-      .catch(err => {
-      })
+      // request.cashOut(obj)
+      // .then(res => {
+      //   console.log(res)
+        let query = {
+          amount: data
+        }
+        query.data = JSON.stringify(query.data)
+        navigate.navigateTo({
+          url: "/pages/userPage/cashSuccess/cashSuccess",
+          query
+        })
+      // })
     },
     getCanCash() {
       let obj = {

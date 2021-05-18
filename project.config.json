@@ -190,6 +190,18 @@
           "pathName": "pages/teamManage/sharePage/sharePage",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "提现成功",
+          "pathName": "pages/userPage/cashSuccess/cashSuccess",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "充值",
+          "pathName": "pages/userPage/invest/invest",
+          "query": "",
+          "scene": null
         }
       ]
     }

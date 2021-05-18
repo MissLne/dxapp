@@ -104,7 +104,7 @@ Page({
       this.setData({
         showBubble: 0
       })
-    }, 2000)
+    }, 5000)
   },
   getTicketMessage(e) {
     this.data.footerBtnObject.addActivity.ticketList = e.detail.arr

@@ -19,11 +19,43 @@ Page({
             boxWidth: 690
         },
         identifyLoginShow: 0,
-        getTopHeight: 0
+        getTopHeight: 0,
+        
+            showList: [],//显示在页面上的数据
+            hideList: [],//未显示在页面的数据
+            pageSize: 5, // 每页条数
+            ifPages: true //是否下滑的时候继续添加页面显示的数据
+        
     },
     onLoad: function () {
         this.getHeight()
 
+    },
+
+    onShow: function () {
+        this.showActivity()
+        this.loginOrNot()
+    },
+    lalal() {
+        let { showList, hideList, pageSize, ifPages,activityArray } = this.data;
+        console.log(hideList,showList)
+        if (ifPages) {
+            let newList = [];
+            if (hideList.length > pageSize) {//如果未显示的数据 大于显示条数 截取添加
+                newList = activityArray.concat(hideList.splice(0, pageSize));
+            } else { //如果不大于 那就直接全部添加
+                newList = activityArray.concat(hideList)
+                this.setData({
+                    ifPages: false,
+                    hideList: []
+                })
+            }
+            console.log(this.data.activityArray)
+            this.setData({
+                activityArray: newList,
+                hideList
+            })
+        }
     },
     getHeight() {
         let query = wx.createSelectorQuery().in(this)
@@ -44,10 +76,6 @@ Page({
         //     getTopHeight: e.detail.height,
         //     scrollviewHeight: app.getSomgthingHeight().viewHeight - e.detail.height - 13
         // })
-    },
-    onShow: function () {
-        this.showActivity()
-        this.loginOrNot()
     },
     getPersonalMessage() {
         wx.showModal({
@@ -151,8 +179,21 @@ Page({
             .then(res => {
                 let data = JSON.parse(JSON.stringify(res.data))
                 data = this.switchData(data, res.data)
+                let  hideList  = data
+                let { pageSize } = this.data;
+                if (hideList.length > pageSize) { //如果数据大于页面显示条数 那就先赋值条数，然后再通过滑动的时候再加数据
+                    this.setData({
+                        showList: hideList.splice(0, pageSize)
+                    })
+                } else { //如果数据小于显示条数 直接赋值 且不会再分页
+                    this.setData({
+                        showList: hideList,
+                        ifPages: false
+                    })
+                }
                 this.setData({
-                    activityArray: data,
+                    activityArray: this.data.showList,
+                    hideList: hideList,
                     activityCount: data.length
                 })
             })

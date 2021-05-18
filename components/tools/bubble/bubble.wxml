@@ -1,2 +1,2 @@
 <!--components/tools/bubble/bubble.wxml-->
-<view class="bubble {{showBubble? 'showbubble' : ''}}">{{bubbleContent}}</view>
+<view class="bubble {{showBubble? 'showbubble' : ''}} {{showBubble? '' : 'bubbleId'}}">{{bubbleContent}}</view>

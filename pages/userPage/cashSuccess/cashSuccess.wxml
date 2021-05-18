@@ -1,0 +1,7 @@
+<!-- pages/userPage/cashSuccess/cashSuccess.wxml -->
+<view class="cashSuccess">
+  <image src="../../../images/user/withdraw.png" />
+  <view>{{cashAmount}}元</view>
+  <view>提现成功</view>
+  <view bind:tap="back">返回</view>
+</view>
