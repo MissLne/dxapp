@@ -2,7 +2,7 @@
 .teamBaseMes {
   width: 690rpx;
   height: 167rpx;
-  margin: 80rpx auto 113rpx auto;
+  margin: 40rpx auto 113rpx auto;
   display: flex;
   justify-content: flex-start;
 }
@@ -22,6 +22,7 @@
   width: 436rpx;
   color: #333;
   font-size: 42rpx;
+  font-weight: bold;
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
@@ -37,7 +38,119 @@
 .gudingText {
   width: 552rpx;
   height: 87rpx;
+  margin: 0 auto 126rpx auto;
   text-align: center;
-  color: #333;
+  color: #666;
   font-size: 30rpx;
+}
+.timeLine {
+  width: 690rpx;
+  height: 348rpx;
+  box-sizing: border-box;
+  padding: 0 52rpx;
+  margin: 0 auto 126rpx auto;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.justOne {
+  justify-content: center;
+}
+.many {
+  justify-content: space-between;
+}
+.timeLine .line {
+  width: 690rpx;
+  height: 10rpx;
+  background: #f5f5f5;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.bottomImg {
+  width: 149rpx;
+  height: 169rpx;
+  position: absolute;
+  left: 0;
+  
+  z-index: -1;
+}
+.oddAct .bottomImg {
+  top: 0;
+}
+.actImg {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 20rpx;
+  margin-bottom: 15rpx;
+  box-shadow: 0 0 10rpx 5rpx rgba(0, 0, 0,0.1);
+}
+.activitis {
+  width: 149rpx;
+  height: 348rpx;
+  position: relative;
+}
+.oddAct > view:nth-child(1) {
+  width: 149rpx;
+  font-size: 16rpx;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.evenAct > view:nth-child(1) {
+  height: 348rpx;
+  width: 149rpx;
+  font-size: 16rpx;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.activitis > view:nth-child(1) view {
+  width: 100rpx;
+  margin: 2rpx 0;
+  text-align: center;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.activitis > view:nth-child(2) {
+  width: 149rpx;
+  color: #000;
+  text-align: center;
+  font-size: 16rpx;
+  position: absolute;
+  
+}
+.oddAct > view:nth-child(2) {
+  top: 193rpx;
+}
+.evenAct > view:nth-child(2) {
+  bottom: 193rpx;
+}
+.evenAct .bottomImg {
+  transform: rotate(180deg);
+  bottom: 0rpx !important;
+}
+.agreeBtn {
+  margin: 0 auto;
+  width: 180rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background: #777BCE;
+  font-size: 34rpx;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+button {
+  position: absolute;
+  opacity: 0;
 }

@@ -29,10 +29,20 @@ Page({
     request.showActMessage({ mId: id })
       .then(res => {
         res.data.sort((a, b) => b.startTime.localeCompare(a.startTime))
-        this.setData({
-          activity: res.data.slice(0,3),
-          count: res.data.length
+        res.data.map(item => {
+          item.startTime = item.startTime.slice(0,10)
         })
+        if(res.data.length > 3) {
+          this.setData({
+            activity: res.data.slice(0,3),
+            count: res.data.length
+          })
+        } else {
+          this.setData({
+            activity: res.data,
+            count: res.data.length
+          })
+        }
       })
   },
   sureEnterTeam() {
