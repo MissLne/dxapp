@@ -1,2 +1,10 @@
 <!--pages/teamManage/sharePage/sharePage.wxml-->
+<view class="teamBaseMes">
+  <image src="{{teamMaterial.imgShowUrl}}" />
+  <view >
+    <view >{{teamMaterial.nickName}}</view>
+    <view >{{teamMaterial.introduction}}</view>
+  </view>
+</view>
+  <view class="gudingText">{{teamMaterial.nickName}}已在一起爬梯上发布了{{count}}个活动， 深受群体喜爱，快来加入他们吧</view>
 <button bind:tap="sureEnterTeam">莫得灵魂的按钮</button>

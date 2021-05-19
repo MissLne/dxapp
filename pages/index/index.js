@@ -37,8 +37,7 @@ Page({
         this.loginOrNot()
     },
     lalal() {
-        let { showList, hideList, pageSize, ifPages,activityArray } = this.data;
-        console.log(hideList,showList)
+        let { showList, hideList, pageSize, ifPages,activityArray } = this.data
         if (ifPages) {
             let newList = [];
             if (hideList.length > pageSize) {//如果未显示的数据 大于显示条数 截取添加
@@ -50,7 +49,6 @@ Page({
                     hideList: []
                 })
             }
-            console.log(this.data.activityArray)
             this.setData({
                 activityArray: newList,
                 hideList
@@ -179,6 +177,7 @@ Page({
             .then(res => {
                 let data = JSON.parse(JSON.stringify(res.data))
                 data = this.switchData(data, res.data)
+                data.sort((a, b) => b.startTime.localeCompare(a.startTime))
                 let  hideList  = data
                 let { pageSize } = this.data;
                 if (hideList.length > pageSize) { //如果数据大于页面显示条数 那就先赋值条数，然后再通过滑动的时候再加数据

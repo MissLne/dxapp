@@ -1,1 +1,43 @@
 /* pages/teamManage/sharePage/sharePage.wxss */
+.teamBaseMes {
+  width: 690rpx;
+  height: 167rpx;
+  margin: 80rpx auto 113rpx auto;
+  display: flex;
+  justify-content: flex-start;
+}
+.teamBaseMes image {
+  width: 167rpx;
+  height: 167rpx;
+  border-radius: 20rpx;
+  margin-right: 63rpx;
+}
+.teamBaseMes > view {
+  height: 167rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.teamBaseMes > view view:nth-child(1) {
+  width: 436rpx;
+  color: #333;
+  font-size: 42rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.teamBaseMes > view view:nth-child(2) {
+  width: 436rpx;
+  height: 100rpx;
+  font-size: 22rpx;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.gudingText {
+  width: 552rpx;
+  height: 87rpx;
+  text-align: center;
+  color: #333;
+  font-size: 30rpx;
+}

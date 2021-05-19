@@ -17,6 +17,7 @@
     </view>
   </view>
   <view class="userMainBoxBtn">
+  <button open-type="contact">啦啦啦啦啦啦</button>
     联系客服
   </view>
   <navigator class="userMainBoxBtn" url="/pages/teamManage/teamsManage/teamsManage">

@@ -6,20 +6,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    teamMaterial: {},
+    activity: [],
+    count: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.showMessage()
+  },
+  showMessage() {
+    let id = wx.getStorageSync('id')
+    request.showUserMessge({ id: id })
+      .then(res => {
+        console.log(res)
+        this.setData({
+          teamMaterial: res.data
+        })
+      })
+    request.showActMessage({ mId: id })
+      .then(res => {
+        res.data.sort((a, b) => b.startTime.localeCompare(a.startTime))
+        this.setData({
+          activity: res.data.slice(0,3),
+          count: res.data.length
+        })
+      })
   },
   sureEnterTeam() {
-        // request.ouo({id: "1"})
-    
-      
-    
     let that = this
     wx.showModal({
       title: '温馨提示',
