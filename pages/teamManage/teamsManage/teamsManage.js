@@ -27,6 +27,9 @@ Page({
       withShareTicket: true
     })
   },
+  deleteMember() {
+    this.onLoad()
+  },
   compare(attribute) {
     return function (obj1, obj2) {
       let val1 = obj1[attribute];
@@ -65,7 +68,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '团队邀请',
-      path: 'pages/teamManage/sharePage/sharePage',
+      path: 'pages/teamManage/sharePage/sharePage?' + 'id=' + wx.getStorageSync('id'),
       success: function (res) {
         var shareTickets = res.shareTickets;
         if (shareTickets.length == 0) {

@@ -20,11 +20,10 @@ Page({
         },
         identifyLoginShow: 0,
         getTopHeight: 0,
-        
-            showList: [],//显示在页面上的数据
-            hideList: [],//未显示在页面的数据
-            pageSize: 5, // 每页条数
-            ifPages: true //是否下滑的时候继续添加页面显示的数据
+        showList: [],//显示在页面上的数据
+        hideList: [],//未显示在页面的数据
+        pageSize: 5, // 每页条数
+        ifPages: true //是否下滑的时候继续添加页面显示的数据
         
     },
     onLoad: function () {

@@ -5,7 +5,6 @@
   position: absolute;
   top: 0;
   z-index: -1;
-  background: #91A8F7;
 }
 .userTaBar {
   font-size: 26rpx;

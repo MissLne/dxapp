@@ -12,15 +12,22 @@ Component({
    * 组件的初始数据
    */
   data: {
+    popUpObj: {
+      content: '确认删除该成员？',
+      leftBtn: '确认',
+      rightBtn: '取消',
+      show: 0,
+      toPopUPData: 0
+    },
+    memberId: -1
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    deleteMember(e) {
-      let _this = this
-      request.deleteMember({id: e.currentTarget.dataset.id})
+    suredelete() {
+      request.deleteMember({id: this.data.memberId})
       .then(() => {
         wx.showToast({
           title: '删除成功',
@@ -28,8 +35,16 @@ Component({
           image: '',
           duration: 1500
         })
-        _this.onLoad()
+        this.triggerEvent('deleteMember')
       })
+    },
+    deleteMember(e) {
+      this.data.popUpObj.show = 1
+      this.setData({
+        memberId: e.currentTarget.dataset.id,
+        popUpObj: this.data.popUpObj
+      })
+      
     }
   }
 })

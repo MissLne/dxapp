@@ -56,3 +56,11 @@
   justify-content: center;
   align-items: center;
 }
+.parent-pop-up view:nth-child(1){
+  background: #ff441a;
+  color: #fff;
+}
+.parent-pop-up view:nth-child(2) {
+  border: 1rpx solid #ff441a;
+  color: #ff441a;
+}

@@ -46,7 +46,6 @@ Page({
   onLoad: function (options) {
   },
   onPageScroll: function (e) {
-    console.log(e)
     this.data.pickMessage.scrollTop = e.scrollTop
     this.setData({
       pickMessage: this.data.pickMessage
@@ -57,6 +56,12 @@ Page({
     this.setData({
       setUpItem: app.globalData.publishActivityData.webFormList,
       footerBtnObject: this.data.footerBtnObject
+    })
+
+    let scrollTop = this.data.pickMessage.scrollTop
+    wx.pageScrollTo({
+      scrollTop: scrollTop - 230,
+      duration: 300
     })
   },
   getSetUpMessage(e) {
@@ -74,11 +79,26 @@ Page({
     this.setData({
       footerBtnObject: this.data.footerBtnObject
     })
-      
+
   },
   delete(e) {
+    let data = this.data.footerBtnObject.addActivity.webFormList
+    let index = e.detail.obj.deleteIndex.num
+    if (data[index].content.length == 0 && data[index].property == "") {
+      app.globalData.publishActivityData.webFormList.splice(index, 1)
+      this.setData({
+        setUpItem: app.globalData.publishActivityData.webFormList,
+        footerBtnObject: this.data.footerBtnObject
+      })
+      let scrollTop = this.data.pickMessage.scrollTop
+      wx.pageScrollTo({
+        scrollTop: scrollTop - 230,
+        duration: 300
+      })
+      return
+    }
     this.data.popUpObj.show = e.detail.obj.show
-    this.data.popUpObj.toPopUPData = e.detail.obj.deleteIndex.num
+    this.data.popUpObj.toPopUPData = index
     this.setData({
       popUpObj: this.data.popUpObj
     })
@@ -145,36 +165,36 @@ Page({
   //   wx.navigateTo({
   //     url: '/pages/activityPage/publish/addDiyBox/addDiyBox'
   //   })
-      
-    // let obj = {
-    //   isOptional: 0,
-    //   property: '',
-    //   content: [],
-    //   propertyType: 0,
-    //   pickType: e.detail.value
-    // }
-    // console.log(obj.pickType)
-    // switch (obj.pickType) {
-    //   case '0':
-    //     obj.propertyType = 0
-    //     break
-    //   case '1':
-    //     obj.propertyType = 4
-    //     obj.property = '图片填写项'
-    //     break
-    //   default:
-    //     obj.propertyType = 3
-    //     break
-    // }
-    // console.log(obj)
-    // app.globalData.publishActivityData.webFormList.push(obj)
-    // this.data.footerBtnObject.addActivity.webFormList = app.globalData.publishActivityData.webFormList
-    // this.setData({
-    //   setUpItem: app.globalData.publishActivityData.webFormList,
-    //   footerBtnObject: this.data.footerBtnObject
-    // })
+
+  // let obj = {
+  //   isOptional: 0,
+  //   property: '',
+  //   content: [],
+  //   propertyType: 0,
+  //   pickType: e.detail.value
+  // }
+  // console.log(obj.pickType)
+  // switch (obj.pickType) {
+  //   case '0':
+  //     obj.propertyType = 0
+  //     break
+  //   case '1':
+  //     obj.propertyType = 4
+  //     obj.property = '图片填写项'
+  //     break
+  //   default:
+  //     obj.propertyType = 3
+  //     break
+  // }
+  // console.log(obj)
+  // app.globalData.publishActivityData.webFormList.push(obj)
+  // this.data.footerBtnObject.addActivity.webFormList = app.globalData.publishActivityData.webFormList
+  // this.setData({
+  //   setUpItem: app.globalData.publishActivityData.webFormList,
+  //   footerBtnObject: this.data.footerBtnObject
+  // })
   // },
   // lala() {
   // },
-  
+
 })

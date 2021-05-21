@@ -4,6 +4,7 @@ Page({
     formats: {},
     readOnly: false,
     placeholder: '开始输入...',
+    value: '080',
     editorHeight: 300,
     keyboardHeight: 0,
     isIOS: false
@@ -14,6 +15,15 @@ Page({
     })
   },
   onLoad() {
+    wx.createSelectorQuery().select('#editor').context(function (res) {
+      that.editorCtx = res.context;
+      that.editorCtx.setContents({
+        html: app.globalData.publishActivityData.activityDetails,
+         success: function () {
+           console.log('insert html success')
+         }
+       })
+    }).exec()
     const platform = wx.getSystemInfoSync().platform
     const isIOS = platform === 'ios'
     this.setData({ isIOS })
@@ -116,7 +126,9 @@ Page({
     this.editorCtx.getContents({
       success: (res) => {
         app.globalData.publishActivityData.activityDetails = res.html
-        wx.navigateBack({ delta: 1 })
+        wx.navigateTo({
+          url: '/pages/activityPage/publish/officialAccount/officialAccount'
+        })
       }
     })
   }

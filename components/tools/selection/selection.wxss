@@ -20,9 +20,19 @@
   align-items: flex-end;
   white-space: nowrap;
 }
+.selectName image {
+  width: 14rpx;
+  height: 8rpx;
+  margin-left: 10rpx;
+  transition: .5s;
+}
+.imageClass {
+  transform: rotate(180deg);
+}
 .selectName view:nth-child(1) {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .top-text {
   color: #999;

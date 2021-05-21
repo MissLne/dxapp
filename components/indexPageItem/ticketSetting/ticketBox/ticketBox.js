@@ -17,13 +17,20 @@ Component({
   data: {
     defaultArray: [
       {
-        ticketName: '输入票种名',
-        ticketPrice: '输入0即为免费票',
-        ticketNumber: '输入0即为不限数目',
-        ticketInstructions: '请用一句话介绍此票种',
+        ticketName: '',
+        ticketPrice: '',
+        ticketNumber: '',
+        ticketInstructions: '',
         ticketRefundType: 0
       }
-    ]
+    ],
+    popUpObj: {
+      content: '确认删除该自定义模块？',
+      leftBtn: '确认',
+      rightBtn: '取消',
+      show: 0,
+      toPopUPData: 0
+    },
   },
 
   /**
@@ -60,18 +67,41 @@ Component({
       this.triggerEvent('ticket',{arr: this.data.ticketDetail})
     },
     deleteTicket(e) {
-      delete this.properties.ticketDetail.splice(e.currentTarget.dataset.num, 1)
+      let arr = this.properties.ticketDetail[e.currentTarget.dataset.num]
+      let count = 0
+      for(let item in arr) {
+        arr[item] == "" || arr[item] == 0? count++ : count
+      }
+      if(count == 4) {
+        this.properties.ticketDetail.splice(e.currentTarget.dataset.num, 1)
+        this.setData({
+          ticketDetail: this.properties.ticketDetail
+        })
+        let scrollTop = this.properties.base.scrollTop
+        wx.pageScrollTo({
+          scrollTop: scrollTop - 430,
+          duration: 300
+        })
+        this.triggerEvent('ticket',{arr: this.data.ticketDetail})
+        return
+      }
+      this.data.popUpObj.show = 1
+      this.data.popUpObj.toPopUPData = e.currentTarget.dataset.num
       this.setData({
-        ticketDetail: this.properties.ticketDetail
+        popUpObj: this.data.popUpObj
       })
-      console.log(this.data.ticketDetail)
-      console.log( this.properties.base)
+    },
+    suredelete() {
+      app.globalData.publishActivityData.ticketList.splice(this.properties.popUpObj.toPopUPData, 1)
+      this.setData({
+        ticketDetail: app.globalData.publishActivityData.ticketList
+      })
       let scrollTop = this.properties.base.scrollTop
       wx.pageScrollTo({
         scrollTop: scrollTop - 430,
         duration: 300
       })
       this.triggerEvent('ticket',{arr: this.data.ticketDetail})
-    }
+    },
   }
 })

@@ -9,7 +9,8 @@
       <ActivityItem prop-array='{{activityArray}}'></ActivityItem>
     </scroll-view>
     <NullPic nullPicUrl="../../images/loginPage/LOGOx.png" wx:if="{{activityArray.length == 0}}" />
-    <view bindtap="addActivity" class="addActivityBtn">莫得灵魂的按钮</view>
+    <view bindtap="addActivity" class="addActivityBtn">
+    <image src="../../images/activity/add.png" /></view>
   </view>
   <view class="identifyLogin" wx:if="{{identifyLoginShow}}">
     <view bind:tap="getPersonalMessage">授权个人信息</view>

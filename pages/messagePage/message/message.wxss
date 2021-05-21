@@ -75,13 +75,14 @@
 }
 .massageScrollTop {
   /* width: 690rpx; */
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  margin-right: 30rpx;
   display: flex;
   justify-content: flex-end;
 }
 .massageScrollTop2 {
   /* width: 690rpx; */
-  margin: 0 auto;
+  margin-right: 30rpx;
   display: flex;
   justify-content: flex-end;
 }

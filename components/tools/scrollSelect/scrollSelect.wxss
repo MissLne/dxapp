@@ -1,4 +1,5 @@
 /* components/tools/scrollSelect/scrollSelect.wxss */
+
 .scorllSelectBox {
   position: relative;
   /* width: 400rpx; */
@@ -7,25 +8,40 @@
   justify-content: flex-end;
   z-index: 10000;
 }
+
 .scorllSelectTitle {
   max-width: 160rpx;
   font-size: 26rpx;
   color: #666;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  align-items: center;
 }
+
+.scorllSelectTitle image {
+  width: 14rpx;
+  height: 8rpx;
+  margin-left: 10rpx;
+  transition: .5s;
+}
+
+.imageClass {
+  transform: rotate(180deg);
+}
+
 .scorllSelectTitle view:nth-child(1) {
-  width: 140rpx;
+  width: 115rpx;
   overflow: hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .scorllSelectList {
   padding-top: 10rpx;
   background: #fff;
   width: 334rpx;
   border-radius: 16rpx;
-  box-shadow: 0 0 5rpx 2rpx rgba(0, 0, 0,0.1);
+  box-shadow: 0 0 5rpx 2rpx rgba(0, 0, 0, 0.1);
   position: absolute;
   top: 50rpx;
   right: 0;
@@ -33,16 +49,18 @@
   transform-origin: top;
   transition: .3s;
 }
+
 .showList {
   transform: scaleY(1);
 }
+
 .scorllSelectListItem {
   width: 286rpx;
   margin: 10rpx auto;
   font-size: 24rpx;
   color: #666;
   overflow: hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 

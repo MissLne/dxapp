@@ -8,17 +8,21 @@ Page({
   data: {
     teamMaterial: {},
     activity: [],
-    count: 0
+    count: 0,
+    mid: -1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      mid: options.id
+    })
     this.showMessage()
   },
   showMessage() {
-    let id = wx.getStorageSync('id')
+    let id = this.data.mid
     request.showUserMessge({ id: id })
       .then(res => {
         console.log(res)

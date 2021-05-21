@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "InputBox": "/components/tools/inputBox/inputBox",
-    "radioBtn": "/components/tools/radioBtn/radioBtn"
+    "radioBtn": "/components/tools/radioBtn/radioBtn",
+    "PopUp": "/components/tools/pop-up/pop-up"
   }
 }

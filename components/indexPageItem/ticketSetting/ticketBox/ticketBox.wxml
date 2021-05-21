@@ -24,3 +24,4 @@
     
 </view>
   
+<PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up" bindsure="suredelete" />

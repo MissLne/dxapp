@@ -12,7 +12,7 @@ App({
       lightSpot: 'q',
       address: 'q',
       posterImage: 'http://www.xinhuanet.com/photo/titlepic/112740/1127402419_1619875420580_title0h.jpg',
-      activityDetails: 'q',
+      activityDetails: '',
       announcement: 'q',
       linkmanCode: 'http://www.xinhuanet.com/photo/titlepic/112740/1127402419_1619875420580_title0h.jpg',
       groupCode: 'http://www.xinhuanet.com/photo/titlepic/112740/1127402419_1619875420580_title0h.jpg',

@@ -61,3 +61,7 @@
   transform: translateX(-50%);
   bottom: 40rpx;
 }
+.addActivityBtn image {
+  width: 86rpx;
+  height: 86rpx;
+}

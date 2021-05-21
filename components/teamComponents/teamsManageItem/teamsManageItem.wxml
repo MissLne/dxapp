@@ -9,3 +9,4 @@
     <view class="teamManageBtn" wx:if="{{item.role == '运营'}}" bind:tap="deleteMember" data-id="{{item.id}}">踢出团队</view>
   </view>
 </block>
+<PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up" bindsure="suredelete" />

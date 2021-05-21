@@ -58,22 +58,110 @@ Page({
     selectList:
     {
       name: '全部提问',
-      arr: ['已回答', '未回答'],
+      arr: ['全部', '已回答', '未回答'],
       isShow: 0,
       boxWidth: 120
     },
     windowHeight1: 0,
-    selectListIsShow: 0
+    selectListIsShow: 0,
+    showList: [],
+    hideList: [],
+    pageSize: 5,
+    ifPages: true,
+    showList1: [],
+    hideList1: [],
+    pageSize1: 5,
+    ifPages1: true,
+    chooseOrNot: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-   
+
 
   onLoad: function (options) {
     this.getTopHeight()
     this.getMessage()
+  },
+  showQuesByStatus(e) {
+    console.log(e)
+    this.setData({
+      chooseOrNot: false
+    })
+    request.showQuesMessge({
+      mId: wx.getStorageSync('id')
+    })
+      .then(res => {
+        let emptyReply = []
+        let reply = []
+        res.data.map(item => {
+          item.reply == null ? emptyReply.push(item) : reply.push(item)
+        })
+        switch (e.detail.name) {
+          case '全部':
+            this.setData({
+              questionMessage: res.data
+            })
+            break
+          case '已回答':
+            this.setData({
+              questionMessage: reply
+            })
+            break
+          case '未回答':
+            this.setData({
+              questionMessage: emptyReply
+            })
+            break
+          default:
+            this.setData({
+              questionMessage: res.data
+            })
+            break
+        }
+      })
+  },
+  comLazyLoad() {
+    let { hideList1, pageSize1, ifPages1, commentMessage } = this.data
+    if (ifPages1) {
+      let newList = [];
+      if (hideList1.length > pageSize1) {
+        newList = commentMessage.concat(hideList1.splice(0, pageSize1));
+      } else {
+        newList = commentMessage.concat(hideList1)
+        this.setData({
+          ifPages1: false,
+          hideList1: []
+        })
+      }
+      this.setData({
+        commentMessage: newList,
+        hideList1
+      })
+    }
+  },
+  quesLazyLoad() {
+    if (this.data.chooseOrNot) {
+      let { hideList, pageSize, ifPages, questionMessage } = this.data
+      if (ifPages) {
+        let newList = [];
+        if (hideList.length > pageSize) {
+          newList = questionMessage.concat(hideList.splice(0, pageSize));
+        } else {
+          newList = questionMessage.concat(hideList)
+          this.setData({
+            ifPages: false,
+            hideList: []
+          })
+        }
+        this.setData({
+          questionMessage: newList,
+          hideList
+        })
+      }
+    }
+
   },
   getTopHeight() {
     let _this = this
@@ -84,17 +172,17 @@ Page({
       let query1 = wx.createSelectorQuery().in(_this)
       query1.select(`.massageScrollTop`).boundingClientRect(rect1 => {
         let height2 = _this.getRealHeight(rect1)
-         this.setData({
+        this.setData({
           windowHeight: app.getSomgthingHeight().viewHeight - height1 - height2,
           windowHeight1: app.getSomgthingHeight().viewHeight - height1
-         })
+        })
       }).exec()
       let query2 = wx.createSelectorQuery().in(_this)
       query2.select(`.massageScrollTop2`).boundingClientRect(rect2 => {
         let height2 = _this.getRealHeight(rect2)
         this.setData({
           windowHeight2: app.getSomgthingHeight().viewHeight - height1 - height2,
-         })
+        })
       }).exec()
     }).exec()
   },
@@ -153,7 +241,7 @@ Page({
           } else {
             this.data.scrollSelect.isShow = e.detail.show
           }
-         
+
           this.setData({
             scrollSelect: this.data.scrollSelect,
             scrollSelect1: this.data.scrollSelect1,
@@ -260,14 +348,40 @@ Page({
     request.showQuesMessge(obj)
       .then(res => {
         console.log(res)
+        let hideList = res.data
+        let { pageSize } = this.data;
+        if (hideList.length > pageSize) {
+          this.setData({
+            showList: hideList.splice(0, pageSize)
+          })
+        } else {
+          this.setData({
+            showList: hideList,
+            ifPages: false
+          })
+        }
         this.setData({
-          questionMessage: res.data
+          questionMessage: this.data.showList,
+          hideList: hideList
         })
       })
     request.showCommMessge(obj)
       .then(res => {
+        let hideList1 = res.data
+        let { pageSize1 } = this.data;
+        if (hideList1.length > pageSize1) {
+          this.setData({
+            showList1: hideList1.splice(0, pageSize1)
+          })
+        } else {
+          this.setData({
+            showList1: hideList1,
+            ifPages1: false
+          })
+        }
         this.setData({
-          commentMessage: res.data
+          commentMessage: this.data.showList1,
+          hideList1: hideList1
         })
       })
   }

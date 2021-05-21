@@ -1,6 +1,7 @@
 <!--pages/userPage/user/user.wxml-->
 <view>
-  <view class="topImg"></view>
+  <image class="topImg" src="../../../images/user/me_chahua.png" mode="aspectFill" />
+    
   <view class="userTaBar" style="margin-top: {{topBarMargin}}rpx;height: {{topBarHeight}}rpx;">
     我
   </view>

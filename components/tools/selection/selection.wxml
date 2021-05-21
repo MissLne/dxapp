@@ -5,7 +5,7 @@
   <view class="selectName parent-select-name">
     <view>
       <text bind:tap="isShow">{{selectList.name}}</text>
-      <text></text>
+      <image src="../../../images/jiantou.png" class="{{selectListIsShow? 'imageClass' : ''}}"/>
     </view>
     <view wx:if="{{content}}" class="top-text">{{content}}</view>
   </view>

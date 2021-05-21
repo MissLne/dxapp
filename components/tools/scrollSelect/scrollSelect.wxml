@@ -2,7 +2,7 @@
 <view class="scorllSelectBox">
   <view class="scorllSelectTitle">
     <view bind:tap="showSelectList">{{scrollSelect.title}}</view>
-    <view></view>
+    <image src="../../../images/jiantou.png" class="{{scrollSelect.isShow? 'imageClass' : ''}}"/>
   </view>
   <!-- wx:if="{{scrollSelect.isShow}}" -->
     <view class="scorllSelectList {{scrollSelect.isShow? 'showList' : ''}}" >

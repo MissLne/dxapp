@@ -16,7 +16,7 @@ Page({
         ticketName: '',
         ticketPrice: '',
         ticketNumber: '',
-        introduce: '请用一句话介绍此票种',
+        ticketInstructions: '',
         bounce: 0
       }
       // {
@@ -74,6 +74,7 @@ Page({
       paramsObj: options
     })
   },
+  
   updateGlobalTicket(data) {
     app.globalData.publishActivityData.ticketList = data
   },
