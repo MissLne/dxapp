@@ -1,4 +1,5 @@
 <view class="{{identifyLoginShow? 'notsroll' : ''}}">
+  <NullPic nullPicUrl="../../images/loginPage/LOGOx.png" wx:if="{{activityArray.length == 0}}" />
   <view>
     <view class="top-nav">
       <view class="top-select">
@@ -8,7 +9,8 @@
     <scroll-view scroll-y="true" style="height: {{scrollviewHeight}}rpx" bindscrolltolower="lalal">
       <ActivityItem prop-array='{{activityArray}}'></ActivityItem>
     </scroll-view>
-    <NullPic nullPicUrl="../../images/loginPage/LOGOx.png" wx:if="{{activityArray.length == 0}}" />
+    
+      
     <view bindtap="addActivity" class="addActivityBtn">
     <image src="../../images/activity/add.png" /></view>
   </view>

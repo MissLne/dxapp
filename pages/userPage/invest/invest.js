@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    investCount: 0
+    investCount: 0 .toFixed(2)
   },
 
   /**

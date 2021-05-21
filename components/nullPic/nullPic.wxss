@@ -2,8 +2,8 @@
 .nullPic {
   width: 281rpx;
   height: 465rx;
-  position: absolute;
+  position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  top: 25%rpx;
+  top: 25%;
 }

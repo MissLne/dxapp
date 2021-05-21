@@ -1,1 +1,28 @@
 /* pages/userPage/invest/invest.wxss */
+.investPage {
+  width: 638rpx;
+  color: #333;
+  font-size: 26rpx;
+  margin: 180rpx auto 564rpx auto;
+}
+.investPage > view:nth-of-type(2) {
+  height: 112rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-bottom: 1rpx solid rgba(0, 0, 0,0.1);
+} 
+.investPage > view:nth-of-type(2) view {
+  font-weight: bold;
+  font-size: 30rpx;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+}
+.investPage > view:nth-of-type(2) input {
+  font-size: 50rpx;
+  font-weight: bold;
+  text-align: center;
+}
