@@ -23,14 +23,23 @@ Page({
     },
     pay: 0.00,
     income: 0.00,
+    month: -1,
+    year: -1,
+    time: '',
+    isEmpty: 0,
+    isScrollLoad: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let _this = this
     this.setData({
-      activityId: options.activityId
+      activityId: options.activityId,
+      month: _this.loadCurrentMonth().m,
+      year: _this.loadCurrentMonth().tYear,
+      time: _this.loadCurrentMonth().tYear + '-' + _this.loadCurrentMonth().m
     })
     this.showActivityManage(options)
     this.geiHeight()
@@ -43,9 +52,29 @@ Page({
     // that.canvasRing.showCanvasRing();
 
   },
-  getPickerTime(e) {
-    let year = e.detail.time.slice(0, 4).toString()
-    let month = e.detail.time.slice(5).toString()
+  getPreMonth() {
+    let { year, month, isEmpty } = this.data
+    year = Number(year)
+    month = Number(month)
+    // if (month == this.loadCurrentMonth().m && year == this.loadCurrentMonth().tYear) {
+    //   this.setData({
+    //     time: '本月'
+    //   })
+    //   return
+    // }
+    if (Number(month) == 1) {
+      month = 12
+      year--
+    } else {
+      month--
+      if (month.toString().length == 1) month = "0" + month
+    }
+    this.setData({
+      month,
+      year,
+      isScrollLoad: 1,
+      time: `${year}-${month}`
+    })
     let obj = {
       "id": wx.getStorageSync('id'),
       "month": month,
@@ -53,7 +82,80 @@ Page({
       "activityId": this.data.activityId,
       "year": year
     }
-    console.log(obj, '----')
+    this.requestBill(obj)
+    while (this.data.isEmpty) {
+      this.getPreMonth()
+    }
+  },
+  async getNextMonth() {
+    console.log(11)
+    let { year, month, isEmpty } = this.data
+    console.log('--')
+    year = Number(year)
+    month = Number(month)
+    console.log('oxo')
+    if (month == this.loadCurrentMonth().m && year == this.loadCurrentMonth().tYear) {
+      this.setData({
+        time: '本月'
+      })
+      return
+    }
+    console.log('ovo')
+    if (Number(month) == 12) {
+      month = 1
+      month = "0" + month
+      year++
+    } else {
+      month++
+      if (month.toString().length == 1) month = "0" + month
+    }
+    this.setData({
+      month,
+      year,
+      isScrollLoad: 1,
+      time: `${year}-${month}`
+    })
+    let obj = {
+      "id": wx.getStorageSync('id'),
+      "month": month,
+      "status": 4,
+      "activityId": this.data.activityId,
+      "year": year
+    }
+    console.log('ouo')
+    await this.requestBill(obj)
+
+    console.log(this.data.isEmpty)
+    while (isEmpty) {
+      this.getNextMonth()
+    }
+  },
+  getPickerTime(e) {
+    let year
+    let month
+    if (e.detail.time == '本月') {
+      year = this.loadCurrentMonth().tYear
+      month = this.loadCurrentMonth().m
+      this.setData({
+        time: '本月'
+      })
+    } else {
+      year = e.detail.time.slice(0, 4).toString()
+      month = e.detail.time.slice(5).toString()
+    }
+    let obj = {
+      "id": wx.getStorageSync('id'),
+      "month": month,
+      "status": 4,
+      "activityId": this.data.activityId,
+      "year": year
+    }
+    this.setData({
+      month: month,
+      year: year,
+      isScrollLoad: 0,
+      time: `${year}-${month}`
+    })
     this.requestBill(obj)
   },
   loadCurrentMonth() {
@@ -64,6 +166,7 @@ Page({
     if (m.toString().length == 1) {
       m = "0" + m;
     }
+    
     return { tYear, m }
   },
   lala() {
@@ -134,14 +237,25 @@ Page({
       })
   },
   geiHeight() {
-      this.setData({
-        swiperHeight: app.getSomgthingHeight().viewHeight - 64
-      })
+    this.setData({
+      swiperHeight: app.getSomgthingHeight().viewHeight - 64
+    })
   },
   requestBill(obj) {
+    let _this = this
     request.showBillDetail(obj)
       .then(res => {
-        console.log(res)
+        if (res.data.walletDetailBaseMsgs.length == 0 && obj['year'] != _this.loadCurrentMonth().tYear && obj['month'] != _this.loadCurrentMonth().m) {
+          console.log(1)
+          this.setData({
+            isEmpty: 1
+          })
+          return
+        } else {
+          this.setData({
+            isEmpty: 0
+          })
+        }
         let num = 0
         let num1 = 0
         let result = res.data.walletDetailBaseMsgs
@@ -170,11 +284,20 @@ Page({
             num1 += parseFloat(result[i].amount)
           }
         }
-        this.setData({
-          billDetail: result,
-          pay: Number(num).toFixed(2),
-          income: Number(num1).toFixed(2)
-        })
+        if (this.data.isScrollLoad) {
+          this.setData({
+            billDetail: this.data.billDetail.concat(result),
+            pay: Number(num).toFixed(2),
+            income: Number(num1).toFixed(2)
+          })
+        } else {
+          this.setData({
+            billDetail: result,
+            pay: Number(num).toFixed(2),
+            income: Number(num1).toFixed(2)
+          })
+        }
+
       })
   },
   showBillDetail() {
@@ -186,7 +309,9 @@ Page({
       "activityId": this.data.activityId,
       "year": current.tYear
     }
-    console.log(obj, '----')
+    this.setData({
+      time: '本月'
+    })
     this.requestBill(obj)
   }
 })

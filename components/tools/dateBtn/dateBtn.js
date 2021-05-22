@@ -4,14 +4,14 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    time: String
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    time: ''
+    
   },
 
   /**
@@ -34,12 +34,12 @@ Component({
     },
     pickerChange() {
       let currentTime = this.loadCurrentMonth()
-      if(this.data.time == currentTime) {
+      if(this.properties.time == currentTime) {
         this.setData({
           time: '本月'
         })
       }
-      this.triggerEvent('datepicker',{time: this.data.time})
+      this.triggerEvent('datepicker',{time: this.properties.time})
     }
   }
 })

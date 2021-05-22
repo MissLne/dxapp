@@ -25,9 +25,9 @@
         <view>收入：{{income}} 元</view>
         <view style="margin-left: 10rpx;">支出：{{pay}} 元</view>
       </view>
-      <DateBtn binddatepicker="getPickerTime" />
+      <DateBtn binddatepicker="getPickerTime" time="{{time}}"/>
     </view>
-    <scroll-view scroll-y="true" style="height:{{swiperHeight - 56}}rpx">
+    <scroll-view scroll-y="true" style="height:{{swiperHeight - 56}}rpx" bindscrolltolower="getNextMonth" bindscrolltoupper="getPreMonth">
       <BillItem billDetail="{{billDetail}}" />
     </scroll-view>
   </swiper-item>
