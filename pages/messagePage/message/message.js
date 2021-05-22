@@ -32,7 +32,6 @@ Page({
       title: '全部活动',
       selectList: [
         {
-          activityId: '0',
           activityName: '全部活动'
         }
       ],
@@ -42,7 +41,6 @@ Page({
       title: '全部活动',
       selectList: [
         {
-          activityId: '0',
           activityName: '全部活动'
         }
       ],
@@ -197,7 +195,10 @@ Page({
     console.log(e.currentTarget.dataset.item)
     if (e.currentTarget.dataset.item) {
       console.log(e)
-      request.actIdGetComment({ aId: e.detail.id })
+      request.actIdGetComment({
+        activityId: e.detail.id, 
+        mId: wx.getStorageSync('id')
+      })
         .then(res => {
           console.log(res)
           this.setData({
@@ -205,7 +206,10 @@ Page({
           })
         })
     } else {
-      request.actIdGetConsult({ aId: e.detail.id })
+      request.actIdGetConsult({
+        activityId: e.detail.id,
+        mId: wx.getStorageSync('id')
+      })
         .then(res => {
           console.log(res)
           this.setData({
@@ -345,7 +349,7 @@ Page({
     let obj = {
       mId: wx.getStorageSync('id')
     }
-    request.showQuesMessge(obj)
+    request.actIdGetConsult(obj)
       .then(res => {
         console.log(res)
         let hideList = res.data
@@ -365,7 +369,7 @@ Page({
           hideList: hideList
         })
       })
-    request.showCommMessge(obj)
+    request.actIdGetComment(obj)
       .then(res => {
         let hideList1 = res.data
         let { pageSize1 } = this.data;

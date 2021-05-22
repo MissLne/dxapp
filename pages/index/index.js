@@ -23,8 +23,9 @@ Page({
         showList: [],//显示在页面上的数据
         hideList: [],//未显示在页面的数据
         pageSize: 5, // 每页条数
-        ifPages: true //是否下滑的时候继续添加页面显示的数据
-        
+        ifPages: true, //是否下滑的时候继续添加页面显示的数据
+        isLazy: 1
+
     },
     onLoad: function () {
         this.getHeight()
@@ -36,22 +37,24 @@ Page({
         this.loginOrNot()
     },
     lalal() {
-        let { showList, hideList, pageSize, ifPages,activityArray } = this.data
-        if (ifPages) {
-            let newList = [];
-            if (hideList.length > pageSize) {//如果未显示的数据 大于显示条数 截取添加
-                newList = activityArray.concat(hideList.splice(0, pageSize));
-            } else { //如果不大于 那就直接全部添加
-                newList = activityArray.concat(hideList)
+        if (this.data.isLazy) {
+            let { showList, hideList, pageSize, ifPages, activityArray } = this.data
+            if (ifPages) {
+                let newList = [];
+                if (hideList.length > pageSize) {//如果未显示的数据 大于显示条数 截取添加
+                    newList = activityArray.concat(hideList.splice(0, pageSize));
+                } else { //如果不大于 那就直接全部添加
+                    newList = activityArray.concat(hideList)
+                    this.setData({
+                        ifPages: false,
+                        hideList: []
+                    })
+                }
                 this.setData({
-                    ifPages: false,
-                    hideList: []
+                    activityArray: newList,
+                    hideList
                 })
             }
-            this.setData({
-                activityArray: newList,
-                hideList
-            })
         }
     },
     getHeight() {
@@ -159,12 +162,21 @@ Page({
             mId: wx.getStorageSync('id'),
             status: e.detail.type
         }
+        if (e.detail.type == 0) {
+            this.setData({
+                isLazy: 1
+            })
+            this.showActivity()
+            return
+        }
+        console.log('ouo')
         request.showActivityByStatus(obj)
             .then(res => {
                 let data = JSON.parse(JSON.stringify(res.data))
                 data = this.switchData(data, res.data)
                 this.setData({
-                    activityArray: data
+                    activityArray: data,
+                    isLazy: 0
                 })
             })
     },
@@ -174,10 +186,11 @@ Page({
         }
         request.showActMessage(obj)
             .then(res => {
+                console.log(res.data)
                 let data = JSON.parse(JSON.stringify(res.data))
                 data = this.switchData(data, res.data)
                 data.sort((a, b) => b.startTime.localeCompare(a.startTime))
-                let  hideList  = data
+                let hideList = data
                 let { pageSize } = this.data;
                 if (hideList.length > pageSize) { //如果数据大于页面显示条数 那就先赋值条数，然后再通过滑动的时候再加数据
                     this.setData({

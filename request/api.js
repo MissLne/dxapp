@@ -27,7 +27,9 @@ var url = {
   showUpdateActivit: "merchant/activity/actInfo/showUpdateInfo",
   getLoginAccount: "merchant/enter/one/canIn",
   identify: "merchant/enter/one/identify",
-  logout: "merchant/enter/one/logout"
+  logout: "merchant/enter/one/logout",
+  actIdGetConsult: "merchant/consult/getConsult",
+  actIdGetComment: "merchant/consult/getComment"
 }
 module.exports = {
   ouo(params) {
@@ -69,16 +71,20 @@ module.exports = {
   },
   actIdGetConsult(params) {
     return http({
-      url: `merchant/consult//getConsult/${params.aId}`,
+      url: url.actIdGetConsult,
       data: params,
-      method: 'GET'
+      header: {
+        "Content-Type": "application/json"
+      }
     })
   },
   actIdGetComment(params) {
     return http({
-      url: `merchant/consult//getComment/${params.aId}`,
+      url: url.actIdGetComment,
       data: params,
-      method: 'GET'
+      header: {
+        "Content-Type": "application/json"
+      }
     })
   },
   showActivityByStatus(params) {

@@ -1,0 +1,2 @@
+<!--pages/userPage/invest/investSuccess/investSuccess.wxml-->
+<view >{{amount}}</view>

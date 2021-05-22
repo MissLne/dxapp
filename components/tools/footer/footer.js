@@ -39,7 +39,6 @@ Component({
       wx.navigateBack({ delta: 1 })
     },
     requestData() {
-      console.log(app.globalData.publishActivityData)
       app.globalData.publishActivityData.status = 1
       request.publishActivities(app.globalData.publishActivityData)
         .then(res => {
@@ -47,6 +46,11 @@ Component({
         })
     },
     goNext() {
+      
+      app.globalData.publishActivityData.ticketList.map(item => {
+        if(!item.hasOwnProperty('ticketRefundType')) item.ticketRefundType = 0
+        console.log(item)
+      })
       if (this.properties.contentObject.rightBtn == '提现') {
         wx.navigateTo({
           url: this.properties.contentObject.rightUrl

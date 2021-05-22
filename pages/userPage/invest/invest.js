@@ -22,24 +22,31 @@ Page({
       "amount": data
     }
     request.invest(obj)
-    .then(res => {
-      wx.requestPayment({
-        timeStamp: res.data.timeStamp,
-        nonceStr: res.data.nonce_str,
-        package: res.data.package,
-        signType: res.data.signType,
-        paySign: res.data.paySign,
-        success: (result) => {
-          console.log(result)
-        },
-        fail: (res) => {
-          console.log(res)
-        },
-        complete: (res) => {
-          console.log(res)
-        }
-      });
-        
-    })
+      .then(res => {
+        wx.requestPayment({
+          timeStamp: res.data.timeStamp,
+          nonceStr: res.data.nonce_str,
+          package: res.data.package,
+          signType: res.data.signType,
+          paySign: res.data.paySign,
+          success: () => {
+            let query = {
+              amount: obj.data
+            }
+            query.amount = JSON.stringify(query.amount)
+            navigate.navigateTo({
+              url: "./investSuccess/investSuccess",
+              query
+            })
+          },
+          fail: (res) => {
+            console.log(res)
+          },
+          complete: (res) => {
+            console.log(res)
+          }
+        })
+
+      })
   }
 })

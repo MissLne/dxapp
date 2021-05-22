@@ -27,7 +27,7 @@
       </view>
       <DateBtn binddatepicker="getPickerTime" time="{{time}}"/>
     </view>
-    <scroll-view scroll-y="true" style="height:{{swiperHeight - 56}}rpx" bindscrolltolower="getNextMonth" bindscrolltoupper="getPreMonth">
+    <scroll-view scroll-y="true" style="height:{{swiperHeight - 56}}rpx" bindscrolltolower="getNextMonth">
       <BillItem billDetail="{{billDetail}}" />
     </scroll-view>
   </swiper-item>

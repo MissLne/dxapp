@@ -52,55 +52,16 @@ Page({
     // that.canvasRing.showCanvasRing();
 
   },
-  getPreMonth() {
-    let { year, month, isEmpty } = this.data
-    year = Number(year)
-    month = Number(month)
-    // if (month == this.loadCurrentMonth().m && year == this.loadCurrentMonth().tYear) {
-    //   this.setData({
-    //     time: '本月'
-    //   })
-    //   return
-    // }
-    if (Number(month) == 1) {
-      month = 12
-      year--
-    } else {
-      month--
-      if (month.toString().length == 1) month = "0" + month
-    }
-    this.setData({
-      month,
-      year,
-      isScrollLoad: 1,
-      time: `${year}-${month}`
-    })
-    let obj = {
-      "id": wx.getStorageSync('id'),
-      "month": month,
-      "status": 4,
-      "activityId": this.data.activityId,
-      "year": year
-    }
-    this.requestBill(obj)
-    while (this.data.isEmpty) {
-      this.getPreMonth()
-    }
-  },
   async getNextMonth() {
-    console.log(11)
     let { year, month, isEmpty } = this.data
-    console.log('--')
     year = Number(year)
     month = Number(month)
-    console.log('oxo')
     if (month == this.loadCurrentMonth().m && year == this.loadCurrentMonth().tYear) {
       this.setData({
         time: '本月'
       })
       return
     }
-    console.log('ovo')
     if (Number(month) == 12) {
       month = 1
       month = "0" + month
@@ -122,9 +83,7 @@ Page({
       "activityId": this.data.activityId,
       "year": year
     }
-    console.log('ouo')
     await this.requestBill(obj)
-
     console.log(this.data.isEmpty)
     while (isEmpty) {
       this.getNextMonth()

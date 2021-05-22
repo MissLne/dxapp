@@ -20,6 +20,7 @@
     "pages/userPage/updateMaterial/updateMaterial",
     "pages/userPage/userWallet/userWallet",
     "pages/userPage/invest/invest",
+    "pages/userPage/invest/investSuccess/investSuccess",
     "pages/userPage/cashOut/cashOut",
     "pages/userPage/cashSuccess/cashSuccess",
     "pages/userPage/bill/bill",

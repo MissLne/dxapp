@@ -72,9 +72,6 @@ Page({
     if(e.currentTarget.dataset.name == 'startTime' || e.currentTarget.dataset.name == 'registrationDeadline') {
       e.detail.value = e.detail.value + ' 00:00:00'
     }
-    if(e.currentTarget.dataset.name == 'registrationDeadline') {
-      app.globalData.publishActivityData.endTime = e.detail.value
-    }
     app.globalData.publishActivityData[`${e.currentTarget.dataset.name}`] = e.detail.value
     data.addActivity[`${e.currentTarget.dataset.name}`] = e.detail.value
     this.setData({
