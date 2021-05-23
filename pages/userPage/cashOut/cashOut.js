@@ -5,6 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBar: {
+      title: '提现',
+      isOne: 0
+    },
     pickerVal: '零钱'
   },
 
@@ -15,7 +19,7 @@ Page({
   
   },
   cashOut() {
-    let data = this.data.cashOutCount + ""
+    let data = this.data.cashOutCount * 100 + ""
     let obj = {
       "mId": wx.getStorageSync('id'),
       "amount": data

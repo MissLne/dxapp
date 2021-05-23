@@ -1,3 +1,4 @@
+<ComNav topBar="{{topBar}}"/>
 <view class="billBtn">
   <navigator url="/pages/userPage/bill/bill">账单明细</navigator>
 </view>

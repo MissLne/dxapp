@@ -25,7 +25,6 @@
     "pages/userPage/cashSuccess/cashSuccess",
     "pages/userPage/bill/bill",
     "pages/loginPage/register/register",
-    "pages/loginPage/forgetPsd/forgetPsd",
     "pages/loginPage/login/login"
   ],
   "window":{

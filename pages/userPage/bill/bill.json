@@ -4,7 +4,8 @@
     "Selection": "/components/tools/selection/selection",
     "DateBtn": "/components/tools/dateBtn/dateBtn",
     "SelectionLsit": "/components/tools/selectionList/selectionList",
-    "ScrollSelect": "/components/tools/scrollSelect/scrollSelect"
+    "ScrollSelect": "/components/tools/scrollSelect/scrollSelect",
+    "ComNav": "/components/tools/comNav/comNav"
   },
-  "onReachBottomDistance": 50
+  "navigationStyle": "custom"
 }

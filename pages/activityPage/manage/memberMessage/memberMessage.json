@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "MemberOptional": "/components/indexPageItem/manageActivity/memberOptional/memberOptional"
-  }
+    "MemberOptional": "/components/indexPageItem/manageActivity/memberOptional/memberOptional",
+    "ComNav": "/components/tools/comNav/comNav"
+  },
+  "navigationStyle": "custom"
 }

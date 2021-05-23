@@ -1,3 +1,4 @@
+<ComNav topBar="{{topBar}}"/>
 <view>
   <!-- pages/userPage/bill/bill.wxml -->
   <view class="selectionClass ">

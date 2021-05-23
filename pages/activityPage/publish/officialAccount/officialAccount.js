@@ -6,6 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBar: {
+      title: '活动详情',
+      isOne: 0
+    },
     showBubble: 0,
     inputValue: ''
   },

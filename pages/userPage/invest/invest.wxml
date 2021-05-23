@@ -1,4 +1,5 @@
 <!-- pages/userPage/invest/invest.wxml -->
+<ComNav topBar="{{topBar}}"/>
 <view class="investPage">
   <view>充值金额</view>
   <view>

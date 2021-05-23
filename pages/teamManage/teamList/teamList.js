@@ -6,6 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBar: {
+      title: '运营人员登录',
+      isOne: 0
+    },
     showTeams: 0,
     teamDetail: []
   },

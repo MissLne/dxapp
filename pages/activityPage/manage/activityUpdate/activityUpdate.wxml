@@ -1,4 +1,5 @@
 <!--pages/activityPage/manage/activityUpdate/activityUpdate.wxml-->
+<ComNav topBar="{{topBar}}"/>
 <Tips activityMaterial="{{activityMaterial}}" wx:if="{{showTips}}" bindact="getMessage"></Tips>
 <TicketUpdate ticketsMaterial="{{activityMaterial.tickets}}" bindtick="getTicket" />
 <Buttons btnContent="更新" parent-buttons-class="parent-buttons-class" bindtap="update"/>

@@ -127,7 +127,7 @@
         },
         {
           "name": "钱包",
-          "pathName": "pages/userPage/invest/invest",
+          "pathName": "pages/userPage/userWallet/userWallet",
           "query": "",
           "scene": null
         },

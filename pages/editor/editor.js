@@ -1,6 +1,10 @@
 const app = getApp()
 Page({
   data: {
+    topBar: {
+      title: '发表文章',
+      isOne: 0
+    },
     formats: {},
     readOnly: false,
     placeholder: '开始输入...',

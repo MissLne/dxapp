@@ -6,6 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBar: {
+      title: '充值',
+      isOne: 0
+    },
     investCount: 0 .toFixed(2)
   },
 
@@ -16,7 +20,7 @@ Page({
 
   },
   invest() {
-    let data = this.data.investCount + ""
+    let data = this.data.investCount * 100 + ""
     let obj = {
       "mId": wx.getStorageSync('id'),
       "amount": data

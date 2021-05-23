@@ -2,6 +2,8 @@
   "usingComponents": {
     "UserUploadPic": "/components/userPageItem/userUploadPic/userUploadPic",
     "userMessage" :"/components/userPageItem/userMessage/userMessage",
-    "Buttons": "/components/tools/buttons/buttons"
-  }
+    "Buttons": "/components/tools/buttons/buttons",
+    "ComNav": "/components/tools/comNav/comNav"
+  },
+  "navigationStyle": "custom"
 }

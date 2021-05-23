@@ -210,6 +210,7 @@ Page({
     let _this = this
     request.showBillDetail(obj)
       .then(res => {
+        console.log(res)
         if (res.data.walletDetailBaseMsgs.length == 0 && obj['year'] != _this.loadCurrentMonth().tYear && obj['month'] != _this.loadCurrentMonth().m) {
           console.log(1)
           this.setData({
@@ -228,7 +229,7 @@ Page({
           if (result[i].feeCharge != undefined) {
             result[i].feeCharge = result[i].feeCharge.toFixed(2)
           }
-          result[i].amount = result[i].amount.toFixed(2)
+          result[i].amount = (result[i].amount / 100).toFixed(2)
           switch (result[i].moneyType) {
             case -1:
               result[i].moneyType = '提现'

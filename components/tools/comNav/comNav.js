@@ -18,6 +18,16 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    backBtn() {
+      if(this.properties.topBar.hasOwnProperty('goUrl')) {
+        wx.navigateTo({
+          url: goUrl
+        })
+      } else {
+        wx.navigateBack({
+          delta: 1
+        })
+      }
+    }
   }
 })

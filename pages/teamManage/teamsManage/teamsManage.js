@@ -6,6 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBar: {
+      title: '团队管理',
+      isOne: 0
+    },
     teamMembers: []
   },
 

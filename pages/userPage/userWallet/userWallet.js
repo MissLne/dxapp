@@ -5,6 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBar: {
+      title: '钱包',
+      isOne: 0
+    },
     footerBtnObject: {
       leftUrl: '/pages/userPage/invest/invest',
       leftBtn: '充值',

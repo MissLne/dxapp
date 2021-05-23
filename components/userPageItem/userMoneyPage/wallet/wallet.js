@@ -12,7 +12,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-  wallet: []
+  wallet: {}
   },
 
   ready: function() {
@@ -28,6 +28,9 @@ Component({
       }
       request.showWallet(obj)
       .then(res => {
+        res.data.allAmount = (res.data.allAmount / 100).toFixed(2)
+        res.data.canDrawCashAmount = (res.data.canDrawCashAmount / 100).toFixed(2)
+        
         this.setData({
           wallet: res.data
         })

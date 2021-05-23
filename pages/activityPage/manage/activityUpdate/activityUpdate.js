@@ -6,6 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBar: {
+      title: '更新活动信息',
+      isOne: 0
+    },
     activityMaterial: {},
     showTips: 0
   },

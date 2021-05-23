@@ -43,7 +43,7 @@ Component({
       request.showWallet(obj)
       .then(res => {
         this.setData({
-          walletCount: res.data.allAmount
+          walletCount: (res.data.allAmount / 100).toFixed(2)
         })
       })
     }

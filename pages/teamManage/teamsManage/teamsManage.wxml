@@ -1,4 +1,5 @@
 <!--pages/teamManage/teamsManage/teamsManage.wxml-->
+<ComNav topBar="{{topBar}}"/>
 <TeamsManageItem teamMembers="{{teamMembers}}" binddeleteMember="deleteMember"/>
  <Buttons btnContent="添加队员" parent-buttons-class="parent-buttons-class" bind:tap="onShareAppMessage"/>
  <button open-type="share" class="shareBtn" size="mini">ouo</button>

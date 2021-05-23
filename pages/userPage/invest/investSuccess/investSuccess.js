@@ -5,6 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBar: {
+      title: '充值成功',
+      isOne: 0
+    },
     amount: 0
   },
 

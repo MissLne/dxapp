@@ -8,6 +8,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBar: {
+        title: '账单明细',
+        isOne: 0
+    },
     flag: 1,
     billDetail: [],
     selectList: [
@@ -56,7 +60,7 @@ Page({
           if (result[i].feeCharge != undefined) {
             result[i].feeCharge = result[i].feeCharge.toFixed(2)
           }
-          result[i].amount = result[i].amount.toFixed(2)
+          result[i].amount =( result[i].amount / 100).toFixed(2)
           switch (result[i].moneyType) {
             case -1:
               result[i].moneyType = '提现'
@@ -152,7 +156,7 @@ Page({
         let height2 = app.getRealHeight(rect)
         // console.log
         this.setData({
-          windowHeight: app.getSomgthingHeight().viewHeight - (height1 + height2)
+          windowHeight: app.getSomgthingHeight().viewHeight - (height1 + height2) - this.data.topBarMargin - this.data.topBarHeight
         })
       }).exec()
     }).exec()

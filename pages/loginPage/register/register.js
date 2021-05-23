@@ -6,6 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBar: {
+      title: '申请入驻',
+      isOne: 0
+    },
     registerArray: [
       {
         name: '企业/组织全称',

@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "Wallet": "/components/userPageItem/userMoneyPage/wallet/wallet",
-    "Footer": "/components/tools/footer/footer"
-  }
+    "Footer": "/components/tools/footer/footer",
+    "ComNav": "/components/tools/comNav/comNav"
+  },
+  "navigationStyle": "custom"
 }

@@ -1,4 +1,4 @@
-<ComNav topBar="{{topBar}}">
+<ComNav topBar="{{topBar}}"/>
 
 <view class="{{identifyLoginShow? 'notsroll' : ''}}">
   <NullPic nullPicUrl="../../images/activity/list_picturex.png" wx:if="{{activityArray.length == 0}}" />

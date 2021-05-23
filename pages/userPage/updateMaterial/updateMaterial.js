@@ -6,6 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBar: {
+      title: '修改资料',
+      isOne: 0
+    },
     messageArray: [],
     avaterUrl: '',
     userMessageObject: {}

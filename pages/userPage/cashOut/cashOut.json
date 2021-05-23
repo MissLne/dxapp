@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "cashOutCom": "/components/userPageItem/userMoneyPage/cashOutCom/cashOutCom"
-  }
+    "cashOutCom": "/components/userPageItem/userMoneyPage/cashOutCom/cashOutCom",
+    "ComNav": "/components/tools/comNav/comNav"
+  },
+  "navigationStyle": "custom"
 }

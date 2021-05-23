@@ -2,6 +2,8 @@ const request = require('../../../request/api')
 
 Page({
     data: {
+        topBarMargin: (wx.getMenuButtonBoundingClientRect().top) * 2,
+        topBarHeight: (wx.getMenuButtonBoundingClientRect().height) * 2 + 15,
         account: 'LCE',
         password: '123456'
     },

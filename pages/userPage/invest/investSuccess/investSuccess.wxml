@@ -1,2 +1,3 @@
 <!--pages/userPage/invest/investSuccess/investSuccess.wxml-->
+<ComNav topBar="{{topBar}}"/>
 <view >{{amount}}</view>

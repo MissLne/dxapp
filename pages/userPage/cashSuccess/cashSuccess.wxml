@@ -1,4 +1,5 @@
 <!-- pages/userPage/cashSuccess/cashSuccess.wxml -->
+<ComNav topBar="{{topBar}}"/>
 <view class="cashSuccess">
   <image src="../../../images/user/withdraw.png" />
   <view>{{cashAmount}}元</view>

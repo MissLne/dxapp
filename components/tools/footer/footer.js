@@ -49,7 +49,7 @@ Component({
       
       app.globalData.publishActivityData.ticketList.map(item => {
         if(!item.hasOwnProperty('ticketRefundType')) item.ticketRefundType = 0
-        console.log(item)
+        item.ticketPrice = item.ticketPrice * 100
       })
       if (this.properties.contentObject.rightBtn == '提现') {
         wx.navigateTo({

@@ -1,4 +1,5 @@
 <!-- pages/activityPage/manage/memberMessage/memberMessage.wxml -->
+<ComNav topBar="{{topBar}}" />
 <view style="margin-top: 40rpx">
   <view class="menberMessBox">
     <view>姓名</view>

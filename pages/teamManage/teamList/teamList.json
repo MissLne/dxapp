@@ -1,6 +1,8 @@
 {
     "usingComponents": {
         "TeamListItem": "/components/teamComponents/teamListItem/teamListItem",
-        "Buttons": "/components/tools/buttons/buttons"
-    }
+        "Buttons": "/components/tools/buttons/buttons",
+        "ComNav": "/components/tools/comNav/comNav"
+  },
+  "navigationStyle": "custom"
 }

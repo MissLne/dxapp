@@ -2,6 +2,8 @@
   "navigationBarTitleText": "发表文章",
   "disableScroll": true,
   "usingComponents": {
-    "Buttons": "/components/tools/buttons/buttons"
-  }
+    "Buttons": "/components/tools/buttons/buttons",
+    "ComNav": "/components/tools/comNav/comNav"
+  },
+  "navigationStyle": "custom"
 }

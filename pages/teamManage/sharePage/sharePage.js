@@ -6,6 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBar: {
+      title: '确认邀请',
+      isOne: 1
+    },
     teamMaterial: {},
     activity: [],
     count: 0,

@@ -6,6 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBar: {
+      title: '提现成功',
+      isOne: 0
+    },
     cashAmount: 0
   },
 

@@ -1,3 +1,4 @@
+<ComNav topBar="{{topBar}}" />
 <view class="container">
   <editor id="editor" class="ql-container" placeholder="{{placeholder}}" bindstatuschange="onStatusChange" bindready="onEditorReady" style="height: 100%;">
   </editor>

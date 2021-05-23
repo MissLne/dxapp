@@ -1,3 +1,8 @@
+<view style="height: {{topBarHeight + topBarMargin}}rpx;" class="topBarTotalHeight">
+  <view style="height: {{topBarHeight}}rpx;" class="topBarTextHeight">
+    <view>登录</view>
+  </view>
+</view>
 <view class="loginPage">
   <view class="loginBox">
     <view class="logo">
@@ -14,11 +19,14 @@
         <input placeholder="请输入密码" password bindinput="passwordEdit" value="{{password}}" />
       </view>
       <view class="forget">
-        <navigator url="/pages/loginPage/forgetPsd/forgetPsd">忘记密码</navigator>
+        <view class="forgetBtn">
+          忘记密码
+          <button open-type="contact" size="mini">..</button>
+        </view>
       </view>
     </view>
-    <view>
-      <view>
+    <view class="allBtn">
+      <view class="topBtn">
         <navigator class="registerBtn" url="/pages/loginPage/register/register">商家入驻</navigator>
         <navigator class="teamBtn" url="/pages/teamManage/teamList/teamList">已加入团队</navigator>
       </view>

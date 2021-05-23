@@ -1,4 +1,5 @@
 <!-- pages/teamManage/sharePage/sharePage.wxml -->
+<ComNav topBar="{{topBar}}"/>
 <view class="teamBaseMes">
   <image src="{{teamMaterial.imgShowUrl}}" />
   <view>

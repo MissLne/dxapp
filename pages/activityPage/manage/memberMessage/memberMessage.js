@@ -6,6 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBar: {
+      title: '成员信息',
+      isOne: 0
+    },
     memberObj: {}
   },
 

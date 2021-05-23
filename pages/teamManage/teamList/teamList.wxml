@@ -1,4 +1,5 @@
 <!--pages/teamManage/teamList/teamList.wxml-->
+<ComNav topBar="{{topBar}}"/>
 <TeamListItem teamDetail="{{teamDetail}}" wx:if="{{showTeams}}"/>
  <Buttons btnContent="关联新团队" parent-buttons-class="parent-buttons-class"/>
 
