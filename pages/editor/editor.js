@@ -126,8 +126,8 @@ Page({
     this.editorCtx.getContents({
       success: (res) => {
         app.globalData.publishActivityData.activityDetails = res.html
-        wx.navigateTo({
-          url: '/pages/activityPage/publish/officialAccount/officialAccount'
+        wx.navigateBack({
+          delta: 1
         })
       }
     })

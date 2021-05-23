@@ -1,4 +1,5 @@
 <!-- pages/messagePage/message/message.wxml -->
+<ComNav topBar="{{topBar}}"/>
 <view>
   <view class="messageTitle">
     <Navigations navigationsArray="{{['活动提问','评论']}}" parent-nav-class="parent-nav-class" currentSwiper="{{currentIndex}}" bind:cur="swiperCurrent" />
@@ -9,6 +10,7 @@
         <ScrollSelect scrollSelect="{{scrollSelect}}" bindselectscroll="getSelectScrollShow" bindactivityId="getActivityId" data-item="{{0}}" />
         <Selection selectList="{{selectList}}" selectListIsShow="{{selectListIsShow}}" parent-select-list="parent-select-list" bindshowType="showQuesByStatus" bindselectlist="getTopHeight" />
       </view>
+      <NullPic nullPicUrl="../../images/message/message_picture.png" wx:if="{{questionMessage.length == 0}}" />
       <scroll-view scroll-y="true" style="height: {{windowHeight}}rpx" bindscrolltolower="quesLazyLoad">
         <MessageItem messageItemArray="{{questionMessage}}" messageType="回答" bindreply="reply" />
       </scroll-view>
@@ -17,8 +19,10 @@
       <view class="massageScrollTop2">
         <ScrollSelect scrollSelect="{{scrollSelect1}}" bindselectscroll="getSelectScrollShow" bindactivityId="getActivityId" data-item="{{1}}" />
       </view>
+       <NullPic nullPicUrl="../../images/message/comment.png" wx:if="{{commentMessage.length == 0}}" />
       <scroll-view scroll-y="true" style="height: {{windowHeight2}}rpx" bindscrolltolower="comLazyLoad">
         <!-- <view class="selectContainer"></view> -->
+
         <MessageItem messageItemArray="{{commentMessage}}" messageType="回复" bindreply="reply" />
       </scroll-view>
     </swiper-item>

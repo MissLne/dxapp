@@ -3,7 +3,7 @@
   <swiper-item> -->
 <HeadNavigation bindheadnav="backIndex" />
 <view style="overflow: hidden;">
-  <!-- <Bubble bubbleContent="请完善活动的所有信息" showBubble="{{showBubble}}" /> -->
+  <Bubble bubbleContent="请完善活动的所有信息" showBubble="{{showBubble}}" wx:if="{{showBubble}}"/>
   <view class="edit-page">
     <image src="../../style/images/putActivity1.png" class="top-img" />
     <view class="edit-top">

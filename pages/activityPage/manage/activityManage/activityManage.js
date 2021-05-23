@@ -10,6 +10,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBar: {
+      title: '活动管理',
+      isOne: 0
+    },
+    topBarMargin: (wx.getMenuButtonBoundingClientRect().top) * 2,
+    topBarHeight: (wx.getMenuButtonBoundingClientRect().height) * 2 + 15,
     manageActivity: {},
     memberMessage: [],
     billDetail: [],
@@ -125,7 +131,7 @@ Page({
     if (m.toString().length == 1) {
       m = "0" + m;
     }
-    
+
     return { tYear, m }
   },
   lala() {
@@ -197,7 +203,7 @@ Page({
   },
   geiHeight() {
     this.setData({
-      swiperHeight: app.getSomgthingHeight().viewHeight - 64
+      swiperHeight: app.getSomgthingHeight().viewHeight - 64 - this.data.topBarMargin - this.data.topBarHeight
     })
   },
   requestBill(obj) {

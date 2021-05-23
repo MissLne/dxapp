@@ -12,6 +12,9 @@
       </view>
     </view>
   </view>
-  <navigator class="updateMaterial" url="/pages/userPage/updateMaterial/updateMaterial">修改资料></navigator>
+  <view class="updateMaterial">
+    <navigator url="/pages/userPage/updateMaterial/updateMaterial">修改资料></navigator>
+  </view>
+    
 </view>
   

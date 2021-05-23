@@ -3,7 +3,13 @@ const app = getApp()
 const request = require('../../request/api')
 Page({
     data: {
-        scrollviewHeight: app.getSomgthingHeight().viewHeight - 71,
+        topBar: {
+            title: '活动列表',
+            isOne: 1
+        },
+        topBarMargin: (wx.getMenuButtonBoundingClientRect().top) * 2,
+        topBarHeight: (wx.getMenuButtonBoundingClientRect().height) * 2 + 15,
+        scrollviewHeight: app.getSomgthingHeight().viewHeight - 71 - (wx.getMenuButtonBoundingClientRect().top) * 2 - (wx.getMenuButtonBoundingClientRect().height) * 2 + 15,
         selectArray: [{
             "id": 0,
             "text": "全部活动"
@@ -66,7 +72,7 @@ Page({
             let height = clientHeight * ratio
             console.log(height)
             this.setData({
-                scrollviewHeight: app.getSomgthingHeight().viewHeight - height
+                scrollviewHeight: app.getSomgthingHeight().viewHeight - height - this.data.topBarMargin - this.data.topBarHeight
             })
         }).exec();
     },

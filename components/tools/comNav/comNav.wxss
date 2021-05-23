@@ -1,4 +1,4 @@
-/* components/tools/headNavigation/headNavigation.wxss */
+/* components/tools/comNav/comNav.wxss */
 .topBarTotalHeight {
   display: flex;
   align-items: flex-end;
@@ -6,6 +6,7 @@
 }
 .topBarTextHeight {
   padding: 0 30rpx;
+  box-sizing: border-box;
   font-size: 26rpx;
   color: #333;
   display: flex;

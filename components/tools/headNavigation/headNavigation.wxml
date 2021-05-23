@@ -1,7 +1,7 @@
 <!-- components/tools/headNavigation/headNavigation.wxml -->
 <view style="height: {{topBarHeight + topBarMargin}}rpx;" class="topBarTotalHeight">
   <view style="height: {{topBarHeight}}rpx;" class="topBarTextHeight">
-    <view bind:tap="backBtn">(</view>
+    <image class="topNavArrow" src="../../../images/arrowRight.png"  bind:tap="backBtn"/>
     <view>发布活动</view>
   </view>
 </view>

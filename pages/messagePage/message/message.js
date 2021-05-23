@@ -7,6 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBar: {
+      title: '消息',
+      isOne: 1
+    },
+    topBarMargin: (wx.getMenuButtonBoundingClientRect().top) * 2,
+    topBarHeight: (wx.getMenuButtonBoundingClientRect().height) * 2 + 15,
     selectArray1: [
       {
         "id": 0,
@@ -171,15 +177,15 @@ Page({
       query1.select(`.massageScrollTop`).boundingClientRect(rect1 => {
         let height2 = _this.getRealHeight(rect1)
         this.setData({
-          windowHeight: app.getSomgthingHeight().viewHeight - height1 - height2,
-          windowHeight1: app.getSomgthingHeight().viewHeight - height1
+          windowHeight: app.getSomgthingHeight().viewHeight - height1 - height2 - this.data.topBarMargin - this.data.topBarHeight,
+          windowHeight1: app.getSomgthingHeight().viewHeight - height1 - this.data.topBarMargin - this.data.topBarHeight
         })
       }).exec()
       let query2 = wx.createSelectorQuery().in(_this)
       query2.select(`.massageScrollTop2`).boundingClientRect(rect2 => {
         let height2 = _this.getRealHeight(rect2)
         this.setData({
-          windowHeight2: app.getSomgthingHeight().viewHeight - height1 - height2,
+          windowHeight2: app.getSomgthingHeight().viewHeight - height1 - height2 - this.data.topBarMargin - this.data.topBarHeight,
         })
       }).exec()
     }).exec()
@@ -196,7 +202,7 @@ Page({
     if (e.currentTarget.dataset.item) {
       console.log(e)
       request.actIdGetComment({
-        activityId: e.detail.id, 
+        activityId: e.detail.id,
         mId: wx.getStorageSync('id')
       })
         .then(res => {

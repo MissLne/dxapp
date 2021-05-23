@@ -1,2 +1,2 @@
 <!--components/nullPic/nullPic.wxml-->
-<image src="{{nullPicUrl}}" mode="aspectFill" class="nullPic"/>
+<image src="{{nullPicUrl}}"  class="nullPic"/>

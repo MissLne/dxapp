@@ -8,5 +8,6 @@
 </view>
 <PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up" bindsure="isSave" />
 
-<Bubble bubbleContent="请完善活动的所有信息" showBubble="{{showBubble}}"/>
+<Bubble bubbleContent="请完善活动的所有信息" showBubble="{{showBubble}}" wx:if="{{showBubble}}"/>
+<Bubble bubbleContent="票种数量已达到上限" showBubble="{{showBubble1}}" wx:if="{{showBubble1}}"/>
 

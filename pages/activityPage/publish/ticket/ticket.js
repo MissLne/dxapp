@@ -58,6 +58,7 @@ Page({
       toPopUPData: 0
     },
     showBubble: 0,
+    showBubble1: 0
   },
 
   /**
@@ -105,7 +106,7 @@ Page({
       this.setData({
         showBubble: 0
       })
-    }, 5000)
+    }, 3000)
   },
   getTicketMessage(e) {
     this.data.footerBtnObject.addActivity.ticketList = e.detail.arr
@@ -117,6 +118,17 @@ Page({
     console.log(app.globalData.publishActivityData)
   },
   addTicket() {
+    if(this.data.ticketDetailArray.length == 5) {
+      this.setData({
+        showBubble1: 1
+      })
+      setTimeout(() => {
+        this.setData({
+          showBubble1: 0
+        })
+      }, 3000)
+      return
+    }
     this.data.ticketDetailArray.push({
       ticketName: '',
       ticketPrice: '',

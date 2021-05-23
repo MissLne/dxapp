@@ -1,4 +1,5 @@
 <!-- pages/activityPage/manage/activityManage/activityManage.wxml -->
+<ComNav topBar="{{topBar}}"/>
 <view class="messageTitle">
   <Navigations navigationsArray="{{['数据','成员','账单']}}" parent-nav-class="parent-nav-class" currentSwiper="{{currentIndex}}" bind:cur="swiperCurrent" />
 </view>

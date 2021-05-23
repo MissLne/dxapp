@@ -1,8 +1,11 @@
 {
   "usingComponents": {
+    "NullPic": "/components/nullPic/nullPic",
     "Navigations": "/components/tools/navigations/navigations",
     "ScrollSelect": "/components/tools/scrollSelect/scrollSelect",
     "Selection": "/components/tools/selection/selection",
-    "MessageItem": "/components/messagePageItem/messageItem/messageItem"
-  }
+    "MessageItem": "/components/messagePageItem/messageItem/messageItem",
+    "ComNav": "/components/tools/comNav/comNav"
+  },
+  "navigationStyle": "custom"
 }

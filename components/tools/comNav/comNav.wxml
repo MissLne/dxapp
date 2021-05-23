@@ -1,0 +1,7 @@
+<!--components/tools/comNav/comNav.wxml-->
+<view style="height: {{topBarHeight + topBarMargin}}rpx;" class="topBarTotalHeight">
+  <view style="height: {{topBarHeight}}rpx;" class="topBarTextHeight">
+    <image class="topNavArrow" src="../../../images/arrowRight.png"  bind:tap="backBtn" wx:if="{{!topBar.isOne}}"/>
+    <view>{{topBar.title}}</view>
+  </view>
+</view>

@@ -65,3 +65,12 @@
   width: 86rpx;
   height: 86rpx;
 }
+.nullActText {
+  margin-left: 50rpx;
+  font-size: 22rpx;
+  color: #999;
+}
+.nullActText text {
+  color: #777BCE;
+  text-decoration: underline;
+}

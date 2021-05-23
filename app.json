@@ -36,7 +36,7 @@
   },
   "tabBar": {
     "color": "#999999",
-    "selectedColor": "#4D9BFA",
+    "selectedColor": "#777BCE",
     "backgroundColor": "#FFFFFF",
     "position": "bottom",
     "borderStyle": "black",
@@ -45,7 +45,7 @@
         "pagePath": "pages/index/index",
         "text": "活动",
         "iconPath": "images/tabar/activity.png",
-        "selectedIconPath": "images/tabar/ii.png"
+        "selectedIconPath": "images/tabar/activities_on@3x.png"
       },
       {
         "pagePath": "pages/messagePage/message/message",
@@ -62,5 +62,6 @@
     ]
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "navigationStyle": "custom"
 }
