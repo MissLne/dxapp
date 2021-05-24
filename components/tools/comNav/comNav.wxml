@@ -5,3 +5,7 @@
     <view>{{topBar.title}}</view>
   </view>
 </view>
+<view style="height: {{topBarHeight + topBarMargin}}rpx;">
+  
+</view>
+  

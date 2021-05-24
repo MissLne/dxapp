@@ -111,7 +111,7 @@ Page({
     let obj = {
       "id": wx.getStorageSync('id'),
       "month": month,
-      "status": 4,
+      "status": 0,
       "activityId": this.data.activityId,
       "year": year
     }
@@ -271,7 +271,7 @@ Page({
     let obj = {
       "id": wx.getStorageSync('id'),
       "month": current.m,
-      "status": 4,
+      "status": 0,
       "activityId": this.data.activityId,
       "year": current.tYear
     }

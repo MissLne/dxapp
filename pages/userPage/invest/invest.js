@@ -1,5 +1,6 @@
 // pages/userPage/invest/invest.js
 const request = require('../../../request/api')
+const navigate = require('../../../navigator/index')
 Page({
 
   /**
@@ -47,7 +48,7 @@ Page({
           paySign: res.data.paySign,
           success: () => {
             let query = {
-              amount: obj.data
+              amount: obj.amount
             }
             query.amount = JSON.stringify(query.amount)
             navigate.navigateTo({

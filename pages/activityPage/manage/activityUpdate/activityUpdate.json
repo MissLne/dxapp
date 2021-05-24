@@ -1,9 +1,9 @@
 {
   "usingComponents": {
     "Tips": "/components/indexPageItem/publishIntroduce/tips/tips",
-    "Buttons": "/components/tools/buttons/buttons",
     "TicketUpdate": "/components/indexPageItem/manageActivity/ticketUpdate/ticketUpdate",
-    "ComNav": "/components/tools/comNav/comNav"
+    "ComNav": "/components/tools/comNav/comNav",
+    "Bubble": "/components/tools/bubble/bubble"
   },
   "navigationStyle": "custom"
 }

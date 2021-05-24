@@ -56,7 +56,7 @@ Page({
       url: '/pages/index/index',
     })
   },
-  goNext(e) {
+  goNext() {
     
     this.setData({
       showBubble: 1
@@ -65,7 +65,7 @@ Page({
       this.setData({
         showBubble: 0
       })
-    }, 2000)
+    }, 3000)
   },
   materialChange(e) {
     let data = this.data.footerBtnObject

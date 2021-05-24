@@ -1,1 +1,33 @@
 /* components/indexPageItem/manageActivity/backGround/backGround.wxss */
+.actManageBg {
+  width: 690rpx;
+  height: 280rpx;
+  border-radius: 30rpx;
+  margin: 20rpx auto;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.actManageBg image {
+  width: 700rpx;
+  height: 290rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  filter: blur(10rpx);
+}
+.actManageBg view:nth-of-type(1) {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 35rpx;
+}
+.actManageBg view:nth-of-type(2)
+.actManageBg view:nth-of-type(3) {
+  font-size: 24rpx;
+  margin-bottom: 15rpx;
+}

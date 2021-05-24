@@ -1,1 +1,50 @@
 /* pages/userPage/invest/investSuccess/investSuccess.wxss */
+.inSucTop image {
+  width: 85rpx;
+  height: 70rpx;
+}
+.inSucTop {
+  width: 200rpx;
+  margin: 200rpx auto 200rpx auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.inSucTop view {
+  margin-top: 10rpx;
+  color: #04BE02;
+}
+.inSucMiddle {
+  width: 200rpx;
+  margin: 0 auto 100rpx auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.inSucMiddle > view:nth-of-type(2) {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.inSucMiddle > view:nth-of-type(2) view:nth-of-type(1) {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.inSucMiddle > view:nth-of-type(2) view:nth-of-type(2) {
+  font-size: 50rpx;
+  font-weight: bold;
+}
+.inSucBtn {
+  width: 360rpx;
+  height: 70rpx;
+  margin: 300rpx auto 0 auto;
+  border: 1rpx solid #04BE02;
+  border-radius: 15rpx;
+  color: #04BE02;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,3 +1,14 @@
-<!--pages/userPage/invest/investSuccess/investSuccess.wxml-->
-<ComNav topBar="{{topBar}}"/>
-<view >{{amount}}</view>
+<!-- pages/userPage/invest/investSuccess/investSuccess.wxml -->
+<ComNav topBar="{{topBar}}" />
+<view class="inSucTop">
+  <image src="../../../../images/user/weixin.png"/>
+  <view>充值成功</view>
+</view>
+<view class="inSucMiddle">
+  <view>充值成功</view>
+  <view>
+    <view>￥</view>
+    <view>{{amount}}</view>
+  </view>
+</view>
+<view class="inSucBtn">完成</view>

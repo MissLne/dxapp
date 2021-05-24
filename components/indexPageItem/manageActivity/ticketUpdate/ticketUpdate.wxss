@@ -2,7 +2,7 @@
 .updateTicketBox {
   width: 690rpx;
   height: 250rpx;
-  margin: 0 auto;
+  margin: 0 auto 40rpx auto;
   position: relative;
 }
 .updateTicketBox image {

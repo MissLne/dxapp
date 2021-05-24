@@ -17,7 +17,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      amount: options.amount
+      amount: (options.amount.replace(/\"/g, "") / 100).toFixed(2)
     })
   }
 })

@@ -14,7 +14,6 @@
   <swiper-item style="background: #f5f5f5;">
     <view class="searchMemberInput">
       <input model:value="{{searchContent}}" bindinput="searchHandle" placeholder="姓名/手机号" />
-      <!-- <view bindtap="searchHandle">搜索</view> -->
     </view>
     <scroll-view scroll-y="true" style="height:{{swiperHeight - 71}}rpx">
       <MemberMessage wx:if="{{activityId != -1}}" activityId="{{activityId}}" member="{{memberMessage}}" />

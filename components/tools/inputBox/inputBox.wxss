@@ -1,8 +1,6 @@
 /* components/tools/inputBox/inputBox.wxss */
 
-
-.publishInput {
-  /* width: 585rpx; */
+.publishContainer1 {
   height: 58rpx;
   border-radius: 29rpx;
   box-sizing: border-box;
@@ -13,4 +11,8 @@
   align-items: center;
   color: #666;
   margin-top: 25rpx;
+}
+.publishInput {
+  width: 550rpx;
+  
 }

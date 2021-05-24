@@ -12,11 +12,16 @@ Component({
    * 组件的初始数据
    */
   data: {
+    ticketDetail: []
   },
 
   /**
    * 组件的方法列表
    */
+  ready: function() {
+    // let data = JSON.stringify(this.properties.ticketsMaterial)
+    // console.log(data)
+  },
   methods: {
     ticketSetting(e) {
       let data = this.properties.ticketsMaterial
@@ -29,9 +34,9 @@ Component({
       console.log(data)
       data[e.currentTarget.dataset.num].ticketNumber = e.detail.value
       this.setData({
-        ticketsMaterial: data
+        ticketDetail: data
       })
-      this.triggerEvent('tick',{data: this.properties.ticketsMaterial})
+      this.triggerEvent('tick',{data: this.data.ticketDetail})
     }
   }
 })

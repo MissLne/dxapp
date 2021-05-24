@@ -202,6 +202,12 @@
           "pathName": "pages/userPage/invest/invest",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "充值成功",
+          "pathName": "pages/userPage/invest/investSuccess/investSuccess",
+          "query": "",
+          "scene": null
         }
       ]
     }

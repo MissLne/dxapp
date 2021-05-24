@@ -17,7 +17,7 @@ Page({
     selectList: [
       {
         name: '全部交易',
-        arr: [ '售票', '退票', '充值', '提现','全部'],
+        arr: [ '全部', '提现', '充值', '退票','售票'],
         isShow: 0,
         boxWidth: 150
       }
@@ -28,7 +28,11 @@ Page({
     income: 0,
     scrollSelect: {
       title: '全部活动',
-      selectList: [],
+      selectList: [
+        {
+          activityName: '全部活动'
+        }
+      ],
       isShow: 0
     },
     activityId: 0,
@@ -94,6 +98,13 @@ Page({
     this.data.selectList[0].name = e.detail.name
     this.data.selectList[0].isShow = 1
       let obj = {
+        "id": wx.getStorageSync('id'),
+        "month": this.data.month,
+        "status": e.detail.count,
+        "activityId": this.data.activityId,
+        "year": this.data.year
+      }
+      let obj1 = {
         "id": wx.getStorageSync('id'),
         "month": this.data.month,
         "status": e.detail.count,
@@ -222,8 +233,7 @@ Page({
     let obj = {
       "id": wx.getStorageSync('id'),
       "month": current.m,
-      "status": 4,
-      "activityId": 0,
+      "status": 0,
       "year": current.tYear
     }
     console.log(obj)

@@ -1,5 +1,5 @@
 <ComNav topBar="{{topBar}}"/>
-<view>
+<!-- <view> -->
   <!-- pages/userPage/bill/bill.wxml -->
   <view class="selectionClass ">
     <ScrollSelect scrollSelect="{{scrollSelect}}" bindselectscroll="getSelectScrollShow" bindactivityId="getActivityId" />
@@ -16,4 +16,4 @@
   <scroll-view scroll-y="true" style="height:{{windowHeight}}rpx">
     <BillItem billDetail="{{billDetail}}" />
   </scroll-view>
-</view>
+<!-- </view> -->

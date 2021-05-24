@@ -46,11 +46,9 @@
 .btn2 {
   font-size: 24rpx;
   width: 90rpx;
-  height: 40rpx;
-  display: table-cell;
-  vertical-align: middle;
-  /* display: flex;
-  align-items: center; */
+  height: 43rpx;
+  line-height: 43rpx;
+  box-sizing: border-box;
   background: #777BCE;
   border-radius: 20rpx;
   color: #fff;

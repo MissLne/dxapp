@@ -1,5 +1,6 @@
-<!--pages/activityPage/manage/activityUpdate/activityUpdate.wxml-->
-<ComNav topBar="{{topBar}}"/>
+<!-- pages/activityPage/manage/activityUpdate/activityUpdate.wxml -->
+<ComNav topBar="{{topBar}}" />
 <Tips activityMaterial="{{activityMaterial}}" wx:if="{{showTips}}" bindact="getMessage"></Tips>
 <TicketUpdate ticketsMaterial="{{activityMaterial.tickets}}" bindtick="getTicket" />
-<Buttons btnContent="更新" parent-buttons-class="parent-buttons-class" bindtap="update"/>
+<view bindtap="update" class="updateBtn">更新</view>
+<Bubble bubbleContent="修改后门票总数不得小于售出数" showBubble="{{showBubble}}" wx:if="{{showBubble}}" />
