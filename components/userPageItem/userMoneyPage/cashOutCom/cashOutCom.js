@@ -26,6 +26,18 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    setMoney() {
+      let { cashOutCount,canDrawCashAmount } = this.data
+      cashOutCount = cashOutCount.replace(/[^\d.]/g, "");//清除"数字"和"."以外的字符
+      cashOutCount = cashOutCount.replace(/^\./g, "");//验证第一个字符是数字而不是字符
+      cashOutCount = cashOutCount.replace(/\.{2,}/g, ".");//只保留第一个.清除多余的
+      cashOutCount = cashOutCount.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
+      cashOutCount = cashOutCount.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3')
+      if(cashOutCount > canDrawCashAmount) cashOutCount = canDrawCashAmount
+      this.setData({
+        cashOutCount: cashOutCount
+      })
+    },
     cashAllAmount() {
       this.setData({
         cashOutCount: this.data.canDrawCashAmount

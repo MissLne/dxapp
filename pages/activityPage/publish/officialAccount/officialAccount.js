@@ -37,7 +37,7 @@ Page({
         this.setData({
           showBubble: 0
         })
-      }, 2000)
+      }, 3000)
     }
   }
 })

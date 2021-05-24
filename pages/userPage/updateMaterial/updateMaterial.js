@@ -12,7 +12,8 @@ Page({
     },
     messageArray: [],
     avaterUrl: '',
-    userMessageObject: {}
+    userMessageObject: {},
+    showBubble: 0
   },
 
   /**
@@ -43,12 +44,24 @@ Page({
       "introduction": this.data.messageArray[2]? this.data.messageArray[2].value : this.data.userMessageObject.introduction,
       "imgShowUrl": this.data.avaterUrl
     }
-    request.updateUserMessage(obj)
-    .then(() => {
-      wx.switchTab({
-        url: '/pages/userPage/user/user'
+    console.log(this.data.messageArray[1].value)
+    if(!(/^1(?:3\d|4[4-9]|5[0-35-9]|6[67]|7[013-8]|8\d|9\d)\d{8}$/.test(this.data.messageArray[1].value))) {
+      this.setData({
+        showBubble: 1
       })
-    })
+      setTimeout(() => {
+        this.setData({
+          showBubble: 0
+        })
+      }, 3000)
+    } else {
+      request.updateUserMessage(obj)
+      .then(() => {
+        wx.switchTab({
+          url: '/pages/userPage/user/user'
+        })
+      })
+    }
   },
   getMessageArr(e) {
     this.setData({

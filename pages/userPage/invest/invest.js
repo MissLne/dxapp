@@ -19,8 +19,20 @@ Page({
   onLoad: function (options) {
 
   },
+  setMoney(e) {
+    let { investCount } = this.data
+    investCount = investCount.replace(/[^\d.]/g, "");//清除"数字"和"."以外的字符
+    investCount = investCount.replace(/^\./g, "");//验证第一个字符是数字而不是字符
+    investCount = investCount.replace(/\.{2,}/g, ".");//只保留第一个.清除多余的
+    investCount = investCount.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
+    investCount = investCount.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3');
+    this.setData({
+      investCount: investCount
+    })
+  },
   invest() {
-    let data = this.data.investCount * 100 + ""
+    let { investCount } = this.data
+    let data = investCount * 100 + ""
     let obj = {
       "mId": wx.getStorageSync('id'),
       "amount": data

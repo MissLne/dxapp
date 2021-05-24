@@ -30,7 +30,7 @@
 </view>
 <view class="inputBox" wx:if="{{isShow}}">
   <view class="fakeInput">
-    <input model:value="{{replyContent}}" focus="{{true}}" bindfocus="getKeyHeight" bindblur="hideInput" adjust-position="{{false}}" placeholder="请输入内容" />
+    <input model:value="{{replyContent}}" focus="{{true}}" bindfocus="getKeyHeight" bindblur="hideInput" adjust-position="{{false}}" placeholder="请输入内容" bindinput="setContent"/>
   </view>
   <view bindtap="replyQuestion">发送</view>
 </view>

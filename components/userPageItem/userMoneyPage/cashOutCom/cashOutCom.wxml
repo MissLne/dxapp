@@ -3,7 +3,7 @@
   <view class="cashOutTitile">提现金额</view>
   <view class="cashOutInput">
     <view >￥</view>
-    <input model:value="{{cashOutCount}}"/>
+    <input model:value="{{cashOutCount}}" bindinput="setMoney"/>
   </view>
   <view >
     <text>当前可提现金额为{{canDrawCashAmount}}元</text>

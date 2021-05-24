@@ -4,7 +4,7 @@
   <view>充值金额</view>
   <view>
     <view>￥</view>
-    <input model:value="{{investCount}}" />
+    <input model:value="{{investCount}}" bindinput="setMoney"/>
   </view>
 </view>
 <Buttons btnContent="充值" parent-buttons-class="parent-buttons-class" bindtap="invest" />

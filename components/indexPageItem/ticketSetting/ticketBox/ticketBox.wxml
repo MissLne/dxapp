@@ -14,7 +14,7 @@
   </view>
   <view class="ticketPriceAndCount" style="margin-bottom: 30rpx;">
     <text>数目</text>
-    <input value="{{item.ticketNumber}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketNumber" placeholder="输入0即为不限数目"/>
+    <input value="{{item.ticketNumber}}" bindinput="updateInput" data-num="{{index}}"  data-name="ticketNumber" placeholder="输入0即为不限数目"/>
   </view>
   <InputBox inputValue="{{item.ticketInstructions}}" inputTitle="票种介绍" bindact="getInput"  data-num="{{index}}"/>
   <view class="ticketDetailFooter">

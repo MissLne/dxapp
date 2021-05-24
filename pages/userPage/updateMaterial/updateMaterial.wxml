@@ -3,3 +3,4 @@
 <UserUploadPic bindurl="updateUrl"/>
 <userMessage bindname="getMessageArr" userMessageObject="{{userMessageObject}}"/>
 <Buttons btnContent="保存" parent-buttons-class="parent-buttons-class" bindtap="updateMessage"/>
+<Bubble bubbleContent="请输入正确手机号" showBubble="{{showBubble}}" wx:if="{{showBubble}}"/>

@@ -268,12 +268,12 @@ Page({
   },
   replyQuestion() {
     let _this = this
-    if (this.data.replyType == '回答') {
-      let obj = {
-        aId: this.data.replyId,
-        reply: this.data.replyContent
-      }
-      if (this.data.replyContent != '') {
+    if (this.data.replyContent != '' && !this.data.replyContent.replace(/\s+/g, '').length == 0) {
+      if (this.data.replyType == '回答') {
+        let obj = {
+          aId: this.data.replyId,
+          reply: this.data.replyContent
+        }
         request.restore(obj)
           .then(res => {
             wx.showToast({
@@ -283,13 +283,11 @@ Page({
             })
             _this.onLoad()
           })
-      }
-    } else {
-      let obj = {
-        cId: this.data.replyId,
-        reply: this.data.replyContent
-      }
-      if (this.data.replyContent != '') {
+      } else {
+        let obj = {
+          cId: this.data.replyId,
+          reply: this.data.replyContent
+        }
         request.reply(obj)
           .then(res => {
             wx.showToast({
@@ -300,7 +298,6 @@ Page({
             _this.onLoad()
           })
       }
-
     }
   },
   reply(e) {

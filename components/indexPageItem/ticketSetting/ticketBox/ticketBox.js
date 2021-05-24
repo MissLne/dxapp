@@ -38,16 +38,25 @@ Component({
    */
   methods: {
     updateInput(e) {
+      if (e.currentTarget.dataset.name == 'ticketPrice') {
+        e.detail.value = e.detail.value.replace(/[^\d.]/g, "");//清除"数字"和"."以外的字符
+        e.detail.value = e.detail.value.replace(/^\./g, "");//验证第一个字符是数字而不是字符
+        e.detail.value = e.detail.value.replace(/\.{2,}/g, ".");//只保留第一个.清除多余的
+        e.detail.value = e.detail.value.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
+        e.detail.value = e.detail.value.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3')
+      } else if (e.currentTarget.dataset.name == 'ticketNumber'){
+        e.detail.value = e.detail.value.replace(/[^\d]/g, "");//清除"数字"和"."以外的字符
+      }
       let arr = this.properties.ticketDetail
       arr[e.currentTarget.dataset.num][`${e.currentTarget.dataset.name}`] = e.detail.value
-      if(e.currentTarget.dataset.name == 'ticketPrice') {
-        e.detail.value == 0? arr[e.currentTarget.dataset.num].ticketType = 0 : arr[e.currentTarget.dataset.num].ticketType = 1
+      if (e.currentTarget.dataset.name == 'ticketPrice') {
+        e.detail.value == 0 ? arr[e.currentTarget.dataset.num].ticketType = 0 : arr[e.currentTarget.dataset.num].ticketType = 1
       }
-      
+
       this.setData({
         ticketDetail: arr
       })
-      this.triggerEvent('ticket',{arr: this.data.ticketDetail})
+      this.triggerEvent('ticket', { arr: this.data.ticketDetail })
       console.log(app.globalData.publishActivityData)
     },
     getInput(e) {
@@ -56,7 +65,7 @@ Component({
       this.setData({
         ticketDetail: arr
       })
-      this.triggerEvent('ticket',{arr: this.data.ticketDetail})
+      this.triggerEvent('ticket', { arr: this.data.ticketDetail })
     },
     getType(e) {
       let arr = this.properties.ticketDetail
@@ -64,15 +73,15 @@ Component({
       this.setData({
         ticketDetail: arr
       })
-      this.triggerEvent('ticket',{arr: this.data.ticketDetail})
+      this.triggerEvent('ticket', { arr: this.data.ticketDetail })
     },
     deleteTicket(e) {
       let arr = this.properties.ticketDetail[e.currentTarget.dataset.num]
       let count = 0
-      for(let item in arr) {
-        arr[item] == "" || arr[item] == 0? count++ : count
+      for (let item in arr) {
+        arr[item] == "" || arr[item] == 0 ? count++ : count
       }
-      if(count == 4) {
+      if (count == 4) {
         this.properties.ticketDetail.splice(e.currentTarget.dataset.num, 1)
         this.setData({
           ticketDetail: this.properties.ticketDetail
@@ -82,7 +91,7 @@ Component({
           scrollTop: scrollTop - 430,
           duration: 300
         })
-        this.triggerEvent('ticket',{arr: this.data.ticketDetail})
+        this.triggerEvent('ticket', { arr: this.data.ticketDetail })
         return
       }
       this.data.popUpObj.show = 1
@@ -101,7 +110,7 @@ Component({
         scrollTop: scrollTop - 430,
         duration: 300
       })
-      this.triggerEvent('ticket',{arr: this.data.ticketDetail})
+      this.triggerEvent('ticket', { arr: this.data.ticketDetail })
     },
   }
 })

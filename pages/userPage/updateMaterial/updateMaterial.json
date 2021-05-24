@@ -3,6 +3,7 @@
     "UserUploadPic": "/components/userPageItem/userUploadPic/userUploadPic",
     "userMessage" :"/components/userPageItem/userMessage/userMessage",
     "Buttons": "/components/tools/buttons/buttons",
+    "Bubble": "/components/tools/bubble/bubble",
     "ComNav": "/components/tools/comNav/comNav"
   },
   "navigationStyle": "custom"
