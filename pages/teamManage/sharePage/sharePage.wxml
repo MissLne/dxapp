@@ -10,7 +10,7 @@
 <view class="gudingText">{{teamMaterial.nickName}}已在一起爬梯上发布了{{count}}个活动， 深受群体喜爱，快来加入他们吧</view>
 <view class="timeLine {{activity.length == 1? 'justOne' : 'many'}}">
   <view class="line"></view>
-  <block wx:for="{{activity}}" wx:key="index">
+  <block wx:for="{{activity}}" wx:key="index" wx:if="{{activity.length != 0}}">
     <view class="activitis {{index == 1? 'evenAct' : 'oddAct'}}">
       <view>
         <image src="../../../images/user/invite.png" class="bottomImg" />
@@ -20,6 +20,11 @@
       <view>{{item.startTime}}</view>
     </view>
   </block>
+  <view wx:if="{{activity.length == 0}}" class="none">
+    暂时还没有.......
+  </view>
+    
+    
 </view>
 <view class="agreeBtn">
   加入团队

@@ -53,6 +53,18 @@
   display: flex;
   justify-content: space-between;
 }
+.none {
+  width: 690rpx;
+  /* height: 10rpx; */
+  /* background: #f5f5f5; */
+  text-align: center;
+  color: #666;
+  font-size: 24rpx;
+  position: absolute;
+  left: 0;
+  top: 40%;
+  transform: translateY(-50%);
+}
 .justOne {
   justify-content: center;
 }

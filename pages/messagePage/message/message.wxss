@@ -1,7 +1,7 @@
 /* pages/messagePage/message/message.wxss */
 .parent-nav-class {
   width: 250rpx;
-  margin-left: 30rpx;
+  margin-left: 20rpx;
 }
 .com-select-box {
   margin-left: 30rpx;
@@ -30,7 +30,7 @@
   align-items: center;
   position: absolute;
   left: 0;
-  top: 70rpx;
+  top: 126rpx;
   z-index: 99999;
 }
 .inputBox input {

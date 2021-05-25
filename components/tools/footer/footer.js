@@ -82,7 +82,7 @@ Component({
       if (count >= this.properties.contentObject.number || (this.properties.contentObject.rightBtn == '发布' && arr.length == 0)) {
         if (this.properties.contentObject.rightBtn == '发布' && arr.length == 0) {
           this.requestData()
-          wx.switchTab({
+          wx.navigateTo({
             url: this.properties.contentObject.rightUrl
           })
         } else {
@@ -103,7 +103,7 @@ Component({
             if (this.properties.contentObject.rightBtn == '发布') {
               console.log(1)
               this.requestData()
-              wx.switchTab({
+              wx.navigateTo({
                 url: this.properties.contentObject.rightUrl
               })
             } else {

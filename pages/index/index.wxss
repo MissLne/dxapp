@@ -13,7 +13,7 @@
   /* height: 30rpx; */
   width: 750rpx;
   box-sizing: border-box;
-  padding: 0 50rpx;
+  padding: 0 30rpx;
   z-index: 999;
 }
 .top-text {
@@ -32,12 +32,33 @@
   width: 100vw;
   height: 100vh;
   z-index: 999999;
-  background: rgba(0, 0, 0,0.1);
+  background: rgba(0, 0, 0,0.3);
+}
+.theCalss {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  background: rgba(0, 0, 0,0.3);
+}
+.identifyLogin image {
+  width: 100vw;
+  height: 100vh;
 }
 .notsroll {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+}
+.parent-pop-up view:nth-child(1){
+  background: #777BCE;
+  color: #fff;
+}
+.parent-pop-up view:nth-child(2) {
+  border: 1rpx solid #777BCE;
+  color: #777BCE;
 }
 .identifyLogin view {
   width: 246rpx;

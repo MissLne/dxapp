@@ -25,7 +25,7 @@ Page({
     showBubble: 0,
     footerBtnObject: {
       leftUrl: '/pages/activityPage/publish/ticket/ticket',
-      rightUrl: '/pages/index/index',
+      rightUrl: '/pages/activityPage/publish/pubSuccess/pubSuccess',
       leftBtn: '上一步',
       rightBtn: '发布',
       number: 1,
@@ -200,5 +200,17 @@ Page({
   // },
   // lala() {
   // },
-
+  ououo() {
+    wx.navigateToMiniProgram({
+      appId: 'wx9fa9d2342bc085ea',
+      path: 'pages/index/detail/detail?id=123',
+      extraData: {
+        obj: app.globalData.publishActivityData
+      },
+      envVersion: 'develop',
+      success(res) {
+        // 打开成功
+      }
+    })
+  }
 })

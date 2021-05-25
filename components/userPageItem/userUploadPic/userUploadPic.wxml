@@ -1,5 +1,5 @@
 <!-- components/userPageItem/userUploadPic/userUploadPic.wxml -->
 <view class="updateAvatorBox">
-  <image bindtap="chooseImg" src="{{imageUrl}}" mode="aspectFill" class="userUploadPic" />
-  <view class="updateAvatorBtn">编辑头像</view>
+  <image src="{{imageUrl}}" mode="aspectFill" class="userUploadPic" />
+  <view class="updateAvatorBtn" bindtap="chooseImg">编辑头像</view>
 </view>

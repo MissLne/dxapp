@@ -8,11 +8,16 @@
 
 .buttons {
     width: 180rpx;
-    height: 70rpx;
+    height: 80rpx;
     display: table-cell;
     text-align: center;
     vertical-align: middle;
-    border-radius: 30rpx;
+    border-radius: 40rpx;
     color: #fff;
     background: #777BCE;
 }
+@media screen and (max-height: 1000rpx) {
+    .buttonsBox {
+        display: none;
+    }
+  }

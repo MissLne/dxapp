@@ -1,7 +1,7 @@
 <!--components/indexPageItem/ticketSetting/header/header.wxml-->
 
   <view class="activityHeader">
-  <image  src="../../style/images/putActivity1.png" class="top-img"/>
+  <image  src="../../../../images/activity/forward3.png" class="top-img"/>
   <view class="edit-top">
     
     <view>

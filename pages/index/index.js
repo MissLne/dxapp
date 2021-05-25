@@ -3,6 +3,13 @@ const app = getApp()
 const request = require('../../request/api')
 Page({
     data: {
+        popUpObj: {
+            content: '请完善账号资料',
+            leftBtn: '修改资料',
+            rightBtn: '先看看',
+            show: 0,
+            toPopUPData: 0
+          },
         topBar: {
             title: '活动列表',
             isOne: 1
@@ -35,12 +42,35 @@ Page({
     },
     onLoad: function () {
         this.getHeight()
-
-    },
+        this.showActivity()
+        request.showUserMessge({id: wx.getStorageSync('id')})
+        .then(res => {
+            console.log(res.data)
+            for(let key in res.data) {
+                if(res.data[key] == "") {
+                    this.setData({})
+                }
+            }
+        })
+    }, 
 
     onShow: function () {
-        this.showActivity()
         this.loginOrNot()
+    },
+    bianji() {
+        this.data.popUpObj.show = 0
+        this.setData({
+            popUpObj: this.data.popUpObj
+        })
+        wx.navigateTo({
+            url: '/pages/userPage/updateMaterial/updateMaterial'
+        })
+    },
+    close() {
+        this.data.popUpObj.show = 0
+        this.setData({
+            popUpObj: this.data.popUpObj
+        })
     },
     lalal() {
         if (this.data.isLazy) {
@@ -164,18 +194,20 @@ Page({
         return data1
     },
     showActivityByStatus(e) {
+        console.log(e)
         let obj = {
             mId: wx.getStorageSync('id'),
             status: e.detail.type
         }
-        if (e.detail.type == 0) {
-            this.setData({
-                isLazy: 1
-            })
-            this.showActivity()
-            return
-        }
-        console.log('ouo')
+        // if (e.detail.type == 0) {
+        //     this.setData({
+        //         isLazy: 1
+        //     })
+        //     console.log(this.data.isLazy,'----')
+        //     this.showActivity()
+        //     return
+        // }
+        // console.log('ouo')
         request.showActivityByStatus(obj)
             .then(res => {
                 let data = JSON.parse(JSON.stringify(res.data))

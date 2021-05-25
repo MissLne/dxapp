@@ -30,6 +30,7 @@ Component({
           url: '../../../index/index'
         })
       }
+      this.triggerEvent('close')
     },
     sure() {
       this.triggerEvent('sure')

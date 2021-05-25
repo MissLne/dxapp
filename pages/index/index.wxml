@@ -21,6 +21,9 @@
     </view>
   </view>
   <view class="identifyLogin" wx:if="{{identifyLoginShow}}">
+    <image src="../../images/activity/shouquan.png"/>
     <view bind:tap="getPersonalMessage">授权个人信息</view>
   </view>
 </view>
+<PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up" bindsure="bianji" bindclose="close"/>
+<view class="theCalss" wx:if="{{popUpObj.show}}"></view>

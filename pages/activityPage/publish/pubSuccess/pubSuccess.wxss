@@ -1,0 +1,30 @@
+/* pages/activityPage/publish/pubSuccess/pubSuccess.wxss */
+view:nth-of-type(1) {
+  width: 630rpx;
+  text-align: center;
+  margin: 100rpx auto;
+}
+.imagesa {
+  width: 300rpx;
+  height: 300rpx;
+  background: #f5f5f5;
+  position: absolute;
+  top: 500rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.backToIndex {
+  width: 180rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background: #777BCE;
+  font-size: 34rpx;
+  color: #fff;
+  line-height: 80rpx;
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  bottom: 80rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}

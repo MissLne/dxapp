@@ -3,6 +3,7 @@
     "ActivityItem": "/components/indexPageItem/activityItem/activityItem",
     "NullPic": "/components/nullPic/nullPic",
     "Selection": "/components/tools/selection/selection",
+    "PopUp": "/components/tools/pop-up/pop-up",
     "ComNav": "/components/tools/comNav/comNav"
   },
   "navigationStyle": "custom"

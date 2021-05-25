@@ -1,0 +1,5 @@
+{
+  "usingComponents": {"ComNav": "/components/tools/comNav/comNav"
+  },
+  "navigationStyle": "custom"
+}
