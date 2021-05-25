@@ -23,7 +23,8 @@ Component({
         school: '例：广东工业大学'
       }
     ],
-    checkBox: []
+    checkBox: [],
+    boxHeight: []
   },
 
   /**
@@ -31,10 +32,22 @@ Component({
    */
   methods: {
     addChoice(e) {
+      let _this = this
       this.properties.setUpItem[e.currentTarget.dataset.item].content.push('')
       this.setData({
         setUpItem: this.properties.setUpItem
       })
+      wx.createSelectorQuery().in(this).selectAll('.diySelectBox').boundingClientRect(function (rect) {
+        console.log(rect)
+        _this.data.boxHeight = []
+        rect.map(item => {
+          _this.data.boxHeight.push((item.height * 2))
+        })
+        _this.setData({
+          boxHeight: _this.data.boxHeight
+        })
+        console.log(_this.data.boxHeight)
+      }).exec()
     },
     radioChange(e) {
       this.properties.setUpItem[e.currentTarget.dataset.num].isOptional = e.detail.type
@@ -78,6 +91,19 @@ Component({
         setUpItem: this.properties.setUpItem
       })
       this.triggerEvent('setup', { arr: this.properties.setUpItem })
+      wx.createSelectorQuery().in(this).selectAll('.diySelectBox').boundingClientRect(function (rect) {
+        _this.data.boxHeight = []
+        rect.map(item => {
+          
+          console.log(item)
+          
+          _this.data.boxHeight.push((item.height * 2))
+        })
+        _this.setData({
+          boxHeight: _this.data.boxHeight
+        })
+        console.log(_this.data.boxHeight)
+      }).exec()
     }
     ,
     deleteBox(e) {
@@ -91,8 +117,22 @@ Component({
         deleteIndex: e.currentTarget.dataset
       }
       this.triggerEvent('setupdelete', { obj: obj })
+      wx.createSelectorQuery().in(this).selectAll('.diySelectBox').boundingClientRect(function (rect) {
+        _this.data.boxHeight = []
+        rect.map(item => {
+          
+          console.log(item)
+          
+          _this.data.boxHeight.push((item.height * 2))
+        })
+        _this.setData({
+          boxHeight: _this.data.boxHeight
+        })
+        console.log(_this.data.boxHeight)
+      }).exec()
     },
     pickValue(e) {
+      let _this = this
       let scrollTop = this.properties.pickMessage.scrollTop
       wx.createSelectorQuery().in(this).select('.pickBtnContent').boundingClientRect(function (rect) {
         wx.pageScrollTo({
@@ -105,6 +145,19 @@ Component({
       //   duration: 300
       // })
       this.triggerEvent('pick', { value: e.detail.value })
+      wx.createSelectorQuery().in(this).selectAll('.diySelectBox').boundingClientRect(function (rect) {
+        _this.data.boxHeight = []
+        rect.map(item => {
+          
+          console.log(item)
+          
+          _this.data.boxHeight.push((item.height * 2))
+        })
+        _this.setData({
+          boxHeight: _this.data.boxHeight
+        })
+        console.log(_this.data.boxHeight)
+      }).exec()
     }
   }
 })

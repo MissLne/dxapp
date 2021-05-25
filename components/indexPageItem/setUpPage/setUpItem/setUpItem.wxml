@@ -1,8 +1,10 @@
 <view class="diy">自定义</view>
 <view wx:for="{{setUpItem}}" wx:key="index" class="diySelectBox">
   <block wx:for="{{pickMessage.ifRedArr}}" wx:for-item="lala" wx:for-index="lulu">
-      <view wx:if="{{index == lala}}" class="theBorder"></view>
+    <block wx:for="{{boxHeight}}" wx:for-item="qaq" wx:for-index="owo">
+      <view wx:if="{{index == lala && owo == index}}" class="theBorder" style="height:{{qaq}}rpx;"></view>
     </block>
+  </block>
   <view class="diySelectDelete" bind:tap="deleteBox" data-num="{{index}}">×</view>
   <view wx:if="{{item.pickType == 1}}" class="diySelectPicTitle">图片填写项</view>
   <view class="diySelectTitle" wx:if="{{item.pickType != 1}}">
@@ -29,15 +31,16 @@
       </view>
     </view>
   </view>
-  <view wx:if="{{item.pickType == 2}}" bindtap="addChoice" data-item="{{index}}" class="addInputBtn">新增选项</view>
+  <view wx:if="{{item.pickType == 2}}" bindtap="addChoice" data-item="{{index}}" class="addInputBtn">
+    新增选项
+  </view>
   <view class="footerBtn">
     <view>
-      <radioBtn radioContent="{{['多选']}}" widthCount="{{80}}" wx:if="{{item.pickType == 2}}" bindtype="checkChange" data-num="{{index}}" radio-parent-class="radio-parent-class"/>
-      <radioBtn radioContent="{{['必填']}}" widthCount="{{80}}" bindtype="radioChange" data-num="{{index}}" radio-parent-class="radio-parent-class"/>
+      <radioBtn radioContent="{{['多选']}}" widthCount="{{80}}" wx:if="{{item.pickType == 2}}" bindtype="checkChange" data-num="{{index}}" radio-parent-class="radio-parent-class" />
+      <radioBtn radioContent="{{['必填']}}" widthCount="{{80}}" bindtype="radioChange" data-num="{{index}}" radio-parent-class="radio-parent-class" />
     </view>
   </view>
 </view>
-
 <view class="pickBtn">
   <!-- <view class="pickBtnContent">{{content}}</view> -->
   <picker class="pickBtnContent" mode="selector" range="{{pickMessage.array}}" bindchange="pickValue">
