@@ -9,15 +9,18 @@ Page({
   data: {
     base: {
       content: '点击新增票种',
-      scrollTop: 0
+      scrollTop: 0,
+      ifRedArr: []
     },
     ticketDetailArray: [
       {
+        ticketType: 1,
         ticketName: '',
         ticketPrice: '',
         ticketNumber: '',
         ticketInstructions: '',
-        bounce: 0
+        ticketRefundType: 0,
+        ticketRefundReason: 'no'
       }
       // {
       //   ticketName: '早鸟票',
@@ -47,7 +50,17 @@ Page({
       rightUrl: '/pages/activityPage/publish/setUp/setUp',
       rightBtn: '下一步',
       number: 1,
-      addActivity: {}
+      addActivity: {
+        ticketList: [{
+          ticketType: 1,
+          ticketName: '',
+          ticketPrice: '',
+          ticketNumber: '',
+          ticketInstructions: '',
+          ticketRefundType: 0,
+          ticketRefundReason: ''
+        }]
+      }
     },
     paramsObj: {},
     popUpObj: {
@@ -64,7 +77,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-   onPageScroll: function (e) {
+  onPageScroll: function (e) {
     this.data.base.scrollTop = e.scrollTop
     this.setData({
       base: this.data.base
@@ -75,7 +88,7 @@ Page({
       paramsObj: options
     })
   },
-  
+
   updateGlobalTicket(data) {
     app.globalData.publishActivityData.ticketList = data
   },
@@ -98,9 +111,11 @@ Page({
       url: '/pages/index/index',
     })
   },
-  goNext() {
+  goNext(e) {
+    this.data.base.ifRedArr = Array.from(new Set(e.detail.index))
     this.setData({
-      showBubble: 1
+      showBubble: 1,
+      base: this.data.base
     })
     setTimeout(() => {
       this.setData({
@@ -118,7 +133,7 @@ Page({
     console.log(app.globalData.publishActivityData)
   },
   addTicket() {
-    if(this.data.ticketDetailArray.length == 5) {
+    if (this.data.ticketDetailArray.length == 5) {
       this.setData({
         showBubble1: 1
       })
@@ -129,13 +144,17 @@ Page({
       }, 3000)
       return
     }
-    this.data.ticketDetailArray.push({
-      ticketName: '',
-      ticketPrice: '',
-      ticketNumber: '',
-      introduce: '请用一句话介绍此票种',
-      bounce: 0
-    })
+    this.data.ticketDetailArray.push(
+      {
+        ticketType: 1,
+        ticketName: '',
+        ticketPrice: '',
+        ticketNumber: '',
+        ticketInstructions: '',
+        ticketRefundType: 0,
+        ticketRefundReason: 'no'
+      }
+    )
     let arr = this.data.ticketDetailArray
     this.data.footerBtnObject.addActivity.ticketList = arr
     this.setData({

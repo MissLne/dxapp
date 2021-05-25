@@ -1,5 +1,13 @@
 /* components/indexPageItem/setUpPage/setUpItem/setUpItem.wxss */
-
+.theBorder {
+  width: 690rpx;
+  height: 450rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 30rpx;
+  border: 3rpx solid #FF441A;
+}
 .setUpContainer {
   width: 690rpx;
   height: 360rpx;

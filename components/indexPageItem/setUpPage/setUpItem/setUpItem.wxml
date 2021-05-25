@@ -1,5 +1,8 @@
 <view class="diy">自定义</view>
 <view wx:for="{{setUpItem}}" wx:key="index" class="diySelectBox">
+  <block wx:for="{{pickMessage.ifRedArr}}" wx:for-item="lala" wx:for-index="lulu">
+      <view wx:if="{{index == lala}}" class="theBorder"></view>
+    </block>
   <view class="diySelectDelete" bind:tap="deleteBox" data-num="{{index}}">×</view>
   <view wx:if="{{item.pickType == 1}}" class="diySelectPicTitle">图片填写项</view>
   <view class="diySelectTitle" wx:if="{{item.pickType != 1}}">

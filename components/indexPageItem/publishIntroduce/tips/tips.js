@@ -6,7 +6,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    activityMaterial: Object
+    activityMaterial: Object,
+    temObject: Object
   },
 
   /**
@@ -63,7 +64,7 @@ Component({
     showMaterial() {
       let data = this.data.uploadArray
       let obj = this.properties.activityMaterial
-      let arr = [obj.linkManCode, obj.groupCode]
+      let arr = [obj.linkmanCode, obj.groupCode]
       let index = 0
       data.forEach(element => {
         element.type === 1 ? element.value = obj.announcement : element.imgUrl = arr[index++]
@@ -96,7 +97,7 @@ Component({
               let data = this.data.uploadArray
               let obj = this.properties.activityMaterial
               data[e.currentTarget.dataset.num].imgUrl = imgObj.data
-              e.currentTarget.dataset.num === 1 ? obj.linkManCode = imgObj.data : obj.groupCode = imgObj.data
+              e.currentTarget.dataset.num === 1 ? obj.linkmanCode = imgObj.data : obj.groupCode = imgObj.data
               this.setData({
                 uploadArray: data,
                 baseMessage: obj

@@ -34,7 +34,8 @@ Page({
     pickMessage: {
       content: '新增填写项',
       array: ['文字填空', '图片', '单选/多选'],
-      scrollTop: 0
+      scrollTop: 0,
+      ifRedArr: []
     },
     setUpItem: [],
     publishActivity: {}
@@ -151,9 +152,12 @@ Page({
       url: '/pages/index/index',
     })
   },
-  goNext() {
+  goNext(e) {
+    this.data.pickMessage.ifRedArr = Array.from(new Set(e.detail.index))
+    console.log(this.data.pickMessage)
     this.setData({
-      showBubble: 1
+      showBubble: 1,
+      pickMessage: this.data.pickMessage
     })
     setTimeout(() => {
       this.setData({

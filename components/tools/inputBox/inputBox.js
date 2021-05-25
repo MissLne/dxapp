@@ -5,7 +5,8 @@ Component({
    */
   properties: {
     inputTitle: String,
-    inputValue: String
+    inputValue: String,
+    ifRed: Number
     },
   /**
    * 组件的初始数据
@@ -13,7 +14,7 @@ Component({
   data: {
     inputMessage: ''
   },
-  externalClasses: ['parent-component-input'],
+  externalClasses: ['parent-component-input','input-box-class'],
 
   /**
    * 组件的方法列表

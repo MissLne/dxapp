@@ -12,8 +12,19 @@ Page({
       leftBtn: '上一步',
       rightUrl: '/pages/activityPage/publish/ticket/ticket',
       rightBtn: '下一步',
-      number: 3,
-      addActivity: {}
+      number: 4,
+      addActivity: {
+        announcement: '',
+        linkmanCode: '',
+        groupCode: '',
+        activityDetails: app.globalData.publishActivityData.activityDetails
+      }
+    },
+    temObject: {
+      announcement: 0,
+      linkmanCode: 0,
+      groupCode: 0,
+      activityDetails: 0
     },
     activityMaterial: {},
     template : {},
@@ -54,25 +65,36 @@ Page({
       url: '/pages/index/index',
     })
   },
-  goNext() {
+  goNext(e) {
+    
+    for(let key in this.data.temObject) {
+      if(e.detail.nulObj.hasOwnProperty(key)) this.data.temObject[key] = 1
+    }
     this.setData({
-      showBubble: 1
+      showBubble: 1,
+      temObject: this.data.temObject
     })
+    console.log(this.data.temObject)
     setTimeout(() => {
       this.setData({
         showBubble: 0
       })
-    }, 2000)
+    }, 3000)
   },
   getMessage(e) {
     this.setData({
       activityMaterial: e.detail.obj
     })
+    console.log(this.data.activityMaterial,'----')
     app.globalData.publishActivityData = Object.assign(app.globalData.publishActivityData,this.data.activityMaterial)
     let data = this.data.footerBtnObject
-    data.addActivity = this.data.activityMaterial
+    data.addActivity = Object.assign(data.addActivity,this.data.activityMaterial)
+    for(let key in data.addActivity) {
+      if(data.addActivity != "") this.data.temObject[key] = 0
+    }
     this.setData({
-      footerBtnObject: data
+      footerBtnObject: data,
+      temObject: this.data.temObject
     })
   },
   pageToRichText() {

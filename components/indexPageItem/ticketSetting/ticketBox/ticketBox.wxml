@@ -1,27 +1,31 @@
-<!--components/indexPageItem/ticketSetting/ticketBox/ticketBox.wxml-->
-<view wx:for="{{ticketDetail.length? ticketDetail : defaultArray}}" wx:key="index" class="ticketDetailContainer">
-  <view class="containerTitle">
-    <view>
-      <input value="{{item.ticketName}}"  bindinput="updateInput" data-num="{{index}}" data-name="ticketName" placeholder="输入票种名"/>
-    </view>
+
+
+<block wx:for="{{ticketDetail.length? ticketDetail : defaultArray}}" wx:key="index">
+  <view class="ticketDetailContainer">
+    <block wx:for="{{base.ifRedArr}}" wx:for-item="lala" wx:for-index="num">
+      <view wx:if="{{index == lala}}" class="theBorder"></view>
+    </block>
+    <view class="containerTitle">
+      <view>
+        <input value="{{item.ticketName}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketName" placeholder="输入票种名" />
+      </view>
       <view wx:if="{{ticketDetail.length > 1}}" bindtap="deleteTicket" data-num="{{index}}">
         删除
       </view>
+    </view>
+    <view class="ticketPriceAndCount">
+      <text>价格</text>
+      <input value="{{item.ticketPrice}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketPrice" placeholder="输入0即为免费票" />
+    </view>
+    <view class="ticketPriceAndCount" style="margin-bottom: 30rpx;">
+      <text>数目</text>
+      <input value="{{item.ticketNumber}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketNumber" placeholder="输入0即为不限数目" />
+    </view>
+    <InputBox inputValue="{{item.ticketInstructions}}" inputTitle="票种介绍" bindact="getInput" data-num="{{index}}" />
+    <view class="ticketDetailFooter">
+      <view>不可退票的票种钱款将在报名后方可提现</view>
+      <radioBtn radioContent="{{['不可退票']}}" widthCount="{{200}}" defultData="{{item.ticketRefundType}}" radio-parent-class="radio-parent-class" bindtype="getType" data-num="{{index}}" />
+    </view>
   </view>
-  <view class="ticketPriceAndCount">
-    <text>价格</text>
-    <input value="{{item.ticketPrice}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketPrice" placeholder="输入0即为免费票"/>
-  </view>
-  <view class="ticketPriceAndCount" style="margin-bottom: 30rpx;">
-    <text>数目</text>
-    <input value="{{item.ticketNumber}}" bindinput="updateInput" data-num="{{index}}"  data-name="ticketNumber" placeholder="输入0即为不限数目"/>
-  </view>
-  <InputBox inputValue="{{item.ticketInstructions}}" inputTitle="票种介绍" bindact="getInput"  data-num="{{index}}"/>
-  <view class="ticketDetailFooter">
-    <view >不可退票的票种钱款将在报名后方可提现</view>
-    <radioBtn radioContent="{{['不可退票']}}" widthCount="{{200}}" defultData="{{item.ticketRefundType}}" radio-parent-class="radio-parent-class" bindtype="getType" data-num="{{index}}"/>
-  </view>
-    
-</view>
-  
+</block>
 <PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up" bindsure="suredelete" />

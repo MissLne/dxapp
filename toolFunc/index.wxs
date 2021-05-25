@@ -1,0 +1,10 @@
+
+var filter = {
+  ifRed: function(value,index) {
+    console.log(index)
+    // return value.includes(index)
+  }
+}
+module.exports = {
+  ifRed: filter.ifRed
+}

@@ -16,3 +16,6 @@
   width: 550rpx;
   
 }
+.input-box-class {
+  color: #FF441A;
+}

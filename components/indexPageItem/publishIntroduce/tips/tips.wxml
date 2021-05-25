@@ -9,13 +9,13 @@
   </view>
   <view class="publishContainer">
     <view wx:for="{{uploadArray}}" wx:key="index" wx:if="{{item.type == 1}}">
-      <InputBox inputTitle="{{item.text}}" inputValue="{{item.value}}" bindact="getInput"/>
+      <InputBox inputTitle="{{item.text}}" inputValue="{{item.value}}" bindact="getInput" ifRed="{{temObject.announcement}}"/>
     </view>
     <view class="uploadContainer" wx:for="{{uploadArray}}" wx:key="index" wx:if="{{item.type == 2}}">
       <view>{{item.text}}</view>
       <view class="imgContainer">
         <image class="publishImg" src="{{item.imgUrl}}" mode="aspectFill"/>
-        <text class="publishUpload" bind:tap="chooseImg" data-num="{{index}}">{{item.value}}
+        <text class="publishUpload {{index === 1 && temObject.linkmanCode? 'active' : ''}} {{index === 2 && temObject.groupCode? 'active' : ''}}" bind:tap="chooseImg" data-num="{{index}}">{{item.value}}
         </text>
         <!-- <input type="file"/> -->
       </view>

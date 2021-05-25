@@ -46,8 +46,9 @@ Component({
         })
     },
     goNext() {
-      
+      console.log(this.properties.contentObject,'---0---')
       app.globalData.publishActivityData.ticketList.map(item => {
+        item.ticketPrice == 0? item.ticketType = 0 : item.ticketType = 1
         if(!item.hasOwnProperty('ticketRefundType')) item.ticketRefundType = 0
         item.ticketPrice = item.ticketPrice * 100
       })
@@ -60,15 +61,20 @@ Component({
       let obj = this.properties.contentObject.addActivity,
         count = 0,
         arr = [],
-        nullArr = 0
+        nullArr = 0,
+        newobj = {}
+        obj.activityDetails = app.globalData.publishActivityData.activityDetails
       for (let key in obj) {
         if (obj[key] !== '' && obj[key]) {
           // newobj[key] = obj[key]
           if (Object.prototype.toString.call(obj[key]) === '[object Array]') arr = obj[key]
           count++
         }
+        if (obj[key] == '' && !obj[key]) {
+          newobj[key] = obj[key]
+        }
       }
-      console.log(this.properties.contentObject.rightBtn)
+      console.log(newobj)
       // if (this.properties.contentObject.rightBtn == '发布' && count == 10) {
       //   console.log('ouo')
       //   this.requestData()
@@ -81,13 +87,14 @@ Component({
           })
         } else {
           console.log(2)
-          arr.map(item => {
+          let nularr = []
+          arr.map((item,index) => {
             console.log(item)
             for (let key in item) {
               if (item[key] === '' || item[key].length == 0) {
                 console.log('oxo')
                 nullArr = 1
-                this.triggerEvent('next')
+                nularr.push(index)
               }
             }
           })
@@ -104,12 +111,13 @@ Component({
                 url: this.properties.contentObject.rightUrl
               })
             }
+          } else {
+            this.triggerEvent('next',{index: nularr})
           }
 
         }
       } else {
-        console.log('lalal')
-        this.triggerEvent('next')
+        this.triggerEvent('next',{nulObj: newobj})
       }
     }
   }

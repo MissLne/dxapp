@@ -2,8 +2,8 @@
 <HeadNavigation bindheadnav="backIndex"/>
 <view>
   <Header></Header>
-  <Middle bind:tap="pageToRichText"/>
-  <Tips activityMaterial="{{activityMaterial}}" bindact="getMessage"></Tips>
+  <Middle bind:tap="pageToRichText" ifRed="{{temObject.activityDetails}}"/>
+  <Tips activityMaterial="{{activityMaterial}}" bindact="getMessage" temObject="{{temObject}}"></Tips>
   <!-- <Footer contentObject="{{footerBtnObject}}"/> -->
   <Footer contentObject="{{footerBtnObject}}" parent-leftbtn="parent-leftbtn" bindnext="goNext"></Footer>
 </view>

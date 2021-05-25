@@ -140,3 +140,6 @@ page {
   border: 1rpx solid #777BCE;
   color: #777BCE;
 }
+.active {
+  color: #FF441A;
+}

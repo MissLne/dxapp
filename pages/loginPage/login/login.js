@@ -23,6 +23,12 @@ Page({
                         wx.switchTab({
                             url: '/pages/index/index'
                         })
+                        wx.showToast({
+                            title: '登录成功',
+                            icon: 'success',
+                            duration: 1000,
+                            mask: true
+                        })
                     })
             }
         })

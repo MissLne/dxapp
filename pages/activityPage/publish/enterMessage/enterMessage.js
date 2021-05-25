@@ -20,7 +20,14 @@ Page({
         registrationDeadline: ''
       }
     },
-    temObject: {},
+    temObject: {
+      activityDetails: 1,
+      activityName: 1,
+      address: 1,
+      posterImage: 1,
+      registrationDeadline: 1,
+      startTime: 1
+    },
     popUpObj: {
       content: '是否保存为草稿',
       leftBtn: '保存',
@@ -35,7 +42,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.initWatch(this)
+  },
+  watch: {
+    'showBubble': function(newVal,oldVal) {
+      console.log(newVal)
+    }
   },
   backIndex(e) {
     this.data.popUpObj.show = 1
@@ -56,11 +68,15 @@ Page({
       url: '/pages/index/index',
     })
   },
-  goNext() {
-    
+  goNext(e) {
+    for (let key in this.data.temObject) {
+      if (e.detail.nulObj.hasOwnProperty(key)) this.data.temObject[key] = 0
+    }
     this.setData({
-      showBubble: 1
+      showBubble: 1,
+      temObject: this.data.temObject
     })
+    console.log(this.data.temObject)
     setTimeout(() => {
       this.setData({
         showBubble: 0
@@ -69,7 +85,7 @@ Page({
   },
   materialChange(e) {
     let data = this.data.footerBtnObject
-    if(e.currentTarget.dataset.name == 'startTime' || e.currentTarget.dataset.name == 'registrationDeadline') {
+    if (e.currentTarget.dataset.name == 'startTime' || e.currentTarget.dataset.name == 'registrationDeadline') {
       e.detail.value = e.detail.value + ' 00:00:00'
     }
     app.globalData.publishActivityData[`${e.currentTarget.dataset.name}`] = e.detail.value
@@ -77,7 +93,10 @@ Page({
     this.setData({
       footerBtnObject: data
     })
-    console.log(app.globalData.publishActivityData)
+    this.data.temObject[`${e.currentTarget.dataset.name}`] = 1
+    this.setData({
+      temObject: this.data.temObject
+    })
   },
   chooseImg() {
     wx.chooseImage({

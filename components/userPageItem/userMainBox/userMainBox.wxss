@@ -43,10 +43,21 @@
 }
 .logout {
   width: 690rpx;
-  font-size: 26rpx;
-  color: #FF441A;
-  text-decoration: underline;
+  /* font-size: 26rpx;
+  color: #FF441A; */
+  /* text-decoration: underline; */
   display: flex;
-  justify-content: flex-end;
-  margin-top: 280rpx;
+  justify-content: center;
+  margin: 240rpx auto 0 auto;
+}
+.logout view {
+  width: 180rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background: #777BCE;
+  color: #fff;
+  font-size: 34rpx;
+  font-weight: bold;
+  text-align: center;
+  line-height: 80rpx;
 }

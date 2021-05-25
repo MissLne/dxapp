@@ -1,4 +1,5 @@
 // components/indexPageItem/ticketSetting/ticketBox/ticketBox.js
+// const  s = require('../../../../toolFunc/index')
 const app = getApp()
 Component({
   /**
@@ -8,7 +9,8 @@ Component({
     ticketDetail: {
       type: Array
     },
-    base: Object
+    base: Object,
+    ifRedArr: Array
   },
 
   /**
@@ -36,6 +38,10 @@ Component({
   /**
    * 组件的方法列表
    */
+  ready: function() {
+    console.log(this.properties.base)
+  },
+
   methods: {
     updateInput(e) {
       if (e.currentTarget.dataset.name == 'ticketPrice') {

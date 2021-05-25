@@ -1,13 +1,23 @@
 /* components/indexPageItem/ticketSetting/ticketBox/ticketBox.wxss */
 .ticketDetailContainer {
   width: 690rpx;
-  height: 430rox;
+  height: 450rpx;
   font-size: 24rpx;
   padding: 30rpx 65rpx;
   margin: 20rpx auto;
   background: #fff;
   border-radius: 30rpx;
   box-sizing: border-box;
+  position: relative;
+}
+.theBorder {
+  width: 690rpx;
+  height: 450rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 30rpx;
+  border: 3rpx solid #FF441A;
 }
 .containerTitle {
   height: 50rpx;
@@ -64,4 +74,7 @@
 .parent-pop-up view:nth-child(2) {
   border: 1rpx solid #777BCE;
   color: #777BCE;
+}
+.changeRed {
+  background: #FF441A !important;
 }

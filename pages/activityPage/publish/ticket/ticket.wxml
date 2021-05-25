@@ -2,7 +2,7 @@
 <HeadNavigation bindheadnav="backIndex"/>
 <view>
   <TicketHeader></TicketHeader>
-    <TicketBox ticketDetail="{{ticketDetailArray}}" base="{{base}}" bindticket="getTicketMessage"></TicketBox>
+    <TicketBox ticketDetail="{{ticketDetailArray}}" base="{{base}}" ifRedArr="{{ifRedArr}} "bindticket="getTicketMessage"></TicketBox>
     <TicketBtn base="{{base}}" ticketDetail="{{ticketDetailArray}}" bindaddTicketBtn="addTicket"/>
     <Footer contentObject="{{footerBtnObject}}" parent-footer="parent-footer" bindnext="goNext"/>
 </view>

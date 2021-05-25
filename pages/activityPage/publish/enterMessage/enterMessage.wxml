@@ -21,7 +21,7 @@
     <view class="edit-content">
       <view>
         <text>活动名称</text>
-        <input type="text" placeholder="请输入活动名称" value="{{footerBtnObject.addActivity.activityName}}" bindinput="materialChange" data-name="activityName" class="{{temObject.activityName? '' : 'active'}}" />
+        <input type="text" placeholder="请输入活动名称" value="{{footerBtnObject.addActivity.activityName}}" bindinput="materialChange" data-name="activityName" placeholder-class="{{temObject.activityName? '' : 'active'}}"/>
       </view>
       <view>
         <text>活动开始时间</text>
@@ -33,7 +33,7 @@
       </view>
       <view>
         <text>活动地点</text>
-        <input type="text" placeholder="请完善地址" value="{{footerBtnObject.addActivity.address}}" bindinput="materialChange" data-name="address" class="{{temObject.address? '' : 'active'}}" />
+        <input type="text" placeholder="请完善地址" value="{{footerBtnObject.addActivity.address}}" bindinput="materialChange" data-name="address" placeholder-class="{{temObject.address? '' : 'active'}}"/>
       </view>
       <view>
         <text>报名截止时间</text>
