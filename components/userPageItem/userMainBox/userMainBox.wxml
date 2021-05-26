@@ -23,8 +23,8 @@
   <navigator class="userMainBoxBtn" url="/pages/teamManage/teamsManage/teamsManage">
     管理团队
   </navigator>
-  <view class="logout"bind:tap="logout">
-    <view >退出登录</view>
+  <view class="logout">
+    <view bind:tap="logout">退出登录</view>
   </view>
     
 </view>

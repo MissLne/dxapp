@@ -126,47 +126,6 @@ Page({
         }
       })
   },
-  comLazyLoad() {
-    let { hideList1, pageSize1, ifPages1, commentMessage } = this.data
-    if (ifPages1) {
-      let newList = [];
-      if (hideList1.length > pageSize1) {
-        newList = commentMessage.concat(hideList1.splice(0, pageSize1));
-      } else {
-        newList = commentMessage.concat(hideList1)
-        this.setData({
-          ifPages1: false,
-          hideList1: []
-        })
-      }
-      this.setData({
-        commentMessage: newList,
-        hideList1
-      })
-    }
-  },
-  quesLazyLoad() {
-    if (this.data.chooseOrNot) {
-      let { hideList, pageSize, ifPages, questionMessage } = this.data
-      if (ifPages) {
-        let newList = [];
-        if (hideList.length > pageSize) {
-          newList = questionMessage.concat(hideList.splice(0, pageSize));
-        } else {
-          newList = questionMessage.concat(hideList)
-          this.setData({
-            ifPages: false,
-            hideList: []
-          })
-        }
-        this.setData({
-          questionMessage: newList,
-          hideList
-        })
-      }
-    }
-
-  },
   getTopHeight() {
     let _this = this
     let query = wx.createSelectorQuery().in(this)
@@ -354,41 +313,14 @@ Page({
     }
     request.actIdGetConsult(obj)
       .then(res => {
-        console.log(res)
-        let hideList = res.data
-        let { pageSize } = this.data;
-        if (hideList.length > pageSize) {
-          this.setData({
-            showList: hideList.splice(0, pageSize)
-          })
-        } else {
-          this.setData({
-            showList: hideList,
-            ifPages: false
-          })
-        }
         this.setData({
-          questionMessage: this.data.showList,
-          hideList: hideList
+          questionMessage: res.data
         })
       })
     request.actIdGetComment(obj)
       .then(res => {
-        let hideList1 = res.data
-        let { pageSize1 } = this.data;
-        if (hideList1.length > pageSize1) {
-          this.setData({
-            showList1: hideList1.splice(0, pageSize1)
-          })
-        } else {
-          this.setData({
-            showList1: hideList1,
-            ifPages1: false
-          })
-        }
         this.setData({
-          commentMessage: this.data.showList1,
-          hideList1: hideList1
+          commentMessage: res.data
         })
       })
   }

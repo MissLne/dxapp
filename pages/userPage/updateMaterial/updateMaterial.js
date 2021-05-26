@@ -20,9 +20,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getMessageArr(e)
-    this.updateUrl(e)
-    
+    this.getMessageArr()
+    this.updateUrl()
+
   },
 
   showUserMaterial() {
@@ -37,40 +37,46 @@ Page({
       })
   },
   updateMessage() {
+    console.log(1)
     let obj = {
       "id": wx.getStorageSync('id'),
-      "nickName": this.data.messageArray[0]? this.data.messageArray[0].value : this.data.userMessageObject.nickName,
-      "phone": this.data.messageArray[1]? this.data.messageArray[1].value : this.data.userMessageObject.phone,
-      "introduction": this.data.messageArray[2]? this.data.messageArray[2].value : this.data.userMessageObject.introduction,
+      "nickName": this.data.messageArray[0] ? this.data.messageArray[0].value : this.data.userMessageObject.nickName,
+      "phone": this.data.messageArray[1] ? this.data.messageArray[1].value : this.data.userMessageObject.phone,
+      "introduction": this.data.messageArray[2] ? this.data.messageArray[2].value : this.data.userMessageObject.introduction,
       "imgShowUrl": this.data.avaterUrl
     }
-    console.log(this.data.messageArray[1].value)
-    if(!(/^1(?:3\d|4[4-9]|5[0-35-9]|6[67]|7[013-8]|8\d|9\d)\d{8}$/.test(this.data.messageArray[1].value))) {
-      this.setData({
-        showBubble: 1
-      })
-      setTimeout(() => {
+    if (this.data.messageArray[1]) {
+      if (!(/^1(?:3\d|4[4-9]|5[0-35-9]|6[67]|7[013-8]|8\d|9\d)\d{8}$/.test(this.data.messageArray[1].value))) {
         this.setData({
-          showBubble: 0
+          showBubble: 1
         })
-      }, 3000)
-    } else {
-      request.updateUserMessage(obj)
-      .then(() => {
-        wx.switchTab({
-          url: '/pages/userPage/user/user'
-        })
-      })
+        setTimeout(() => {
+          this.setData({
+            showBubble: 0
+          })
+        }, 3000)
+      } else {
+        request.updateUserMessage(obj)
+          .then(() => {
+            wx.switchTab({
+              url: '/pages/userPage/user/user'
+            })
+          })
+      }
     }
   },
   getMessageArr(e) {
-    this.setData({
-      messageArray: e.detail.arr
-    })
+    if(e != undefined) {
+      this.setData({
+        messageArray: e.detail.arr
+      })
+    }
   },
   updateUrl(e) {
-    this.setData({
-      avaterUrl: e.detail.url
-    })
+    if(e != undefined) {
+      this.setData({
+        avaterUrl: e.detail.url
+      })
+    }
   }
 })

@@ -25,7 +25,6 @@ Component({
       request.logout()
       .then(() => {
         wx.removeStorageSync('token')
-        wx.removeStorageSync('id')
         wx.navigateTo({
           url: '../../loginPage/login/login'
         })

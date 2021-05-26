@@ -8,16 +8,18 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topBarMargin: (wx.getMenuButtonBoundingClientRect().top) * 2,
+    topBarHeight: (wx.getMenuButtonBoundingClientRect().height) * 2 + 15,
     topBar: {
-        title: '账单明细',
-        isOne: 0
+      title: '账单明细',
+      isOne: 0
     },
     flag: 1,
     billDetail: [],
     selectList: [
       {
         name: '全部交易',
-        arr: [ '全部', '提现', '充值', '退票','售票'],
+        arr: ['全部', '提现', '充值', '退票', '售票'],
         isShow: 0,
         boxWidth: 150
       }
@@ -45,12 +47,15 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-   onReachBottom: function () {
+  onReachBottom: function () {
     // 页面触底时执行
     console.log(1)
-},
+  },
   onLoad: function (options) {
     this.showBillDetail()
+
+  },
+  onShow: function () {
     this.getWindowHeight()
   },
   requestBill(obj) {
@@ -64,7 +69,7 @@ Page({
           if (result[i].feeCharge != undefined) {
             result[i].feeCharge = result[i].feeCharge.toFixed(2)
           }
-          result[i].amount =( result[i].amount / 100).toFixed(2)
+          result[i].amount = (result[i].amount / 100).toFixed(2)
           switch (result[i].moneyType) {
             case -1:
               result[i].moneyType = '提现'
@@ -97,25 +102,25 @@ Page({
     console.log(e)
     this.data.selectList[0].name = e.detail.name
     this.data.selectList[0].isShow = 1
-      let obj = {
-        "id": wx.getStorageSync('id'),
-        "month": this.data.month,
-        "status": e.detail.count,
-        "activityId": this.data.activityId,
-        "year": this.data.year
-      }
-      let obj1 = {
-        "id": wx.getStorageSync('id'),
-        "month": this.data.month,
-        "status": e.detail.count,
-        "activityId": this.data.activityId,
-        "year": this.data.year
-      }
+    let obj = {
+      "id": wx.getStorageSync('id'),
+      "month": this.data.month,
+      "status": e.detail.count,
+      "activityId": this.data.activityId,
+      "year": this.data.year
+    }
+    let obj1 = {
+      "id": wx.getStorageSync('id'),
+      "month": this.data.month,
+      "status": e.detail.count,
+      "activityId": this.data.activityId,
+      "year": this.data.year
+    }
     this.setData({
       status: e.detail.count,
       selectList: this.data.selectList
     })
-    
+
     console.log(obj, '----')
     this.requestBill(obj)
   },
@@ -167,7 +172,7 @@ Page({
         let height2 = app.getRealHeight(rect)
         // console.log
         this.setData({
-          windowHeight: app.getSomgthingHeight().viewHeight - (height1 + height2) - this.data.topBarMargin - this.data.topBarHeight
+          windowHeight: app.getSomgthingHeight().viewHeight - (height1 + height2) - _this.data.topBarMargin - _this.data.topBarHeight
         })
       }).exec()
     }).exec()

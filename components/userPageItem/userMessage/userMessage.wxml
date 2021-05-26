@@ -2,7 +2,7 @@
 <view class="updateMessageContainer">
   <view class="updateMessage" wx:for="{{userMessage}}" wx:key="index">
     <view >{{item.text}}</view>
-    <input type="text" value="{{item.value}}" bindinput="getValue" data-num="{{index}}" bindfocus="eventHandle"/>
+    <input value="{{item.value}}" bindinput="getValue" data-num="{{index}}" bindfocus="eventHandle"/>
   </view>
 </view>
   

@@ -1,5 +1,5 @@
 <!--components/indexPageItem/manageActivity/baseMaterial/baseMaterial.wxml-->
-<view>
+<view class="managebase1">
   <view wx:for="{{socialArray}}" wx:key="index">
     <view >{{item.name}}</view>
     <view >{{item.value}}</view>

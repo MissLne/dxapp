@@ -30,7 +30,6 @@
   align-items: center;
   position: absolute;
   left: 0;
-  top: 126rpx;
   z-index: 99999;
 }
 .inputBox input {

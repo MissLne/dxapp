@@ -1,4 +1,25 @@
 /* components/indexPageItem/manageActivity/baseMaterial/baseMaterial.wxss */
-page {
-  color: #ff9c07;
+.managebase1 {
+  width: 690rpx;
+  height: 150rpx;
+  margin: 15rpx auto;
+  border-radius: 30rpx;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.managebase1 > view {
+  width: 226rpx;
+  height: 92rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  font-size: 28rpx;
+}
+.managebase1 > view:nth-of-type(2) {
+  border-left: 1rpx solid rgba(0, 0, 0,0.1);
+  border-right: 1rpx solid rgba(0, 0, 0,0.1);
 }

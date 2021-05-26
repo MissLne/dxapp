@@ -168,12 +168,47 @@ Page({
       currentIndex: e.detail.current
     })
   },
+  timestampToTime(timestamp) {
+    var date = new Date(timestamp);
+    var Y = date.getFullYear() + '-';
+    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+    var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
+    var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+    var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+    var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+    let strDate = Y + M + D + h + m + s;
+    return strDate;
+
+  },
   showActivityManage(options) {
+    let _this = this
     let obj = {
       activityId: options.activityId
     }
     request.showActivityManage(obj)
       .then(res => {
+        console.log(res)
+        res.data.startTime = _this.timestampToTime(res.data.startTime)
+        switch (res.data.status) {
+          case -3:
+            res.data.status = '已取消'
+            break
+          case -2:
+            res.data.status = '已结束'
+            break
+          case 1:
+            res.data.status = '上架中',
+              ticket++
+            break
+          case -1:
+            res.data.status = '已下架'
+            break
+          case 2:
+            res.data.status = '草稿'
+            break
+          default:
+            break
+        }
         this.setData({
           manageActivity: res.data,
           showComponent: 1

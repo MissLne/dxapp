@@ -21,6 +21,7 @@ Component({
 
   methods: {
     login(e) {
+      console.log(1)
       wx.login({
         success: (result) => {
           let obj = {
