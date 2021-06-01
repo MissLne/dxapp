@@ -45,19 +45,19 @@
         "pagePath": "pages/index/index",
         "text": "活动",
         "iconPath": "images/tabar/activity.png",
-        "selectedIconPath": "images/tabar/activities_on@3x.png"
+        "selectedIconPath": "images/tabar/activities_on.png"
       },
       {
         "pagePath": "pages/messagePage/message/message",
         "text": "消息",
         "iconPath": "images/tabar/message.png",
-        "selectedIconPath": "images/tabar/ii.png"
+        "selectedIconPath": "images/tabar/message_on.png"
       },
       {
         "pagePath": "pages/userPage/user/user",
         "text": "我",
         "iconPath": "images/tabar/me.png",
-        "selectedIconPath": "images/tabar/ii.png"
+        "selectedIconPath": "images/tabar/me_on.png"
       }
     ]
   },

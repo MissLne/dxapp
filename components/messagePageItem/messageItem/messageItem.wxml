@@ -11,15 +11,19 @@
       </view>
       <view>
         <view class="messageItemTime">{{item.createTime}}</view>
-        <view class="messageType" wx:if="{{item.reply == null}}" bind:tap="showInput" data-num="{{item.id}}" data-name="{{messageType}}">{{messageType}}</view>
+        <view class="messageType" wx:if="{{item.reply == null}}" bind:tap="showInput" data-num="{{item.id}}" data-name="{{messageType}}">
+          {{messageType}}
+        </view>
       </view>
     </view>
-    <view class="messageItemAcitivity">活动：{{item.activityName}}</view>
+    <view class="mesItemActBox">
+      <view class="messageItemAcitivity" style="width: 236rpx">
+        活动：{{item.activityName}}
+      </view>
+    </view>
     <view class="messageItemAnswer" wx:if="{{item.reply != null}}">
-      {{messageType}}：{{item.reply}}
+      <image class="" src="{{messageType == '回答'? '../../../images/message/answer.png' : '../../../images/message/comm.png'}}" />
+      {{item.reply}}
     </view>
   </view>
-  
 </block>
-
- 

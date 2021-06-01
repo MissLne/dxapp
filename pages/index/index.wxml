@@ -1,6 +1,6 @@
 <ComNav topBar="{{topBar}}"/>
 
-<view class="{{identifyLoginShow? 'notsroll' : ''}}">
+<view>
   <NullPic nullPicUrl="../../images/activity/list_picturex.png" wx:if="{{activityArray.length == 0}}" />
   <view>
     <view class="top-nav">
@@ -21,7 +21,7 @@
     </view>
   </view>
   <view class="identifyLogin" wx:if="{{identifyLoginShow}}">
-    <image src="../../images/activity/shouquan.png"/>
+    <image src="../../images/activity/shouquan1.jpg"/>
     <view bind:tap="getPersonalMessage">授权个人信息</view>
   </view>
 </view>

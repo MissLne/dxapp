@@ -12,7 +12,9 @@ Page({
   data: {
     topBar: {
       title: '活动管理',
-      isOne: 0
+      isOne: 0,
+      goUrl: '/pages/index/index',
+      index: 1
     },
     topBarMargin: (wx.getMenuButtonBoundingClientRect().top) * 2,
     topBarHeight: (wx.getMenuButtonBoundingClientRect().height) * 2 + 15,

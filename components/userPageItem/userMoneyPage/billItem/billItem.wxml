@@ -1,44 +1,23 @@
-<!--components/userPageItem/userMoneyPage/billItem/billItem.wxml-->
+<!-- components/userPageItem/userMoneyPage/billItem/billItem.wxml -->
 <view wx:for="{{billDetail}}" wx:key="index" class="bill-box">
   <view class="bill-top">
     <view class="bill-top-left">
-      <view >{{item.moneyType}}</view>
-      <view wx:if="{{item.ticketType}}">
-        {{item.ticketType}}
-      </view>
-      <view wx:if="{{item.id.length < 5}}">
-        {{item.amount}}元
-      </view>
+      <view class="moneytype">{{item.moneyType}}</view>
+      <view wx:if="{{item.ticketType}}">{{item.ticketType}}</view>
+      <view wx:if="{{item.id.length < 5}}">{{item.amount}}元</view>
     </view>
-    
     <view class="bill-top-right {{item.moneyType == '充值' || item.moneyType == '售票'? 'color1' : 'color2'}}">
-      <block wx:if="{{item.moneyType == '充值' || item.moneyType == '售票'}}">
-        +
-      </block>
-      <block wx:if="{{item.moneyType == '提现' || item.moneyType == '退票'}}">
-        -
-      </block>
-        {{item.amount}}
+      <block wx:if="{{item.moneyType == '充值' || item.moneyType == '售票'}}">+</block>
+      <block wx:if="{{item.moneyType == '提现' || item.moneyType == '退票'}}">-</block>
+      {{item.amount}}
     </view>
   </view>
-  <view class="bill-time">
-    {{item.createTime}}
-  </view>
+  <view class="bill-time">{{item.createTime}}</view>
   <view class="bill-footer">
     <block wx:if="{{item.moneyType == '退票' || item.moneyType == '售票'}}">
-      <view>
-        {{item.activityName}}
-      </view>
-      <view>
-        {{item.buyer}}
-      </view>
-        
+      <view style="margin-left: 80rpx">{{item.activityName}}</view>
+      <view>{{item.buyer}}</view>
     </block>
-    <view wx:if="{{item.moneyType == '提现'}}">
-      手续费{{item.feeCharge}}元
-    </view>
-      
+    <view wx:if="{{item.moneyType == '提现'}}" style="margin-left: 80rpx">手续费{{item.feeCharge}}元</view>
   </view>
-    
 </view>
-  

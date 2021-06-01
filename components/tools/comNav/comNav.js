@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    topBar:Object
+    topBar: Object
   },
 
   /**
@@ -19,10 +19,16 @@ Component({
    */
   methods: {
     backBtn() {
-      if(this.properties.topBar.hasOwnProperty('goUrl')) {
-        wx.navigateTo({
-          url: goUrl
-        })
+      if (this.properties.topBar.hasOwnProperty('goUrl')) {
+        if (this.properties.topBar.hasOwnProperty('index')) {
+          wx.switchTab({
+            url: this.properties.topBar.goUrl
+          })
+        } else {
+          wx.navigateTo({
+            url: this.properties.topBar.goUrl
+          })
+        }
       } else {
         wx.navigateBack({
           delta: 1

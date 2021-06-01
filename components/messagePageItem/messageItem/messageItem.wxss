@@ -1,10 +1,10 @@
 /* components/messagePageItem/messageItem/messageItem.wxss */
 .messageItemContainer {
   box-sizing: border-box;
-  padding: 20rpx 60rpx 0 60rpx;
+  padding: 20rpx 60rpx 15rpx 60rpx;
   width: 750rpx;
   font-size: 24rpx;
-  border-bottom: 10rpx solid #f5f5f5;
+  border-bottom: 1rpx solid #f5f5f5;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -34,32 +34,39 @@
   font-size: 24rpx;
   color: #333;
 }
-.messageItemAcitivity {
-  margin: 15rpx 0 20rpx 0;
+.mesItemActBox {
+  margin: 15rpx 0 0rpx 0;
   color: #666666;
+  display: flex;
+  justify-content: flex-end;
 }
 .messageItemAnswer {
-  height: 60rpx;
+  color: #666666;
+  font-size: 20rpx;
+  margin-top: 15rpx;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top: 1rpx solid rgba(0, 0, 0,0.1);
+  align-items: flex-end;
 }
 .messageType {
   width: 90rpx;
   height: 40rpx;
   border-radius: 20rpx;
-  margin-top: 10rpx;
+  margin-top: 15rpx;
   float: right;
   background: #777BCE;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* vertical-align: middle;
+  text-align: center; */
 }
 .messageItemTime {
   font-size: 24rpx;
   color: #999999;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .messageItemName .name,
 .messageItemName .question,
@@ -71,6 +78,10 @@
 }
 .messageItemName .name,
 .messageItemName .question {
-  width: 300rpx;
+  width: 200rpx;
 }
-
+.messageItemAnswer image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
