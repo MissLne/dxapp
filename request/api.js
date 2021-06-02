@@ -29,9 +29,40 @@ var url = {
   identify: "merchant/enter/one/identify",
   logout: "merchant/enter/one/logout",
   actIdGetConsult: "merchant/consult/getConsult",
-  actIdGetComment: "merchant/consult/getComment"
+  actIdGetComment: "merchant/consult/getComment",
+  restartActivity: "merchant/activity/actInfo/restartActivity",
+  stopActivity: "merchant/activity/actInfo/stopActivity",
+  cancelActivity: "merchant/activity/actInfo/cancelActivity",
+  getQRTicket: "merchant/gzh/getQRTicket"
 }
 module.exports = {
+  getQRTicket(params) {
+    return http({
+      url: url.getQRTicket,
+      data: params
+    })
+  },
+  restartActivity(params) {
+    return http({
+      url: url.restartActivity,
+      data: params,
+      method: "PUT"
+    })
+  },
+  stopActivity(params) {
+    return http({
+      url: url.stopActivity,
+      data: params,
+      method: "PUT"
+    })
+  },
+  cancelActivity(params) {
+    return http({
+      url: url.cancelActivity,
+      data: params,
+      method: "PUT"
+    })
+  },
   ouo(params) {
     return http({
       url: `merchant/enter/one/test/${params.jsCode}`,

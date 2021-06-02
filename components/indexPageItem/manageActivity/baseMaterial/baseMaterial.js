@@ -1,3 +1,4 @@
+
 Component({
   /**
    * 组件的属性列表
@@ -35,9 +36,38 @@ Component({
       {
         name: '总票款'
       }
-    ]
+    ],
+    progresses: [
+      {
+        ticketName: '早鸟票',
+        yishou: 5,
+        quanbu: 20,
+        status: '售票中'
+      },
+      {
+        ticketName: '懒鸟票',
+        yishou: 7,
+        quanbu: 20,
+        status: '已结束'
+      },
+      {
+        ticketName: '票',
+        yishou: 17,
+        quanbu: 20,
+        status: '售票中'
+      }
+    ],
+    color: ['#7295C7','#D0BEDA','#BEA4CB','#EF8374','#E586A5'],
+    isShow: 0
   },
-
+  attached: function() {
+    this.data.progresses.map((item,index) => {
+      item.color = this.data.color[index]
+    })
+    this.setData({
+      progresses: this.data.progresses
+    })
+  },
   /**
    * 组件的方法列表
    */
@@ -46,6 +76,11 @@ Component({
     this.getSetUpMessage()
   },
   methods: {
+    showDetail() {
+      this.setData({
+        isShow: !this.data.isShow
+      })
+    },
     getMaterialMessage() {
       console.log(this.properties.materialObject)
       let dataArr = this.data.socialArray

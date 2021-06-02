@@ -1,15 +1,15 @@
 <!-- pages/activityPage/manage/activityManage/activityManage.wxml -->
-<ComNav topBar="{{topBar}}"/>
+<ComNav topBar="{{topBar}}" />
 <view class="messageTitle">
   <Navigations navigationsArray="{{['数据','成员','账单']}}" parent-nav-class="parent-nav-class" currentSwiper="{{currentIndex}}" bind:cur="swiperCurrent" />
 </view>
 <swiper style="height: {{swiperHeight}}rpx" bindchange="swiperChange" current="{{swiperIndex}}">
   <swiper-item>
-    <Background materialObject="{{manageActivity}}" wx:if="{{showComponent}}" />
-    <BaseMaterial materialObject="{{manageActivity}}" wx:if="{{showComponent}}" />
-    <!-- <canvas-ring id="canvasRing" value="{{c_val}}"></canvas-ring> -->
-    <button bind:tap="lala"></button>
-    <ManageBtn />
+    <scroll-view scroll-y="true" style="height:{{swiperHeight}}rpx">
+      <Background materialObject="{{manageActivity}}" wx:if="{{showComponent}}" />
+      <BaseMaterial materialObject="{{manageActivity}}" wx:if="{{showComponent}}"/>
+      <ManageBtn bindclickHandle="doClick"/>
+    </scroll-view>
   </swiper-item>
   <swiper-item style="background: #f5f5f5;">
     <view class="searchMemberInput">
@@ -25,10 +25,16 @@
         <view>收入：{{income}} 元</view>
         <view style="margin-left: 10rpx;">支出：{{pay}} 元</view>
       </view>
-      <DateBtn binddatepicker="getPickerTime" time="{{time}}"/>
+      <DateBtn binddatepicker="getPickerTime" time="{{time}}" />
     </view>
     <scroll-view scroll-y="true" style="height:{{swiperHeight - 56}}rpx" bindscrolltolower="getNextMonth">
       <BillItem billDetail="{{billDetail}}" />
     </scroll-view>
   </swiper-item>
 </swiper>
+<PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up" bindsure="suredelete" />
+<view class="erweima" wx:if="{{erweimaShow}}">
+  <view>关注公众号才能开启活动提醒噢~</view>
+  <image src="{{erweimaUrl}}"/>
+</view>
+<view class="theCover" wx:if="{{erweimaShow}}" bind:tap="erweima"></view>

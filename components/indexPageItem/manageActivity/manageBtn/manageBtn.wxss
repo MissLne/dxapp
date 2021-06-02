@@ -1,1 +1,19 @@
 /* components/indexPageItem/manageActivity/manageBtn/manageBtn.wxss */
+.manageBtn {
+  width: 690rpx;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.manageBtn > view {
+  text-align: center;
+  width: 230rpx;
+  font-size: 28rpx;
+  color: #333;
+} 
+.manageBtn > view image {
+  margin: 47rpx auto 10rpx auto;
+  width: 80rpx;
+  height: 80rpx;
+}

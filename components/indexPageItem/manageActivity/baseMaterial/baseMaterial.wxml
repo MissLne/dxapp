@@ -1,14 +1,30 @@
-<!--components/indexPageItem/manageActivity/baseMaterial/baseMaterial.wxml-->
+<!-- components/indexPageItem/manageActivity/baseMaterial/baseMaterial.wxml -->
 <view class="managebase1">
   <view wx:for="{{socialArray}}" wx:key="index">
-    <view >{{item.name}}</view>
-    <view >{{item.value}}</view>
+    <view>{{item.name}}</view>
+    <view>{{item.value}}</view>
   </view>
 </view>
-
-<view >
-  <view wx:for="{{setUpArray}}" wx:key="index">
-    <view >{{item.name}}</view>
-    <view >{{item.value}}</view>
+<view class="baseMass">
+  <view class="managebase2">
+    <view wx:for="{{setUpArray}}" wx:key="index">
+      <view>{{item.name}}</view>
+      <view>{{item.value}}</view>
+    </view>
   </view>
+  <view class="progresses" style="{{isShow? '' : 'height: 0rpx;'}}">
+    <view class="onePro" wx:for="{{progresses}}" wx:key="index">
+      <view>{{item.ticketName}}</view>
+      <progress percent="{{(item.yishou / item.quanbu) * 100}}" stroke-width="7.5" class="progress" border-radius="3.75" backgroundColor="#fff" activeColor="{{item.color}}">
+        <view style="color: {{item.color}};" class="{{(item.yishou / item.quanbu) * 100 > 80? 'fffcolor' : ''}}">{{item.yishou}}/{{item.quanbu}}</view>
+        <view></view>
+      </progress>
+      <view class="{{item.status == '已结束'? 'isEnd' : 'notEnd'}}">{{item.status}}</view>
+    </view>
+  </view>
+  <view class="detailData" bind:tap="showDetail">
+    详细数据
+    <image src="../../../../images/jiantou.png" class="{{isShow? 'xuanzhuan' : ''}}"/>
+  </view>
+    
 </view>

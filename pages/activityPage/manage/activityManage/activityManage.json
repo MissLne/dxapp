@@ -8,7 +8,8 @@
     "BillItem": "/components/userPageItem/userMoneyPage/billItem/billItem",
     "DateBtn": "/components/tools/dateBtn/dateBtn",
     "canvas-ring": "/components/canvas-ring/canvas-ring",
-    "ComNav": "/components/tools/comNav/comNav"
+    "ComNav": "/components/tools/comNav/comNav",
+    "PopUp": "/components/tools/pop-up/pop-up"
   },
   "navigationStyle": "custom"
   

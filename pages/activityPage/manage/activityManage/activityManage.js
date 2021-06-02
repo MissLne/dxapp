@@ -10,6 +10,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    popUpObj: {
+      content: '确定没有手抖吗？',
+      leftBtn: '确认',
+      rightBtn: '取消',
+      show: 0,
+      toPopUPData: 0
+    },
     topBar: {
       title: '活动管理',
       isOne: 0,
@@ -35,7 +42,9 @@ Page({
     year: -1,
     time: '',
     isEmpty: 0,
-    isScrollLoad: 0
+    isScrollLoad: 0,
+    erweimaShow: 0,
+    erweimaUrl: ''
   },
 
   /**
@@ -59,6 +68,104 @@ Page({
     // that.canvasRing = that.selectComponent("#canvasRing");
     // that.canvasRing.showCanvasRing();
 
+  },
+  erweima() {
+    this.setData({
+      erweimaShow: 0
+    })
+  },
+  doClick(e) {
+    let { popUpObj } = this.data
+    let _this = this
+    if (e.detail.index == 4) {
+      this.lala()
+    } else if (e.detail.index == 0) {
+      popUpObj.show = 1
+      this.suredelete(e.detail.index)
+    } else if (e.detail.index == 5) {
+      popUpObj.show = 1
+      this.suredelete(e.detail.index)
+    } else if (e.detail.index == 2) {
+      wx.showModal({
+        title: '温馨提示',
+        content: '正在请求您的个人信息',
+        success(res) {
+          if (res.confirm) {
+            wx.getUserProfile({
+              desc: "获取你的昵称、头像等信息",
+              success: res => {
+                let wxUserInfo = res.userInfo
+                wx.login({
+                  success: (result) => {
+                    let obj = {
+                      activityId: _this.data.activityId,
+                      status: 1
+                    }
+                    request.getQRTicket(obj)
+                      .then((res) => {
+                        let reg = /\.(png|jpg|gif|jpeg|webp)$/;
+                        if(reg.test(res.data)) {
+                          _this.setData({
+                            erweimaShow: 1,
+                            erweimaUrl: res.data
+                          })
+                        } else {
+                          wx.showToast({
+                            title: '操作成功',
+                            icon: 'success',
+                            duration: 1500,
+                            mask: false
+                          })
+                        }
+                      })
+                  }
+                })
+              },
+              fail: res => {
+                wx.showErrorModal('您拒绝了请求')
+                return;
+              }
+            })
+          } else if (res.cancel) {
+            that.showErrorModal('您拒绝了请求')
+            return;
+          }
+        }
+      })
+    } else {
+      return
+    }
+    this.setData({
+      popUpObj
+    })
+  },
+  suredelete(index) {
+    if (index == 0) {
+      request.cancelActivity({
+        activityId: this.data.activityId,
+        mId: wx.getStorageSync('id')
+      })
+        .then(() => {
+          wx.showToast({
+            title: '操作成功',
+            icon: 'success',
+            duration: 1500,
+            mask: false
+          })
+        })
+    } else {
+      request.stopActivity({
+        activityId: this.data.activityId
+      })
+        .then(() => {
+          wx.showToast({
+            title: '操作成功',
+            icon: 'success',
+            duration: 1500,
+            mask: false
+          })
+        })
+    }
   },
   async getNextMonth() {
     let { year, month, isEmpty } = this.data
@@ -141,7 +248,6 @@ Page({
       activityId: this.data.activityId
     }
     query.activityId = JSON.stringify(query.activityId)
-    console.log(this.data.activityId)
     navigate.navigateTo({
       url: `../activityUpdate/activityUpdate`,
       query

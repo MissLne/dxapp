@@ -1,2 +1,7 @@
 <!--components/indexPageItem/manageActivity/manageBtn/manageBtn.wxml-->
-<text>components/indexPageItem/manageActivity/manageBtn/manageBtn.wxml</text>
+<view class="manageBtn">
+  <view wx:for="{{iconfonts}}" wx:key="index" bind:tap="clickHandle" data-num="{{index}}">
+    <image src="{{item.url}}" />
+    <view >{{item.name}}</view>
+  </view>
+</view>

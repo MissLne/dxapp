@@ -1,13 +1,45 @@
 /* components/indexPageItem/manageActivity/baseMaterial/baseMaterial.wxss */
-.managebase1 {
+.managebase1,
+.managebase2 {
   width: 690rpx;
   height: 150rpx;
-  margin: 15rpx auto;
+  margin: 25rpx auto;
   border-radius: 30rpx;
   background: #f5f5f5;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.managebase2 {
+  margin: 0 auto;
+  height: 100rpx;
+}
+.baseMass {
+  width: 690rpx;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  margin: 25rpx auto;
+  border-radius: 30rpx;
+  background: #f5f5f5;
+}
+.managebase2 {
+  justify-content: space-around;
+}
+.managebase2 > view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.managebase2 > view view:nth-child(1) {
+  font-weight: bold;
+  font-size: 32rpx;
+  color: #333;
+}
+.managebase2 > view view:nth-child(2) {
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  color: #333;
 }
 .managebase1 > view {
   width: 226rpx;
@@ -23,3 +55,96 @@
   border-left: 1rpx solid rgba(0, 0, 0,0.1);
   border-right: 1rpx solid rgba(0, 0, 0,0.1);
 }
+.progresses {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+}
+.progress {
+  width: 328rpx;
+  border-radius: 7.5rpx;
+  box-shadow: -2rpx 3rpx 5rpx 2rpx rgba(22, 24, 61,0.1);
+}
+.onePro {
+  width: 690rpx;
+  padding: 10rpx 61rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.onePro > view:nth-of-type(1) {
+  width: 90rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+.onePro > view:nth-of-type(2) {
+  font-size: 20rpx;
+}
+.isEnd {
+  color: #FF441A;
+}
+.notEnd {
+  color: #349E69;
+}
+.progress {
+  position: relative;
+}
+.progress view:nth-of-type(2) {
+  width: 4.6rpx;
+  height: 4.6rpx;
+  background: #fff;
+  position: absolute;
+  left: 10rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.progress view:nth-of-type(1) {
+  font-size: 14rpx;
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.fffcolor {
+  color: #fff !important;
+}
+.detailData {
+  font-size: 14rpx;
+  color: #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.detailData image {
+  width: 10rpx;
+  height: 6rpx;
+  margin-left: 10rpx;
+  transition: .5s;
+}
+.xuanzhuan {
+  transform: rotate(180deg);
+}
+/* .showde {
+  animation: dropdown 2s;
+}
+
+@keyframes dropdown {
+  0% {
+    height: 0;
+  }
+  30% {
+    bottom: 15%;
+    opacity: 1;
+  }
+  50% {
+    bottom: 15%;
+    opacity: 1;
+  }
+  100% {
+    height: ;
+  }
+} */
