@@ -16,12 +16,12 @@ Component({
     actWidth: 0
   },
   ready: function() {
-    let _this = this
-    wx.createSelectorQuery().in(this).selectAll('.messageItemTime').boundingClientRect(function (rect) {
-      _this.setData({
-        actWidth: rect[0].width * 2
-      })
-    }).exec()
+    // let _this = this
+    // wx.createSelectorQuery().in(this).selectAll('.messageItemTime').boundingClientRect(function (rect) {
+    //   _this.setData({
+    //     actWidth: rect[0].width * 2
+    //   })
+    // }).exec()
   },
   /**
    * 组件的方法列表

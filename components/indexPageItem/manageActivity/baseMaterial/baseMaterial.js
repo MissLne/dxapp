@@ -1,9 +1,10 @@
-
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
+    activityId: Number,
     materialObject: {
       type: Object,
       observer: function (newVal, oldVal) {
@@ -42,14 +43,6 @@ Component({
     color: ['#7295C7','#D0BEDA','#BEA4CB','#EF8374','#E586A5'],
     isShow: 0
   },
-  attached: function() {
-    // this.data.progresses.map((item,index) => {
-    //   item.color = this.data.color[index]
-    // })
-    // this.setData({
-    //   progresses: this.data.progresses
-    // })
-  },
   /**
    * 组件的方法列表
    */
@@ -58,6 +51,17 @@ Component({
     this.getSetUpMessage()
   },
   methods: {
+    switchToPage(e) {
+        // let query = {
+        //   number: e.currentTarget.dataset.num
+        // }
+        // query.number = JSON.stringify(query.number)
+        app.globalData.showQuesCom.number = e.currentTarget.dataset.num
+        app.globalData.showQuesCom.id = this.properties.activityId
+        wx.switchTab({
+          url: `/pages/messagePage/message/message`,
+        })
+    },
     showDetail() {
       this.setData({
         isShow: !this.data.isShow
@@ -79,7 +83,7 @@ Component({
       let dataArr = this.data.setUpArray
       let data = this.properties.materialObject
       data.totalPrice == null ? data.totalPrice = 0 .toFixed(2) : data.totalPrice
-      let arr = [data.registryNumber, data.totalPrice.toFixed(2)]
+      let arr = [data.registryNumber, Number(data.totalPrice).toFixed(2)]
       for (let i = 0; i < arr.length; i++) {
         dataArr[i].value = arr[i]
       }

@@ -1,6 +1,10 @@
 // app.js
 App({
   globalData: {
+    showQuesCom: {
+      id: -1,
+      number: -1
+    },
     userInfo: null,
     publishActivityData: {
       accountId: wx.getStorageSync('id').toString(),

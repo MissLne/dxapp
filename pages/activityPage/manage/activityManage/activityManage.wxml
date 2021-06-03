@@ -7,7 +7,7 @@
   <swiper-item>
     <scroll-view scroll-y="true" style="height:{{swiperHeight}}rpx">
       <Background materialObject="{{manageActivity}}" wx:if="{{showComponent}}" />
-      <BaseMaterial materialObject="{{manageActivity}}" wx:if="{{showComponent}}"/>
+      <BaseMaterial materialObject="{{manageActivity}}" activityId="{{activityId}}" wx:if="{{showComponent}}"/>
       <ManageBtn bindclickHandle="doClick"/>
     </scroll-view>
   </swiper-item>

@@ -85,11 +85,47 @@ Page({
 
 
   onLoad: function (options) {
+    console.log(options)
     this.getTopHeight()
     this.getMessage()
+    
+  },
+  onShow: function() {
+    if(app.globalData.showQuesCom.number == 1) {
+      request.showQuesMessge({
+        mId: wx.getStorageSync('id')
+      })
+        .then(res => {
+          let emptyReply = []
+          let reply = []
+          
+          res.data.map(item => {
+            item.reply == null && item.aid == app.globalData.showQuesCom.id? emptyReply.push(item) : reply.push(item)
+          })
+          this.setData({
+            questionMessage: emptyReply
+          })
+        })
+    } else if(app.globalData.showQuesCom.number == 2) {
+      this.setData({
+        swiperIndex: 1
+      })
+      request.actIdGetComment({
+        activityId: app.globalData.showQuesCom.id,
+        mId: wx.getStorageSync('id')
+      })
+        .then(res => {
+          this.setData({
+            commentMessage: res.data
+          })
+        })
+    }
+  },
+  onHide: function() {
+    app.globalData.showQuesCom.number = 1
+    app.globalData.showQuesCom.id = -1
   },
   showQuesByStatus(e) {
-    console.log(e)
     this.setData({
       chooseOrNot: false
     })
@@ -157,7 +193,6 @@ Page({
     return height
   },
   getActivityId(e) {
-    console.log(e.currentTarget.dataset.item)
     if (e.currentTarget.dataset.item) {
       console.log(e)
       request.actIdGetComment({
@@ -165,7 +200,6 @@ Page({
         mId: wx.getStorageSync('id')
       })
         .then(res => {
-          console.log(res)
           this.setData({
             commentMessage: res.data
           })
