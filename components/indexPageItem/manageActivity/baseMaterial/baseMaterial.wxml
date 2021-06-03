@@ -15,8 +15,8 @@
   <view class="progresses" style="{{isShow? '' : 'height: 0rpx;'}}">
     <view class="onePro" wx:for="{{progresses}}" wx:key="index">
       <view>{{item.ticketName}}</view>
-      <progress percent="{{(item.yishou / item.quanbu) * 100}}" stroke-width="7.5" class="progress" border-radius="3.75" backgroundColor="#fff" activeColor="{{item.color}}">
-        <view style="color: {{item.color}};" class="{{(item.yishou / item.quanbu) * 100 > 80? 'fffcolor' : ''}}">{{item.yishou}}/{{item.quanbu}}</view>
+      <progress percent="{{(item.ticketRemainNumber / item.ticketNumber) * 100}}" stroke-width="7.5" class="progress" border-radius="3.75" backgroundColor="#fff" activeColor="{{item.color}}">
+        <view style="color: {{item.color}};" class="{{((item.ticketNumber - item.ticketRemainNumber) / item.ticketNumber) * 100 > 80? 'fffcolor' : ''}}">{{item.ticketNumber - item.ticketRemainNumber}}/{{item.ticketNumber}}</view>
         <view></view>
       </progress>
       <view class="{{item.status == '已结束'? 'isEnd' : 'notEnd'}}">{{item.status}}</view>

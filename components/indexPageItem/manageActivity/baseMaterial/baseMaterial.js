@@ -38,35 +38,17 @@ Component({
       }
     ],
     progresses: [
-      {
-        ticketName: '早鸟票',
-        yishou: 5,
-        quanbu: 20,
-        status: '售票中'
-      },
-      {
-        ticketName: '懒鸟票',
-        yishou: 7,
-        quanbu: 20,
-        status: '已结束'
-      },
-      {
-        ticketName: '票',
-        yishou: 17,
-        quanbu: 20,
-        status: '售票中'
-      }
     ],
     color: ['#7295C7','#D0BEDA','#BEA4CB','#EF8374','#E586A5'],
     isShow: 0
   },
   attached: function() {
-    this.data.progresses.map((item,index) => {
-      item.color = this.data.color[index]
-    })
-    this.setData({
-      progresses: this.data.progresses
-    })
+    // this.data.progresses.map((item,index) => {
+    //   item.color = this.data.color[index]
+    // })
+    // this.setData({
+    //   progresses: this.data.progresses
+    // })
   },
   /**
    * 组件的方法列表
@@ -96,13 +78,19 @@ Component({
     getSetUpMessage() {
       let dataArr = this.data.setUpArray
       let data = this.properties.materialObject
-      let arr = [data.registryNumber, data.totalPrice]
+      data.totalPrice == null ? data.totalPrice = 0 .toFixed(2) : data.totalPrice
+      let arr = [data.registryNumber, data.totalPrice.toFixed(2)]
       for (let i = 0; i < arr.length; i++) {
         dataArr[i].value = arr[i]
       }
-      this.setData({
-        setUpArray: dataArr
+      data.tickets.map((item,index) => {
+        item.color = this.data.color[index]
       })
+      this.setData({
+        setUpArray: dataArr,
+        progresses: data.tickets
+      })
+      console.log(this.data.setUpArray)
     }
   }
 })

@@ -10,7 +10,7 @@
         </view>
       </view>
       <view>
-        <view class="messageItemTime">{{item.createTime}}</view>
+        <view class="messageItemTime" style="width: 236rpx">{{item.createTime}}</view>
         <view class="messageType" wx:if="{{item.reply == null}}" bind:tap="showInput" data-num="{{item.id}}" data-name="{{messageType}}">
           {{messageType}}
         </view>

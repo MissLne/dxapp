@@ -37,7 +37,8 @@ Page({
         hideList: [],//未显示在页面的数据
         pageSize: 5, // 每页条数
         ifPages: true, //是否下滑的时候继续添加页面显示的数据
-        isLazy: 1
+        isLazy: 1,
+        isByStatus: 0
 
     },
     onLoad: function () {
@@ -56,6 +57,8 @@ Page({
 
     onShow: function () {
         this.loginOrNot()
+        this.getHeight()
+        if(!this.data.isByStatus) this.showActivity()
     },
     bianji() {
         this.data.popUpObj.show = 0
@@ -213,6 +216,7 @@ Page({
                 let data = JSON.parse(JSON.stringify(res.data))
                 data = this.switchData(data, res.data)
                 this.setData({
+                    isByStatus: 1,
                     activityArray: data,
                     isLazy: 0
                 })

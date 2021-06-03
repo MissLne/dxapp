@@ -305,8 +305,7 @@ Page({
             res.data.status = '已结束'
             break
           case 1:
-            res.data.status = '上架中',
-              ticket++
+            res.data.status = '上架中'
             break
           case -1:
             res.data.status = '已下架'
@@ -317,12 +316,12 @@ Page({
           default:
             break
         }
-        this.setData({
+        _this.setData({
           manageActivity: res.data,
           showComponent: 1
         })
-        console.log(this.data.manageActivity)
       })
+      console.log(this.data.manageActivity)
     request.showMemberMessage(obj)
       .then(res => {
         console.log(res)
@@ -339,7 +338,7 @@ Page({
               break;
           }
         })
-        this.setData({
+        _this.setData({
           memberMessage: res.data
         })
       })

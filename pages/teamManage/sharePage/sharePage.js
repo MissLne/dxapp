@@ -22,6 +22,7 @@ Page({
   onLoad: function (options) {
     this.setData({
       mid: options.id
+      // mid: 34
     })
     this.showMessage()
   },
@@ -71,18 +72,18 @@ Page({
                     "headPitcher": wxUserInfo.avatarUrl,
                     "jsCode": result.code,
                     "role": 1,
-                    "mid": that.data.id
+                    "mid": that.data.mid
                   }
                   console.log(obj)
                   request.addTeamMembers(obj)
                     .then(() => {
                       request.identify({
                         "jsCode": result.code,
-                        "id": that.data.id
+                        "id": that.data.mid
                       })
                     })
                     .then(() => {
-                      wx.setStorageSync('id', that.data.id)
+                      wx.setStorageSync('id', that.data.mid)
                       wx.switchTab({
                         url: '/pages/index/index'
                       })
