@@ -1,8 +1,13 @@
 /* components/tools/headNavigation/headNavigation.wxss */
 .topBarTotalHeight {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
+  width: 100vw;
   align-items: flex-end;
   background: #fff;
+  z-index: 10000000000;
 }
 .topBarTextHeight {
   padding: 0 30rpx;

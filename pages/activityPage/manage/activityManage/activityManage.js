@@ -44,7 +44,8 @@ Page({
     isEmpty: 0,
     isScrollLoad: 0,
     erweimaShow: 0,
-    erweimaUrl: ''
+    erweimaUrl: '',
+    stopOrCancel: -1
   },
 
   /**
@@ -75,16 +76,24 @@ Page({
     })
   },
   doClick(e) {
-    let { popUpObj } = this.data
+    let { popUpObj,stopOrCancel } = this.data
     let _this = this
     if (e.detail.index == 4) {
       this.lala()
     } else if (e.detail.index == 0) {
       popUpObj.show = 1
-      this.suredelete(e.detail.index)
+      stopOrCancel = 2
+      this.setData({
+        popUpObj,
+        stopOrCancel
+      })
     } else if (e.detail.index == 5) {
       popUpObj.show = 1
-      this.suredelete(e.detail.index)
+      stopOrCancel = 1
+      this.setData({
+        popUpObj,
+        stopOrCancel
+      })
     } else if (e.detail.index == 2) {
       wx.showModal({
         title: '温馨提示',
@@ -135,36 +144,36 @@ Page({
     } else {
       return
     }
-    this.setData({
-      popUpObj
-    })
+    
   },
-  suredelete(index) {
-    if (index == 0) {
-      request.cancelActivity({
-        activityId: this.data.activityId,
-        mId: wx.getStorageSync('id')
-      })
-        .then(() => {
-          wx.showToast({
-            title: '操作成功',
-            icon: 'success',
-            duration: 1500,
-            mask: false
-          })
-        })
-    } else {
-      request.stopActivity({
-        activityId: this.data.activityId
-      })
-        .then(() => {
-          wx.showToast({
-            title: '操作成功',
-            icon: 'success',
-            duration: 1500,
-            mask: false
-          })
-        })
+  suredelete() {
+    if (this.data.stopOrCancel == 2) {
+      console.log(2)
+      // request.cancelActivity({
+      //   activityId: this.data.activityId,
+      //   mId: wx.getStorageSync('id')
+      // })
+      //   .then(() => {
+      //     wx.showToast({
+      //       title: '操作成功',
+      //       icon: 'success',
+      //       duration: 1500,
+      //       mask: false
+      //     })
+      //   })
+    } else if(this.data.stopOrCancel = 1) {
+      console.log(1)
+      // request.stopActivity({
+      //   activityId: this.data.activityId
+      // })
+      //   .then(() => {
+      //     wx.showToast({
+      //       title: '操作成功',
+      //       icon: 'success',
+      //       duration: 1500,
+      //       mask: false
+      //     })
+      //   })
     }
   },
   async getNextMonth() {

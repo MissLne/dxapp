@@ -178,8 +178,8 @@ Page({
                     item.status = '已结束'
                     break
                 case 1:
-                    item.status = '上架中',
-                        ticket++
+                    item.status = '上架中'
+                    ticket++
                     break
                 case -1:
                     item.status = '已下架'
@@ -215,6 +215,7 @@ Page({
             .then(res => {
                 let data = JSON.parse(JSON.stringify(res.data))
                 data = this.switchData(data, res.data)
+                console.log(data,'---------0------')
                 this.setData({
                     isByStatus: 1,
                     activityArray: data,

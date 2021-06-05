@@ -1,4 +1,5 @@
 // components/indexPageItem/setUpPage/setUpItem/setUpItem.js
+// const o = require('')
 const app = getApp()
 Component({
   /**
@@ -82,7 +83,7 @@ Component({
       this.triggerEvent('setup', { arr: this.properties.setUpItem })
     },
     deleteInput(e) {
-      console.log(e)
+      let _this = this
       this.properties.setUpItem[e.currentTarget.dataset.boxindex].content.splice(e.currentTarget.dataset.inputindex, 1)
       // console.log(this.data.checkBox)
       // this.properties.setUpItem[e.currentTarget.dataset.boxindex].content = this.data.checkBox

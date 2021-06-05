@@ -15,7 +15,7 @@
       </view>
     </view>
     <view class="upload-img">
-      <image src="{{footerBtnObject.addActivity.posterImage}}" bindtap="chooseImg" />
+      <image src="{{footerBtnObject.addActivity.posterImage? footerBtnObject.addActivity.posterImage : '../../../../images/activity/poster.png'}}" bindtap="chooseImg" />
       <text>上传封面</text>
     </view>
     <view class="edit-content">

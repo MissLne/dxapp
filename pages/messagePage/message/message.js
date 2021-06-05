@@ -76,7 +76,8 @@ Page({
     hideList1: [],
     pageSize1: 5,
     ifPages1: true,
-    chooseOrNot: true
+    chooseOrNot: true,
+    answerOrNot: -1
   },
 
   /**
@@ -88,25 +89,25 @@ Page({
     console.log(options)
     this.getTopHeight()
     this.getMessage()
-    
+
   },
-  onShow: function() {
-    if(app.globalData.showQuesCom.number == 1) {
+  onShow: function () {
+    if (app.globalData.showQuesCom.number == 1) {
       request.showQuesMessge({
         mId: wx.getStorageSync('id')
       })
         .then(res => {
           let emptyReply = []
           let reply = []
-          
+
           res.data.map(item => {
-            item.reply == null && item.aid == app.globalData.showQuesCom.id? emptyReply.push(item) : reply.push(item)
+            item.reply == null && item.aid == app.globalData.showQuesCom.id ? emptyReply.push(item) : reply.push(item)
           })
           this.setData({
             questionMessage: emptyReply
           })
         })
-    } else if(app.globalData.showQuesCom.number == 2) {
+    } else if (app.globalData.showQuesCom.number == 2) {
       this.setData({
         swiperIndex: 1
       })
@@ -121,7 +122,7 @@ Page({
         })
     }
   },
-  onHide: function() {
+  onHide: function () {
     app.globalData.showQuesCom.number = 1
     app.globalData.showQuesCom.id = -1
   },
@@ -141,17 +142,20 @@ Page({
         switch (e.detail.name) {
           case '全部':
             this.setData({
-              questionMessage: res.data
+              questionMessage: res.data,
+              answerOrNot: 0
             })
             break
           case '已回答':
             this.setData({
-              questionMessage: reply
+              questionMessage: reply,
+              answerOrNot: 1
             })
             break
           case '未回答':
             this.setData({
-              questionMessage: emptyReply
+              questionMessage: emptyReply,
+              answerOrNot: 2
             })
             break
           default:
@@ -193,6 +197,8 @@ Page({
     return height
   },
   getActivityId(e) {
+    let { answerOrNot } = this.data
+    let _this = this
     if (e.currentTarget.dataset.item) {
       console.log(e)
       request.actIdGetComment({
@@ -210,10 +216,24 @@ Page({
         mId: wx.getStorageSync('id')
       })
         .then(res => {
-          console.log(res)
-          this.setData({
-            questionMessage: res.data
+          let emptyReply = []
+          let reply = []
+          res.data.map(item => {
+            item.reply == null ? emptyReply.push(item) : reply.push(item)
           })
+          if(answerOrNot == 1) {
+            _this.setData({
+              questionMessage: reply
+            })
+          } else if(answerOrNot == 2) {
+            _this.setData({
+              questionMessage: emptyReply
+            })
+          } else {
+            _this.setData({
+              questionMessage: res.data
+            })
+          }
         })
     }
   },

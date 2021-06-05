@@ -125,20 +125,18 @@
   align-items: center;
 }
 
-.diySelectChoices>view:nth-child(2) {
+.diySelectChoices>image {
   width: 29rpx;
   height: 29rpx;
-  background: #777BCE;
-  border-radius: 50%;
-  color: #fff;
-  vertical-align: middle;
-  text-align: center;
-}
+  }
 .addInputBtn {
   margin-top: 20rpx;
   font-size: 22rpx;
   color: #777BCE;
   margin-left: 20rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 .footerBtn {
   width: 535rpx;
@@ -177,4 +175,8 @@
   align-items: center;
   border: 1rpx solid #777BCE;
   border-radius: 12rpx;
+}
+.addChoiceBtn {
+  width: 30rpx;
+  height: 30rpx;
 }

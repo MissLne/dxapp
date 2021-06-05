@@ -21,7 +21,6 @@
       </view>
        <NullPic nullPicUrl="../../images/message/comment.png" wx:if="{{commentMessage.length == 0}}" />
       <scroll-view scroll-y="true" style="height: {{windowHeight2}}rpx">
-        <!-- <view class="selectContainer"></view> -->
 
         <MessageItem messageItemArray="{{commentMessage}}" messageType="回复" bindreply="reply" />
       </scroll-view>

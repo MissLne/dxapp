@@ -1,5 +1,6 @@
 // pages/activityPage/manage/activityUpdate/activityUpdate.js
 const request = require('../../../../request/api')
+const navigate = require('../../../../navigator/index')
 Page({
 
   /**
@@ -56,6 +57,26 @@ Page({
       request.updateActivity(ticketDetail)
         .then(res => {
           console.log(res)
+          wx.showToast({
+            title: '更新成功',
+            icon: 'success',
+            duration: 1500,
+            success: () => {
+              setTimeout(() => {
+                let query = {
+                  activityId: ticketDetail.aid
+                }
+                query.activityId = JSON.stringify(query.activityId)
+                navigate.navigateTo({
+                  url: "../activityManage/activityManage",
+                  query
+                })
+              }, 500);
+              
+                
+            }
+          })
+            
         })
     }
 
