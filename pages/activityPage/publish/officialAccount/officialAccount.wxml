@@ -20,4 +20,3 @@
   </view>
 </view>
 <Buttons btnContent="保存" parent-buttons-class="parent-buttons-class" bind:tap="save"/>
-<Bubble bubbleContent="你已填写了公众号链接，不需要编辑图文" showBubble="{{showBubble}}" wx:if="{{showBubble}}"/>

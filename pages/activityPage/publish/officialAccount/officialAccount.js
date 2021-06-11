@@ -10,7 +10,6 @@ Page({
       title: '活动详情',
       isOne: 0
     },
-    showBubble: 0,
     inputValue: ''
   },
 
@@ -20,24 +19,14 @@ Page({
   onLoad: function (options) {
   },
   save() {
+    app.globalData.publishActivityData.linkGzh = this.data.inputValue
     if(this.data.inputValue != '' || app.globalData.publishActivityData.activityDetails != '') {
       wx.navigateBack({ delta: 1 })
     }
   },
   toEditorPage() {
-    if (this.data.inputValue === '') {
       wx.navigateTo({
         url: '/pages/editor/editor'
       })
-    } else {
-      this.setData({
-        showBubble: 1
-      })
-      setTimeout(() => {
-        this.setData({
-          showBubble: 0
-        })
-      }, 3000)
-    }
   }
 })

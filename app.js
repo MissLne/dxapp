@@ -30,7 +30,8 @@ App({
           ticketRefundType: 0
         }
       ],
-      webFormList: []
+      webFormList: [],
+      linkGzh: ''
     },
     setUpCustomizeData: []
   },

@@ -77,7 +77,9 @@ Page({
     pageSize1: 5,
     ifPages1: true,
     chooseOrNot: true,
-    answerOrNot: -1
+    answerOrNot: -1,
+    selectComId: -1,
+    selectQueId: -1
   },
 
   /**
@@ -131,19 +133,31 @@ Page({
     this.setData({
       chooseOrNot: false
     })
+    let _this = this
     request.showQuesMessge({
       mId: wx.getStorageSync('id')
     })
       .then(res => {
         let emptyReply = []
         let reply = []
-        res.data.map(item => {
+        let temp = []
+
+        console.log(res.data,_this.data.selectComId)
+        if(this.data.selectComId != -1) {
+          res.data.map(item => {
+            item.aid == _this.data.selectComId ? temp.push(item) : temp
+          })
+        } else {
+          temp = res.data
+        }
+        console.log(temp)
+        temp.map(item => {
           item.reply == null ? emptyReply.push(item) : reply.push(item)
         })
         switch (e.detail.name) {
           case '全部':
             this.setData({
-              questionMessage: res.data,
+              questionMessage: temp,
               answerOrNot: 0
             })
             break
@@ -161,7 +175,7 @@ Page({
             break
           default:
             this.setData({
-              questionMessage: res.data
+              questionMessage: temp
             })
             break
         }
@@ -198,10 +212,12 @@ Page({
     return height
   },
   getActivityId(e) {
+
     let { answerOrNot } = this.data
     let _this = this
     if (e.currentTarget.dataset.item) {
       console.log(e)
+      
       request.actIdGetComment({
         activityId: e.detail.id,
         mId: wx.getStorageSync('id')
@@ -212,6 +228,9 @@ Page({
           })
         })
     } else {
+      _this.setData({
+        selectComId: e.detail.id
+      })
       request.actIdGetConsult({
         activityId: e.detail.id,
         mId: wx.getStorageSync('id')
