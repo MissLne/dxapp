@@ -47,7 +47,19 @@
   display: flex;
   align-items: flex-end;
 }
+.messRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 .messageType {
+  margin-bottom: 5rpx;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.messageType view{
   width: 90rpx;
   height: 40rpx;
   border-radius: 20rpx;
@@ -58,8 +70,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* vertical-align: middle;
-  text-align: center; */
 }
 .messageItemTime {
   font-size: 24rpx;
@@ -77,6 +87,8 @@
   white-space: nowrap;
 }
 .messageItemAcitivity {
+  font-size: 20rpx;
+  width: 230rpx;
   margin-top: 10rpx;
   color: #999;
 }

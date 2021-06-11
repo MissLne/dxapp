@@ -38,7 +38,8 @@ Page({
         pageSize: 5, // 每页条数
         ifPages: true, //是否下滑的时候继续添加页面显示的数据
         isLazy: 1,
-        isByStatus: 0
+        isByStatus: 0,
+        firstLoad: 1
 
     },
     onLoad: function () {
@@ -58,7 +59,12 @@ Page({
     onShow: function () {
         this.loginOrNot()
         this.getHeight()
-        if(!this.data.isByStatus) this.showActivity()
+        if(!this.data.isByStatus || this.data.firstLoad) {
+            this.showActivity()
+            this.setData({
+                firstLoad: 0
+            })
+        }
     },
     bianji() {
         this.data.popUpObj.show = 0
@@ -76,7 +82,8 @@ Page({
         })
     },
     lalal() {
-        if (this.data.isLazy) {
+        console.log(1)
+        // if (this.data.isLazy) {
             let { showList, hideList, pageSize, ifPages, activityArray } = this.data
             if (ifPages) {
                 let newList = [];
@@ -94,7 +101,7 @@ Page({
                     hideList
                 })
             }
-        }
+        // }
     },
     getHeight() {
         let query = wx.createSelectorQuery().in(this)
@@ -197,7 +204,9 @@ Page({
         return data1
     },
     showActivityByStatus(e) {
-        console.log(e)
+        this.setData({
+            ifPages: true
+        })
         let obj = {
             mId: wx.getStorageSync('id'),
             status: e.detail.type
@@ -215,11 +224,23 @@ Page({
             .then(res => {
                 let data = JSON.parse(JSON.stringify(res.data))
                 data = this.switchData(data, res.data)
-                console.log(data,'---------0------')
+                data.sort((a, b) => b.startTime.localeCompare(a.startTime))
+                let hideList = data
+                let { pageSize } = this.data;
+                if (hideList.length > pageSize) {
+                    this.setData({
+                        showList: hideList.splice(0, pageSize)
+                    })
+                } else {
+                    this.setData({
+                        showList: hideList,
+                        ifPages: false
+                    })
+                }
                 this.setData({
-                    isByStatus: 1,
-                    activityArray: data,
-                    isLazy: 0
+                    activityArray: this.data.showList,
+                    hideList: hideList,
+                    isByStatus: 1
                 })
             })
     },
@@ -229,7 +250,6 @@ Page({
         }
         request.showActMessage(obj)
             .then(res => {
-                console.log(res.data)
                 let data = JSON.parse(JSON.stringify(res.data))
                 data = this.switchData(data, res.data)
                 data.sort((a, b) => b.startTime.localeCompare(a.startTime))

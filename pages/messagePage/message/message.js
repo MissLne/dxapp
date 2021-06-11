@@ -85,8 +85,7 @@ Page({
    */
 
 
-  onLoad: function (options) {
-    console.log(options)
+  onLoad: function () {
     this.getTopHeight()
     this.getMessage()
 
@@ -120,10 +119,12 @@ Page({
             commentMessage: res.data
           })
         })
+    } else {
+      this.getMessage()
     }
   },
   onHide: function () {
-    app.globalData.showQuesCom.number = 1
+    app.globalData.showQuesCom.number = -1
     app.globalData.showQuesCom.id = -1
   },
   showQuesByStatus(e) {
@@ -362,6 +363,7 @@ Page({
     })
   },
   getMessage() {
+    console.log('加载消息页面s')
     let obj = {
       mId: wx.getStorageSync('id')
     }

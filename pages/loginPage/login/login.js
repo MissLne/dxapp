@@ -8,6 +8,7 @@ Page({
         password: '123456'
     },
     handleLogin() {
+        console.log('点击登录')
         wx.login({
             success: res => {
                 let obj = {
@@ -17,6 +18,7 @@ Page({
                 }
                 request.userLogin(obj)
                     .then(res => {
+                        console.log('登录成功')
                         let data = res.data
                         wx.setStorageSync('token', data.token)
                         wx.setStorageSync('id', data.mid)

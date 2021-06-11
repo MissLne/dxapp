@@ -1,29 +1,34 @@
 /* components/userPageItem/userMoneyPage/billItem/billItem.wxss */
 .bill-box {
   width: 750rpx;
-  padding: 45rpx 50rpx 20rpx 50rpx;
+  padding: 25rpx 50rpx 20rpx 50rpx;
   border-bottom: 1rpx solid #f5f5f5;
   box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
 }
 .bill-top {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 .bill-top-left {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.bill-top-left view:nth-child(1) {
+.bill-top-left > view:nth-child(1) {
   width: 80rpx;
   font-size: 28rpx;
   color: #777BCE;
 }
-.bill-top-left view:nth-child(2) {
+/* .bill-top-left > view:nth-child(2) view:nth-child(1) {
   color: #333;
   font-size: 24rpx;
 }
+.bill-top-left > view:nth-child(2) view:nth-last-of-type(1) {
+  font-size: 14rpx;
+} */
 .bill-top-right {
   font-size: 30rpx;
 }
@@ -53,4 +58,13 @@
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
+}
+.right-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.right-top > view:nth-of-type(1) {
+  color: #333;
+font-size: 24rpx;
 }
