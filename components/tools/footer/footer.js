@@ -39,10 +39,25 @@ Component({
       wx.navigateBack({ delta: 1 })
     },
     requestData() {
+      let _this = this
       app.globalData.publishActivityData.status = 1
       request.publishActivities(app.globalData.publishActivityData)
         .then(res => {
           console.log(res)
+          if(res.msg == 'success') {
+            wx.navigateTo({
+              url: _this.properties.contentObject.rightUrl
+            })
+          } else {
+            wx.navigateTo({
+              url: '/pages/activityPage/publish/pubFail/pubFail'
+            })
+          }
+        })
+        .catch( () => {
+          wx.navigateTo({
+            url: '/pages/activityPage/publish/pubFail/pubFail'
+          })
         })
     },
     goNext() {
@@ -82,9 +97,7 @@ Component({
       if (count >= this.properties.contentObject.number || (this.properties.contentObject.rightBtn == '发布' && arr.length == 0)) {
         if (this.properties.contentObject.rightBtn == '发布' && arr.length == 0) {
           this.requestData()
-          wx.navigateTo({
-            url: this.properties.contentObject.rightUrl
-          })
+          
         } else {
           console.log(2)
           let nularr = []
@@ -103,9 +116,7 @@ Component({
             if (this.properties.contentObject.rightBtn == '发布') {
               console.log(1)
               this.requestData()
-              wx.navigateTo({
-                url: this.properties.contentObject.rightUrl
-              })
+              
             } else {
               wx.navigateTo({
                 url: this.properties.contentObject.rightUrl

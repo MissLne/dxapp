@@ -1,6 +1,5 @@
 // components/tools/pop-up/pop-up.js
 const app = getApp()
-
 Component({
   /**
    * 组件的属性列表

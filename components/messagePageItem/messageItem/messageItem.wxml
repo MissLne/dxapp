@@ -16,9 +16,10 @@
             {{messageType}}
           </view>
         </view>
-        <view class="messageItemAcitivity">活动：{{item.activityName}}</view>
+        
       </view>
     </view>
+    <view class="messageItemAcitivity">活动：{{item.activityName}}</view>
     <view class="messageItemAnswer" wx:if="{{item.reply != null}}">
       <image class="" src="{{messageType == '回答'? '../../../images/message/answer.png' : '../../../images/message/comm.png'}}" />
       {{item.reply}}

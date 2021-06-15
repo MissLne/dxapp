@@ -8,3 +8,4 @@
   </view>
 </view>
 <Buttons btnContent="充值" parent-buttons-class="parent-buttons-class" bindtap="invest" />
+<Bubble bubbleContent="充值功能尚未开放" showBubble="{{showBubble}}" wx:if="{{showBubble}}"/>

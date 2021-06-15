@@ -8,15 +8,15 @@ App({
     userInfo: null,
     publishActivityData: {
       accountId: wx.getStorageSync('id').toString(),
-      activityName: 'ouo',
-      startTime: '2021-05-09 08:00:00',
-      endTime: '2021-09-05 08:00:00',
+      activityName: '随便',
+      startTime: '2021-07-09 08:00:00',
+      endTime: '2021-12-05 08:00:00',
       registrationDeadline: '2021-05-09 08:00:00',
       label: ['q'],
       lightSpot: 'q',
       address: 'q',
       posterImage: 'http://www.xinhuanet.com/photo/titlepic/112740/1127402419_1619875420580_title0h.jpg',
-      activityDetails: '',
+      activityDetails: '请输入内容...',
       announcement: 'q',
       linkmanCode: 'http://www.xinhuanet.com/photo/titlepic/112740/1127402419_1619875420580_title0h.jpg',
       groupCode: 'http://www.xinhuanet.com/photo/titlepic/112740/1127402419_1619875420580_title0h.jpg',
@@ -31,7 +31,8 @@ App({
         }
       ],
       webFormList: [],
-      linkGzh: ''
+      linkGzh: 'default',
+      videoUrl: 'default'
     },
     setUpCustomizeData: []
   },

@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showBubble: 0,
     topBar: {
       title: '充值',
       isOne: 0
@@ -32,38 +33,46 @@ Page({
     })
   },
   invest() {
-    let { investCount } = this.data
-    let data = investCount * 100 + ""
-    let obj = {
-      "mId": wx.getStorageSync('id'),
-      "amount": data
-    }
-    request.invest(obj)
-      .then(res => {
-        wx.requestPayment({
-          timeStamp: res.data.timeStamp,
-          nonceStr: res.data.nonce_str,
-          package: res.data.package,
-          signType: res.data.signType,
-          paySign: res.data.paySign,
-          success: () => {
-            let query = {
-              amount: obj.amount
-            }
-            query.amount = JSON.stringify(query.amount)
-            navigate.navigateTo({
-              url: "./investSuccess/investSuccess",
-              query
-            })
-          },
-          fail: (res) => {
-            console.log(res)
-          },
-          complete: (res) => {
-            console.log(res)
-          }
-        })
-
+    this.setData({
+      showBubble: 1
+    })
+    setTimeout(() => {
+      this.setData({
+        showBubble: 0
       })
+    }, 3000)
+    // let { investCount } = this.data
+    // let data = investCount * 100 + ""
+    // let obj = {
+    //   "mId": wx.getStorageSync('id'),
+    //   "amount": data
+    // }
+    // request.invest(obj)
+    //   .then(res => {
+    //     wx.requestPayment({
+    //       timeStamp: res.data.timeStamp,
+    //       nonceStr: res.data.nonce_str,
+    //       package: res.data.package,
+    //       signType: res.data.signType,
+    //       paySign: res.data.paySign,
+    //       success: () => {
+    //         let query = {
+    //           amount: obj.amount
+    //         }
+    //         query.amount = JSON.stringify(query.amount)
+    //         navigate.navigateTo({
+    //           url: "./investSuccess/investSuccess",
+    //           query
+    //         })
+    //       },
+    //       fail: (res) => {
+    //         console.log(res)
+    //       },
+    //       complete: (res) => {
+    //         console.log(res)
+    //       }
+    //     })
+
+    //   })
   }
 })

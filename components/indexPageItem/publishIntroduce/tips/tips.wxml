@@ -1,9 +1,8 @@
 <!-- components/indexPageItem/publishIntroduce/tips/tips.wxml -->
 <view>
-  <view class="publishTitle">
+  <view class="publishTitle" >
     <view>
       活动提示
-      <text style="font-size: 24rpx;color: #666;">(选填)</text>
     </view>
     <text class="titleText">该部分内容将在用户报名后展示，发布后可更改</text>
   </view>

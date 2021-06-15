@@ -1,7 +1,7 @@
 /* components/indexPageItem/publishIntroduce/tips/tips.wxss */
 .publishTitle {
   width: 690rpx;
-  margin: 0 auto;
+  margin: 40rpx auto 0 auto;
   box-sizing: border-box;
   padding: 0 30rpx;
   display: flex;

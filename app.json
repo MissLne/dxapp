@@ -6,6 +6,7 @@
     "pages/activityPage/publish/ticket/ticket",
     "pages/activityPage/publish/setUp/setUp",
     "pages/activityPage/publish/pubSuccess/pubSuccess",
+    "pages/activityPage/publish/pubFail/pubFail",
     "pages/editor/editor",
     "pages/theWebview/theWebview",
     "pages/activityPage/publish/officialAccount/officialAccount",

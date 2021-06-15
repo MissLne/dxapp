@@ -212,6 +212,12 @@
         {
           "name": "发布成功",
           "pathName": "pages/activityPage/publish/pubSuccess/pubSuccess",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "发布失败",
+          "pathName": "pages/activityPage/publish/pubFail/pubFail",
           "scene": null
         }
       ]

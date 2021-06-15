@@ -129,5 +129,31 @@ Page({
         })
       }
     })
+  },
+  chooseFile() {
+    wx.chooseImage({
+      count: 1,
+      success: (result) => {
+        wx.showToast({
+          title: '正在上传...',
+          icon: 'loading',
+          duration: 1500,
+          mask: true
+        })
+        wx.uploadFile({
+          url: 'http://47.119.112.252:8089/party/web_public/upload_picture',
+          filePath: result.tempFilePaths[0],
+          name: 'file',
+          header: {
+            token: wx.getStorageSync('token')
+          },
+          success: (result) => {
+            let imgObj = JSON.parse(result.data)
+            console.log(imgObj)
+            app.globalData.publishActivityData.videoUrl = imgObj.data
+          }
+        })
+      }
+    })
   }
 })

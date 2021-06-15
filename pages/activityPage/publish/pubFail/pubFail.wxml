@@ -1,0 +1,4 @@
+<!--pages/activityPage/publish/pubFail/pubFail.wxml-->
+<ComNav topBar="{{topBar}}" />
+<view class="fail">发布失败</view>
+<view class="backTo" bind:tap="backTo">返回上页</view>

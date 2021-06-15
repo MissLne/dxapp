@@ -1,0 +1,25 @@
+/* pages/activityPage/publish/pubFail/pubFail.wxss */
+.fail {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #333;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+}
+.backTo {
+  width: 180rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background: #777BCE;
+  font-size: 34rpx;
+  color: #fff;
+  line-height: 80rpx;
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}

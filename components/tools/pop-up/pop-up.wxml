@@ -1,7 +1,7 @@
 <!-- components/tools/pop-up/pop-up.wxml -->
 <view class="popUpBox {{popUpObj.show? 'showPopUp' : ''}}">
   <view class="popUpClose">
-    <view bind:tap="close">×</view>
+  <image src="../../../images/activity/chahao.png" bind:tap="close"/>
   </view>
   <view class="popUpContent">{{popUpObj.content}}</view>
   <view class="popUpBtn parent-pop-up">

@@ -5,7 +5,7 @@
       <view wx:if="{{index == lala && owo == index}}" class="theBorder" style="height:{{qaq}}rpx;"></view>
     </block>
   </block>
-  <view class="diySelectDelete" bind:tap="deleteBox" data-num="{{index}}">×</view>
+  <image src="../../../../images/activity/chahao.png" class="diySelectDelete" bind:tap="deleteBox" data-num="{{index}}"/>
   <view wx:if="{{item.pickType == 1}}" class="diySelectPicTitle">图片填写项</view>
   <view class="diySelectTitle" wx:if="{{item.pickType != 1}}">
     <view>标题</view>
@@ -35,8 +35,8 @@
   </view>
   <view class="footerBtn">
     <view>
-      <radioBtn radioContent="{{['多选']}}" widthCount="{{80}}" wx:if="{{item.pickType == 2}}" bindtype="checkChange" data-num="{{index}}" radio-parent-class="radio-parent-class" />
-      <radioBtn radioContent="{{['必填']}}" widthCount="{{80}}" bindtype="radioChange" data-num="{{index}}" radio-parent-class="radio-parent-class" />
+      <radioBtn radioContent="{{['多选']}}" widthCount="{{80}}" wx:if="{{item.pickType == 2}}" bindtype="checkChange" data-num="{{index}}" radio-parent-class="radio-parent-class" currentSelect="{{-1}}"/>
+      <radioBtn radioContent="{{['必填']}}" widthCount="{{80}}" bindtype="radioChange" data-num="{{index}}" radio-parent-class="radio-parent-class" currentSelect="{{0}}"/>
     </view>
   </view>
 </view>

@@ -21,31 +21,31 @@
     <view class="edit-content">
       <view>
         <text>活动名称</text>
-        <input type="text" placeholder="请输入活动名称" value="{{footerBtnObject.addActivity.activityName}}" bindinput="materialChange" data-name="activityName" placeholder-class="{{temObject.activityName? '' : 'active'}}"/>
+        <input type="text" placeholder="请输入活动名称" value="{{footerBtnObject.addActivity.activityName}}" bindinput="materialChange" data-name="activityName" placeholder-class="{{temObject.activityName? '' : 'active'}}" placeholder-style="color: #999;"/>
       </view>
       <view>
         <text>活动开始时间</text>
         <picker mode="date" value="{{footerBtnObject.addActivity.startTime}}" bindchange="materialChange" header-text="请选择" data-name="startTime">
           <view class="{{temObject.startTime? '' : 'active'}}">
-            {{footerBtnObject.addActivity.startTime? footerBtnObject.addActivity.startTime : '选择日期时间'}}
+            {{footerBtnObject.addActivity.startTime? footerBtnObject.addActivity.startTime : '必须晚于报名截止时间'}}
           </view>
         </picker>
       </view>
       <view>
         <text>活动地点</text>
-        <input type="text" placeholder="请完善地址" value="{{footerBtnObject.addActivity.address}}" bindinput="materialChange" data-name="address" placeholder-class="{{temObject.address? '' : 'active'}}"/>
+        <input type="text" placeholder="请完善地址" value="{{footerBtnObject.addActivity.address}}" bindinput="materialChange" data-name="address" placeholder-class="{{temObject.address? '' : 'active'}}" placeholder-style="color: #999;"/>
       </view>
       <view>
         <text>报名截止时间</text>
         <picker mode="date" value="{{footerBtnObject.addActivity.registrationDeadline}}" bindchange="materialChange" data-name="registrationDeadline">
           <view class="{{temObject.registrationDeadline? '' : 'active'}}">
-            {{footerBtnObject.addActivity.registrationDeadline? footerBtnObject.addActivity.registrationDeadline : '选择日期时间'}}
+            {{footerBtnObject.addActivity.registrationDeadline? footerBtnObject.addActivity.registrationDeadline : '必须早于活动开始时间'}}
           </view>
         </picker>
       </view>
       <view style="border:none;">
         <text>介绍视频(选填)</text>
-        <view class="uploadFile">上传文件</view>
+        <view class="uploadFile" bindtap="chooseFile">上传文件</view>
       </view>
     </view>
   </view>

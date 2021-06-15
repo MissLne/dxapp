@@ -211,6 +211,7 @@ Page({
             mId: wx.getStorageSync('id'),
             status: e.detail.type
         }
+        console.log(obj.status)
         // if (e.detail.type == 0) {
         //     this.setData({
         //         isLazy: 1

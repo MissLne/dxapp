@@ -6,24 +6,25 @@ Component({
   properties: {
     radioContent: Array,
     defultData: Number,
-    widthCount: Number
+    widthCount: Number,
+    currentSelect: Number
   },
   externalClasses: ['radio-parent-class'],
   /**
    * 组件的初始数据
    */
   data: {
-    currentSelect: 0
   },
 
   /**
    * 组件的方法列表
    */
   ready: function () {
-    this.defaultData()
+    // this.defaultData()
   },
   methods: {
     defaultData() {
+      console.log(this.properties.defaultData);
       this.setData({
         currentSelect: this.properties.defultData
       })
@@ -39,7 +40,8 @@ Component({
           currentSelect: e.currentTarget.dataset.num
         })
       }
-      this.triggerEvent('type',{type: this.data.currentSelect})
+      console.log(this.properties.currentSelect)
+      this.triggerEvent('type',{type: this.properties.currentSelect})
     }
   }
 })

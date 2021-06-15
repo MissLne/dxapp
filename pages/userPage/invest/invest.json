@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "Buttons": "/components/tools/buttons/buttons",
-    "ComNav": "/components/tools/comNav/comNav"
+    "ComNav": "/components/tools/comNav/comNav",
+    "Bubble": "/components/tools/bubble/bubble"
   },
   "navigationStyle": "custom"
 }

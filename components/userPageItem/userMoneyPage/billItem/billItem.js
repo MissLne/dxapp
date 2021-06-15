@@ -15,6 +15,9 @@ Component({
   /**
    * 组件的方法列表
    */
+  ready: function() {
+    console.log(this.properties.billDetail)
+  },
   methods: {
 
   }

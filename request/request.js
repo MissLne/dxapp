@@ -21,17 +21,15 @@ const http = (params) => {
                     } else if (params.url == "/order/result" && res.data.retCode == "800020") {
                         resolve(res.data)
                     } else {
-                        wx.showToast({
-                            icon: "none",
-                            title: res.data.retMsg
-                        })
+                        reject(res)
                     }
                 } else {
-                    var errMsg = res.data.message
+                    reject(res)
                 }
             },
             fail: function(e) {
                 reject(e)
+                // console.log(000)
             }
         })
     })

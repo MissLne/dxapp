@@ -9,7 +9,7 @@
       </view>
       <view class="setUpItemBox">
         <view>性别</view>
-        <radioBtn radioContent="{{['男','女']}}" widthCount="{{60}}" radio-parent-class="tworadio-parent-class" />
+        <radioBtn radioContent="{{['男','女']}}" widthCount="{{60}}" radio-parent-class="tworadio-parent-class" currentSelect="{{0}}"/>
       </view>
       <view class="setUpItemBox">
         <view>联系方式</view>
