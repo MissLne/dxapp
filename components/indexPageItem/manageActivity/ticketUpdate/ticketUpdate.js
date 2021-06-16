@@ -29,12 +29,12 @@ Component({
       this.triggerEvent('tick',{data: data})
     },
     ticketPrice(e) {
-      console.log(e)
-      let data = this.properties.ticketsMaterial
-      console.log(data)
-      data[e.currentTarget.dataset.num].ticketNumber = e.detail.value
+     
+      let data = JSON.stringify(this.properties.ticketsMaterial)
+      let data1 = JSON.parse(data)
+      data1[e.currentTarget.dataset.num].ticketNumber = e.detail.value
       this.setData({
-        ticketDetail: data
+        ticketDetail: data1
       })
       this.triggerEvent('tick',{data: this.data.ticketDetail})
     }
