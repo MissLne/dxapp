@@ -15,7 +15,8 @@
     <view class="richTextTitle">
       <view>图文详情</view>
     </view>
-    <view class="richTextContent" bindtap="toEditorPage"></view>
+    <view class="richTextContent" bindtap="toEditorPage">
+    </view>
   </view>
 </view>
 <Buttons btnContent="保存" parent-buttons-class="parent-buttons-class" bind:tap="save"/>

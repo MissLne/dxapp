@@ -66,6 +66,9 @@ page {
 .edit-content {
   color: #333;
 }
+.normalClass {
+  color: #999;
+}
 .edit-content input,
 .edit-content picker {
   width: 262rpx;

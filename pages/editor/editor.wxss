@@ -46,8 +46,12 @@
   border-left: none;
   border-right: none;
   background: #fff;
+  transition: .1s;
+  opacity: 0.1;
 }
-
+.isOpacity {
+  opacity: 1;
+}
 .parent-buttons-class {
   bottom: 10%;
   z-index: 1;

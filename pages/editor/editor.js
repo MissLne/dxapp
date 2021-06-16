@@ -11,7 +11,8 @@ Page({
     value: '080',
     editorHeight: 300,
     keyboardHeight: 0,
-    isIOS: false
+    isIOS: false,
+    isOpacity: 0
   },
   readOnlyChange() {
     this.setData({
@@ -135,5 +136,15 @@ Page({
         })
       }
     })
+  },
+  changeOpacity() {
+    this.setData({
+      isOpacity: 1
+    })
+    setTimeout(() => {
+      this.setData({
+        isOpacity: 0
+      })
+    },1000)
   }
 })

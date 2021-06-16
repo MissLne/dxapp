@@ -10,14 +10,14 @@ Page({
       title: '活动详情',
       isOne: 0
     },
-    inputValue: ''
+    inputValue: '',
+    richTextCon: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  },
+  
   save() {
     app.globalData.publishActivityData.linkGzh = this.data.inputValue
     if(this.data.inputValue != '' || app.globalData.publishActivityData.activityDetails != '') {

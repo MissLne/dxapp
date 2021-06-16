@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    BubbleText: '',
     footerBtnObject: {
       leftBtn: '保存草稿',
       rightUrl: '/pages/activityPage/publish/introdution/introdution',
@@ -45,7 +46,7 @@ Page({
     app.initWatch(this)
   },
   watch: {
-    'showBubble': function(newVal,oldVal) {
+    'showBubble': function (newVal, oldVal) {
       console.log(newVal)
     }
   },
@@ -69,11 +70,30 @@ Page({
     })
   },
   goNext(e) {
+    let startTime = JSON.stringify(app.globalData.publishActivityData.startTime)
+    let registrationDeadline = JSON.stringify(app.globalData.publishActivityData.registrationDeadline)
+    startTime = startTime.replace(/\"/g, "")
+    registrationDeadline = registrationDeadline.replace(/\"/g, "")
+    startTime = Date.parse(startTime)
+    registrationDeadline = Date.parse(registrationDeadline)
+    if(startTime < registrationDeadline) {
+      this.setData({
+        showBubble: 1,
+        BubbleText: "报名截止时间必须早于活动开始时间"
+      })
+      setTimeout(() => {
+        this.setData({
+          showBubble: 0
+        })
+      }, 3000)
+      return
+    }
     for (let key in this.data.temObject) {
       if (e.detail.nulObj.hasOwnProperty(key)) this.data.temObject[key] = 0
     }
     this.setData({
       showBubble: 1,
+      BubbleText: "请完善活动的所有信息",
       temObject: this.data.temObject
     })
     console.log(this.data.temObject)
@@ -155,5 +175,8 @@ Page({
         })
       }
     })
+  },
+  getDateData() {
+    console.log('...')
   }
 })

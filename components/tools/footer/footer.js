@@ -44,7 +44,7 @@ Component({
       request.publishActivities(app.globalData.publishActivityData)
         .then(res => {
           console.log(res)
-          if(res.msg == 'success') {
+          if (res.msg == 'success') {
             wx.navigateTo({
               url: _this.properties.contentObject.rightUrl
             })
@@ -54,17 +54,26 @@ Component({
             })
           }
         })
-        .catch( () => {
+        .catch(() => {
           wx.navigateTo({
             url: '/pages/activityPage/publish/pubFail/pubFail'
           })
         })
     },
     goNext() {
-      console.log(this.properties.contentObject,'---0---')
+      let startTime = JSON.stringify(app.globalData.publishActivityData.startTime)
+      let registrationDeadline = JSON.stringify(app.globalData.publishActivityData.registrationDeadline)
+      startTime = startTime.replace(/\"/g, "")
+      registrationDeadline = registrationDeadline.replace(/\"/g, "")
+      startTime = Date.parse(startTime)
+      registrationDeadline = Date.parse(registrationDeadline)
+      if(startTime < registrationDeadline) {
+        this.triggerEvent('next')
+        return
+      }
       app.globalData.publishActivityData.ticketList.map(item => {
-        item.ticketPrice == 0? item.ticketType = 0 : item.ticketType = 1
-        if(!item.hasOwnProperty('ticketRefundType')) item.ticketRefundType = 0
+        item.ticketPrice == 0 ? item.ticketType = 0 : item.ticketType = 1
+        if (!item.hasOwnProperty('ticketRefundType')) item.ticketRefundType = 0
         item.ticketPrice = item.ticketPrice * 100
       })
       if (this.properties.contentObject.rightBtn == '提现') {
@@ -78,7 +87,7 @@ Component({
         arr = [],
         nullArr = 0,
         newobj = {}
-        obj.activityDetails = app.globalData.publishActivityData.activityDetails
+      obj.activityDetails = app.globalData.publishActivityData.activityDetails
       for (let key in obj) {
         if (obj[key] !== '' && obj[key]) {
           // newobj[key] = obj[key]
@@ -97,11 +106,11 @@ Component({
       if (count >= this.properties.contentObject.number || (this.properties.contentObject.rightBtn == '发布' && arr.length == 0)) {
         if (this.properties.contentObject.rightBtn == '发布' && arr.length == 0) {
           this.requestData()
-          
+
         } else {
           console.log(2)
           let nularr = []
-          arr.map((item,index) => {
+          arr.map((item, index) => {
             console.log(item)
             for (let key in item) {
               if (item[key] === '' || item[key].length == 0) {
@@ -112,23 +121,23 @@ Component({
             }
           })
           if (!nullArr) {
-            
+
             if (this.properties.contentObject.rightBtn == '发布') {
               console.log(1)
               this.requestData()
-              
+
             } else {
               wx.navigateTo({
                 url: this.properties.contentObject.rightUrl
               })
             }
           } else {
-            this.triggerEvent('next',{index: nularr})
+            this.triggerEvent('next', { index: nularr })
           }
 
         }
       } else {
-        this.triggerEvent('next',{nulObj: newobj})
+        this.triggerEvent('next', { nulObj: newobj })
       }
     }
   }

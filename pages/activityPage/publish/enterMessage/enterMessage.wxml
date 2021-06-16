@@ -1,9 +1,12 @@
 <!-- pages/activityPage/publish/enterMessage/enterMessage.wxml -->
 <!-- <swiper style="height: {{windowHeight}}rpx" current="{{swiperCurrent}}">
   <swiper-item> -->
+
+
+
 <HeadNavigation bindheadnav="backIndex" />
 <view style="overflow: hidden;">
-  <Bubble bubbleContent="请完善活动的所有信息" showBubble="{{showBubble}}" wx:if="{{showBubble}}"/>
+  <Bubble bubbleContent="{{BubbleText}}" showBubble="{{showBubble}}" wx:if="{{showBubble}}" />
   <view class="edit-page">
     <image src="../../../../images/activity/forward1.png" class="top-img" />
     <view class="edit-top">
@@ -21,7 +24,7 @@
     <view class="edit-content">
       <view>
         <text>活动名称</text>
-        <input type="text" placeholder="请输入活动名称" value="{{footerBtnObject.addActivity.activityName}}" bindinput="materialChange" data-name="activityName" placeholder-class="{{temObject.activityName? '' : 'active'}}" placeholder-style="color: #999;"/>
+        <input type="text" placeholder="请输入活动名称" value="{{footerBtnObject.addActivity.activityName}}" bindinput="materialChange" data-name="activityName" placeholder-class="{{temObject.activityName? 'normalClass' : 'active'}}"/>
       </view>
       <view>
         <text>活动开始时间</text>
@@ -33,7 +36,7 @@
       </view>
       <view>
         <text>活动地点</text>
-        <input type="text" placeholder="请完善地址" value="{{footerBtnObject.addActivity.address}}" bindinput="materialChange" data-name="address" placeholder-class="{{temObject.address? '' : 'active'}}" placeholder-style="color: #999;"/>
+        <input type="text" placeholder="请完善地址" value="{{footerBtnObject.addActivity.address}}" bindinput="materialChange" data-name="address" placeholder-class="{{temObject.address? 'normalClass' : 'active'}}" />
       </view>
       <view>
         <text>报名截止时间</text>
@@ -51,4 +54,4 @@
   </view>
   <Footer contentObject="{{footerBtnObject}}" parent-leftbtn="parent-leftbtn" bindnext="goNext"></Footer>
 </view>
-<PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up" bindsure="isSave" />
+<PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up" bindsure="isSave" /> 
