@@ -70,11 +70,11 @@ Page({
     selectListIsShow: 0,
     showList: [],
     hideList: [],
-    pageSize: 5,
+    pageSize: 12,
     ifPages: true,
     showList1: [],
     hideList1: [],
-    pageSize1: 5,
+    pageSize1: 12,
     ifPages1: true,
     chooseOrNot: true,
     answerOrNot: -1,
@@ -129,9 +129,48 @@ Page({
     app.globalData.showQuesCom.number = -1
     app.globalData.showQuesCom.id = -1
   },
+  CommLazy() {
+    let { hideList1, pageSize1, ifPages1, commentMessage } = this.data
+    if (ifPages1) {
+      let newList = [];
+      if (hideList1.length > pageSize1) {
+        newList = commentMessage.concat(hideList1.splice(0, pageSize1));
+      } else {
+        newList = commentMessage.concat(hideList1)
+        this.setData({
+          ifPages1: false,
+          hideList1: []
+        })
+      }
+      this.setData({
+        commentMessage: newList,
+        hideList1
+      })
+    }
+  },
+  quesLazy() {
+    let { hideList, pageSize, ifPages, questionMessage } = this.data
+    if (ifPages) {
+      let newList = [];
+      if (hideList.length > pageSize) {
+        newList = questionMessage.concat(hideList.splice(0, pageSize));
+      } else {
+        newList = questionMessage.concat(hideList)
+        this.setData({
+          ifPages: false,
+          hideList: []
+        })
+      }
+      this.setData({
+        questionMessage: newList,
+        hideList
+      })
+    }
+  },
   showQuesByStatus(e) {
     this.setData({
-      chooseOrNot: false
+      chooseOrNot: false,
+      ifPages: true
     })
     let _this = this
     request.showQuesMessge({
@@ -141,9 +180,8 @@ Page({
         let emptyReply = []
         let reply = []
         let temp = []
-
-        console.log(res.data,_this.data.selectComId)
-        if(this.data.selectComId != -1) {
+        console.log(res.data, _this.data.selectComId)
+        if (this.data.selectComId != -1) {
           res.data.map(item => {
             item.aid == _this.data.selectComId ? temp.push(item) : temp
           })
@@ -156,20 +194,20 @@ Page({
         })
         switch (e.detail.name) {
           case '全部':
+            this.loadQues(temp)
             this.setData({
-              questionMessage: temp,
               answerOrNot: 0
             })
             break
           case '已回答':
+            this.loadQues(reply)
             this.setData({
-              questionMessage: reply,
               answerOrNot: 1
             })
             break
           case '未回答':
+            this.loadQues(emptyReply)
             this.setData({
-              questionMessage: emptyReply,
               answerOrNot: 2
             })
             break
@@ -212,20 +250,24 @@ Page({
     return height
   },
   getActivityId(e) {
-
+    this.setData({
+      ifPages: true,
+      ifPages1: true
+    })
     let { answerOrNot } = this.data
     let _this = this
     if (e.currentTarget.dataset.item) {
       console.log(e)
-      
+
       request.actIdGetComment({
         activityId: e.detail.id,
         mId: wx.getStorageSync('id')
       })
         .then(res => {
-          this.setData({
-            commentMessage: res.data
-          })
+          this.loadComm(res.data)
+          // this.setData({
+          //   commentMessage: res.data
+          // })
         })
     } else {
       _this.setData({
@@ -241,18 +283,21 @@ Page({
           res.data.map(item => {
             item.reply == null ? emptyReply.push(item) : reply.push(item)
           })
-          if(answerOrNot == 1) {
-            _this.setData({
-              questionMessage: reply
-            })
-          } else if(answerOrNot == 2) {
-            _this.setData({
-              questionMessage: emptyReply
-            })
+          if (answerOrNot == 1) {
+            this.loadQues(reply)
+            // _this.setData({
+            //   questionMessage: reply
+            // })
+          } else if (answerOrNot == 2) {
+            this.loadQues(emptyReply)
+            // _this.setData({
+            //   questionMessage: emptyReply
+            // })
           } else {
-            _this.setData({
-              questionMessage: res.data
-            })
+            this.loadQues(res.data)
+            // _this.setData({
+            //   questionMessage: res.data
+            // })
           }
         })
     }
@@ -388,15 +433,47 @@ Page({
     }
     request.actIdGetConsult(obj)
       .then(res => {
-        this.setData({
-          questionMessage: res.data
-        })
+        this.loadQues(res.data)
       })
     request.actIdGetComment(obj)
       .then(res => {
-        this.setData({
-          commentMessage: res.data
-        })
+        this.loadComm(res.data)
       })
+  },
+  loadQues(res) {
+    let hideList = res
+        let { pageSize } = this.data;
+        if (hideList.length > pageSize) {
+          this.setData({
+            showList: hideList.splice(0, pageSize)
+          })
+        } else {
+          this.setData({
+            showList: hideList,
+            ifPages: false
+          })
+        }
+        this.setData({
+          questionMessage: this.data.showList,
+          hideList
+        })
+  },
+  loadComm(res) {
+    let hideList1 = res
+        let { pageSize1 } = this.data;
+        if (hideList1.length > pageSize1) {
+          this.setData({
+            showList1: hideList1.splice(0, pageSize1)
+          })
+        } else {
+          this.setData({
+            showList1: hideList1,
+            ifPages1: false
+          })
+        }
+        this.setData({
+          commentMessage: this.data.showList1,
+          hideList1
+        })
   }
 })

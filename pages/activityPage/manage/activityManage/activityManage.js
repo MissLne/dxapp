@@ -45,7 +45,15 @@ Page({
     isScrollLoad: 0,
     erweimaShow: 0,
     erweimaUrl: '',
-    stopOrCancel: -1
+    stopOrCancel: -1,
+    showList: [],
+    hideList: [],
+    pageSize: 15,
+    ifPages: true,
+    showList1: [],
+    hideList1: [],
+    pageSize1: 20,
+    ifPages1: true,
   },
 
   /**
@@ -234,6 +242,7 @@ Page({
       "year": year
     }
     this.setData({
+      ifPages1: true,
       month: month,
       year: year,
       isScrollLoad: 0,
@@ -264,15 +273,17 @@ Page({
   },
 
   searchHandle() {
+    this.setData({
+          ifPages: true
+        })
     let obj = {
       activityId: this.data.activityId,
       content: this.data.searchContent
     }
     request.searchActivity(obj)
       .then(res => {
-        this.setData({
-          memberMessage: res.data
-        })
+        this.memberLoad(res.data)
+        
       })
   },
   swiperCurrent(e) {
@@ -347,9 +358,7 @@ Page({
               break;
           }
         })
-        _this.setData({
-          memberMessage: res.data
-        })
+        this.memberLoad(res.data)
       })
   },
   geiHeight() {
@@ -401,19 +410,12 @@ Page({
             num1 += parseFloat(result[i].amount)
           }
         }
-        if (this.data.isScrollLoad) {
+          this.billLoad(result)
           this.setData({
-            billDetail: this.data.billDetail.concat(result),
             pay: Number(num).toFixed(2),
             income: Number(num1).toFixed(2)
           })
-        } else {
-          this.setData({
-            billDetail: result,
-            pay: Number(num).toFixed(2),
-            income: Number(num1).toFixed(2)
-          })
-        }
+        
 
       })
   },
@@ -430,5 +432,79 @@ Page({
       time: '本月'
     })
     this.requestBill(obj)
+  },
+  billLazy() {
+    let { hideList1, pageSize1, ifPages1, billDetail } = this.data
+    if (ifPages1) {
+      let newList = [];
+      if (hideList1.length > pageSize1) {
+        newList = billDetail.concat(hideList1.splice(0, pageSize1));
+      } else {
+        newList = billDetail.concat(hideList1)
+        this.setData({
+          ifPages1: false,
+          hideList1: []
+        })
+      }
+      this.setData({
+        billDetail: newList,
+        hideList1
+      })
+    }
+  },
+  memberLazy() {
+    let { hideList, pageSize, ifPages, memberMessage } = this.data
+    if (ifPages) {
+      let newList = [];
+      if (hideList.length > pageSize) {
+        newList = memberMessage.concat(hideList.splice(0, pageSize));
+      } else {
+        newList = memberMessage.concat(hideList)
+        this.setData({
+          ifPages: false,
+          hideList: []
+        })
+      }
+      this.setData({
+        memberMessage: newList,
+        hideList
+      })
+    }
+  },
+  memberLoad(res) {
+    let hideList = res
+        let { pageSize } = this.data;
+        if (hideList.length > pageSize) {
+          this.setData({
+            showList: hideList.splice(0, pageSize)
+          })
+        } else {
+          this.setData({
+            showList: hideList,
+            ifPages: false
+          })
+        }
+        this.setData({
+          memberMessage: this.data.showList,
+          hideList
+        })
+  },
+  billLoad(res) {
+    let hideList1 = res
+        let { pageSize1 } = this.data;
+        if (hideList1.length > pageSize1) {
+          this.setData({
+            showList1: hideList1.splice(0, pageSize1)
+          })
+        } else {
+          this.setData({
+            showList1: hideList1,
+            ifPages1: false
+          })
+        }
+        this.setData({
+          billDetail: this.data.showList1,
+          hideList1
+        })
   }
 })

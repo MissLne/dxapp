@@ -11,7 +11,7 @@
         <Selection selectList="{{selectList}}" selectListIsShow="{{selectListIsShow}}" parent-select-list="parent-select-list" bindshowType="showQuesByStatus" bindselectlist="getTopHeight" />
       </view>
       <NullPic nullPicUrl="../../images/message/message_picture.png" wx:if="{{questionMessage.length == 0}}" />
-      <scroll-view scroll-y="true" style="height: {{windowHeight}}rpx">
+      <scroll-view scroll-y="true" style="height: {{windowHeight}}rpx" bindscrolltolower="quesLazy">
         <MessageItem messageItemArray="{{questionMessage}}" messageType="回答" bindreply="reply" />
       </scroll-view>
     </swiper-item>
@@ -20,7 +20,7 @@
         <ScrollSelect scrollSelect="{{scrollSelect1}}" bindselectscroll="getSelectScrollShow" bindactivityId="getActivityId" data-item="{{1}}" />
       </view>
        <NullPic nullPicUrl="../../images/message/comment.png" wx:if="{{commentMessage.length == 0}}" />
-      <scroll-view scroll-y="true" style="height: {{windowHeight2}}rpx">
+      <scroll-view scroll-y="true" style="height: {{windowHeight2}}rpx" bindscrolltolower="CommLazy">
 
         <MessageItem messageItemArray="{{commentMessage}}" messageType="回复" bindreply="reply" />
       </scroll-view>

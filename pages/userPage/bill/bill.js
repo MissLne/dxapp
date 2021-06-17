@@ -41,7 +41,11 @@ Page({
     month: '1',
     year: '2021',
     status: 0,
-    selectListIsShow: 0
+    selectListIsShow: 0,
+    showList: [],
+    hideList: [],
+    pageSize: 20,
+    ifPages: true,
   },
 
   /**
@@ -57,6 +61,46 @@ Page({
   },
   onShow: function () {
     this.getWindowHeight()
+  },
+  billLazy() {
+    let { hideList, pageSize, ifPages, billDetail } = this.data
+    console.log(ifPages)
+
+    if (ifPages) {
+      console.log(1)
+      let newList = [];
+      if (hideList.length > pageSize) {
+        newList = billDetail.concat(hideList.splice(0, pageSize));
+      } else {
+        newList = billDetail.concat(hideList)
+        this.setData({
+          ifPages: false,
+          hideList: []
+        })
+      }
+      this.setData({
+        billDetail: newList,
+        hideList
+      })
+    }
+  },
+  loadBill(res) {
+    let hideList = res
+        let { pageSize } = this.data;
+        if (hideList.length > pageSize) {
+          this.setData({
+            showList: hideList.splice(0, pageSize)
+          })
+        } else {
+          this.setData({
+            showList: hideList,
+            ifPages: false
+          })
+        }
+        this.setData({
+          billDetail: this.data.showList,
+          hideList
+        })
   },
   requestBill(obj) {
     request.showBillDetail(obj)
@@ -90,8 +134,8 @@ Page({
             num1 += parseFloat(result[i].amount)
           }
         }
+        this.loadBill(result)
         this.setData({
-          billDetail: result,
           pay: Number(num).toFixed(2),
           income: Number(num1).toFixed(2)
         })
@@ -118,7 +162,8 @@ Page({
     }
     this.setData({
       status: e.detail.count,
-      selectList: this.data.selectList
+      selectList: this.data.selectList,
+      ifPages: true
     })
 
     console.log(obj, '----')
@@ -196,6 +241,7 @@ Page({
       "year": year
     }
     this.setData({
+      ifPages: true,
       year: year,
       month: month
     })
@@ -207,7 +253,8 @@ Page({
     this.data.scrollSelect.isShow = 0
     this.setData({
       activityId: e.detail.id,
-      scrollSelect: this.data.scrollSelect
+      scrollSelect: this.data.scrollSelect,
+      ifPages: true
     })
     let obj = {
       "id": wx.getStorageSync('id'),

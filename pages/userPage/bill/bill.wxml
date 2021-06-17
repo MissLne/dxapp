@@ -13,7 +13,7 @@
     <view>收入：{{income}} 元</view>
     <view>支出：{{pay}} 元</view>
   </view>
-  <scroll-view scroll-y="true" style="height:{{windowHeight}}rpx">
+  <scroll-view scroll-y="true" style="height:{{windowHeight}}rpx" bindscrolltolower="billLazy">
     <BillItem billDetail="{{billDetail}}" />
   </scroll-view>
 <!-- </view> -->
