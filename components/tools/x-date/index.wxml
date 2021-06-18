@@ -1,0 +1,33 @@
+<view bindtap="showDate"  class="showDateB parent-x-date">{{date}}</view>
+<view class='mask' hidden="{{!showDatePick}}">
+  <view class='content'>
+    <view class='header'>
+      <view class='cancle' bindtap='_cancle'>取消</view>
+      <view class='confirm' bindtap='_confirm'>确定</view>
+    </view>
+    <picker-view
+      indicator-class='select'
+      class='pick-view'
+      value="{{currentDate}}"
+      bindchange="_bindChange"
+      style="font-size: 27rpx;">
+      <picker-view-column>
+        <view class="item" wx:for="{{yearList}}" wx:key="{{index}}">{{item}}年</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view class="item" wx:for="{{monthList}}" wx:key="{{index}}">{{item}}月</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view class="item" wx:for="{{dateList}}" wx:key="{{index}}">{{item}}日</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view class="item" wx:for="{{hourList}}" wx:key="{{index}}">{{item}}时</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view class="item" wx:for="{{minusList}}" wx:key="{{index}}">{{item}}分</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+
+  

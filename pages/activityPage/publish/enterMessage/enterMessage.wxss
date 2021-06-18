@@ -145,3 +145,9 @@ page {
 .active {
   color: #FF441A;
 }
+.x-date-active {
+  color: #ff441a;
+}
+.x-date-noactive {
+  color: #999;
+}

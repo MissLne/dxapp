@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "x-view": "/components/tools/x-view/index",
+    "x-icon": "/components/tools/x-icon/index"
+  }
+}

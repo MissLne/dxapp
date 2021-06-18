@@ -8,7 +8,7 @@
 <view style="overflow: hidden;">
   <Bubble bubbleContent="{{BubbleText}}" showBubble="{{showBubble}}" wx:if="{{showBubble}}" />
   <view class="edit-page">
-    <image src="../../../../images/activity/forward1.png" class="top-img" />
+    <image src="../../../../images/activity/forward1.png" class="top-img" mode="aspectFill"/>
     <view class="edit-top">
       <view>
         <text>活动信息</text>
@@ -17,6 +17,7 @@
         <text>报名表单</text>
       </view>
     </view>
+    
     <view class="upload-img">
       <image src="{{footerBtnObject.addActivity.posterImage? footerBtnObject.addActivity.posterImage : '../../../../images/activity/poster.png'}}" bindtap="chooseImg" />
       <text>上传封面</text>
@@ -28,11 +29,12 @@
       </view>
       <view>
         <text>活动开始时间</text>
-        <picker mode="date" value="{{footerBtnObject.addActivity.startTime}}" bindchange="materialChange" header-text="请选择" data-name="startTime">
+        <Date date="必须晚于报名截止时间" bind:bindValue="materialChange" data-name="startTime" parent-x-date="{{temObject.startTime? 'x-date-noactive' : 'x-date-active'}}"/>
+        <!-- <picker mode="date" value="{{footerBtnObject.addActivity.startTime}}" bindchange="materialChange" header-text="请选择" >
           <view class="{{temObject.startTime? '' : 'active'}}">
             {{footerBtnObject.addActivity.startTime? footerBtnObject.addActivity.startTime : '必须晚于报名截止时间'}}
           </view>
-        </picker>
+        </picker> -->
       </view>
       <view>
         <text>活动地点</text>
@@ -40,11 +42,12 @@
       </view>
       <view>
         <text>报名截止时间</text>
-        <picker mode="date" value="{{footerBtnObject.addActivity.registrationDeadline}}" bindchange="materialChange" data-name="registrationDeadline">
+        <Date date="必须早于活动开始时间" bind:bindValue="materialChange" data-name="registrationDeadline" parent-x-date="{{temObject.registrationDeadline? 'x-date-noactive' : 'x-date-active'}}"/>
+        <!-- <picker mode="date" value="{{footerBtnObject.addActivity.registrationDeadline}}" bindchange="materialChange" >
           <view class="{{temObject.registrationDeadline? '' : 'active'}}">
             {{footerBtnObject.addActivity.registrationDeadline? footerBtnObject.addActivity.registrationDeadline : '必须早于活动开始时间'}}
           </view>
-        </picker>
+        </picker> -->
       </view>
       <view style="border:none;">
         <text>介绍视频(选填)</text>

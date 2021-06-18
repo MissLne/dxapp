@@ -71,6 +71,7 @@ Component({
         this.triggerEvent('next')
         return
       }
+      console.log(app.globalData.publishActivityData,'lala')
       app.globalData.publishActivityData.ticketList.map(item => {
         item.ticketPrice == 0 ? item.ticketType = 0 : item.ticketType = 1
         if (!item.hasOwnProperty('ticketRefundType')) item.ticketRefundType = 0

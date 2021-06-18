@@ -36,13 +36,20 @@ Page({
       show: 0,
       toPopUPData: 0
     },
-    showBubble: 0
+    showBubble: 0,
+    date: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // let that = this;
+    // let now = new Date();
+    // that.setData({
+    //   date: now.getFullYear() + '年' + (now.getMonth() + 1) + '月' + now.getDate() + '日' + now.getHours() + '时' + now.getMinutes() + '分'
+    // })
+    // console.log(this.data.date)
     app.initWatch(this)
   },
   watch: {
@@ -104,10 +111,11 @@ Page({
     }, 3000)
   },
   materialChange(e) {
+    console.log(e.currentTarget.dataset.name)
     let data = this.data.footerBtnObject
-    if (e.currentTarget.dataset.name == 'startTime' || e.currentTarget.dataset.name == 'registrationDeadline') {
-      e.detail.value = e.detail.value + ' 00:00:00'
-    }
+    // if (e.currentTarget.dataset.name == 'startTime' || e.currentTarget.dataset.name == 'registrationDeadline') {
+    //   e.detail.value = e.detail.value + ' 00:00:00'
+    // }
     app.globalData.publishActivityData[`${e.currentTarget.dataset.name}`] = e.detail.value
     data.addActivity[`${e.currentTarget.dataset.name}`] = e.detail.value
     this.setData({
