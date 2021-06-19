@@ -25,49 +25,92 @@ Component({
       }
     ],
     checkBox: [],
-    boxHeight: []
+    boxHeight: [],
+    justNum: -1,
+    temBox: []
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    addChoice(e) {
-      let _this = this
+    inputBlur(e) {
+      // this.setData({
+      //   justNum: -1
+      // })
+    },
+    inputFocus(e) {
+      let temArr = []
+      temArr[0] = this.properties.setUpItem[e.currentTarget.dataset.num]
+      this.properties.setUpItem.map((item, index) => {
+        if (index != e.currentTarget.dataset.num)
+          temArr.push(item)
+      })
+      // setTimeout(() => {
+        this.setData({
+          setUpItem: temArr,
+          justNum: 0
+        })
+      // }, 1000)
+      console.log(temArr)
+      wx.pageScrollTo({
+          scrollTop: 0
+        //   duration: 300
+        })
+        // wx.createSelectorQuery().in(this).select('.lala0').boundingClientRect(function (rect) {
+        //   // wx.pageScrollTo({
+        //   //   scrollTop: scrollTop + rect.top,
+        //   //   duration: 300
+        //   // })
+        //   console.log(rect)
+        // }).exec()
+        // const query = wx.createSelectorQuery().in(this)                // 创建节点查询器 query
+        // query.select('#diyclass0').boundingClientRect()    // 这段代码的意思是选择Id=productServe的节点，获取节点位置信息的查询请求
+        // // query.select('#enterpriseServe').boundingClientRect() // 这段代码的意思是选择Id=enterpriseServe的节点，获取节点位置信息的查询请求
+        // // query.select('#normalServe').boundingClientRect()     // 这段代码的意思是选择Id=normalServe的节点，获取节点位置信息的查询请求
+        // // query.selectViewport().scrollOffset()                 // 这段代码的意思是获取页面滑动位置的查询请求
+        // query.exec((res) => {
+        //   console.log(res)                                          // #productServe节点的到页面顶部的距离
+        //   // res[1].width                                        // #enterpriseServe节点的宽度
+        //   // res[2].height                                       // #normalServe节点的高度
+        // })
+      },
+        addChoice(e) {
+        let _this = this
       this.properties.setUpItem[e.currentTarget.dataset.item].content.push('')
       this.setData({
-        setUpItem: this.properties.setUpItem
-      })
+          setUpItem: this.properties.setUpItem
+        })
       wx.createSelectorQuery().in(this).selectAll('.diySelectBox').boundingClientRect(function (rect) {
-        console.log(rect)
-        _this.data.boxHeight = []
-        rect.map(item => {
-          _this.data.boxHeight.push((item.height * 2))
-        })
-        _this.setData({
-          boxHeight: _this.data.boxHeight
-        })
-        console.log(_this.data.boxHeight)
-      }).exec()
-    },
-    radioChange(e) {
-      this.properties.setUpItem[e.currentTarget.dataset.num].isOptional = e.detail.type
+          console.log(rect)
+          _this.data.boxHeight = []
+          rect.map(item => {
+            _this.data.boxHeight.push((item.height * 2))
+          })
+          _this.setData({
+            boxHeight: _this.data.boxHeight
+          })
+          console.log(_this.data.boxHeight)
+        }).exec()
+      },
+        radioChange(e) {
+        this.properties.setUpItem[e.currentTarget.dataset.num].isOptional = e.detail.type
       this.setData({
-        setUpItem: this.properties.setUpItem
-      })
+          setUpItem: this.properties.setUpItem
+        })
       this.triggerEvent('setup', { arr: this.properties.setUpItem })
-    },
-    changeInput(e) {
-      let data = this.properties.setUpItem[e.currentTarget.dataset.num][`${e.currentTarget.dataset.str}`]
+      },
+        changeInput(e) {
+        let data = this.properties.setUpItem[e.currentTarget.dataset.num][`${e.currentTarget.dataset.str}`]
       Object.prototype.toString.call(data) === '[object Array]' ? data = [e.detail.value] : data = e.detail.value
       this.properties.setUpItem[e.currentTarget.dataset.num][`${e.currentTarget.dataset.str}`] = data
       this.setData({
-        setUpItem: this.properties.setUpItem
-      })
+          setUpItem: this.properties.setUpItem
+        })
       this.triggerEvent('setup', { arr: this.properties.setUpItem })
-    },
-    checkChange(e) {
-      if (e.detail.type == 0) {
+      },
+        checkChange(e) {
+        if(e.detail.type == 0) {
         this.properties.setUpItem[e.currentTarget.dataset.num].propertyType = 3
         this.setData({
           setUpItem: this.properties.setUpItem
@@ -95,9 +138,9 @@ Component({
       wx.createSelectorQuery().in(this).selectAll('.diySelectBox').boundingClientRect(function (rect) {
         _this.data.boxHeight = []
         rect.map(item => {
-          
+
           console.log(item)
-          
+
           _this.data.boxHeight.push((item.height * 2))
         })
         _this.setData({
@@ -121,9 +164,9 @@ Component({
       wx.createSelectorQuery().in(this).selectAll('.diySelectBox').boundingClientRect(function (rect) {
         _this.data.boxHeight = []
         rect.map(item => {
-          
+
           console.log(item)
-          
+
           _this.data.boxHeight.push((item.height * 2))
         })
         _this.setData({
@@ -133,6 +176,9 @@ Component({
       }).exec()
     },
     pickValue(e) {
+      this.setData({
+        justNum: -1
+      })
       let _this = this
       let scrollTop = this.properties.pickMessage.scrollTop
       wx.createSelectorQuery().in(this).select('.pickBtnContent').boundingClientRect(function (rect) {
@@ -149,9 +195,9 @@ Component({
       wx.createSelectorQuery().in(this).selectAll('.diySelectBox').boundingClientRect(function (rect) {
         _this.data.boxHeight = []
         rect.map(item => {
-          
+
           console.log(item)
-          
+
           _this.data.boxHeight.push((item.height * 2))
         })
         _this.setData({

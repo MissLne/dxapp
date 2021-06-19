@@ -1,6 +1,7 @@
 // app.js
 App({
   globalData: {
+    systemInfo: null,
     showQuesCom: {
       id: -1,
       number: -1
@@ -38,6 +39,14 @@ App({
   },
   onLoad: function () {
     this.loadFont()
+  },
+  onLaunch: function () {
+    let that = this;
+    wx.getSystemInfo({
+      success: function(res) {
+        that.globalData.systemInfo = res;
+      },
+    })
   },
   getRealHeight(rect) {
     let clientHeight = rect.height

@@ -218,6 +218,7 @@
         {
           "name": "发布失败",
           "pathName": "pages/activityPage/publish/pubFail/pubFail",
+          "query": "",
           "scene": null
         }
       ]

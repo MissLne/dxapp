@@ -6,7 +6,9 @@
   top: 0;
   left: 0;
   border-radius: 30rpx;
-  border: 3rpx solid #FF441A;
+  box-shadow: 1rpx 1rpx 10rpx 3rpx #f06849;
+  /* border: 3rpx solid #FF441A; */
+  z-index: -1;
 }
 .setUpContainer {
   width: 690rpx;

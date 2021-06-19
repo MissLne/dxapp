@@ -3,7 +3,8 @@
   "disableScroll": true,
   "usingComponents": {
     "Buttons": "/components/tools/buttons/buttons",
-    "ComNav": "/components/tools/comNav/comNav"
+    "ComNav": "/components/tools/comNav/comNav",
+    "x-rich": "/components/tools/lala/lala"
   },
   "navigationStyle": "custom"
 }

@@ -1,5 +1,5 @@
 <view class="diy">自定义</view>
-<view wx:for="{{setUpItem}}" wx:key="index" class="diySelectBox">
+<view wx:for="{{setUpItem}}" wx:key="index" class="diySelectBox" id="diyclass{{index}}">
   <block wx:for="{{pickMessage.ifRedArr}}" wx:for-item="lala" wx:for-index="lulu">
     <block wx:for="{{boxHeight}}" wx:for-item="qaq" wx:for-index="owo">
       <view wx:if="{{index == lala && owo == index}}" class="theBorder" style="height:{{qaq}}rpx;"></view>
@@ -9,7 +9,7 @@
   <view wx:if="{{item.pickType == 1}}" class="diySelectPicTitle">图片填写项</view>
   <view class="diySelectTitle" wx:if="{{item.pickType != 1}}">
     <view>标题</view>
-    <input wx:if="{{item.pickType == 0}}" placeholder="例：联系方式" value="{{item.property}}" bindinput="changeInput" data-str="property" data-num="{{index}}" />
+    <input class="lala{{index}}" wx:if="{{item.pickType == 0}}" placeholder="例：联系方式" value="{{item.property}}" bindinput="changeInput" data-str="property" data-num="{{index}}" bindfocus="inputFocus" focus="{{index == justNum}}" bindblur="inputBlur"/>
     <input wx:if="{{item.pickType == 2}}" placeholder="例：你了解到报名的来源" value="{{item.property}}" bindinput="changeInput" data-str="property" data-num="{{index}}" />
   </view>
   <view class="diySelectContent">
