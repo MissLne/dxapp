@@ -112,17 +112,24 @@ Page({
       propertyType: 0,
       pickType: e.detail.value
     }
+    
+    
+    // gzh: '例：公众号'
     console.log(obj.pickType)
     switch (obj.pickType) {
       case '0':
         obj.propertyType = 0
+        obj.lianxi = '例：联系方式'
+        obj.tips = '例：请输入联系方式'
         break
       case '1':
         obj.propertyType = 4
         obj.property = '图片填写项'
+        obj.jizan = '例：朋友圈集赞图片'
         break
       default:
         obj.propertyType = 3
+        obj.laiyuan = '例：你了解到报名的来源'
         break
     }
     console.log(obj)
