@@ -55,9 +55,13 @@ Component({
       if(e.currentTarget.dataset.str && e.currentTarget.dataset.str == 'property') {
         temArr[0].laiyuan = ''
         this.setData({
-          setUpItem: temArr,
-          aNum: 0
+          setUpItem: temArr
         })
+        setTimeout(() => {
+          this.setData({
+            aNum: 0
+          })
+        },1000)
         wx.pageScrollTo({
           scrollTop: 0
         })
@@ -66,9 +70,13 @@ Component({
       if(e.currentTarget.dataset.inputindex) {
         temArr[0].content[e.currentTarget.dataset.inputindex - 1] = ''
         this.setData({
-          setUpItem: temArr,
-          aNum: e.currentTarget.dataset.inputindex
+          setUpItem: temArr
         })
+        setTimeout(() => {
+          this.setData({
+            aNum: e.currentTarget.dataset.inputindex
+          })
+        },1000)
       }
       if(first != 0){
         wx.pageScrollTo({
@@ -94,33 +102,46 @@ Component({
       console.log(temArr,'呜呜呜')
       // setTimeout(() => {
       if(e.currentTarget.dataset.identify == 0) {
-          temArr[0].lianxi = ''
         this.setData({
           setUpItem: temArr,
-          justNum: 0,
-          justNum1: -1,
+          
           // aNum: -1
         })
+        setTimeout(() => {
+          this.setData({
+            justNum1: -1,
+            justNum: 0
+          })
+        },1000)
       } else if(e.currentTarget.dataset.identify == 1){
         temArr[0].tips = ''
         this.setData({
           setUpItem: temArr,
-          justNum: -1,
-          justNum1: 0,
+          
           // aNum: -1
         })
+        setTimeout(() => {
+          this.setData({
+            justNum1: 0,
+            justNum: -1
+          })
+        },1000)
       } else {
         temArr[0].jizan = ''
         this.setData({
-          setUpItem: temArr,
-          justNum: 0,
-          justNum1: -1,
+          setUpItem: temArr
+          // justNum1: -1,
           // aNum: -1
         })
+        setTimeout(() => {
+          this.setData({
+            justNum: 0
+          })
+        },1000)
       }
       
       // }, 1000)
-      console.log(temArr)
+      console.log(temArr,this.data.justNum,'哈哈哈哈')
       wx.pageScrollTo({
         scrollTop: 0
         //   duration: 300
