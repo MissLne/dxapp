@@ -10,7 +10,7 @@
   <view class="diySelectTitle" wx:if="{{item.pickType != 1}}">
     <view>标题</view>
     <input class="lala{{index}}" wx:if="{{item.pickType == 0}}" placeholder="例：联系方式" value="{{item.property}}" bindinput="changeInput" data-str="property" data-num="{{index}}" bindfocus="inputFocus" focus="{{index == justNum}}" data-identify="{{0}}" placeholder-style="color: #666;font-size: 24rpx;"/>
-    <input wx:if="{{item.pickType == 2}}" placeholder="例：你了解到报名的来源" value="{{item.property}}" bindinput="changeInput" data-str="property" data-num="{{index}}" bindfocus="inputFocus1" focus="{{index == aNum}}" placeholder-style="color: #666;font-size: 24rpx;"/>
+    <input wx:if="{{item.pickType == 2}}" placeholder="例：你了解到报名的来源" value="{{item.property}}" bindinput="changeInput" data-str="property" data-num="{{index}}" bindfocus="inputFocus1" focus="{{index == aaNum}}" placeholder-style="color: #666;font-size: 24rpx;"/>
   </view>
   <view class="diySelectContent">
     <view wx:if="{{item.pickType == 0}}" class="diySelectFillAndPic">
@@ -24,7 +24,7 @@
     <view wx:if="{{item.pickType == 2}}" wx:for="{{item.content}}" wx:for-index="num" wx:for-item="sonItem" class="diySelectChoices" wx:key="index">
       <view>
         <view>选项{{num + 1}}</view>
-        <input value="{{sonItem}}" placeholder="例：公众号" bindinput="changeSonInput" data-inputindex="{{num + 1}}" data-boxindex="{{index}}" bindfocus="inputFocus1"  data-num="{{index}}" placeholder-style="color: #666;font-size: 24rpx;"/>
+        <input value="{{sonItem}}" placeholder="例：公众号" bindinput="changeSonInput" data-inputindex="{{num + 1}}" data-boxindex="{{index}}" bindfocus="inputFocus1" focus="{{num == aNum && index == 0}}" data-num="{{index}}" placeholder-style="color: #666;font-size: 24rpx;"/>
       </view>
       <!-- focus="{{num + 1 == aNum}}" -->
       <image src="../../../../images/activity/yingyo.png" wx:if="{{item.content.length > 2}}" bind:tap="deleteInput" data-inputindex="{{num}}" data-boxindex="{{index}}"/>

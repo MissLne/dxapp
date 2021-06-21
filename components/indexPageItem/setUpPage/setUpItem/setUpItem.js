@@ -30,6 +30,7 @@ Component({
     justNum1: -1,
     temBox: [],
     aNum: -1,
+    aaNum: -1,
     // lianxi: '例：联系方式',
     // laiyuan: '例：你了解到报名的来源',
     // tips: '例：请输入联系方式',
@@ -42,7 +43,6 @@ Component({
    */
   methods: {
     inputFocus1(e) {
-      console.log(e)
       let temArr = []
       let first = e.currentTarget.dataset.num
       temArr[0] = this.properties.setUpItem[e.currentTarget.dataset.num]
@@ -55,13 +55,14 @@ Component({
       if(e.currentTarget.dataset.str && e.currentTarget.dataset.str == 'property') {
         temArr[0].laiyuan = ''
         this.setData({
-          setUpItem: temArr
+          setUpItem: temArr,
+          aNum: -1
         })
         setTimeout(() => {
           this.setData({
-            aNum: 0
+            aaNum: 0
           })
-        },1000)
+        },300)
         wx.pageScrollTo({
           scrollTop: 0
         })
@@ -70,15 +71,17 @@ Component({
       if(e.currentTarget.dataset.inputindex) {
         temArr[0].content[e.currentTarget.dataset.inputindex - 1] = ''
         this.setData({
-          setUpItem: temArr
+          setUpItem: temArr,
+          aaNum: -1
         })
         setTimeout(() => {
           this.setData({
-            aNum: e.currentTarget.dataset.inputindex
+            aNum: e.currentTarget.dataset.inputindex - 1
           })
-        },1000)
+        },200)
       }
       if(first != 0){
+        
         wx.pageScrollTo({
           scrollTop: 0
         })
@@ -103,29 +106,25 @@ Component({
       // setTimeout(() => {
       if(e.currentTarget.dataset.identify == 0) {
         this.setData({
-          setUpItem: temArr,
-          
-          // aNum: -1
+          justNum1: -1,
+          setUpItem: temArr
         })
         setTimeout(() => {
           this.setData({
-            justNum1: -1,
             justNum: 0
           })
-        },1000)
+        },250)
       } else if(e.currentTarget.dataset.identify == 1){
         temArr[0].tips = ''
         this.setData({
           setUpItem: temArr,
-          
-          // aNum: -1
+          justNum: -1
         })
         setTimeout(() => {
           this.setData({
-            justNum1: 0,
-            justNum: -1
+            justNum1: 0
           })
-        },1000)
+        },250)
       } else {
         temArr[0].jizan = ''
         this.setData({
@@ -137,7 +136,7 @@ Component({
           this.setData({
             justNum: 0
           })
-        },1000)
+        },250)
       }
       
       // }, 1000)
