@@ -1,6 +1,6 @@
 //index.js
 const app = getApp()
-const request = require('../../request/api')
+const request = require('../../request/api.js')
 Page({
     data: {
         popUpObj: {
