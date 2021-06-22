@@ -1,6 +1,6 @@
 /* components/indexPageItem/publishIntroduce/footer/footer.wxss */
 .btn {
-  width: 690rpx;
+  width: 750rpx;
   height: 150rpx;
   margin-bottom: 0;
   display: flex;
@@ -10,7 +10,7 @@
   transform: translateX(-50%);
   position: fixed;
   bottom: 0;
-  z-index: 999;
+  z-index: 99999999999;
 }
 .rightBtn,
 .leftBtn {

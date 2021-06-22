@@ -33,16 +33,100 @@ Component({
       show: 0,
       toPopUPData: 0
     },
+    tPrice: -1,
+    tName: -1,
+    tCount: -1,
+    tIntro: -1
   },
 
   /**
    * 组件的方法列表
    */
-  ready: function() {
+  ready: function () {
     console.log(this.properties.base)
   },
 
   methods: {
+    introFocus(e) {
+      let temArr = []
+      // let { tName, tCount, tPrice,tIntro } = this.data
+      let first = e.currentTarget.dataset.num
+      temArr[0] = this.properties.ticketDetail[e.currentTarget.dataset.num]
+      this.properties.ticketDetail.map((item, index) => {
+        if (index != e.currentTarget.dataset.num)
+          temArr.push(item)
+      })
+      this.setData({
+        ticketDetail: temArr,
+        tName: -1,
+        tCount: -1,
+        tPrice: -1,
+        tIntro: 0
+      })
+      if (first != 0) {
+        wx.pageScrollTo({
+          scrollTop: 0
+        })
+      }
+
+    },
+    inputFocus(e) {
+      let temArr = []
+      let first = e.currentTarget.dataset.num
+      temArr[0] = this.properties.ticketDetail[e.currentTarget.dataset.num]
+      this.properties.ticketDetail.map((item, index) => {
+        if (index != e.currentTarget.dataset.num)
+          temArr.push(item)
+      })
+      switch (e.currentTarget.dataset.put) {
+        case 0:
+          this.setData({
+            ticketDetail: temArr,
+            tCount: -1,
+            tPrice: -1,
+            tIntro: -1
+          })
+          // setTimeout(() => {
+            this.setData({
+              tName: 0
+            })
+          // }, 300)
+          break
+        case 1:
+          this.setData({
+            ticketDetail: temArr,
+            tName: -1,
+            tCount: -1,
+            tIntro: -1
+          })
+          // setTimeout(() => {
+            this.setData({
+              tPrice: 0
+            })
+          // }, 300)
+          break
+        case 2:
+          this.setData({
+            ticketDetail: temArr,
+            tPrice: -1,
+            tName: -1,
+            tIntro: -1
+          })
+          // setTimeout(() => {
+            this.setData({
+              tCount: 0
+            })
+          // }, 300)
+          break
+        default:
+          break
+      }
+      if (first != 0) {
+        wx.pageScrollTo({
+          scrollTop: 0
+        })
+      }
+    },
     updateInput(e) {
       if (e.currentTarget.dataset.name == 'ticketPrice') {
         e.detail.value = e.detail.value.replace(/[^\d.]/g, "");//清除"数字"和"."以外的字符
@@ -50,7 +134,7 @@ Component({
         e.detail.value = e.detail.value.replace(/\.{2,}/g, ".");//只保留第一个.清除多余的
         e.detail.value = e.detail.value.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
         e.detail.value = e.detail.value.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3')
-      } else if (e.currentTarget.dataset.name == 'ticketNumber'){
+      } else if (e.currentTarget.dataset.name == 'ticketNumber') {
         e.detail.value = e.detail.value.replace(/[^\d]/g, "");//清除"数字"和"."以外的字符
       }
       let arr = this.properties.ticketDetail

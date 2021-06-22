@@ -6,7 +6,8 @@ Component({
   properties: {
     inputTitle: String,
     inputValue: String,
-    ifRed: Number
+    ifRed: Number,
+    ifFocus: Boolean
     },
   /**
    * 组件的初始数据
@@ -20,6 +21,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    focusHandle() {
+      this.triggerEvent('focusDo')
+    },
     updateMessage(e) {
       this.setData({
         inputMessage: e.detail.value

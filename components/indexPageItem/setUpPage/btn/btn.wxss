@@ -1,6 +1,6 @@
 /* components/indexPageItem/setUpPage/btn/btn.wxss */
 .publishBtnCom2 {
-  width: 690rpx;
+  width: 7500rpx;
   height: 120rpx;
   margin: 0 auto 0 auto;
   display: flex;
