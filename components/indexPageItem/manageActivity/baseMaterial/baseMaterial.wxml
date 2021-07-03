@@ -12,7 +12,7 @@
       <view>{{item.value}}</view>
     </view>
   </view>
-  <view class="progresses" style="{{isShow? '' : 'height: 0rpx;'}}">
+  <view class="progresses" style="{{isShow? 'height:' + 60 * progresses.length +'rpx;transition: .5s;' : 'height: 0;transition: .5s;'}}">
     <view class="onePro" wx:for="{{progresses}}" wx:key="index">
       <view>{{item.ticketName}}</view>
       <progress percent="{{((item.ticketNumber - item.ticketRemainNumber) / item.ticketNumber) * 100}}" stroke-width="7.5" class="progress" border-radius="3.75" backgroundColor="#fff" activeColor="{{item.color}}">

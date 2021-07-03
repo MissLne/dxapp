@@ -70,6 +70,7 @@
 }
 .onePro {
   width: 690rpx;
+  height: 60rpx;
   padding: 10rpx 61rpx;
   box-sizing: border-box;
   display: flex;
@@ -109,6 +110,7 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
 .fffcolor {
   color: #fff !important;
 }

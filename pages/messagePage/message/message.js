@@ -94,6 +94,7 @@ Page({
   },
   onShow: function () {
     if (app.globalData.showQuesCom.number == 1) {
+      console.log(app.globalData.showQuesCom.id)
       request.showQuesMessge({
         mId: wx.getStorageSync('id')
       })
@@ -128,6 +129,9 @@ Page({
   onHide: function () {
     app.globalData.showQuesCom.number = -1
     app.globalData.showQuesCom.id = -1
+    this.setData({
+      swiperIndex:  0
+    })
   },
   CommLazy() {
     let { hideList1, pageSize1, ifPages1, commentMessage } = this.data
@@ -181,12 +185,13 @@ Page({
         let reply = []
         let temp = []
         console.log(res.data, _this.data.selectComId)
-        if (this.data.selectComId != -1) {
+        if (this.data.selectComId == -1 || this.data.selectComId == undefined) {
+          temp = res.data
+         
+        } else {
           res.data.map(item => {
             item.aid == _this.data.selectComId ? temp.push(item) : temp
           })
-        } else {
-          temp = res.data
         }
         console.log(temp)
         temp.map(item => {
@@ -270,6 +275,7 @@ Page({
           // })
         })
     } else {
+      console.log(e.detail.id)
       _this.setData({
         selectComId: e.detail.id
       })

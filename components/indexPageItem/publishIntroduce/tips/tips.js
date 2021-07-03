@@ -1,4 +1,5 @@
 const request = require("../../../../request/api")
+const app = getApp()
 
 // components/indexPageItem/publishIntroduce/tips/tips.js
 Component({
@@ -86,7 +87,8 @@ Component({
             mask: true
           })
           wx.uploadFile({
-            url: 'http://47.119.112.252:8089/party/web_public/upload_picture',
+            
+            url: app.globalData.urlLink + 'web_public/upload_picture',
             filePath: result.tempFilePaths[0],
             name: 'file',
             header: {

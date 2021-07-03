@@ -44,14 +44,14 @@ Component({
       })
     },
     cashOut() {
-      let data = this.data.cashOutCount + ""
+      let data = (this.data.cashOutCount) * 100 + ""
       let obj = {
         "mId": wx.getStorageSync('id'),
         "amount": data
       }
-      // request.cashOut(obj)
-      // .then(res => {
-      //   console.log(res)
+      request.cashOut(obj)
+      .then(res => {
+        console.log(res)
         let query = {
           amount: data
         }
@@ -60,7 +60,7 @@ Component({
           url: "/pages/userPage/cashSuccess/cashSuccess",
           query
         })
-      // })
+      })
     },
     getCanCash() {
       let obj = {
@@ -69,7 +69,7 @@ Component({
       request.showWallet(obj)
       .then(res => {
         this.setData({
-          canDrawCashAmount: res.data.canDrawCashAmount.toFixed(2)
+          canDrawCashAmount: (res.data.canDrawCashAmount / 100).toFixed(2)
         })
       })
     }

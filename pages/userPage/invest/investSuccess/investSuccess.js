@@ -19,5 +19,10 @@ Page({
     this.setData({
       amount: (options.amount.replace(/\"/g, "") / 100).toFixed(2)
     })
+  },
+  toMe() {
+    wx.switchTab({
+      url: '/pages/userPage/user/user'
+    })
   }
 })

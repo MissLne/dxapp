@@ -83,7 +83,7 @@ Page({
     registrationDeadline = registrationDeadline.replace(/\"/g, "")
     startTime = Date.parse(startTime)
     registrationDeadline = Date.parse(registrationDeadline)
-    if(startTime < registrationDeadline) {
+    if (startTime < registrationDeadline) {
       this.setData({
         showBubble: 1,
         BubbleText: "报名截止时间必须早于活动开始时间"
@@ -139,28 +139,46 @@ Page({
           mask: true
         })
         wx.uploadFile({
-          url: 'http://47.119.112.252:8089/party/web_public/upload_picture',
+          url: app.globalData.urlLink + 'web_public/upload_picture',
           filePath: result.tempFilePaths[0],
           name: 'file',
           header: {
             token: wx.getStorageSync('token')
           },
           success: (result) => {
-            let imgObj = JSON.parse(result.data)
-            let data = this.data.footerBtnObject
-            data.addActivity.posterImage = imgObj.data
-            app.globalData.publishActivityData.posterImage = imgObj.data
-            this.setData({
-              footerBtnObject: data
-            })
+            if (result.status == 200) {
+              let imgObj = JSON.parse(result.data)
+              let data = this.data.footerBtnObject
+              data.addActivity.posterImage = imgObj.data
+              app.globalData.publishActivityData.posterImage = imgObj.data
+              this.setData({
+                footerBtnObject: data
+              })
+              wx.showToast({
+                title: '上传成功',
+                icon: 'success',
+                duration: 1500,
+                mask: true
+              })
+            } else {
+              wx.showToast({
+                title: '上传失败',
+                icon: 'none',
+                duration: 1500,
+                mask: true
+              })
+            }
+
           }
         })
       }
     })
   },
   chooseFile() {
-    wx.chooseImage({
-      count: 1,
+    wx.chooseVideo({
+      sourceType: ['album', 'camera'],
+      compressed: true,
+      maxDuration: 15,
       success: (result) => {
         wx.showToast({
           title: '正在上传...',
@@ -169,19 +187,38 @@ Page({
           mask: true
         })
         wx.uploadFile({
-          url: 'http://47.119.112.252:8089/party/web_public/upload_picture',
-          filePath: result.tempFilePaths[0],
+          url: app.globalData.urlLink + 'merchant/upload/video',
+          filePath: result.tempFilePath,
           name: 'file',
           header: {
-            token: wx.getStorageSync('token')
+            token: wx.getStorageSync('token'),
+            'content-type': 'multipart/form-data'
           },
           success: (result) => {
-            let imgObj = JSON.parse(result.data)
-            console.log(imgObj)
-            app.globalData.publishActivityData.videoUrl = imgObj.data
+            console.log(result)
+            if (result.status == 200) {
+              let imgObj = JSON.parse(result.data)
+              app.globalData.publishActivityData.videoUrl = imgObj.data
+              wx.showToast({
+                title: '上传成功',
+                icon: 'success',
+                duration: 1500,
+                mask: true
+              })
+            } else {
+              wx.showToast({
+                title: '上传失败',
+                icon: 'none',
+                duration: 1500,
+                mask: true
+              })
+            }
+
           }
         })
-      }
+      },
+      fail: () => { },
+      complete: () => { }
     })
   },
   getDateData() {

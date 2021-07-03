@@ -23,8 +23,8 @@ Page({
   },
   back() {
     let _this = this
-    wx.navigateBack({
-      delta: 1
+    wx.switchTab({
+      url: '/pages/userPage/user/user'
     })
   }
 })

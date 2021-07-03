@@ -7,6 +7,7 @@
 }
 
 .cashOutInput {
+  /* background: #989; */
   width: 638rpx;
   height: 100rpx;
   margin: 0 auto;
@@ -23,8 +24,9 @@
 
 .cashOutInput input {
   width: 350rpx;
+  height: 100rpx;
   text-align: center;
-  margin-bottom: 35rpx;
+  vertical-align: middle;
 }
 
 .cashOutInput view {

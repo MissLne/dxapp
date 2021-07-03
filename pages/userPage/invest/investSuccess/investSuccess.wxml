@@ -11,4 +11,4 @@
     <view>{{amount}}</view>
   </view>
 </view>
-<view class="inSucBtn">完成</view>
+<view class="inSucBtn" bind:tap="toMe">完成</view>
