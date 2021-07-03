@@ -3,6 +3,7 @@ const app = getApp()
 const request = require('../../request/api.js')
 Page({
     data: {
+        selectIndex: 0,
         popUpObj: {
             content: '请完善账号资料',
             leftBtn: '修改资料',

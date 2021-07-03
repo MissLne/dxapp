@@ -2,16 +2,17 @@
 <view class="scorllSelectBox">
   <view class="scorllSelectTitle">
     <view bind:tap="showSelectList">{{scrollSelect.title}}</view>
-    <image src="../../../images/jiantou.png" class="{{scrollSelect.isShow? 'imageClass' : ''}}"/>
+    <image src="../../../images/jiantou.png" class="{{scrollSelect.isShow? 'imageClass' : ''}}" />
   </view>
   <!-- wx:if="{{scrollSelect.isShow}}" -->
-    <view class="scorllSelectList {{scrollSelect.isShow? 'showList' : ''}}" >
-      <scroll-view scroll-y="false" scroll-top="50" style="height: 570rpx;">
-    <view>
-      <view wx:for="{{scrollSelect.selectList}}" wx:key="index" class="scorllSelectListItem" bind:tap="selectActivityName" data-id="{{item.activityId}}" data-name="{{item.activityName}}">{{item.activityName}}</view>
-    </view>
+  <view class="scorllSelectList {{scrollSelect.isShow? 'showList' : ''}}">
+    <scroll-view scroll-y="false" scroll-top="50" style="height: 570rpx;">
+      <view>
+        <view wx:for="{{scrollSelect.selectList}}" wx:key="index" class="scorllSelectListItem" bind:tap="selectActivityName" data-id="{{item.activityId}}" data-name="{{item.activityName}}">
+          {{item.activityName}}
+        </view>
+      </view>
     </scroll-view>
-    </view>
+  </view>
 </view>
 <view class="cover2" wx:if="{{scrollSelect.isShow}}" bind:tap="hide"></view>
-  

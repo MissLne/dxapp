@@ -8,7 +8,8 @@ App({
     systemInfo: null,
     showQuesCom: {
       id: -1,
-      number: -1
+      number: -1,
+      name: ''
     },
     userInfo: null,
     publishActivityData: {

@@ -4,6 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    materialObject: Object,
     activityId: Number,
     materialObject: {
       type: Object,
@@ -56,6 +57,7 @@ Component({
         //   number: e.currentTarget.dataset.num
         // }
         // query.number = JSON.stringify(query.number)
+        app.globalData.showQuesCom.name = this.properties.materialObject.activityName
         app.globalData.showQuesCom.number = e.currentTarget.dataset.num
         app.globalData.showQuesCom.id = this.properties.activityId
         wx.switchTab({

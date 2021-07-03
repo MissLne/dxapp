@@ -79,7 +79,8 @@ Page({
     chooseOrNot: true,
     answerOrNot: -1,
     selectComId: -1,
-    selectQueId: -1
+    selectQueId: -1,
+    selectIndex: 0
   },
 
   /**
@@ -105,7 +106,13 @@ Page({
           res.data.map(item => {
             item.reply == null && item.aid == app.globalData.showQuesCom.id ? emptyReply.push(item) : reply.push(item)
           })
+          this.data.scrollSelect.title = app.globalData.showQuesCom.name
+          this.data.selectList.name = '未回答' ,
+          this.data.selectIndex = 2
           this.setData({
+            selectIndex: this.data.selectIndex,
+            selectList: this.data.selectList,
+            scrollSelect: this.data.scrollSelect,
             questionMessage: emptyReply
           })
         })
@@ -118,7 +125,9 @@ Page({
         mId: wx.getStorageSync('id')
       })
         .then(res => {
+          this.data.scrollSelect1.title = app.globalData.showQuesCom.name
           this.setData({
+            scrollSelect1: this.data.scrollSelect1,
             commentMessage: res.data
           })
         })
@@ -127,9 +136,17 @@ Page({
     }
   },
   onHide: function () {
+    
     app.globalData.showQuesCom.number = -1
     app.globalData.showQuesCom.id = -1
+    this.data.scrollSelect.title = this.data.scrollSelect1.title = '全部活动'
+    this.data.scrollSelect.isShow = this.data.scrollSelect1.isShow = 0
+    this.data.selectList.name = '全部提问'
     this.setData({
+      selectIndex: 0,
+      selectList: this.data.selectList,
+      scrollSelect1: this.data.scrollSelect1,
+      scrollSelect: this.data.scrollSelect,
       swiperIndex:  0
     })
   },
