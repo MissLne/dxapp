@@ -21,9 +21,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    focusHandle() {
-      this.triggerEvent('focusDo')
-    },
     updateMessage(e) {
       this.setData({
         inputMessage: e.detail.value

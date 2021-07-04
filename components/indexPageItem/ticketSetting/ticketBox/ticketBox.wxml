@@ -7,7 +7,7 @@
     </block>
     <view class="containerTitle">
       <view>
-        <input value="{{item.ticketName}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketName" placeholder="输入票种名" bindfocus="inputFocus" data-put="{{0}}" focus="{{index == tName}}"/>
+        <input value="{{item.ticketName}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketName" placeholder="输入票种名"  data-put="{{0}}"/>
       </view>
       <view wx:if="{{ticketDetail.length > 1}}" bindtap="deleteTicket" data-num="{{index}}">
         删除
@@ -15,13 +15,13 @@
     </view>
     <view class="ticketPriceAndCount">
       <text>价格</text>
-      <input value="{{item.ticketPrice}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketPrice" placeholder="输入0即为免费票" bindfocus="inputFocus" data-put="{{1}}" focus="{{index == tPrice}}" />
+      <input value="{{item.ticketPrice}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketPrice" placeholder="输入0即为免费票" data-put="{{1}}"/>
     </view>
     <view class="ticketPriceAndCount" style="margin-bottom: 30rpx;">
       <text>数目</text>
-      <input value="{{item.ticketNumber}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketNumber" placeholder="输入0即为不限数目" bindfocus="inputFocus" data-put="{{2}}" focus="{{index == tCount}}" />
+      <input value="{{item.ticketNumber}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketNumber" placeholder="输入0即为不限数目" data-put="{{2}}" focus="{{index == tCount}}"/>
     </view>
-    <InputBox inputValue="{{item.ticketInstructions}}" inputTitle="票种介绍" bindact="getInput" data-num="{{index}}" ifFocus="{{index == tIntro}}" bindfocusDo="introFocus"/>
+    <InputBox inputValue="{{item.ticketInstructions}}" inputTitle="票种介绍" bindact="getInput" data-num="{{index}}"/>
     <view class="ticketDetailFooter">
       <view>不可退票的票种钱款将在报名后方可提现</view>
       <radioBtn radioContent="{{['不可退票']}}" widthCount="{{200}}" defultData="{{item.ticketRefundType}}" radio-parent-class="radio-parent-class" bindtype="getType" data-num="{{index}}" currentSelect="{{0}}"/>

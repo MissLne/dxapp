@@ -161,8 +161,8 @@
 }
 .pickBtn {
   width: 690rpx;
-  height: 200rpx;
-  margin: 0 auto 200rpx auto;
+  height: 100rpx;
+  margin: 0 auto 100rpx auto;
   display: flex;
   justify-content: flex-end;
 }

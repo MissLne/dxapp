@@ -1,14 +1,14 @@
 /* components/indexPageItem/setUpPage/btn/btn.wxss */
 .publishBtnCom2 {
-  width: 7500rpx;
+  width: 750rpx;
   height: 120rpx;
   margin: 0 auto 0 auto;
   display: flex;
   justify-content: center;
-  position: fixed;
-  bottom: 100rpx;
-  left: 50%;
-  transform: translateX(-50%);
+  /* position: fixed; */
+  /* bottom: 100rpx; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
 }
 .publishBtn2 {
   width: 190rpx;
