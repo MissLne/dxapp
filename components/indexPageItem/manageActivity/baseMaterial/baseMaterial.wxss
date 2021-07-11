@@ -16,7 +16,7 @@
 }
 .baseMass {
   width: 690rpx;
-  padding: 20rpx 0;
+  padding-top: 20rpx;
   box-sizing: border-box;
   margin: 25rpx auto;
   border-radius: 30rpx;
@@ -115,6 +115,7 @@
   color: #fff !important;
 }
 .detailData {
+  height: 50rpx;
   font-size: 14rpx;
   color: #666;
   display: flex;

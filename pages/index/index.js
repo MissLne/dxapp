@@ -45,7 +45,12 @@ Page({
     },
     onLoad: function () {
         this.getHeight()
+        wx.showLoading({
+            title: "正在加载中",
+            mask: true,
+        })
         this.showActivity()
+        wx.hideLoading()
         request.showUserMessge({id: wx.getStorageSync('id')})
         .then(res => {
             console.log(res.data)

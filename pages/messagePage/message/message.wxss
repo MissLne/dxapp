@@ -12,6 +12,7 @@
   height: 70rpx;
   display: flex;
   align-items: center;
+  
 }
 .selectContainer {
   width: 690rpx;
@@ -75,15 +76,20 @@
 .massageScrollTop {
   /* width: 690rpx; */
   /* margin: 0 auto; */
-  margin-right: 30rpx;
+  box-sizing: border-box;
+  padding-right: 60rpx;
   display: flex;
   justify-content: flex-end;
+  border-bottom: 0.5rpx solid rgba(0, 0, 0,0.1);
 }
 .massageScrollTop2 {
   /* width: 690rpx; */
-  margin-right: 30rpx;
+  box-sizing: border-box;
+  padding-bottom: 15rpx;
+  padding-right: 30rpx;
   display: flex;
   justify-content: flex-end;
+  border-bottom: 0.5rpx solid rgba(0, 0, 0,0.1);
 }
 .parent-select-list {
   justify-content: flex-end;

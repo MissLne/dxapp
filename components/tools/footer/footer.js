@@ -30,11 +30,14 @@ Component({
         })
         return
       }
-      if (this.properties.contentObject.leftBtn == '保存草稿') {
-        request.saveDraft(app.globalData.publishActivityData)
-          .then(res => {
-            console.log(res)
-          })
+      if (this.properties.contentObject.leftBtn == '返回首页') {
+        wx.switchTab({
+          url: '../../../index/index'
+        })
+        // request.saveDraft(app.globalData.publishActivityData)
+        //   .then(res => {
+        //     console.log(res)
+        //   })
       }
       wx.navigateBack({ delta: 1 })
     },
@@ -67,11 +70,11 @@ Component({
       registrationDeadline = registrationDeadline.replace(/\"/g, "")
       startTime = Date.parse(startTime)
       registrationDeadline = Date.parse(registrationDeadline)
-      if(startTime < registrationDeadline) {
+      if (startTime < registrationDeadline) {
         this.triggerEvent('next')
         return
       }
-      console.log(app.globalData.publishActivityData,'lala')
+      console.log(app.globalData.publishActivityData, 'lala')
       app.globalData.publishActivityData.ticketList.map(item => {
         item.ticketPrice == 0 ? item.ticketType = 0 : item.ticketType = 1
         if (!item.hasOwnProperty('ticketRefundType')) item.ticketRefundType = 0
@@ -83,6 +86,7 @@ Component({
         })
         return
       }
+      console.log(this.properties.contentObject.addActivity, '我是来标志位置的')
       let obj = this.properties.contentObject.addActivity,
         count = 0,
         arr = [],
@@ -99,7 +103,7 @@ Component({
           newobj[key] = obj[key]
         }
       }
-      console.log(newobj)
+      console.log(this.properties.contentObject.number, count, '我也是')
       // if (this.properties.contentObject.rightBtn == '发布' && count == 10) {
       //   console.log('ouo')
       //   this.requestData()

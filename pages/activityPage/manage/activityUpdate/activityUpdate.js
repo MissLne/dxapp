@@ -23,7 +23,12 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    wx.showLoading({
+      title: "正在加载中",
+      mask: true,
+    })
     this.showUpdateActivity(options)
+    wx.hideLoading()
   },
   update() {
     let corrent = 0

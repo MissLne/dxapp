@@ -31,9 +31,7 @@ var url = {
   actIdGetConsult: "merchant/consult/getConsult",
   actIdGetComment: "merchant/consult/getComment",
   restartActivity: "merchant/activity/actInfo/restartActivity",
-  stopActivity: "merchant/activity/actInfo/stopActivity",
-  cancelActivity: "merchant/activity/actInfo/cancelActivity",
-  getQRTicket: "merchant/gzh/getQRTicket"
+  getQRTicket: "gzh/getQRTicket"
 }
 module.exports = {
   getQRTicket(params) {
@@ -51,14 +49,14 @@ module.exports = {
   },
   stopActivity(params) {
     return http({
-      url: url.stopActivity,
+      url: `merchant/activity/actInfo/stopActivity?activityId=${params.activityId}`,
       data: params,
       method: "PUT"
     })
   },
   cancelActivity(params) {
     return http({
-      url: url.cancelActivity,
+      url: `merchant/activity/actInfo/cancelActivity?activityId=${params.activityId}&mId=&${params.mId}`,
       data: params,
       method: "PUT"
     })
@@ -66,6 +64,13 @@ module.exports = {
   ouo(params) {
     return http({
       url: `merchant/enter/one/test/${params.jsCode}`,
+      data: params,
+      method: 'GET'
+    })
+  },
+  preview(params) {
+    return http({
+      url: `merchant/enter/one/test/${params.aId}`,
       data: params,
       method: 'GET'
     })

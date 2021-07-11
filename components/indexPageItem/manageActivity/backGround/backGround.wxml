@@ -1,6 +1,6 @@
 <!-- components/indexPageItem/manageActivity/backGround/backGround.wxml -->
 <view class="actManageBg">
-    <image src="{{materialObject.backGround}}" mode="aspectFill"/>
+  <image src="{{materialObject.backGround}}" mode="aspectFill" />
   <view>{{materialObject.activityName}}</view>
   <view>{{materialObject.status}}</view>
   <view>{{materialObject.startTime}}</view>

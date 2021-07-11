@@ -38,7 +38,8 @@ Page({
       ifRedArr: []
     },
     setUpItem: [],
-    publishActivity: {}
+    publishActivity: {},
+    showBubble1: 0
   },
 
   /**
@@ -208,16 +209,25 @@ Page({
   // lala() {
   // },
   ououo() {
-    wx.navigateToMiniProgram({
-      appId: 'wx9fa9d2342bc085ea',
-      path: 'pages/index/detail/detail?id=123',
-      extraData: {
-        obj: app.globalData.publishActivityData
-      },
-      envVersion: 'develop',
-      success(res) {
-        // 打开成功
-      }
+    this.setData({
+      showBubble1: 1,
+      pickMessage: this.data.pickMessage
     })
+    setTimeout(() => {
+      this.setData({
+        showBubble1: 0
+      })
+    }, 2000)
+    // wx.navigateToMiniProgram({
+    //   appId: 'wx9fa9d2342bc085ea',
+    //   path: 'pages/index/detail/detail?id=123',
+    //   extraData: {
+    //     obj: app.globalData.publishActivityData
+    //   },
+    //   envVersion: 'develop',
+    //   success(res) {
+    //     // 打开成功
+    //   }
+    // })
   }
 })

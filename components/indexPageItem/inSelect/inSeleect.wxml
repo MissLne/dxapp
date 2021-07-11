@@ -1,0 +1,15 @@
+<!--components/indexPageItem/inSelect/inSeleect.wxml-->
+<view class="selectionBox {{scrollHeight? 'boxHeight100' : 'boxHeight50'}}" style="width: {{selectList.boxWidth}}rpx;">
+  <view class="selectName parent-select-name">
+    <view>
+      <text bind:tap="isShow">{{selectList.name}}</text>
+      <image src="../../../images/jiantou.png" class="{{selectListIsShow? 'imageClass' : ''}}"/>
+    </view>
+    <view wx:if="{{content}}" class="top-text">{{content}}</view>
+  </view>
+  <view class="RselectList parent-select-list" wx:if="{{selectListIsShow}}">
+    <view wx:for="{{selectList.arr}}" wx:key="index" class="selectListItem {{index == selectIndex? 'active' : ''}}" bind:tap="selectIndex" data-name="{{item}}" data-num="{{index}}">
+      {{item}}
+    </view>
+  </view>
+</view>

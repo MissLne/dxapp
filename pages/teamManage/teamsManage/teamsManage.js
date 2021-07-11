@@ -20,7 +20,12 @@ Page({
     wx.showShareMenu({
       withShareTicket: true
     })
+    wx.showLoading({
+      title: "正在加载中",
+      mask: true,
+    })
     this.getAllMembers()
+    wx.hideLoading()
   },
 
   /**

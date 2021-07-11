@@ -60,6 +60,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: "正在加载中",
+      mask: true,
+    })
     let _this = this
     this.setData({
       activityId: options.activityId,
@@ -67,8 +71,10 @@ Page({
       year: _this.loadCurrentMonth().tYear,
       time: _this.loadCurrentMonth().tYear + '-' + _this.loadCurrentMonth().m
     })
+    
     this.showActivityManage(options)
     this.geiHeight()
+    wx.hideLoading()
     this.showBillDetail()
 
   },
@@ -121,15 +127,15 @@ Page({
                     request.getQRTicket(obj)
                       .then((res) => {
                         let reg = /\.(png|jpg|gif|jpeg|webp)$/;
-                        if(reg.test(res.data)) {
+                        if(res.data.includes("http")) {
                           _this.setData({
                             erweimaShow: 1,
                             erweimaUrl: res.data
                           })
+
                         } else {
                           wx.showToast({
-                            title: '操作成功',
-                            icon: 'success',
+                            title: '操作失败',
                             duration: 1500,
                             mask: false
                           })
@@ -149,39 +155,53 @@ Page({
           }
         }
       })
-    } else {
-      return
+    } else if(e.detail.index == 3) {
+      request.preview({aId: this.data.activityId})
+      .then(res => {
+        console.log(res)
+        wx.navigateToMiniProgram({
+          appId: 'wx9fa9d2342bc085ea',
+          path: 'pages/index/detail/detail?id=123',
+          extraData: {
+            obj: res.data
+          },
+          envVersion: 'develop',
+          success(res) {
+            // 打开成功
+          }
+        })
+      })
     }
     
   },
   suredelete() {
     if (this.data.stopOrCancel == 2) {
-      console.log(2)
-      // request.cancelActivity({
-      //   activityId: this.data.activityId,
-      //   mId: wx.getStorageSync('id')
-      // })
-      //   .then(() => {
-      //     wx.showToast({
-      //       title: '操作成功',
-      //       icon: 'success',
-      //       duration: 1500,
-      //       mask: false
-      //     })
-      //   })
+      console.log(this.data.activityId)
+      request.cancelActivity({
+        activityId: this.data.activityId.toString(),
+        mId: wx.getStorageSync('id')
+      })
+        .then(() => {
+          wx.showToast({
+            title: '操作成功',
+            icon: 'success',
+            duration: 1500,
+            mask: false
+          })
+        })
+        
     } else if(this.data.stopOrCancel = 1) {
-      console.log(1)
-      // request.stopActivity({
-      //   activityId: this.data.activityId
-      // })
-      //   .then(() => {
-      //     wx.showToast({
-      //       title: '操作成功',
-      //       icon: 'success',
-      //       duration: 1500,
-      //       mask: false
-      //     })
-      //   })
+      request.stopActivity({
+        activityId: Number(this.data.activityId)
+      })
+        .then(() => {
+          wx.showToast({
+            title: '操作成功',
+            icon: 'success',
+            duration: 1500,
+            mask: false
+          })
+        })
     }
   },
   async getNextMonth() {

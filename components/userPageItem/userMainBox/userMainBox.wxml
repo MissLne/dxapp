@@ -1,31 +1,21 @@
-<!--components/userPageItem/userMainBox/userMainBox.wxml-->
+<!-- components/userPageItem/userMainBox/userMainBox.wxml -->
 <view class="userMainBox">
   <view class="baseMaterial">
-    <view >
-      <view>
-        粉丝数
-      </view>
-      <view>
-        {{0}}
-      </view>
+    <view>
+      <view>粉丝数</view>
+      <view>{{0}}</view>
     </view>
-    <view >
-      <navigator url="/pages/userPage/userWallet/userWallet">钱包</navigator>
-      <view>
-        {{walletCount}}
-      </view>
+    <view bind:tap="walletDetail">
+      <view>钱包</view>
+      <view>{{walletCount}}</view>
     </view>
   </view>
   <view class="userMainBoxBtn">
-  <button open-type="contact">啦啦啦啦啦啦</button>
+    <button open-type="contact">啦啦啦啦啦啦</button>
     联系客服
   </view>
-  <navigator class="userMainBoxBtn" url="/pages/teamManage/teamsManage/teamsManage">
-    管理团队
-  </navigator>
+  <navigator class="userMainBoxBtn" url="/pages/teamManage/teamsManage/teamsManage">管理团队</navigator>
   <view class="logout">
     <view bind:tap="logout">退出登录</view>
   </view>
-    
 </view>
-  

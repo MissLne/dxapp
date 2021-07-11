@@ -24,11 +24,11 @@ Component({
       this.setData({
         popUpObj: this.properties.popUpObj
       })
-      if (this.properties.popUpObj.rightBtn == '不保存') {
-        wx.switchTab({
-          url: '../../../index/index'
-        })
-      }
+      // if (this.properties.popUpObj.rightBtn == '不保存') {
+      //   wx.switchTab({
+      //     url: '../../../index/index'
+      //   })
+      // }
       this.triggerEvent('close')
     },
     sure() {

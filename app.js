@@ -14,9 +14,9 @@ App({
     userInfo: null,
     publishActivityData: {
       accountId: wx.getStorageSync('id').toString(),
-      activityName: '随便',
-      startTime: '2021-07-09 08:00:00',
-      endTime: '2021-12-05 08:00:00',
+      activityName: '未命名',
+      startTime: '2200-07-09 08:00:00',
+      endTime: '2200-12-05 08:00:00',
       registrationDeadline: '2021-05-09 08:00:00',
       label: ['q'],
       lightSpot: 'q',

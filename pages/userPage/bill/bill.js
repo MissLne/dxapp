@@ -56,8 +56,12 @@ Page({
     console.log(1)
   },
   onLoad: function (options) {
+    wx.showLoading({
+      title: "正在加载中",
+      mask: true,
+    })
     this.showBillDetail()
-
+    wx.hideLoading()
   },
   onShow: function () {
     this.getWindowHeight()

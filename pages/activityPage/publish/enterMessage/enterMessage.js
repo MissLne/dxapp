@@ -7,12 +7,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    theCover: '',
     BubbleText: '',
     footerBtnObject: {
-      leftBtn: '保存草稿',
+      leftBtn: '返回首页',
       rightUrl: '/pages/activityPage/publish/introdution/introdution',
       rightBtn: '下一步',
-      number: 5,
+      number: 6,
       addActivity: {
         posterImage: '',
         activityName: '',
@@ -146,13 +147,15 @@ Page({
             token: wx.getStorageSync('token')
           },
           success: (result) => {
-            if (result.status == 200) {
+            if (result.statusCode == 200) {
+              console.log(result.data)
               let imgObj = JSON.parse(result.data)
               let data = this.data.footerBtnObject
               data.addActivity.posterImage = imgObj.data
               app.globalData.publishActivityData.posterImage = imgObj.data
               this.setData({
-                footerBtnObject: data
+                footerBtnObject: data,
+                theCover: '重新上传'
               })
               wx.showToast({
                 title: '上传成功',
@@ -161,6 +164,7 @@ Page({
                 mask: true
               })
             } else {
+              console.log(result,'-0-')
               wx.showToast({
                 title: '上传失败',
                 icon: 'none',

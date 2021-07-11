@@ -21,6 +21,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    walletDetail() {
+      wx.navigateTo({
+        url: '/pages/userPage/userWallet/userWallet'
+      })
+    },
     logout() {
       request.logout()
       .then(() => {

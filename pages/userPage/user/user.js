@@ -18,7 +18,12 @@ Page({
       topBarMargin: (wx.getMenuButtonBoundingClientRect().top) * 2,
       topBarHeight: (wx.getMenuButtonBoundingClientRect().height) * 2,
     })
+    wx.showLoading({
+      title: "正在加载中",
+      mask: true,
+    })
     this.showUserMaterial()
+    wx.hideLoading()
   },
   onShow: function () {
 

@@ -24,7 +24,12 @@ Page({
       mid: options.id
       // mid: 34
     })
+    wx.showLoading({
+      title: "正在加载中",
+      mask: true,
+    })
     this.showMessage()
+    wx.hideLoading()
   },
   showMessage() {
     let id = this.data.mid

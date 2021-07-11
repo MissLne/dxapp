@@ -1,7 +1,9 @@
 /* pages/userPage/bill/bill.wxss */
 .selectionClass {
+  box-sizing: border-box;
   display: flex;
   justify-content: flex-end;
+  padding-right: 30rpx;
   /* height: 50rpx; */
 }
 .isShowSelectList {
