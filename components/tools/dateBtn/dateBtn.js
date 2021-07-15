@@ -34,11 +34,11 @@ Component({
     },
     pickerChange() {
       let currentTime = this.loadCurrentMonth()
-      if(this.properties.time == currentTime) {
-        this.setData({
-          time: '本月'
-        })
-      }
+      // if(this.properties.time == currentTime) {
+      //   this.setData({
+      //     time: '本月'
+      //   })
+      // }
       this.triggerEvent('datepicker',{time: this.properties.time})
     }
   }

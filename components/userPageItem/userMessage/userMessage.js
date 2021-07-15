@@ -43,6 +43,9 @@ Component({
     //     userMessage: arr
     //   })
     // },
+    updateUrl(e) {
+      this.triggerEvent('name', { arr: this.data.userMessage,url: e.detail.url })
+    },
     showUserMaterial() {
       let obj = {
         id: wx.getStorageSync('id')

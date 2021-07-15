@@ -1,4 +1,5 @@
 <!--components/userPageItem/userMessage/userMessage.wxml-->
+<UserUploadPic bindurl="updateUrl"/>
 <view class="updateMessageContainer">
   <view class="updateMessage" wx:for="{{userMessage}}" wx:key="index">
     <view >{{item.text}}</view>

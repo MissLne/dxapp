@@ -1,5 +1,5 @@
 <!-- pages/activityPage/publish/pubSuccess/pubSuccess.wxml -->
 <ComNav topBar="{{topBar}}" />
 <view>长按图片扫码关注公众号，将自动复制的码发送至公众号，即可接收提醒</view>
-<image class="imagesa" />
+<image class="imagesa" src="../../../../images/erweima.png"/>
 <view class="backToIndex" bind:tap="backToIndex">返回首页</view>

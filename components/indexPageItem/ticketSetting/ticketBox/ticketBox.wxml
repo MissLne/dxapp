@@ -7,7 +7,7 @@
     </block>
     <view class="containerTitle">
       <view>
-        <input value="{{item.ticketName}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketName" placeholder="输入票种名"  data-put="{{0}}"/>
+        <input value="{{item.ticketName}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketName" placeholder="输入票种名"/>
       </view>
       <view wx:if="{{ticketDetail.length > 1}}" bindtap="deleteTicket" data-num="{{index}}">
         删除
@@ -15,11 +15,11 @@
     </view>
     <view class="ticketPriceAndCount">
       <text>价格</text>
-      <input value="{{item.ticketPrice}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketPrice" placeholder="输入0即为免费票" data-put="{{1}}"/>
+      <input value="{{item.ticketPrice}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketPrice" placeholder="输入0即为免费票"/>
     </view>
     <view class="ticketPriceAndCount" style="margin-bottom: 30rpx;">
       <text>数目</text>
-      <input value="{{item.ticketNumber}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketNumber" placeholder="输入0即为不限数目" data-put="{{2}}" focus="{{index == tCount}}"/>
+      <input value="{{item.ticketNumber}}" bindinput="updateInput" data-num="{{index}}" data-name="ticketNumber" placeholder="输入0即为不限数目"/>
     </view>
     <InputBox inputValue="{{item.ticketInstructions}}" inputTitle="票种介绍" bindact="getInput" data-num="{{index}}"/>
     <view class="ticketDetailFooter">

@@ -8,7 +8,7 @@ page {
 .updateBtn {
   width: 180rpx;
   height: 80rpx;
-  margin: 0 auto 35rpx auto;
+  margin: 35rpx auto 35rpx auto;
   border-radius: 40rpx;
   background: #777BCE;
   color: #fff;

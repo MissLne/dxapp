@@ -1,3 +1,7 @@
+<SetUpFootBtn content="保存并预览" parent-btn-class="parent-btn-class" bind:tap="scan" wx:if="{{theLast}}"/>
+
+<!-- <SetUpFootBtn content="保存并预览" parent-btn-class="parent-btn-class" bind:tap="ououo"/> -->
+
 <view class="btn parent-footer">
     <navigator class="leftBtn parent-leftbtn" bindtap="saveDraft">{{contentObject.leftBtn}}</navigator>
     <navigator class="rightBtn" bindtap="goNext"  open-type="navigate">{{contentObject.rightBtn}}</navigator>

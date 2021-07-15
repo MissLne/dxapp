@@ -56,7 +56,7 @@ Component({
       obj.announcement = e.detail.str
       this.triggerEvent('act', { obj: data })
       obj.forEach(element => {
-        if(element.type === 1) element.value = obj.announcement 
+        if (element.type === 1) element.value = obj.announcement
       })
       this.setData({
         uploadArray: obj
@@ -65,7 +65,7 @@ Component({
     showMaterial() {
       let data = this.data.uploadArray
       let obj = this.properties.activityMaterial
-      let arr = [obj.linkmanCode, obj.groupCode]
+      let arr = [obj.linkManCode, obj.groupCode]
       let index = 0
       data.forEach(element => {
         element.type === 1 ? element.value = obj.announcement : element.imgUrl = arr[index++]
@@ -80,14 +80,12 @@ Component({
         sizeType: ['original', 'compressed'],
         sourceType: ['album', 'camera'],
         success: (result) => {
-          wx.showToast({
-            title: '正在上传...',
-            icon: 'loading',
-            duration: 1500,
-            mask: true
+          wx.showLoading({
+            title: "正在加载中",
+            mask: true,
           })
           wx.uploadFile({
-            
+
             url: app.globalData.urlLink + 'web_public/upload_picture',
             filePath: result.tempFilePaths[0],
             name: 'file',
@@ -95,16 +93,34 @@ Component({
               token: wx.getStorageSync('token')
             },
             success: (result) => {
-              let imgObj = JSON.parse(result.data)
-              let data = this.data.uploadArray
-              let obj = this.properties.activityMaterial
-              data[e.currentTarget.dataset.num].imgUrl = imgObj.data
-              e.currentTarget.dataset.num === 1 ? obj.linkmanCode = imgObj.data : obj.groupCode = imgObj.data
-              this.setData({
-                uploadArray: data,
-                baseMessage: obj
-              })
-              this.triggerEvent('act', { obj: obj })
+              if (result.statusCode == 200) {
+                let imgObj = JSON.parse(result.data)
+                let data = this.data.uploadArray
+                let obj = this.properties.activityMaterial
+                data[e.currentTarget.dataset.num].imgUrl = imgObj.data
+                e.currentTarget.dataset.num === 1 ? obj.linkmanCode = imgObj.data : obj.groupCode = imgObj.data
+                this.setData({
+                  uploadArray: data,
+                  baseMessage: obj
+                })
+                this.triggerEvent('act', { obj: obj })
+                wx.hideLoading()
+                wx.showToast({
+                  title: '上传成功',
+                  icon: 'success',
+                  duration: 1500,
+                  mask: true
+                })
+              } else {
+                wx.hideLoading()
+                wx.showToast({
+                  title: '上传失败',
+                  icon: 'none',
+                  duration: 1500,
+                  mask: true
+                })
+              }
+
             }
           })
         }

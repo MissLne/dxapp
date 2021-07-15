@@ -133,11 +133,9 @@ Page({
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success: (result) => {
-        wx.showToast({
-          title: '正在上传...',
-          icon: 'loading',
-          duration: 1500,
-          mask: true
+        wx.showLoading({
+          title: "正在加载中",
+          mask: true,
         })
         wx.uploadFile({
           url: app.globalData.urlLink + 'web_public/upload_picture',
@@ -157,6 +155,7 @@ Page({
                 footerBtnObject: data,
                 theCover: '重新上传'
               })
+              wx.hideLoading()
               wx.showToast({
                 title: '上传成功',
                 icon: 'success',
@@ -164,7 +163,7 @@ Page({
                 mask: true
               })
             } else {
-              console.log(result,'-0-')
+              wx.hideLoading()
               wx.showToast({
                 title: '上传失败',
                 icon: 'none',
@@ -200,7 +199,7 @@ Page({
           },
           success: (result) => {
             console.log(result)
-            if (result.status == 200) {
+            if (result.statusCode == 200) {
               let imgObj = JSON.parse(result.data)
               app.globalData.publishActivityData.videoUrl = imgObj.data
               wx.showToast({

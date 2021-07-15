@@ -61,7 +61,7 @@ Page({
       mask: true,
     })
     this.showBillDetail()
-    wx.hideLoading()
+    
   },
   onShow: function () {
     this.getWindowHeight()
@@ -143,6 +143,7 @@ Page({
           pay: Number(num).toFixed(2),
           income: Number(num1).toFixed(2)
         })
+        wx.hideLoading()
       })
     // this.loadCurrentMonth()
   },

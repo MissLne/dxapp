@@ -9,8 +9,8 @@
     <SetUpItem setUpItem="{{setUpItem}}" pickMessage="{{pickMessage}}" bindpick="addSetUp" bindsetup="getSetUpMessage" bindsetupdelete="delete"/>
   <!-- <Pick pickMessage="{{pickMessage}}" bindpick="addSetUp"/> -->
   <view class="setUpFooterBtn">
-    <SetUpFootBtn content="保存并预览" parent-btn-class="parent-btn-class" bind:tap="ououo"/>
-    <Footer contentObject="{{footerBtnObject}}" parent-leftbtn="parent-left-footer" parent-footer="parent-footer" bindnext="goNext"/>
+    <!-- <SetUpFootBtn content="保存并预览" parent-btn-class="parent-btn-class" bind:tap="ououo"/> -->
+    <Footer contentObject="{{footerBtnObject}}" parent-leftbtn="parent-left-footer" parent-footer="parent-footer" bindnext="goNext" theLast="{{1}}" bindscan="saveAndScan"/>
   </view>
 </view>
   <PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up" bindsure="suredelete" />

@@ -7,6 +7,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    theLast: Number,
     contentObject: {
       type: Object
     },
@@ -23,6 +24,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    scan() {
+      this.triggerEvent('scan')
+    },
     saveDraft() {
       if (this.properties.contentObject.leftBtn == '充值') {
         wx.navigateTo({
@@ -42,6 +46,7 @@ Component({
       wx.navigateBack({ delta: 1 })
     },
     requestData() {
+      console.log(app.globalData.publishActivityData,'做个人吧')
       let _this = this
       app.globalData.publishActivityData.status = 1
       request.publishActivities(app.globalData.publishActivityData)

@@ -28,7 +28,7 @@ Page({
       mask: true,
     })
     this.showUpdateActivity(options)
-    wx.hideLoading()
+    
   },
   update() {
     let corrent = 0
@@ -126,6 +126,7 @@ Page({
           ticketDetail: res.data,
           showTips: 1
         })
+        wx.hideLoading()
       })
   }
 })

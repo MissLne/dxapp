@@ -74,7 +74,7 @@ Page({
     
     this.showActivityManage(options)
     this.geiHeight()
-    wx.hideLoading()
+    
     this.showBillDetail()
 
   },
@@ -360,6 +360,7 @@ Page({
           manageActivity: res.data,
           showComponent: 1
         })
+        wx.hideLoading()
       })
       console.log(this.data.manageActivity)
     request.showMemberMessage(obj)
@@ -451,6 +452,7 @@ Page({
     this.setData({
       time: '本月'
     })
+    console.log(this.data.activityId)
     this.requestBill(obj)
   },
   billLazy() {

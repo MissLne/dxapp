@@ -12,8 +12,6 @@
   justify-content: center;
   align-items: center;
   color: #fff;
-  clear: both;
-  /* background: #483989; */
 }
 
 .actManageBg::after {
@@ -30,7 +28,6 @@
 .actManageBg image {
   width: 700rpx;
   height: 290rpx;
-  border-radius: 30rpx;
   position: absolute;
   top: 0;
   left: 0;

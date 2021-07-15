@@ -95,7 +95,7 @@ Page({
       mask: true,
     })
     this.getMessage()
-    wx.hideLoading()
+    
 
   },
   onShow: function () {
@@ -467,6 +467,7 @@ Page({
       .then(res => {
         this.loadComm(res.data)
       })
+      
   },
   loadQues(res) {
     let hideList = res
@@ -485,6 +486,7 @@ Page({
           questionMessage: this.data.showList,
           hideList
         })
+        wx.hideLoading()
   },
   loadComm(res) {
     let hideList1 = res
@@ -503,5 +505,6 @@ Page({
           commentMessage: this.data.showList1,
           hideList1
         })
+        wx.hideLoading()
   }
 })

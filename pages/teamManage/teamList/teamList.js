@@ -23,7 +23,7 @@ Page({
       mask: true,
     })
     this.getLoginAccount()
-    wx.hideLoading()
+    
   },
 
   getLoginAccount() {
@@ -40,6 +40,7 @@ Page({
               showTeams: 1,
               teamDetail: res.data
             })
+            wx.hideLoading()
           })
       }
     })

@@ -129,7 +129,7 @@ Page({
         obj.jizan = '例：朋友圈集赞图片'
         break
       default:
-        obj.propertyType = 3
+        obj.propertyType = 2
         obj.laiyuan = '例：你了解到报名的来源'
         break
     }
@@ -208,7 +208,7 @@ Page({
   // },
   // lala() {
   // },
-  ououo() {
+  saveAndScan() {
     this.setData({
       showBubble1: 1,
       pickMessage: this.data.pickMessage

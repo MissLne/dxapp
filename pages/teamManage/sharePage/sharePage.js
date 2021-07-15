@@ -20,16 +20,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      mid: options.id
-      // mid: 34
-    })
     wx.showLoading({
       title: "正在加载中",
       mask: true,
     })
+    this.setData({
+      mid: options.id
+      // mid: 34
+    })
+    
     this.showMessage()
-    wx.hideLoading()
+    
   },
   showMessage() {
     let id = this.data.mid
@@ -51,11 +52,13 @@ Page({
             activity: res.data.slice(0, 3),
             count: res.data.length
           })
+          wx.hideLoading()
         } else {
           this.setData({
             activity: res.data,
             count: res.data.length
           })
+          wx.hideLoading()
         }
       })
   },

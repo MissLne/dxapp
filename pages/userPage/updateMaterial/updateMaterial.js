@@ -25,8 +25,8 @@ Page({
       mask: true,
     })
     this.getMessageArr()
-    this.updateUrl()
-    wx.hideLoading()
+    // this.updateUrl()
+    
   },
 
   showUserMaterial() {
@@ -49,6 +49,7 @@ Page({
       "introduction": this.data.messageArray[2] ? this.data.messageArray[2].value : this.data.userMessageObject.introduction,
       "imgShowUrl": this.data.avaterUrl
     }
+    console.log(obj)
     if (this.data.messageArray[1]) {
       if (!(/^1(?:3\d|4[4-9]|5[0-35-9]|6[67]|7[013-8]|8\d|9\d)\d{8}$/.test(this.data.messageArray[1].value))) {
         this.setData({
@@ -65,22 +66,33 @@ Page({
             wx.switchTab({
               url: '/pages/userPage/user/user'
             })
+            wx.showToast({
+              title: '操作成功',
+              icon: 'success',
+              duration: 1500,
+            })
+          })
+          .catch(() => {
+            wx.showToast({
+              title: '操作失败',
+              duration: 1500,
+            })
           })
       }
     }
   },
   getMessageArr(e) {
+    wx.hideLoading()
     if(e != undefined) {
       this.setData({
         messageArray: e.detail.arr
       })
-    }
-  },
-  updateUrl(e) {
-    if(e != undefined) {
-      this.setData({
-        avaterUrl: e.detail.url
-      })
+      if(e.detail.url != undefined) {
+        this.setData({
+          avaterUrl: e.detail.url
+        })
+        
+      }
     }
   }
 })

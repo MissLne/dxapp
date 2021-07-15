@@ -215,7 +215,8 @@ Component({
     },
     changeSonInput(e) {
       // this.data.checkBox[e.currentTarget.dataset.inputindex] = e.detail.value
-      this.properties.setUpItem[e.currentTarget.dataset.boxindex].content[e.currentTarget.dataset.inputindex] = e.detail.value
+      this.properties.setUpItem[e.currentTarget.dataset.boxindex].content[e.currentTarget.dataset.inputindex - 1] = e.detail.value
+      
       this.setData({
         setUpItem: this.properties.setUpItem
       })
