@@ -64,7 +64,11 @@ Page({
           wx.navigateTo({
             url: '../login/login'
           })
-            
+          wx.showToast({
+            title: '注册成功',
+            icon: 'success',
+            duration: 1500
+          })
         })
       }
     })

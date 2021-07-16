@@ -11,6 +11,7 @@ Page({
    */
   data: {
     popUpObj: {
+      showBubble: 0,
       content: '确定没有手抖吗？',
       leftBtn: '确认',
       rightBtn: '取消',
@@ -165,21 +166,38 @@ Page({
         }
       })
     } else if(e.detail.index == 3) {
-      request.preview({aId: this.data.activityId})
-      .then(res => {
-        console.log(res)
-        wx.navigateToMiniProgram({
-          appId: 'wx9fa9d2342bc085ea',
-          path: 'pages/index/detail/detail?id=123',
-          extraData: {
-            obj: res.data
-          },
-          envVersion: 'develop',
-          success(res) {
-            // 打开成功
-          }
+      // request.preview({aId: this.data.activityId})
+      // .then(res => {
+        this.setData({
+          showBubble: 1
         })
+        setTimeout(() => {
+          this.setData({
+            showBubble: 0
+          })
+        }, 3000)
+        // console.log(res)
+        // wx.navigateToMiniProgram({
+        //   appId: 'wx9fa9d2342bc085ea',
+        //   path: 'pages/index/detail/detail?id=123',
+        //   extraData: {
+        //     obj: res.data
+        //   },
+        //   envVersion: 'develop',
+        //   success(res) {
+        //     // 打开成功
+        //   }
+        // })
+      // })
+    } else{
+      this.setData({
+        showBubble: 1
       })
+      setTimeout(() => {
+        this.setData({
+          showBubble: 0
+        })
+      }, 3000)
     }
     
   },

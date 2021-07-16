@@ -4,6 +4,7 @@
 // const apiUrl = "http://192.168.3.9:8089/party/"
 App({
   globalData: {
+    isLogin: 0,
     urlLink: 'https://www.quyo.fun/party/',
     systemInfo: null,
     showQuesCom: {

@@ -1,5 +1,8 @@
 // components/teamComponents/teamListItem/teamListItem.js
 const request = require('../../../request/api')
+let app =  getApp();
+
+  
 Component({
   /**
    * 组件的属性列表
@@ -33,6 +36,7 @@ Component({
               let data = res.data
               wx.setStorageSync('token', data.token)
               wx.setStorageSync('id', data.mid)
+              app.globalData.isLogin = 1
               wx.switchTab({
                 url: '/pages/index/index'
               })

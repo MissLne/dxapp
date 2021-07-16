@@ -1,4 +1,5 @@
 const request = require('../../../request/api')
+let app =  getApp();
 
 Page({
     data: {
@@ -31,6 +32,7 @@ Page({
                             duration: 1000,
                             mask: true
                         })
+                        app.globalData.isLogin = 1
                     })
             }
         })

@@ -38,3 +38,4 @@
   <image src="{{erweimaUrl}}"/>
 </view>
 <view class="theCover" wx:if="{{erweimaShow}}" bind:tap="erweima"></view>
+<Bubble bubbleContent="该功能尚未开通" showBubble="{{showBubble}}" wx:if="{{showBubble}}" />

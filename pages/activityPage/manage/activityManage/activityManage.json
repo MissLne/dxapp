@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "Bubble": "/components/tools/bubble/bubble",
     "Navigations": "/components/tools/navigations/navigations",
     "Background": "/components/indexPageItem/manageActivity/backGround/backGround",
     "ManageBtn": "/components/indexPageItem/manageActivity/manageBtn/manageBtn",

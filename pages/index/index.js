@@ -75,8 +75,19 @@ Page({
                 firstLoad: 0
             })
         }
+        let { selectList } = this.data
+        selectList.name = '全部活动' 
+        if(app.globalData.isLogin) {
+            this.showActivity()
+            this.setData({
+                selectList,
+                selectIndex: 0
+            })
+            app.globalData.isLogin = 0
+        }
         this.setData({
             identifyLoginShow: 0
+            // selectIndex: 0
         })
     },
     bianji() {
