@@ -89,13 +89,15 @@ Page({
 
 
   onLoad: function () {
+    if (wx.getStorageSync('token') != '') {
+      wx.showLoading({
+        title: "正在加载中",
+        mask: true,
+      })
+    }
     this.getTopHeight()
-    wx.showLoading({
-      title: "正在加载中",
-      mask: true,
-    })
     this.getMessage()
-    
+
 
   },
   onShow: function () {
@@ -112,8 +114,8 @@ Page({
             item.reply == null && item.aid == app.globalData.showQuesCom.id ? emptyReply.push(item) : reply.push(item)
           })
           this.data.scrollSelect.title = app.globalData.showQuesCom.name
-          this.data.selectList.name = '未回答' ,
-          this.data.selectIndex = 2
+          this.data.selectList.name = '未回答',
+            this.data.selectIndex = 2
           this.setData({
             selectIndex: this.data.selectIndex,
             selectList: this.data.selectList,
@@ -141,7 +143,7 @@ Page({
     }
   },
   onHide: function () {
-    
+
     app.globalData.showQuesCom.number = -1
     app.globalData.showQuesCom.id = -1
     this.data.scrollSelect.title = this.data.scrollSelect1.title = '全部活动'
@@ -152,7 +154,7 @@ Page({
       selectList: this.data.selectList,
       scrollSelect1: this.data.scrollSelect1,
       scrollSelect: this.data.scrollSelect,
-      swiperIndex:  0
+      swiperIndex: 0
     })
   },
   CommLazy() {
@@ -209,7 +211,7 @@ Page({
         console.log(res.data, _this.data.selectComId)
         if (this.data.selectComId == -1 || this.data.selectComId == undefined) {
           temp = res.data
-         
+
         } else {
           res.data.map(item => {
             item.aid == _this.data.selectComId ? temp.push(item) : temp
@@ -467,44 +469,44 @@ Page({
       .then(res => {
         this.loadComm(res.data)
       })
-      
+
   },
   loadQues(res) {
     let hideList = res
-        let { pageSize } = this.data;
-        if (hideList.length > pageSize) {
-          this.setData({
-            showList: hideList.splice(0, pageSize)
-          })
-        } else {
-          this.setData({
-            showList: hideList,
-            ifPages: false
-          })
-        }
-        this.setData({
-          questionMessage: this.data.showList,
-          hideList
-        })
-        wx.hideLoading()
+    let { pageSize } = this.data;
+    if (hideList.length > pageSize) {
+      this.setData({
+        showList: hideList.splice(0, pageSize)
+      })
+    } else {
+      this.setData({
+        showList: hideList,
+        ifPages: false
+      })
+    }
+    this.setData({
+      questionMessage: this.data.showList,
+      hideList
+    })
+    wx.hideLoading()
   },
   loadComm(res) {
     let hideList1 = res
-        let { pageSize1 } = this.data;
-        if (hideList1.length > pageSize1) {
-          this.setData({
-            showList1: hideList1.splice(0, pageSize1)
-          })
-        } else {
-          this.setData({
-            showList1: hideList1,
-            ifPages1: false
-          })
-        }
-        this.setData({
-          commentMessage: this.data.showList1,
-          hideList1
-        })
-        wx.hideLoading()
+    let { pageSize1 } = this.data;
+    if (hideList1.length > pageSize1) {
+      this.setData({
+        showList1: hideList1.splice(0, pageSize1)
+      })
+    } else {
+      this.setData({
+        showList1: hideList1,
+        ifPages1: false
+      })
+    }
+    this.setData({
+      commentMessage: this.data.showList1,
+      hideList1
+    })
+    wx.hideLoading()
   }
 })

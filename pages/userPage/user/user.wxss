@@ -8,9 +8,32 @@
 }
 .userTaBar {
   font-size: 26rpx;
-  color: #fff;
   width: 750rpx;
   padding-left: 30rpx;
   display: flex;
   align-items: center;
+}
+.topImg1 {
+  width: 290rpx;
+  height: 675rx;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 25%;
+}
+.identifyLogin {
+  width: 246rpx;
+  height: 80rpx;
+  border-radius: 36rpx;
+  background: #777BCE;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34rpx;
+  font-weight: bold;
+  position: fixed;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
 }

@@ -21,9 +21,15 @@
     </view>
   </view>
   <view class="identifyLogin" wx:if="{{identifyLoginShow}}">
-    <image src="../../images/activity/shouquan1.jpg"/>
-    <view bind:tap="getPersonalMessage">授权个人信息</view>
+    <image src="../../images/loginPage/LOGOx.png"/>
+    <view class="identifyText">登录需要您的授权信息</view>
+    <view class="identifyline">
+      <view ></view>
+      <view >请点击下面图标登录</view>
+      <view ></view>
+    </view>
+    <image src="../../images/loginPage/weixin.png" bind:tap="getPersonalMessage"/>
   </view>
 </view>
 <PopUp popUpObj="{{popUpObj}}" parent-pop-up="parent-pop-up" bindsure="bianji" bindclose="close"/>
-<view class="theCalss" wx:if="{{popUpObj.show}}"></view>
+<view class="theCalss" wx:if="{{popUpObj.show || identifyLoginShow}}" bind:tap="hideIdentify"></view>

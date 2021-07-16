@@ -1,11 +1,13 @@
-<!--pages/userPage/user/user.wxml-->
+<!-- pages/userPage/user/user.wxml -->
 <view>
-  <image class="topImg" src="../../../images/user/me_chahua.png" mode="aspectFill" />
-    
-  <view class="userTaBar" style="margin-top: {{topBarMargin}}rpx;height: {{topBarHeight}}rpx;">
+  <image class="topImg" src="../../../images/user/me_chahua.png" mode="aspectFill" wx:if="{{identifyLoginShow == 0}}"/>
+  <image class="topImg1" src="../../../images/user/list_picturex.png" wx:if="{{identifyLoginShow == 1}}"/>
+  <view class="userTaBar" style="margin-top: {{topBarMargin}}rpx;height: {{topBarHeight}}rpx; color: {{identifyLoginShow? '#000' : '#fff'}};">
     我
   </view>
-  <UserMaterial userMaterial="{{userMessageObject}}"/>
-  <UserMainBox/>
+  <view wx:if="{{identifyLoginShow == 0}}">
+    <UserMaterial userMaterial="{{userMessageObject}}" />
+    <UserMainBox />
+  </view>
+  <view bind:tap="getPersonalMessage" class="identifyLogin" wx:if="{{identifyLoginShow == 1}}">立即登录</view>
 </view>
-  

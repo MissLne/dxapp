@@ -1,7 +1,7 @@
 /* components/tools/buttons/buttons.wxss */
 
 .buttonsBox {
-    position: absolute;
+    position: fixed;
     left: 50%;
     transform: translateX(-50%);
 }

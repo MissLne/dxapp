@@ -18,7 +18,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      cashAmount: options.amount
+      cashAmount: options.amount / 100
     })
   },
   back() {

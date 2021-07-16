@@ -108,6 +108,7 @@ Page({
         popUpObj,
         stopOrCancel
       })
+        
     } else if (e.detail.index == 2) {
       wx.showModal({
         title: '温馨提示',
@@ -145,14 +146,22 @@ Page({
                 })
               },
               fail: res => {
-                wx.showErrorModal('您拒绝了请求')
-                return;
+                wx.showToast({
+                  title: '操作失败',
+                  duration: 1500,
+                })
               }
             })
           } else if (res.cancel) {
             that.showErrorModal('您拒绝了请求')
             return;
           }
+        },
+        fail: () => {
+          wx.showToast({
+            title: '操作失败',
+            duration: 1500,
+          })
         }
       })
     } else if(e.detail.index == 3) {

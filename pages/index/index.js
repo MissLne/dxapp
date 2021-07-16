@@ -10,7 +10,7 @@ Page({
             rightBtn: '先看看',
             show: 0,
             toPopUPData: 0
-          },
+        },
         topBar: {
             title: '活动列表',
             isOne: 1
@@ -44,30 +44,40 @@ Page({
 
     },
     onLoad: function () {
+        if (wx.getStorageSync('token') != '') {
+            wx.showLoading({
+                title: "正在加载中",
+                mask: true,
+            })
+        }
+
         this.getHeight()
-        
+
         this.showActivity()
-        
-        request.showUserMessge({id: wx.getStorageSync('id')})
-        .then(res => {
-            console.log(res.data)
-            for(let key in res.data) {
-                if(res.data[key] == "") {
-                    this.setData({})
+
+        request.showUserMessge({ id: wx.getStorageSync('id') })
+            .then(res => {
+                console.log(res.data)
+                for (let key in res.data) {
+                    if (res.data[key] == "") {
+                        this.setData({})
+                    }
                 }
-            }
-        })
-    }, 
+            })
+    },
 
     onShow: function () {
-        this.loginOrNot()
+        // this.loginOrNot()
         this.getHeight()
-        if(!this.data.isByStatus || this.data.firstLoad) {
+        if (!this.data.isByStatus || this.data.firstLoad) {
             this.showActivity()
             this.setData({
                 firstLoad: 0
             })
         }
+        this.setData({
+            identifyLoginShow: 0
+        })
     },
     bianji() {
         this.data.popUpObj.show = 0
@@ -87,23 +97,23 @@ Page({
     lalal() {
         console.log(1)
         // if (this.data.isLazy) {
-            let { showList, hideList, pageSize, ifPages, activityArray } = this.data
-            if (ifPages) {
-                let newList = [];
-                if (hideList.length > pageSize) {//如果未显示的数据 大于显示条数 截取添加
-                    newList = activityArray.concat(hideList.splice(0, pageSize));
-                } else { //如果不大于 那就直接全部添加
-                    newList = activityArray.concat(hideList)
-                    this.setData({
-                        ifPages: false,
-                        hideList: []
-                    })
-                }
+        let { showList, hideList, pageSize, ifPages, activityArray } = this.data
+        if (ifPages) {
+            let newList = [];
+            if (hideList.length > pageSize) {//如果未显示的数据 大于显示条数 截取添加
+                newList = activityArray.concat(hideList.splice(0, pageSize));
+            } else { //如果不大于 那就直接全部添加
+                newList = activityArray.concat(hideList)
                 this.setData({
-                    activityArray: newList,
-                    hideList
+                    ifPages: false,
+                    hideList: []
                 })
             }
+            this.setData({
+                activityArray: newList,
+                hideList
+            })
+        }
         // }
     },
     getHeight() {
@@ -172,8 +182,26 @@ Page({
         }
     },
     addActivity() {
-        wx.navigateTo({
-            url: '../../pages/activityPage/publish/enterMessage/enterMessage'
+        if (wx.getStorageSync('token') == '') {
+            // wx.hideTabBar()  
+            this.setData({
+                identifyLoginShow: 1
+            })
+        } else {
+            // wx.showTabBar()
+            this.setData({
+                identifyLoginShow: 0
+            })
+            wx.navigateTo({
+                url: '../../pages/activityPage/publish/enterMessage/enterMessage'
+            })
+            
+        }
+    },
+    hideIdentify() {
+        // wx.showTabBar()
+        this.setData({
+            identifyLoginShow: 0
         })
     },
     switchData(data1, data2) {
@@ -274,6 +302,7 @@ Page({
                     hideList: hideList,
                     activityCount: data.length
                 })
+                wx.hideLoading()
             })
     },
 
